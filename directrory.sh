@@ -4,15 +4,14 @@ read dir
 echo "Name Protokolldatei ohne Endung"
 read Name
 mkdir -p $dir
-touch Makefile $Name.tex plot.py
-echo "all: build/$Name.pdf
+printf "all: build/$Name.pdf
 
 # hier Python-Skripte:
 build/plot.pdf: plot.py ../matplotlibrc ../header-matplotlib.tex | build 
-\t\t# so that matplotlib can find the tex header when running        
-\t\t# LaTeX in the tmp directory
-\t\t# and set the matplotlibrc
-\t\tTEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python plot.py
+        # so that matplotlib can find the tex header when running        
+        # LaTeX in the tmp directory
+        # and set the matplotlibrc
+        TEXINPUTS=\$\$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python plot.py
 
 # hier weitere Abhängigkeiten für build/$Name.pdf deklarieren:
 build/$Name.pdf: build/plot.pdf
@@ -40,25 +39,25 @@ FORCE:
 .PHONY: all clean" > $dir/Makefile
 echo "\\input{header.tex}      
 
-\\subject{VERSUCH NUMMER}
-\\\title{TITEL}
+\subject{VERSUCH NUMMER}
+\\title{TITEL}
 \\date{%
   Durchführung: DATUM
   \hspace{3em}
   Abgabe: DATUM
 }
 
-\\\begin{document}
+\\begin{document}
 
 \\maketitle
-\\\thispagestyle{empty}
-\\\tableofcontents
-\\\newpage
+\\thispagestyle{empty}
+\\tableofcontents
+\\newpage
 
-\\\section{Theorie}
+\\section{Theorie}
 
 \\printbibliography{}
 
-\\\end{document}" > $dir/$Name.tex
+\\end{document}" > $dir/$Name.tex
 echo "import matplotlib.pyplot as plt
 import numpy as np" > $dir/plot.py
