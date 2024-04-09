@@ -1,8 +1,17 @@
 \documentclass[
   bibliography=totoc,     % Literatur im Inhaltsverzeichnis
   captions=tableheading,  % Tabellenüberschriften
-  titlepage=firstiscover, % Titelseite ist Deckblatt (Finnd ich nicht so gut)
+  titlepage=firstiscover, % Titelseite ist Deckblatt
 ]{scrartcl}
+
+%irgendetwas mit Tabelen und Figuren anders Nummerieren 
+\usepackage{chngcntr}
+\usepackage{longtable} 
+
+\usepackage{titling}
+
+%Textdatein einfügen
+\usepackage{verbatim}
 
 % Paket float verbessern
 \usepackage{scrhack}
@@ -16,8 +25,6 @@
 \usepackage{amssymb}
 % Erweiterungen für amsmath
 \usepackage{mathtools}
-
-%\usepackage{physics}
 
 % Fonteinstellungen
 \usepackage{fontspec}
@@ -104,6 +111,7 @@
 
 % schöne Tabellen
 \usepackage{booktabs}
+\usepackage[table]{xcolor}
 
 % Verbesserungen am Schriftbild
 \usepackage{microtype}
@@ -151,3 +159,13 @@
 \noindent\makebox[\linewidth]{#1} }
 
 \usepackage{adjustbox}
+
+
+%Tabellen und Figuren Einstellung
+\counterwithout{table}{section}
+\counterwithout{figure}{section}
+\renewcommand{\thetable}{\Roman{table}}
+\renewcommand{\thefigure}{\Roman{figure}}
+
+%Richtiges Einrücken
+\setlength{\parindent}{0pt}

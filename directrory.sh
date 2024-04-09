@@ -4,35 +4,36 @@ read dir
 echo "Name Protokolldatei ohne Endung"
 read Name
 mkdir -p $dir
+touch Makefile $Name.tex plot.py
 echo "all: build/$Name.pdf
 
 # hier Python-Skripte:
 build/plot.pdf: plot.py ../matplotlibrc ../header-matplotlib.tex | build 
-        # so that matplotlib can find the tex header when running        
-        # LaTeX in the tmp directory
-        # and set the matplotlibrc
-        TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python plot.py
+\t\t# so that matplotlib can find the tex header when running        
+\t\t# LaTeX in the tmp directory
+\t\t# and set the matplotlibrc
+\t\tTEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python plot.py
 
 # hier weitere Abhängigkeiten für build/$Name.pdf deklarieren:
 build/$Name.pdf: build/plot.pdf
 
 build/$Name.pdf: FORCE | build
-        # to find header and bib files in the main directory
-        TEXINPUTS=..: \\
-        BIBINPUTS=..: \\
-        max_print_line=1048576 \\
-        latexmk \\
-          --lualatex \\
-          --output-directory=build \\
-          --interaction=nonstopmode \\
-          --halt-on-error \\
-        $Name.tex
+\t\t# to find header and bib files in the main directory
+\t\tTEXINPUTS=..: \\
+\t\tBIBINPUTS=..: \\
+\t\tmax_print_line=1048576 \\
+\t\tlatexmk \\
+\t\t  --lualatex \\
+\t\t  --output-directory=build \\
+\t\t  --interaction=nonstopmode \\
+\t\t  --halt-on-error \\
+\t\t$Name.tex
 
 build:
-        mkdir -p build
+\t\tmkdir -p build
 
 clean:
-        rm -rf build
+\t\trm -rf build
 
 FORCE:
 
@@ -40,27 +41,24 @@ FORCE:
 echo "\\input{header.tex}      
 
 \\subject{VERSUCH NUMMER}
-\\title{TITEL}
+\\\title{TITEL}
 \\date{%
   Durchführung: DATUM
-  \\hspace{3em}
+  \hspace{3em}
   Abgabe: DATUM
 }
 
-\\begin{document}
+\\\begin{document}
 
 \\maketitle
-\\thispagestyle{empty}
-\\tableofcontents
-\\newpage
+\\\thispagestyle{empty}
+\\\tableofcontents
+\\\newpage
 
-\\input{content/theorie.tex}
-\\input{content/durchfuehrung.tex}
-\\input{content/auswertung.tex}
-\\input{content/diskussion.tex}
+\\\section{Theorie}
 
 \\printbibliography{}
 
-\\end{document}" > $Name
+\\\end{document}" > $dir/$Name.tex
 echo "import matplotlib.pyplot as plt
-import numpy as np" > plot.py
+import numpy as np" > $dir/plot.py
