@@ -5,8 +5,7 @@ build/plot1.pdf: plot1.py data1.txt | build
 
 build/Vxxx.pdf: Vxxx.tex | build
 	lualatex --output-directory=build --interaction=batchmode --halt-on-error Vxxx.tex
-	BIBINPUTS=..:
-	biber build/Vxxx.bcf
+	#biber build/Vxxx.bcf
 	lualatex --output-directory=build --interaction=batchmode --halt-on-error Vxxx.tex
 
 build:
