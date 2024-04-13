@@ -27,8 +27,8 @@ cp -r ../Vxxx/Bilder .
 cp ../Vxxx/plot1.py .
 touch data1.txt
 cp ../Vxxx/Vxxx.tex .
-cp ../Vxxx/lit.bib
-cp ../Vxxx/programme.bib
+cp ../Vxxx/lit.bib .
+cp ../Vxxx/programme.bib .
 mv Vxxx.tex $Name.tex
 make
 cd ..
