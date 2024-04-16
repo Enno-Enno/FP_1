@@ -16,29 +16,29 @@
 
 \section{Theorie}
 
-\subsection{Fehlerrechnung}
-Für die Fehlerrechnung werden alle \textbf{Mittelwerte} von $N$ Messungen folgendermaßen berechnet:
+% \subsection{Fehlerrechnung}
+% Für die Fehlerrechnung werden alle \textbf{Mittelwerte} von $N$ Messungen folgendermaßen berechnet:
 
-\begin{equation}
-    \overline{x} = \frac{1}{N} \cdot \sum_{i=1}^N x_i
-    \label{eqn:Mittelwert}
-\end{equation}
+% \begin{equation}
+%     \overline{x} = \frac{1}{N} \cdot \sum_{i=1}^N x_i
+%     \label{eqn:Mittelwert}
+% \end{equation}
 
-und alle \textbf{Standardabweichungen zum Mittelwert} mit:
+% und alle \textbf{Standardabweichungen zum Mittelwert} mit:
 
-\begin{equation}
-    \increment\overline{x} = \sqrt{\frac{1}{N\cdot(N-1)}\cdot\sum_{i=1}^N (x_i-\overline{x})^2}
-    \label{eqn:St_Mittelwert}
-\end{equation}
+% \begin{equation}
+%     \increment\overline{x} = \sqrt{\frac{1}{N\cdot(N-1)}\cdot\sum_{i=1}^N (x_i-\overline{x})^2}
+%     \label{eqn:St_Mittelwert}
+% \end{equation}
 
-Der Fehler für zusammenhängende Messwerte wird dann mit der \textbf{Gaußschen Fehlerfortpflanzung} berechnet:
+% Der Fehler für zusammenhängende Messwerte wird dann mit der \textbf{Gaußschen Fehlerfortpflanzung} berechnet:
 
-\begin{equation}
-    \increment{f} = \sqrt{ \sum_{i = 1}^{N}  \biggl(\frac{\partial{f}}{\partial{x_i}}\biggr)^2\cdot(\increment{x_i})^2}
-    \label{eqn:Gauss}
-\end{equation}
+% \begin{equation}
+%     \increment{f} = \sqrt{ \sum_{i = 1}^{N}  \biggl(\frac{\partial{f}}{\partial{x_i}}\biggr)^2\cdot(\increment{x_i})^2}
+%     \label{eqn:Gauss}
+% \end{equation}
 
-Die Fehlerfortpflanzung wird mit Uncertanties in Phython \cite{uncertainties} ermittelt.
+% Die Fehlerfortpflanzung wird mit Uncertanties in Phython \cite{uncertainties} ermittelt.
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
@@ -50,7 +50,19 @@ Die Fehlerfortpflanzung wird mit Uncertanties in Phython \cite{uncertainties} er
 \section{Auswertung}
 
 \subsection{Schwellwert für die LASER Bildung}
+In Abbildung \textbf{Abbildung einfügen} ist zu sehen wie der Laser auf die Karte strahlt.
+Das für Menschen unsichtbare Licht mit einer Wellenlänge von 780 nm kann mit der Kamera eingefangen werden. %Vielleicht nicht ganz der richtige Ort für diese Anmerkung
+Bei einem Strom unterhalb eines Schwellwerts von \textbf{WERTE einfügen} ist ein schwacher Punkt auf der Karte zu erkennen.
+Oberhalb dieses Schwellwerts leuchtet dieser Punkt erheblich stärker und bildet kleine Leuchtflecken Rund um den Leuchtpunkt.
 
+\subsection{Rubidium Fluoreszenz}
+Bei einer Temperatur des Rb Gases von 50 °C kann mit der Kamera die Fluoreszenz beobachtet werden.
+In Abbildung \textbf{einfügen} ist das Leuchten des Gases zu erkennen.
+Entlang des Laserstrahls leuchtet das Gas verstärkt.
+
+
+\subsection{Absorptionsspektrum}
+Die 
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
