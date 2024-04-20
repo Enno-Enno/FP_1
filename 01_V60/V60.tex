@@ -1,8 +1,8 @@
 \input{../header.tex}
 
-\title{Vxxx:\\ Doffes Osziloskop}
+\title{V60:\\ Der Diodenlaser}
 \author{Benedikt Lütke Lanfer \and Enno Wellmann}
-\date{13. Dezember 2024}
+\date{15. April 2024}
 \publishers{TU Dortmund – Fakultät Physik}
 
 \begin{document}
@@ -11,10 +11,40 @@
 \newpage
 
 \section{Zielsetzung}
-
+Ziel dieses Versuches ist ein Diodenlaser richtig zu kalibrieren, sodass damit das Absorption Spectrum von Rubidium vermessen werden kann. 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
 \section{Theorie}
+Bevor der Erfindung des Diodenlasers waren die herkömmlichen Farblaser komplex und teuer. 
+Außerdem waren sie schwierig zu bedienen, welches sich durch die Entwicklung der Verstellbaren Halbleiter Diodenlasers, mit enger Bandbreite, stark verbesserte. 
+
+\subsection{Funktionsweise eines Diodenlasers}
+Das prinzipielle Funktionsprinzip eines Diodenlasers unterscheidet sich am Anfang nicht von einer Halbleiterdiode. 
+Bei dieser werden zwei Halbleiter mit n und p Dotierung aneinander gebracht, wodurch eine Grenzschicht oder auch Aktivschicht entsteht.  
+Wenn nun ein Strom durch diese Grenzschicht fließt entstehen Elektronen Lochpaare, welche in dieser Aktienschicht sich wieder auslöschen. 
+Bei diesem Prozess geben die Elektronen Licht mit der Wellenlänge ihrer Energie ab. 
+Die Energie hängt wiederum fest von der Bandstruktur des Halbleiters ab.
+In der folgenden Abbildung \eqref{fig:Bandstruktur} ist eine vereinfachte Bandstruktur beispielhaft abgebildet. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Bilder/Bandstruktur.png} 
+    \caption{Beispielhafter direkter optischer Übergang in einer Bandstruktur \cite{Bandstruktur}}
+    \label{fig:Bandstruktur}
+\end{figure}
+
+Wenn nun Elektronen-Lochpaare sich gegenseitig eliminieren, so findet ein optischer Übergang vom Leitungsband ins Valenzband statt. 
+Dieser hat eine feste Energie und somit hat auch das emittierte Licht eine nahezu feste Wellenlänge, 
+welche in einem dünnen Channel im Chip \eqref{fig:Schemata} eingeschränkt ist. 
+Die Enden dieses Chips verhalten sich wie partiell reflektierende Spiegel, die das Licht teils einschließen. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Bilder/Schemata.png} 
+    \caption{Aufbau des Diodenchips \cite{bk:LASER}}
+    \label{fig:Schemata}
+\end{figure}
+
 
 % \subsection{Fehlerrechnung}
 % Für die Fehlerrechnung werden alle \textbf{Mittelwerte} von $N$ Messungen folgendermaßen berechnet:
