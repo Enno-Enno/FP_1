@@ -4,7 +4,6 @@
 \author{Benedikt Lütke Lanfer \and Enno Wellmann}
 \date{15. April 2024}
 \publishers{TU Dortmund – Fakultät Physik}
-\graphicspath{./Materialien}
 
 \begin{document}
 \input{../Titelseite.tex}
@@ -69,7 +68,7 @@ Die Enden dieses Chips verhalten sich wie partiell reflektierende Spiegel, die d
 %     \label{eqn:Gauss}
 % \end{equation}
 
-% Die Fehlerfortpflanzung wird mit Uncertainties in Python \cite{uncertainties} ermittelt.
+% Die Fehlerfortpflanzung wird mit Uncertanties in Phython \cite{uncertainties} ermittelt.
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
@@ -83,32 +82,14 @@ Die Enden dieses Chips verhalten sich wie partiell reflektierende Spiegel, die d
 \subsection{Schwellwert für die LASER Bildung}
 In Abbildung \textbf{Abbildung einfügen} ist zu sehen wie der Laser auf die Karte strahlt.
 Das für Menschen unsichtbare Licht mit einer Wellenlänge von 780 nm kann mit der Kamera eingefangen werden. %Vielleicht nicht ganz der richtige Ort für diese Anmerkung
-Bei einem Strom unterhalb eines Schwellwerts ist ein schwacher Punkt auf der Karte zu erkennen.
-Oberhalb davon leuchtet dieser Punkt erheblich stärker und bildet kleine Leuchtflecken Rund um den Leuchtpunkt.
-Der Wert wird ermittelt indem sich schrittweise von beiden Seiten daran angenähert wird.
-\begin{tabular}[]{S S}
-    \toprule
-    {Unter dem Schwellwert} & {Über dem Schwellwert} \\
-    {$I/\si{\milli\ampere}$} & {$I/\si{\milli\ampere}$}\\
-    \midrule
-    34.8  & 36.0 \\
-    34.6  & 34.9 \\
-          & 34.8 \\
-    \bottomrule    
-\end{tabular}
-Es ergibt sich ein Schwellwert bei $I = \qty{34.8}{\milli\ampere}$.
+Bei einem Strom unterhalb eines Schwellwerts von \textbf{WERTE einfügen} ist ein schwacher Punkt auf der Karte zu erkennen.
+Oberhalb dieses Schwellwerts leuchtet dieser Punkt erheblich stärker und bildet kleine Leuchtflecken Rund um den Leuchtpunkt.
 
 \subsection{Rubidium Fluoreszenz}
 Bei einer Temperatur des Rb Gases von 50 °C kann mit der Kamera die Fluoreszenz beobachtet werden.
-In Abbildung \ref{fig:rb_fluoreszenz} ist das Leuchten des Gases zu erkennen.
+In Abbildung \textbf{einfügen} ist das Leuchten des Gases zu erkennen.
 Entlang des Laserstrahls leuchtet das Gas verstärkt.
-\begin{figure}
-    \centering
-    \subfloat[ohne Fluoreszenz]{\includegraphics[width=0.4\textwidth]{./Materialien/Rb_Zelle_keine_Floureszenz.jpeg}}
-    \hfill
-    \subfloat[mit Fluoreszenz]{\includegraphics[width=0.4\textwidth]{./Materialien/Rb_Zelle_Floureszenz.jpeg}}
-    \caption{Rb Zelle mit und ohne sichtbarer Fluoreszenz.}\label{fig:rb_fluoreszenz}
-\end{figure}
+
 
 \subsection{Absorptionsspektrum}
 Durch Manipulieren des DC-Offsets lässt sich das Spektrum in einer kontinuierlichen Art und Weise darstellen. % mehr als nur der DC offset
