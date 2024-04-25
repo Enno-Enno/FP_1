@@ -24,19 +24,22 @@ Bei dieser werden zwei Halbleiter mit n und p Dotierung aneinander gebracht, wod
 Wenn nun ein Strom durch diese Grenzschicht fließt entstehen Elektronen Lochpaare, welche in dieser Aktienschicht sich wieder auslöschen. 
 Bei diesem Prozess geben die Elektronen Licht mit der Wellenlänge ihrer Energie ab. 
 Die Energie hängt wiederum fest von der Bandstruktur des Halbleiters ab.
-In der folgenden Abbildung \eqref{fig:Bandstruktur} ist eine vereinfachte Bandstruktur beispielhaft abgebildet. 
 
-\begin{figure}[H]
+\begin{wrapfigure}{r}{0.5\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{Bilder/Bandstruktur.png} 
-    \caption{Beispielhafter direkter optischer Übergang in einer Bandstruktur \cite{Bandstruktur}}
+    \vspace{-20pt}
+    \includegraphics[width=0.4\textwidth]{Bilder/Bandstruktur.png} 
+    \caption{Bsp: optischer Übergang in einer Bandstruktur \cite{Bandstruktur}}
     \label{fig:Bandstruktur}
-\end{figure}
+\end{wrapfigure}
 
+In der nebenstehenden Abbildung \eqref{fig:Bandstruktur} ist eine vereinfachte Bandstruktur beispielhaft abgebildet. 
 Wenn nun Elektronen-Lochpaare sich gegenseitig eliminieren, so findet ein optischer Übergang vom Leitungsband ins Valenzband statt. 
 Dieser hat eine feste Energie und somit hat auch das emittierte Licht eine nahezu feste Wellenlänge, 
 welche in einem dünnen Channel im Chip \eqref{fig:Schemata} eingeschränkt ist. 
-Die Enden dieses Chips verhalten sich wie partiell reflektierende Spiegel, die das Licht teils einschließen. 
+Die Enden dieses Chips verhalten sich, durch ihren hohen Brechungsindex, wie partiell reflektierende Spiegel, die das Licht teils einschließen. 
+Wenn das Licht im Chip hin und her reflektiert wird, regt es angeregte Atome ab, welche wiederum Licht mit der exakt selben Wellenlänge und Richtung emittiert. 
+Dieses wird stimulierte Emissionen genannt, welche dafür sorgen, dass Licht einer bestimmten Wellenlänge verstärkt wird.  
 
 \begin{figure}[H]
     \centering
@@ -44,6 +47,34 @@ Die Enden dieses Chips verhalten sich wie partiell reflektierende Spiegel, die d
     \caption{Aufbau des Diodenchips \cite{bk:LASER}}
     \label{fig:Schemata}
 \end{figure}
+
+Das Licht, welches dann aus dem Chip austritt, ist aufgrund der schmalen Austrittsfläche stark elliptisch und divergent, welches mit einer Linse korrigiert wird. 
+Danach kommt ein Beugungsgitter, welches je nach Winkel eine bestimmte Wellenlänge des Lichtes wieder in den Laser zurückwirft. 
+Dadurch wird im Laser die stimulierte Emission vermehrt mit dieser Wellenlänge durchgeführt und der LASER strahlt weniger anders welliges Licht aus.
+Damit kann man den LASER genauer auf die gewünschte Wellenlänge einstellen, die gebraucht wird. 
+Die genaue Feineinstellung des LASER wird im folgenden Abschnitt erklärt. 
+
+\newpage
+\subsection{Beiträge zur Gesamtintensität}
+Die verschieden Anteile an der Gesamtintenstiät des LASER sind in folgender Abbildung abgebildet. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Bilder/LASER_Moden.png} 
+    \caption{Die verschiedenen Beiträge zur Gesamtintensität \cite{bk:LASER}}
+    \label{fig:Schemata}
+\end{figure}
+
+\begin{description}
+    \item[1.Medium] Das Material des Halbleiterchips und dessen Bandlücke ist stark Temperatur abhängig. 
+    Dadurch wird bei höheren Temperaturen die Wellenlänger größer (\qty{0.23}{\nano\meter\per\celsius}). 
+    \item[2.Innerer Cavity] Zweiter Punkt
+    \item[3.Beugungsgitter Feedback] Dritter Punkt
+    \item[4.Äußerer Cavity] Dritter Punkt
+\end{description}
+
+
+
 
 
 \subsection{Fehlerrechnung}
