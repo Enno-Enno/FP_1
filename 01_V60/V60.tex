@@ -81,12 +81,12 @@ Die Enden dieses Chips verhalten sich wie partiell reflektierende Spiegel, die d
 \section{Auswertung}
 
 \subsection{Schwellwert für die LASER Bildung}
-In Abbildung \textbf{Abbildung einfügen} ist zu sehen wie der Laser auf die Karte strahlt.
+In Abbildung \ref{fig:laser_karte} ist zu sehen wie der Laser auf die Karte strahlt.
 Das für Menschen unsichtbare Licht mit einer Wellenlänge von 780 nm kann mit der Kamera eingefangen werden. %Vielleicht nicht ganz der richtige Ort für diese Anmerkung
 Bei einem Strom unterhalb eines Schwellwerts ist ein schwacher Punkt auf der Karte zu erkennen.
 Oberhalb davon leuchtet dieser Punkt erheblich stärker und bildet kleine Leuchtflecken Rund um den Leuchtpunkt.
 Der Wert wird ermittelt indem sich schrittweise von beiden Seiten daran angenähert wird.
-\begin{tabular}[]{S S}
+\begin{tabular}[table-format=2.1]{S S}
     \toprule
     {Unter dem Schwellwert} & {Über dem Schwellwert} \\
     {$I/\si{\milli\ampere}$} & {$I/\si{\milli\ampere}$}\\
@@ -97,6 +97,14 @@ Der Wert wird ermittelt indem sich schrittweise von beiden Seiten daran angenäh
     \bottomrule    
 \end{tabular}
 Es ergibt sich ein Schwellwert bei $I = \qty{34.8}{\milli\ampere}$.
+
+\begin{figure}
+    \centering
+    \subfloat[Lichtpunkt im dioden Zustand des Lasers]{\includegraphics[width=0.4\textwidth]{./Materialien/karte_laser_schwach.jpeg}}
+    \hfill
+    \subfloat[Licht im Laser Zustand]{\includegraphics[width=0.4\textwidth]{./Materialien/karte_laser_stark.jpeg}}
+    \caption{Zustände des Lasers}\label{fig:laser_karte}
+\end{figure}
 
 \subsection{Rubidium Fluoreszenz}
 Bei einer Temperatur des Rb Gases von 50 °C kann mit der Kamera die Fluoreszenz beobachtet werden.
@@ -112,8 +120,14 @@ Entlang des Laserstrahls leuchtet das Gas verstärkt.
 
 \subsection{Absorptionsspektrum}
 Durch Manipulieren des DC-Offsets lässt sich das Spektrum in einer kontinuierlichen Art und Weise darstellen. % mehr als nur der DC offset
-In Abbildung \textbf{einfügen} ist das Spektrum ohne Dellen, die durch mode-hops entstanden sein könnten zu sehen.
-Zur 
+Der Abgleich zwischen Referenzsignal und gemessenen Signal ergibt ein Absorbtionsspektrum mit ebener Grundlinie.
+Das entstehende Spektrum ist in Abbildung 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\textwidth]{./Materialien/spektrum.jpeg}
+	\caption{Ausgeglichenes Absorptionsspektrum}\label{fig:spektrum}
+\end{figure}
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
