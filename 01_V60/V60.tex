@@ -55,49 +55,6 @@ Dadurch wird im Laser die stimulierte Emission vermehrt mit dieser Wellenlänge 
 Damit kann man den LASER genauer auf die gewünschte Wellenlänge einstellen, die gebraucht wird. 
 Die genaue Feineinstellung des LASER wird im folgenden Abschnitt erklärt. 
 
-\newpage
-\subsection{Beiträge zur Gesamtintensität}
-Die verschiedenen Anteile an der Gesamtintensität des LASER sind in folgender Abbildung abgebildet. 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{Bilder/LASER_Moden.png} 
-    \caption{Die verschiedenen Beiträge zur Gesamtintensität \cite{bk:LASER}}
-    \label{fig:Moden}
-\end{figure}
-
-\begin{description}
-    \item[1.Das Medium] des Halbleiterchips und dessen Bandlücke ist stark Temperatur abhängig. 
-    Dadurch wird bei höheren Temperaturen die Wellenlänge größer ($\qty{0.23}{\nano\meter\per\celsius}$). 
-    \item[2.Die innerer Cavity] oder auch optischer Hohlraumresonator sorgt für das sich ganzzahlige vielfache der Wellenlänge bilden, die stehende Wellen im Chip erzeugen. 
-    Die Periodizität dessen nennt man "freier Spektralbereich" und beträgt für diesen LASER $\Delta_{FSR} \approx  \qty{60}{\giga\hertz}$. 
-    Auch hier ist die Wellenlänge Temperatur empfindlich aber hängt auch vom Strom ab. 
-    Dieser kann sowohl die Temperatur wieder erhöhen als auch die Elektronen-Lochpaar-Konzentration ändern. 
-    \item[3.Das Beugungsgitter Feedback] sorgt für besseres regulieren der gewünschten Wellenlänge mit stimulierte Emissionen. 
-    Durch Ändern des Winkels $\theta $ des Gitters wird die richtig Wellenlänge, nach $\lambda =2d \sin\theta $ in den LASER zurückgeworfen. 
-    \item[4.Die äußerer Cavity] ist deutlich größer als die innere mit $\Delta_{FSR} \approx  \qty{10}{\giga\hertz}$ und kann durch piezo-electric tranducer verändert werden. 
-\end{description}
-
-\subsection{Mode Hop}
-Die verschiedenen Einstellungsmöglichkeiten beim LASER reagieren nicht alle gleich schnell oder linear auf Veränderungen.
-Wenn die innere Cavity konstant gehalten wird und nur der Winkel des Gitters und die äußere Cavity verändert werden kann ein Mode Hop auftreten \eqref{fig:Hop}.
-Am Anfang seien die Intensitätsmaxima von inneren (Int0) und äußere Cavity sowie des Gitterfeedbacks(e0) überlagert. Falls nun Veränderungen vorgenommen werden, 
-bleibt das innere Maximum bei derselben Wellenlänge, während das andere Maxima sich verschiebt. 
-Der LASER bleibt jedoch bei der bisherigen betriebenen Wellenlänge. 
-Erst, wenn das Maximum von äußere Cavity und das des Gitters sich weit genug verschoben haben, gibt es ein großen Mode Hop, 
-da das zweite Maximum (Int1) der inneren Cavity mehr überlagert als das erste (Int0).
-Dadurch macht die Frequenz des LASER ein $\qty{20}{\giga\hertz}$ Sprung. 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{Bilder/Mode_Hop.png} 
-    \caption{Grafische Darstellung eines Mode Hops \cite{bk:LASER}}
-    \label{fig:Hop}
-\end{figure}
-
-Um die LASER ohne diese Mode Hop genauer einstellen zu können muss auch die innere Cavity, durch Veränderung des Stroms, gleichzeitig angepasst werden.
-Dadurch kann man die gesamte Frequenzbreite des LASER abdecken und kalibrieren. 
-
 % \subsection{Fehlerrechnung}
 % Für die Fehlerrechnung werden alle \textbf{Mittelwerte} von $N$ Messungen folgendermaßen berechnet:
 
