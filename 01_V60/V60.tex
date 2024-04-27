@@ -139,6 +139,7 @@ Die eine Hälfte geht durch das Rubidium die andere Hälfte auf eine Fotodiode u
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
+\newpage
 \section{Auswertung}
 
 \subsection{Schwellwert für die LASER Bildung}
@@ -147,16 +148,20 @@ Das für Menschen unsichtbare Licht mit einer Wellenlänge von 780 nm kann mit d
 Bei einem Strom unterhalb eines Schwellwerts ist ein schwacher Punkt auf der Karte zu erkennen.
 Oberhalb davon leuchtet dieser Punkt erheblich stärker und bildet kleine Leuchtflecken rund um den Leuchtpunkt.
 Der Wert wird ermittelt, indem sich schrittweise von beiden Seiten daran angenähert wird.
-\begin{tabular}[table-format=2.1]{S S}
-    \toprule
-    {Unter dem Schwellwert} & {Über dem Schwellwert} \\
-    {$I/\si{\milli\ampere}$} & {$I/\si{\milli\ampere}$}\\
-    \midrule
-    34.8  & 36.0 \\
-    34.6  & 34.9 \\
-          & 34.8 \\
-    \bottomrule    
-\end{tabular}
+\begin{table}
+    \centering
+    \begin{tabular}[table-format=2.1]{S S}
+        \toprule
+        {Unter dem Schwellwert} & {Über dem Schwellwert} \\
+        {$I/\si{\milli\ampere}$} & {$I/\si{\milli\ampere}$}\\
+        \midrule
+        34.8  & 36.0 \\
+        34.6  & 34.9 \\
+              & 34.8 \\
+        \bottomrule    
+    \end{tabular}
+\end{table}
+
 Es ergibt sich ein mittlere Schwellwert bei $I = \qty{34.97}{\milli\ampere}$.
 
 \begin{figure}
@@ -192,7 +197,7 @@ Das entstehende Spektrum ist in Abbildung \ref{fig:spektrum} zu sehen.
 \end{figure}
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
-
+\newpage
 \section{Diskussion}
 Der Diodenlaser wurde in diesem Experiment erfolgreich in Betrieb genommen.
 Durch die Verwendung der Kamera und der sichtbar machenden Karte konnte der Weg des Laserstrahls nachvollzogen werden.
