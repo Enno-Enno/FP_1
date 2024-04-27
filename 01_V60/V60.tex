@@ -23,6 +23,7 @@ Außerdem waren sie schwierig zu bedienen, welches sich durch die Entwicklung de
 Das prinzipielle Funktionsprinzip eines Diodenlasers unterscheidet sich am Anfang nicht von einer Halbleiterdiode. 
 Bei dieser werden zwei Halbleiter mit n und p Dotierung aneinander gebracht, wodurch eine Grenzschicht oder auch Aktivschicht entsteht.  
 Wenn nun ein Strom durch diese Grenzschicht fließt entstehen Elektronen Lochpaare, welche in dieser Aktienschicht sich wieder auslöschen. 
+Diese geschieht jedoch erst ab einem bestimmten Schwellwert, bei dem die Elektronen Lochpaare entstehen. 
 Bei diesem Prozess geben die Elektronen Licht mit der Wellenlänge ihrer Energie ab. 
 Die Energie hängt wiederum fest von der Bandstruktur des Halbleiters ab.
 
@@ -99,33 +100,41 @@ Um die LASER ohne diese Mode Hop genauer einstellen zu können muss auch die inn
 Dadurch kann man die gesamte Frequenzbreite des LASER abdecken und kalibrieren. 
 
 
-% \subsection{Fehlerrechnung}
-% Für die Fehlerrechnung werden alle \textbf{Mittelwerte} von $N$ Messungen folgendermaßen berechnet:
+\subsection{Fehlerrechnung}
+Für die Fehlerrechnung werden alle \textbf{Mittelwerte} von $N$ Messungen folgendermaßen berechnet:
 
-% \begin{equation}
-%     \overline{x} = \frac{1}{N} \cdot \sum_{i=1}^N x_i
-%     \label{eqn:Mittelwert}
-% \end{equation}
+\begin{equation}
+    \overline{x} = \frac{1}{N} \cdot \sum_{i=1}^N x_i
+    \label{eqn:Mittelwert}
+\end{equation}
 
-% und alle \textbf{Standardabweichungen zum Mittelwert} mit:
+und alle \textbf{Standardabweichungen zum Mittelwert} mit:
 
-% \begin{equation}
-%     \increment\overline{x} = \sqrt{\frac{1}{N\cdot(N-1)}\cdot\sum_{i=1}^N (x_i-\overline{x})^2}
-%     \label{eqn:St_Mittelwert}
-% \end{equation}
+\begin{equation}
+    \increment\overline{x} = \sqrt{\frac{1}{N\cdot(N-1)}\cdot\sum_{i=1}^N (x_i-\overline{x})^2}
+    \label{eqn:St_Mittelwert}
+\end{equation}
 
-% Der Fehler für zusammenhängende Messwerte wird dann mit der \textbf{Gaußschen Fehlerfortpflanzung} berechnet:
+Der Fehler für zusammenhängende Messwerte wird dann mit der \textbf{Gaußschen Fehlerfortpflanzung} berechnet:
 
-% \begin{equation}
-%     \increment{f} = \sqrt{ \sum_{i = 1}^{N}  \biggl(\frac{\partial{f}}{\partial{x_i}}\biggr)^2\cdot(\increment{x_i})^2}
-%     \label{eqn:Gauss}
-% \end{equation}
+\begin{equation}
+    \increment{f} = \sqrt{ \sum_{i = 1}^{N}  \biggl(\frac{\partial{f}}{\partial{x_i}}\biggr)^2\cdot(\increment{x_i})^2}
+    \label{eqn:Gauss}
+\end{equation}
 
-% Die Fehlerfortpflanzung wird mit Uncertainties in Python \cite{uncertainties} ermittelt.
+Die Fehlerfortpflanzung wird mit Uncertainties in Python \cite{uncertainties} ermittelt.
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
 \section{Durchführung}
+Zuerst soll der Schwellwert des LASER bestimmt werden. 
+Dazu wird langsam der Strom erhöht bis das Licht des LASER signifikant stärker wird. 
+Danach wird der Laserstrahl durch Rubidiumgas geschickt um dessen Fluoreszenz mittels einer Kamera zu beobachten. 
+Zum Schluss wird durch Feineinstellungen des LASER das Absorptionsspektrum von Robidium vermessen. 
+Dafür wird am LASER eine Dreieckspannung angelegt und dessen Strahl wieder durch das Rubidiumgas geschickt.
+Am Ende der Apparatur wird die Intensität des Strahls von einer Fotodiode gemessen. 
+Um ein Vergleichswert zu haben wird der Strahl vorher von einem halbdurchlässigen Spiegel in zwei geteilt. 
+Die eine Hälfte geht durch das Rubidium die andere Hälfte auf eine Fotodiode und die Signale werden von einander abgezogen.
 
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
@@ -136,8 +145,8 @@ Dadurch kann man die gesamte Frequenzbreite des LASER abdecken und kalibrieren.
 In Abbildung \ref{fig:laser_karte} ist zu sehen wie der Laser auf die Karte strahlt.
 Das für Menschen unsichtbare Licht mit einer Wellenlänge von 780 nm kann mit der Kamera eingefangen werden. %Vielleicht nicht ganz der richtige Ort für diese Anmerkung
 Bei einem Strom unterhalb eines Schwellwerts ist ein schwacher Punkt auf der Karte zu erkennen.
-Oberhalb davon leuchtet dieser Punkt erheblich stärker und bildet kleine Leuchtflecken Rund um den Leuchtpunkt.
-Der Wert wird ermittelt indem sich schrittweise von beiden Seiten daran angenähert wird.
+Oberhalb davon leuchtet dieser Punkt erheblich stärker und bildet kleine Leuchtflecken rund um den Leuchtpunkt.
+Der Wert wird ermittelt, indem sich schrittweise von beiden Seiten daran angenähert wird.
 \begin{tabular}[table-format=2.1]{S S}
     \toprule
     {Unter dem Schwellwert} & {Über dem Schwellwert} \\
@@ -148,7 +157,7 @@ Der Wert wird ermittelt indem sich schrittweise von beiden Seiten daran angenäh
           & 34.8 \\
     \bottomrule    
 \end{tabular}
-Es ergibt sich ein Schwellwert bei $I = \qty{34.8}{\milli\ampere}$.
+Es ergibt sich ein mittlere Schwellwert bei $I = \qty{34.97}{\milli\ampere}$.
 
 \begin{figure}
     \centering
@@ -171,7 +180,7 @@ Entlang des Laserstrahls leuchtet das Gas verstärkt.
 \end{figure}
 
 \subsection{Absorptionsspektrum}
-Durch Manipulieren des DC-Offsets und durch manipulieren des Diffraction gratings
+Durch Manipulieren des DC-Offsets und des Beugungsgitters
 lässt sich das Spektrum in einer kontinuierlichen Art und Weise darstellen. % mehr als nur der DC offset
 Der Abgleich zwischen Referenzsignal und gemessenen Signal ergibt ein Absorptionsspektrum mit ebener Grundlinie.
 Das entstehende Spektrum ist in Abbildung \ref{fig:spektrum} zu sehen.
