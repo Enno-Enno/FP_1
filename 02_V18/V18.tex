@@ -11,10 +11,47 @@
 \newpage
 
 \section{Zielsetzung}
+In diesem Versuch wird ein Germanium Energiedetektor mit einer geeichten \textbf{Eu} Quelle kalibriert.
+Die
+
+Stichworte:
+\begin{itemize}
+    \item Vollenergienachweiswahrscheinlichkeit
+    \item Linien des Eu Spektrums 
+    \item Halbwertsbreite
+    \item Compton Kante
+    \item 
+\end{itemize}
+
+
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
 \section{Theorie}
+\subsection[]{Wechselwirkung von Strahlung mit Materie}
+Laut \cite{book:knoll} sind die hauptsächlichen Wechselwirkungen von Photonen mit Materie die photoelektrische Absorption,
+die Compton Streuung und die paar Bildung.
+Bei der photoelektrischen  Absorption wechselwirkt das Photon mit einem im Atom gebundenen Elektron und befördert es aus seinem gebundenen Zustand.
+Die Energie des Photons wird danach von dem Elektron getragen und das Atom emittiert Röntgenstrahlung.
+Diese Interaktion findet vor allem bei niederenergetischen $\gamma$ Photonen statt. 
+Eine grobe Annäherung für das Verhalten der Wechselwirkungswahrscheinlichkeit
+ist der Therm 
+\begin{align}
+    \tau = \text{constant} \cdot \frac{Z^n}{E_{\gamma}^{3.5}}
+\end{align} %TODO herausfinden, was die Bedeutung von \tau ist.
+wobei $n$ zwischen 4 und 5 liegt.
+
+Die Compton Streuung ist oft die häufigste Interaktion der Strahlung mit dem Material.
+Sie ist (abhängig von $Z$) dominant bei Energien im Bereich von etwa \qtyrange{0.5}{10}{\MeV}
+Ihr Differentieller Wirkungsquerschnitt lautet
+\begin{align}
+    \frac{d\sigma}{d \Omega} = Z r_0^2 \left(\frac{1}{1+\alpha(1-\cos\theta)}\right)^2 %
+    \left(\frac{1+ \cos^2\theta}{2}\right)%
+    \left(1+ \frac{\alpha^2(1-\cos \theta)^2}{(1+\cos^2 \theta)[1+\alpha(1-\cos(\theta))]}\right)
+    \label{eq:wq_compton}
+\end{align}
+wobei $\alpha = h \nu / m_0 c²$ und $r_0$ der klassische Elektronenradius ist (vgl. \cite{book:knoll}).
+
 
 \subsection{Fehlerrechnung}
 Für die Fehlerrechnung werden alle \textbf{Mittelwerte} von $N$ Messungen folgendermaßen berechnet:
