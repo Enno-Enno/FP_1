@@ -5,3 +5,5 @@ test/*
 node_module*
 .prettierrc
 *.json
+__pycache__
+*sync-conflict*

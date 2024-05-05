@@ -1,13 +1,16 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.optimize import curve_fit
-import uncertainties as unc
-import uncertainties.unumpy as unp
+from scipy.constants import physical_constants as const
+# import uncertainties as unc
+# import uncertainties.unumpy as unp
 
-x = np.genfromtxt("data1.txt", unpack=True)
+# x = np.genfromtxt("data1.txt", unpack=True)
 
 
-def WQ_compton(theta):
+def WQ_compton(alpha,theta):
+    r_0, _, delta_r = const["classical electron radius"]
+    Z = 40
     cos = lambda x: np.cos(x)
     WQ = (
         Z
