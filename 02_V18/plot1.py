@@ -7,9 +7,11 @@ import uncertainties as unc
 import uncertainties.unumpy as unp
 
 #Funktionen:
-def g(x, m, c):
+def f(x, m, c):
     return m*x+c 
 
+def gauß(x,h,u,s,g):
+    return h*np.exp(-((x-u)**2)/(2*s**2))+g
 
 
 n_eu = np.genfromtxt("152Eu-Spektrum.txt", unpack=True)
@@ -29,22 +31,25 @@ peak=np.concatenate([peak, peak2])
 print(peak)
 print(N_eu[peak])
 
+
 #Plot EU Spektrum
+plt.figure(constrained_layout=True)
 plt.bar(x_eu,N_eu,width=1,label="Messdaten")
 plt.plot(peak,N_eu[peak],"rx",label="Peak")
-#plt.plot(peak2,N[peak2],"rx")
 plt.xlabel("Channel")
 plt.ylabel("Anzahl N")
 plt.yscale("log")
 plt.xlim(a,b)
 plt.legend()
-plt.show()
+#plt.show()
 
+
+#Energiezuteilung
 Energie=[122,245,344,411,444,779,867,964]
-
 x=np.linspace(a,b)
 
-par, cov=curve_fit(g,peak, Energie)
+par, cov=curve_fit(f,peak, Energie)
+print(cov)
 par = unc.correlated_values(par, cov)
 m = float(unp.nominal_values(par[0]))
 c = float(unp.nominal_values(par[1]))
@@ -53,16 +58,37 @@ c_f= float(unp.std_devs(par[1]))
 
 print(m,c)
 
+plt.figure(constrained_layout=True)
 plt.plot(peak,Energie,"rx",label="Peaks")
-plt.plot(x,g(x,m,c),"b-",label="Ausgleichsgerade")
+plt.plot(x,f(x,m,c),"b-",label="Ausgleichsgerade")
 plt.xlabel("Channel")
 plt.ylabel("E [keV]")
 plt.xlim(a,b)
 plt.ylim(0,1000)
 plt.legend()
-plt.show()
+#plt.show()
 
 
+#Gaußanpassung
+d=25
+
+for i in range(len(peak)):
+
+    par, cov=curve_fit(gauß,x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d], p0=[1,peak[i],1,1], sigma=np.sqrt(N_eu[peak[i]-d:peak[i]+d]))
+    par = unc.correlated_values(par, cov)
+    h = float(unp.nominal_values(par[0]))
+    u = float(unp.nominal_values(par[1]))
+    s = float(unp.nominal_values(par[2]))
+    g = float(unp.nominal_values(par[3]))
+
+    x=np.linspace(x_eu[peak[i]-d],x_eu[peak[i]+d],1000)
+    
+    plt.figure(constrained_layout=True)
+    #plt.errorbar(x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d],yerr=np.sqrt(N_eu[peak[i]-d:peak[i]+d]),fmt="r")
+    plt.bar(x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d],width=1,label=f"Messdaten Peak {i+1}")
+    plt.plot(x,gauß(x,h,u,s,g),"g-",label="Gauß-Fit")
+    plt.legend()
+    plt.show()
 
 
 
@@ -75,14 +101,15 @@ x_cs=np.zeros(len(n_cs[a:b]))
 N_cs=np.zeros(len(n_cs[a:b]))
 
 for index, val in enumerate(n_cs[a:b]):
-    x_cs[index]=index+a
+    x_cs[index]=(index+a)*m
     N_cs[index]=val
 
-plt.bar(x_cs,N_cs,width=1,label="Messdaten")
+plt.figure(constrained_layout=True)
+plt.bar(x_cs,N_cs,width=1,label="Messdaten 137Cs")
 plt.xlabel("Channel")
 plt.ylabel("Anzahl N")
 plt.yscale("log")
-plt.xlim(a,b)
+plt.xlim(a*m,b*m)
 plt.legend()
 #plt.show()
 
@@ -96,14 +123,15 @@ x_ba=np.zeros(len(n_ba[a:b]))
 N_ba=np.zeros(len(n_ba[a:b]))
 
 for index, val in enumerate(n_ba[a:b]):
-    x_ba[index]=index+a
+    x_ba[index]=(index+a)*m
     N_ba[index]=val
 
-plt.bar(x_ba,N_ba,width=1,label="Messdaten")
-plt.xlabel("Channel")
+plt.figure(constrained_layout=True)
+plt.bar(x_ba,N_ba,width=1,label="Messdaten 133Ba")
+plt.xlabel("Energie E [kev]")
 plt.ylabel("Anzahl N")
 plt.yscale("log")
-plt.xlim(a,b)
+plt.xlim(a*m,b*m)
 plt.legend()
 #plt.show()
 
@@ -117,14 +145,15 @@ x_un=np.zeros(len(n_un[a:b]))
 N_un=np.zeros(len(n_un[a:b]))
 
 for index, val in enumerate(n_un[a:b]):
-    x_un[index]=index+a
+    x_un[index]=(index+a)*m
     N_un[index]=val
 
-plt.bar(x_un,N_un,width=1,label="Messdaten")
-plt.xlabel("Channel")
+plt.figure(constrained_layout=True)
+plt.bar(x_un,N_un,width=1,label="Messdaten Unbekannt")
+plt.xlabel("Energie E [kev]")
 plt.ylabel("Anzahl N")
 plt.yscale("log")
-plt.xlim(a,b)
+plt.xlim(a*m,b*m)
 plt.legend()
 #plt.show()
 
