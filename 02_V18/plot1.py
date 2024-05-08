@@ -45,7 +45,8 @@ plt.legend()
 
 
 #Energiezuteilung
-Energie=[122,245,344,411,444,779,867,964]
+Energie=np.array([122,245,344,411,444,779,867,964])
+W=np.array([28.58,7.583,26.5,2.234,2.821,12.942,4.245,14.605])/100
 x=np.linspace(a,b)
 
 par, cov=curve_fit(f,peak, Energie)
@@ -72,88 +73,52 @@ plt.legend()
 #Gaußanpassung
 d=25
 
+h=np.zeros(len(peak)); h_f=np.zeros(len(peak))
+u=np.zeros(len(peak)); u_f=np.zeros(len(peak))
+s=np.zeros(len(peak)); s_f=np.zeros(len(peak))
+g=np.zeros(len(peak)); g_f=np.zeros(len(peak))
+
+plt.figure(constrained_layout=True)
+
 for i in range(len(peak)):
 
-    par, cov=curve_fit(gauß,x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d], p0=[1,peak[i],1,1], sigma=np.sqrt(N_eu[peak[i]-d:peak[i]+d]))
+    par, cov=curve_fit(gauß,x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d], p0=[1,peak[i],1,1])
     par = unc.correlated_values(par, cov)
-    h = float(unp.nominal_values(par[0]))
-    u = float(unp.nominal_values(par[1]))
-    s = float(unp.nominal_values(par[2]))
-    g = float(unp.nominal_values(par[3]))
+    h[i] = float(unp.nominal_values(par[0]))
+    u[i] = float(unp.nominal_values(par[1]))
+    s[i] = float(unp.nominal_values(par[2]))
+    g[i] = float(unp.nominal_values(par[3]))
+    h_f[i]= float(unp.std_devs(par[0]))
+    u_f[i]= float(unp.std_devs(par[1]))
+    s_f[i]= float(unp.std_devs(par[2]))
+    g_f[i]= float(unp.std_devs(par[3]))
+
 
     x=np.linspace(x_eu[peak[i]-d],x_eu[peak[i]+d],1000)
     
-    plt.figure(constrained_layout=True)
+    plt.subplot(4,2,i+1)
     #plt.errorbar(x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d],yerr=np.sqrt(N_eu[peak[i]-d:peak[i]+d]),fmt="r")
     plt.bar(x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d],width=1,label=f"Messdaten Peak {i+1}")
-    plt.plot(x,gauß(x,h,u,s,g),"g-",label="Gauß-Fit")
+    plt.plot(x,gauß(x,h[i],u[i],s[i],g[i]),"g-",label="Gauß-Fit")
+    plt.xlim(x_eu[peak[i]-d],x_eu[peak[i]+d])
     plt.legend()
-    plt.show()
+    
+#plt.show()
 
+h=unp.uarray(h,h_f)
+u=unp.uarray(u,u_f)
+s=unp.uarray(abs(s),abs(s_f))
+g=unp.uarray(g,g_f)
 
+print("\n",h, "\n \n", u ,"\n\n" ,s ,"\n\n", g,"\n")
 
 #------------------------------------------------------------------------------------------
+#Vollenergie Nachweiß
 
-n_cs = np.genfromtxt("137Cs-Spektrum.txt", unpack=True)
+I=np.sqrt(2*np.pi)*h*s
+A=unc.ufloat(4130,60)*np.exp(-np.log(2)*(215+23*365)/(13.516*365))
+theta=2.25**2/(4*8.5**2)
+print(I)
 
-a=0;b=4000 #Intervall
-x_cs=np.zeros(len(n_cs[a:b]))
-N_cs=np.zeros(len(n_cs[a:b]))
-
-for index, val in enumerate(n_cs[a:b]):
-    x_cs[index]=(index+a)*m
-    N_cs[index]=val
-
-plt.figure(constrained_layout=True)
-plt.bar(x_cs,N_cs,width=1,label="Messdaten 137Cs")
-plt.xlabel("Channel")
-plt.ylabel("Anzahl N")
-plt.yscale("log")
-plt.xlim(a*m,b*m)
-plt.legend()
-#plt.show()
-
-
-#------------------------------------------------------------------------------------------------
-
-n_ba = np.genfromtxt("133Ba-Spektrum.txt", unpack=True)
-
-a=0;b=3000 #Intervall
-x_ba=np.zeros(len(n_ba[a:b]))
-N_ba=np.zeros(len(n_ba[a:b]))
-
-for index, val in enumerate(n_ba[a:b]):
-    x_ba[index]=(index+a)*m
-    N_ba[index]=val
-
-plt.figure(constrained_layout=True)
-plt.bar(x_ba,N_ba,width=1,label="Messdaten 133Ba")
-plt.xlabel("Energie E [kev]")
-plt.ylabel("Anzahl N")
-plt.yscale("log")
-plt.xlim(a*m,b*m)
-plt.legend()
-#plt.show()
-
-
-#------------------------------------------------------------------------------------------------
-
-n_un = np.genfromtxt("000Unbekannt-Spektrum.txt", unpack=True)
-
-a=0;b=8000 #Intervall
-x_un=np.zeros(len(n_un[a:b]))
-N_un=np.zeros(len(n_un[a:b]))
-
-for index, val in enumerate(n_un[a:b]):
-    x_un[index]=(index+a)*m
-    N_un[index]=val
-
-plt.figure(constrained_layout=True)
-plt.bar(x_un,N_un,width=1,label="Messdaten Unbekannt")
-plt.xlabel("Energie E [kev]")
-plt.ylabel("Anzahl N")
-plt.yscale("log")
-plt.xlim(a*m,b*m)
-plt.legend()
-#plt.show()
-
+Q=I*4*np.pi/(theta*A*3413)/W
+print("Q:",Q)
