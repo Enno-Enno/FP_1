@@ -50,12 +50,19 @@ Ihr Differentieller Wirkungsquerschnitt lautet
     \left(\frac{1+ \cos^2\theta}{2}\right)%
     \left(1+ \frac{\alpha^2(1-\cos \theta)^2}{(1+\cos^2 \theta)[1+\alpha(1-\cos(\theta))]}\right)
     \label{eq:wq_compton}
-\end{align}
+\end{align}% Diese Formel ist zu kompliziert, in dem anderen Buch ist eine einfachere :)
 wobei $\alpha = h \nu / m_0 c²$ und $r_0$ der klassische Elektronenradius ist (vgl. \cite{book:knoll}).
+Der Enegieübertrag auf das Elektron wird berechnet durch
+\begin{align}
+    E_{e} = E_{\gamma} \left\{1- \frac{1}{1+ E_{\gamma}(1-\cos\theta)/m_0 c^2} \right\}
+    \label{eq:ecompton}
+\end{align} 
+
 
 Bei Energien oberhalb der doppelten Ruhemasse des Elektrons (\qty{1.02}{\MeV}) ist die Elektronenpaarbildung möglich.
 Diese Wechselwirkung tritt aber realistischerweise nur bei sehr hochenergetischen Gammastrahlen auf.
 %Die Dunkelheit ist die Ursache des Lichts.
+
 
 \subsection{Wahrscheinlichste Photonenenergien}
 \begin{itemize} 
@@ -68,6 +75,9 @@ Diese Wechselwirkung tritt aber realistischerweise nur bei sehr hochenergetische
     \item[\ce   {^{125}Sb}] - \qty{427.88}{\keV} \qty{29.6}{\%}
 \end{itemize}
 \cite{web:lara}
+
+\subsection{Vollenergienachweiswahrscheinlichkeit}
+Das Spektrum eines Monochromatischen Gammastrahlers wie \textbf{Cs} ist in eine 
 
 \subsection{Fehlerrechnung}
 Für die Fehlerrechnung werden alle \textbf{Mittelwerte} von $N$ Messungen folgendermaßen berechnet:
