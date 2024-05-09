@@ -13,6 +13,8 @@ def f(x, m, c):
 def gauß(x,h,u,s,g):
     return h*np.exp(-((x-u)**2)/(2*s**2))+g
 
+def potenz(x,a,b,c,d):
+    return a*(x-b)**c+d
 
 n_eu = np.genfromtxt("152Eu-Spektrum.txt", unpack=True)
 
@@ -50,7 +52,6 @@ W=np.array([28.58,7.583,26.5,2.234,2.821,12.942,4.245,14.605])/100
 x=np.linspace(a,b)
 
 par, cov=curve_fit(f,peak, Energie)
-print(cov)
 par = unc.correlated_values(par, cov)
 m = float(unp.nominal_values(par[0]))
 c = float(unp.nominal_values(par[1]))
@@ -69,6 +70,8 @@ plt.ylim(0,1000)
 plt.legend()
 #plt.show()
 
+x_eu=m*x_eu
+
 
 #Gaußanpassung
 d=25
@@ -82,7 +85,7 @@ plt.figure(constrained_layout=True)
 
 for i in range(len(peak)):
 
-    par, cov=curve_fit(gauß,x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d], p0=[1,peak[i],1,1])
+    par, cov=curve_fit(gauß,x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d], p0=[12,m*peak[i],1,1])
     par = unc.correlated_values(par, cov)
     h[i] = float(unp.nominal_values(par[0]))
     u[i] = float(unp.nominal_values(par[1]))
@@ -98,7 +101,7 @@ for i in range(len(peak)):
     
     plt.subplot(4,2,i+1)
     #plt.errorbar(x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d],yerr=np.sqrt(N_eu[peak[i]-d:peak[i]+d]),fmt="r")
-    plt.bar(x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d],width=1,label=f"Messdaten Peak {i+1}")
+    plt.bar(x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d],width=m,label=f"Messdaten Peak {i+1}")
     plt.plot(x,gauß(x,h[i],u[i],s[i],g[i]),"g-",label="Gauß-Fit")
     plt.xlim(x_eu[peak[i]-d],x_eu[peak[i]+d])
     plt.legend()
@@ -107,7 +110,7 @@ for i in range(len(peak)):
 
 h=unp.uarray(h,h_f)
 u=unp.uarray(u,u_f)
-s=unp.uarray(abs(s),abs(s_f))
+s=unp.uarray(abs(s),s_f)
 g=unp.uarray(g,g_f)
 
 print("\n",h, "\n \n", u ,"\n\n" ,s ,"\n\n", g,"\n")
@@ -117,8 +120,36 @@ print("\n",h, "\n \n", u ,"\n\n" ,s ,"\n\n", g,"\n")
 
 I=np.sqrt(2*np.pi)*h*s
 A=unc.ufloat(4130,60)*np.exp(-np.log(2)*(215+23*365)/(13.516*365))
-theta=2.25**2/(4*8.5**2)
+#theta=0.5*(1-unp.cos(np.pi-unp.arcsin(22.5/unc.ufloat(85,1))))
+theta=2*np.pi*(1-85/np.sqrt(85**2+22.5**2))
 print(I)
 
-Q=I*4*np.pi/(theta*A*3413)/W
-print("Q:",Q)
+q=I*4*np.pi/(theta*A*3413)/W
+print("Q:",q)
+Q=unp.nominal_values(q)*100
+
+par, cov=curve_fit(potenz,m*peak, Q, sigma=unp.std_devs(q))
+par = unc.correlated_values(par, cov)
+a = float(unp.nominal_values(par[0]))
+b = float(unp.nominal_values(par[1]))
+c = float(unp.nominal_values(par[2]))
+d = float(unp.nominal_values(par[3]))
+a_f= float(unp.std_devs(par[0]))
+b_f= float(unp.std_devs(par[1]))
+c_f= float(unp.std_devs(par[2]))
+d_f= float(unp.std_devs(par[3]))
+
+
+x=np.linspace(m*peak[0],m*peak[-1],1000)
+
+plt.figure(constrained_layout=True)
+plt.plot(m*peak,Q,"rx",label="Q")
+plt.plot(x,potenz(x,a,b,c,d),"b-",label="Ausgleichsgerade")
+plt.xlabel("Energie E [keV]")
+plt.ylabel(f"Q [%]")
+#plt.xlim(a,b)
+#plt.ylim(0,1000)
+plt.legend()
+plt.show()
+
+
