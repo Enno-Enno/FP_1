@@ -14,6 +14,7 @@ m0csquared_keV = m0csquared / con.kilo / con.eV
 
 
 def WQ_compton(E_gamma,theta):
+    ## Klein Nishima Formel 
     r_0, _, delta_r = const["classical electron radius"]
     Z = 40
     cos = lambda x: np.cos(x)
@@ -32,6 +33,14 @@ def WQ_compton(E_gamma,theta):
 
 
 
+def WQ_Energie(E_gamma, E_gemessen):
+    # k = const * pi r_e^2 / (m_e c² epsilon²)* delta_E
+    epsilon = E_gamma/m0csquared_keV
+    T = E_gemessen
+
+    t = T/E_gamma
+    WQ = k * (2+ t**2/(epsilon**2 (1-t)**2) + t /(1-t)* (t- 2/epsilon))
+    return WQ
 
 
 def E_e(E_gamma, theta):
