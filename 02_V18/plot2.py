@@ -32,6 +32,9 @@ def WQ_compton(alpha,theta):
 def gauß(x,h,u,s,g):
     return h*np.exp(-((x-u)**2)/(2*s**2))+g
 
+def f(x, m, c):
+    return m*x+c 
+
 
 
 n_cs = np.genfromtxt("137Cs-Spektrum.txt", unpack=True)
@@ -63,7 +66,7 @@ plt.xlim(a*m,b*m)
 plt.legend()
 plt.show()
 
-#Zentelbreite und Halbwertsbreite
+#Zentelbreite und Halbwertsbreite Inhalt Gauß
 d=15
 
 par, cov=curve_fit(gauß,x_cs[peak[4]-d:peak[4]+d],N_cs[peak[4]-d:peak[4]+d], p0=[12,m*peak[4],1,1] ,sigma=np.sqrt(N_cs[peak[4]-d:peak[4]+d])+0.01)
@@ -77,24 +80,53 @@ u_f= float(unp.std_devs(par[1]))
 s_f= float(unp.std_devs(par[2]))
 g_f= float(unp.std_devs(par[3]))
 
-h1=unp.uarray(h,h_f)
-u1=unp.uarray(u,u_f)
-s1=unp.uarray(abs(s),s_f)
-g1=unp.uarray(g,g_f)
+delta_xH=s*np.sqrt(2*np.log(2*h/(h-g))) #Halbwertsbreite
+xH=np.linspace(u-delta_xH,u+delta_xH,1000)
 
-delta_xh=s1*unp.sqrt(s1*unp.log(2*h1/(h1-g1)))
+delta_xZ=s*np.sqrt(2*np.log(10*h/(h-g))) #Zentelbreite
+xZ=np.linspace(u-delta_xZ,u+delta_xZ,1000)
+
 
 x=np.linspace(x_cs[peak[4]-d],x_cs[peak[4]+d],1000)
 
 plt.figure(constrained_layout=True)
 plt.bar(x_cs[peak[4]-d:peak[4]+d],N_cs[peak[4]-d:peak[4]+d],width=m,yerr=np.sqrt(N_cs[peak[4]-d:peak[4]+d]),label=f"Messdaten Photopeak ")
 plt.plot(x,gauß(x,h,u,s,g),"g-",label="Gauß-Fit")
-plt.plot(x,gauß(u+delta_xh,h,u,s,g),"b--")
+plt.plot(xH,f(xH,0.000001,0.5*h),"y--")
+plt.plot(xZ,f(xZ,0.000001,0.1*h),"r--")
 plt.xlabel(r"Energie $E \, [\mathrm{KeV}]$")
-plt.xlim(x_cs[peak[4]-d],x_cs[peak[4]+d])
+plt.xlim(u-3,u+3)
 plt.legend()
 plt.show()
 
+h=unp.uarray(h,h_f)
+u=unp.uarray(u,u_f)
+s=unp.uarray(abs(s),s_f)
+g=unp.uarray(g,g_f)
+
+print("Zentelbreite=",2*s*unp.sqrt(2*unp.log(10*h/(h-g))))
+print("Halbwertsbreite=",2*s*unp.sqrt(2*unp.log(2*h/(h-g))))
+print("Inhalt=",np.sqrt(2*np.pi)*h*s)
+
+print("\n",h, "\n ", u ,"\n" ,s ,"\n", g,"\n")
+
+
+#Kompton Kontinuum:
+
+#par, cov=curve_fit(WQ_compton,x_cs[peak[4]-d:peak[4]+d],N_cs[peak[4]-d:peak[4]+d], p0=[12,m*peak[4],1,1] ,sigma=np.sqrt(N_cs[peak[4]-d:peak[4]+d])+0.01)
+#par = unc.correlated_values(par, cov)
+#h = float(unp.nominal_values(par[0]))
+#u = float(unp.nominal_values(par[1]))
+
+plt.figure(constrained_layout=True)
+plt.bar(x_cs[peak[2]:peak[5]],N_cs[peak[2]:peak[5]],width=m,label="Messdaten 137Cs")
+#plt.plot(m*peak,N_cs[peak],"rx",label="Peak")
+plt.xlabel("Energie")
+plt.ylabel("Anzahl N")
+plt.yscale("log")
+#plt.xlim(a*m,b*m)
+plt.legend()
+plt.show()
 
 
 
