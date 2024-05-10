@@ -12,8 +12,8 @@ import fktn ## Enthält die Hilfreichen Funktionen fürs Compton Fitten :)
 m=0.20734414185681416
 
 #Funktionen:
+## In anderer Datei!
 
-## Diese Funktion ist vermutlich nicht die richtige, wird nachher aus dem Protokoll rausgeschmissen
 
 WQ_compton = lambda E_gamma,theta: fktn.WQ_compton
 
@@ -31,7 +31,7 @@ x_cs=np.zeros(len(n_cs[a:b]))
 N_cs=np.zeros(len(n_cs[a:b]))
 
 for index, val in enumerate(n_cs[a:b]):
-    x_cs[index]=(index+a)*m
+    x_cs[index]=(index+a)*m ## Interpretiere ich als Energie. Einheit keV?
     N_cs[index]=val
     
     
@@ -39,12 +39,13 @@ peak,_=find_peaks(N_cs,height=70)
 peak2,_=find_peaks(N_cs[2200:2500],height=42,distance=10)
 peak2=peak2+2200
 peak=np.concatenate([peak, peak2])
-print(m*peak)
+print("Peak Energien Cs",m*peak)
 print(N_cs[peak])
 
 
 plt.figure(constrained_layout=True)
 plt.bar(x_cs,N_cs,width=m,label="Messdaten 137Cs")
+plt.plot(fktn.WQ_Energie(x_cs*20,662.46453323,30, 10),"r", label= "Compton \"fit\"")
 plt.plot(m*peak,N_cs[peak],"rx",label="Peak")
 plt.xlabel("Energie")
 plt.ylabel("Anzahl N")
@@ -79,8 +80,8 @@ x=np.linspace(x_cs[peak[4]-d],x_cs[peak[4]+d],1000)
 plt.figure(constrained_layout=True)
 plt.bar(x_cs[peak[4]-d:peak[4]+d],N_cs[peak[4]-d:peak[4]+d],width=m,yerr=np.sqrt(N_cs[peak[4]-d:peak[4]+d]),label=f"Messdaten Photopeak ")
 plt.plot(x,gauß(x,h,u,s,g),"g-",label="Gauß-Fit")
-plt.plot(xH,f(xH,0.000001,0.5*h),"y--")
-plt.plot(xZ,f(xZ,0.000001,0.1*h),"r--")
+plt.plot(xH,f(xH,0.000001,0.5*h),"y--", label="Halb Peak Breite")
+plt.plot(xZ,f(xZ,0.000001,0.1*h),"r--", label="Zehntel Peak Breite")
 plt.xlabel(r"Energie $E \, [\mathrm{KeV}]$")
 plt.xlim(u-3,u+3)
 plt.legend()

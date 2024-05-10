@@ -7,12 +7,35 @@ import uncertainties as unc
 import uncertainties.unumpy as unp
 from scipy.signal import find_peaks
 import sympy as s
-s.init_printing()
+#s.init_printing()
+
 m0csquared, unit, delta_mc  = const["electron mass energy equivalent"]
 # print(m_0 *c**2, m0csquared, unit)
 m0csquared_keV = m0csquared / con.kilo / con.eV
 
+## Wichtig und richtig!
 
+def WQ_Energie( E_gemessen,E_gamma,k, untergrund):
+    # k = const * pi r_e^2 / (m_e c² epsilon²)* delta_E
+    epsilon = E_gamma/m0csquared_keV
+    T = E_gemessen
+
+    t = T/E_gamma
+    WQ = k * (2+ t**2/(epsilon**2 *(1-t)**2) + t /(1-t)* (t- 2/epsilon)) + untergrund
+    return WQ
+
+
+### ok
+def E_e(E_gamma, theta):
+    m_0 , unit, delta_m= const["electron mass"]
+    c, unit, delta_c = const["speed of light in vacuum"]
+
+    E_e = E_gamma *(1- 1/ (1+  E_gamma *((1-np.cos(theta))/(m0csquared_keV))) )
+    return E_e
+
+
+
+### Ignorieren
 def WQ_compton(E_gamma,theta):
     ## Klein Nishima Formel 
     r_0, _, delta_r = const["classical electron radius"]
@@ -33,22 +56,8 @@ def WQ_compton(E_gamma,theta):
 
 
 
-def WQ_Energie(E_gamma, E_gemessen):
-    # k = const * pi r_e^2 / (m_e c² epsilon²)* delta_E
-    epsilon = E_gamma/m0csquared_keV
-    T = E_gemessen
-
-    t = T/E_gamma
-    WQ = k * (2+ t**2/(epsilon**2 (1-t)**2) + t /(1-t)* (t- 2/epsilon))
-    return WQ
 
 
-def E_e(E_gamma, theta):
-    m_0 , unit, delta_m= const["electron mass"]
-    c, unit, delta_c = const["speed of light in vacuum"]
-
-    E_e = E_gamma *(1- 1/ (1+  E_gamma *((1-np.cos(theta))/(m0csquared_keV))) )
-    return E_e
 
 def expected_N_compton(E):
     # s.diff(E_e,theta) Sympy ableitung
