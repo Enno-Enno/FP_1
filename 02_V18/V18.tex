@@ -52,7 +52,7 @@ Ihr Differentieller Wirkungsquerschnitt lautet
     \label{eq:wq_compton}
 \end{align}% Diese Formel ist zu kompliziert, in dem anderen Buch ist eine einfachere :)
 wobei $\alpha = h \nu / m_0 c²$ und $r_0$ der klassische Elektronenradius ist (vgl. \cite{book:knoll}).
-Der Enegieübertrag auf das Elektron wird berechnet durch
+Der Energieübertrag auf das Elektron wird berechnet durch
 \begin{align}
     E_{e} = E_{\gamma} \left\{1- \frac{1}{1+ E_{\gamma}(1-\cos\theta)/m_0 c^2} \right\}
     \label{eq:ecompton}
@@ -76,8 +76,22 @@ Diese Wechselwirkung tritt aber realistischerweise nur bei sehr hochenergetische
 \end{itemize}
 \cite{web:lara}
 
-\subsection{Enegieübertrag in einem Detektor}
+\subsection{Enegieübertrag in einem Detektor \cite{book:gilmore}}
 % Das Spektrum eines Monochromatischen Gammastrahlers wie \textbf{Cs} ist in eine 
+Alle Signifikanten Interaktionen von Gamma Strahlen mit Materie führen dazu, dass die Energie des Photons 
+an ein Elektron weitergegeben wird. 
+Dieses Elektron kann in einem Germanium Detektor Elektronenlochpaare erzeugen, wenn diese die notwendige Energie von
+$\epsilon = \qty{2.96}{\eV}$ erreicht. 
+Die Anzahl an Elektronenlochpaaren ist mit 
+\begin{align}
+    N = E_e / \epsilon 
+\end{align}
+proportional zu der Energie $E_e$ des Elektrons.
+Basierend auf der Stärke des Halbleiterstroms lassen sich so Rückschlüsse auf die Energie des Elektrons ziehen.
+% Gamma Strahlen Photoeffekt -> Voller Energieübertrag
+% Compton: Energie basierend auf theta 
+
+\subsection{Form des Detektors}
 Der Detektor mit dem wir arbeiten ist eher klein.
 Das führt dazu, dass die meisten Compton gestreuten Gammastrahlen meist nur einmal ihre Energie in dem
 Germanium Detektor hinterlassen und danach aus dem Detektor heraus reflektieren.
