@@ -42,10 +42,14 @@ peak=np.concatenate([peak, peak2])
 print("Peak Energien Cs",m*peak)
 print(N_cs[peak])
 
+E_Cs = 662.46453323
+Reflexionspeak = fktn.E_rückstoß(E_Cs)
+
 
 plt.figure(constrained_layout=True)
 plt.bar(x_cs,N_cs,width=m,label="Messdaten 137Cs")
-plt.plot(fktn.WQ_Energie(x_cs*20,662.46453323,30, 10),"r", label= "Compton \"fit\"")
+plt.plot(fktn.WQ_Energie(x_cs*20,E_Cs,3, 10),"r", label= "Compton \"fit\"")
+plt.axvline(Reflexionspeak,label="Reflexionspreak")
 plt.plot(m*peak,N_cs[peak],"rx",label="Peak")
 plt.xlabel("Energie")
 plt.ylabel("Anzahl N")

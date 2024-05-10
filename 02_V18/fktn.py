@@ -18,11 +18,16 @@ m0csquared_keV = m0csquared / con.kilo / con.eV
 def WQ_Energie( E_gemessen,E_gamma,k, untergrund):
     # k = const * pi r_e^2 / (m_e c² epsilon²)* delta_E
     epsilon = E_gamma/m0csquared_keV
-    T = E_gemessen
-
+    T = E_gemessen 
     t = T/E_gamma
+
     WQ = k * (2+ t**2/(epsilon**2 *(1-t)**2) + t /(1-t)* (t- 2/epsilon)) + untergrund
     return WQ
+
+
+def E_rückstoß(E_gamma):# cite knoll Kap 10 eq 10.3
+    E_e = E_gamma *(2*E_gamma/m0csquared_keV/(1+2*E_gamma/m0csquared_keV))
+    return E_e
 
 
 ### ok
