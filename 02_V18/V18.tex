@@ -31,7 +31,7 @@ Stichworte:
 \subsection[]{Wechselwirkung von Strahlung mit Materie}
 Aus \cite{book:knoll}.
 Die hauptsächlichen Wechselwirkungen von Photonen mit Materie die photoelektrische Absorption,
-die Compton Streuung und die paar Bildung.
+die Compton Streuung und die Elektronenpaarbildung.
 Bei der photoelektrischen  Absorption wechselwirkt das Photon mit einem im Atom gebundenen Elektron und befördert es aus seinem gebundenen Zustand.
 Die Energie des Photons wird danach von dem Elektron getragen und das Atom emittiert Röntgenstrahlung.
 Diese Interaktion findet vor allem bei niederenergetischen $\gamma$ Photonen statt. 
@@ -61,6 +61,14 @@ Der Energieübertrag auf das Elektron wird berechnet durch
 
 Bei Energien oberhalb der doppelten Ruhemasse des Elektrons (\qty{1.02}{\MeV}) ist die Elektronenpaarbildung möglich.
 Diese Wechselwirkung tritt aber realistischerweise nur bei sehr hochenergetischen Gammastrahlen auf.
+
+Die Interaktionswahrscheinlichkeit von Gamma Strahlen mit Materie lässt sich durch den 
+Dämpfungskoeffizienten $\mu$ darstellen.
+Die Strahlungsintensität fällt in dichten Materialien exponentiell ab.
+
+
+
+
 %Die Dunkelheit ist die Ursache des Lichts.
 
 
@@ -76,12 +84,25 @@ Diese Wechselwirkung tritt aber realistischerweise nur bei sehr hochenergetische
 \end{itemize}
 \cite{web:lara}
 
-\subsection{Enegieübertrag in einem Detektor \cite{book:gilmore}}
-% Das Spektrum eines Monochromatischen Gammastrahlers wie \textbf{Cs} ist in eine 
-Alle Signifikanten Interaktionen von Gamma Strahlen mit Materie führen dazu, dass die Energie des Photons 
-an ein Elektron weitergegeben wird. 
-Dieses Elektron kann in einem Germanium Detektor Elektronenlochpaare erzeugen, wenn diese die notwendige Energie von
-$\epsilon = \qty{2.96}{\eV}$ erreicht. 
+
+\subsection{Messung von Energie in Germanium Halbleiterdetektoren \cite{book:gilmore}}
+Halbleiter Können durch das Bandstruktur Modell aus der Festkörperphysik beschreiben werden.
+Elektronen befinden sich in einem Festkörper nicht auf Eindeutig festgelegten Energie nieavous sondern auf 
+Materialabhängigen Energiebändern.
+Elektronen können die Energien zwischen diesen Bändern nicht annehmen.
+Damit ein Strom in einem Material fließen kann muss ein Elektron das sogenannte Valenzband verlassen und
+ins Leitungsband des Materials wechseln.
+In einem Halbleiter sind das Valenzband (das oberste voll besetzte Band) und das Leitungsband durch eine 
+Bandlücke in der Größenordnung von \qty{1}{\eV} voneinander getrennt.
+%% Bild aus Gilmore einfügen
+Das Leitungsband eines Halbleiters enthält meist auch Elektronen abhängig von der Temperatur des Materials.
+%gleichung einfügen?
+Um einen Halbleiter zu erhalten, der nach Möglichkeit nur von außen angeregte Elektronen in seinem Leitungsband hat 
+ist es sinnvoll diesen so weit wie möglich herunter zu kühlen.
+Gamma Strahlen  erzeugen in der Interaktion mit dem Detektor schnelle Elektronen, die durch das anregen
+von Bandelektronen ihre Energie abgeben.
+Dieses Elektronen können in einem Germanium Halbleiter Elektronenlochpaare erzeugen, wenn diese die notwendige Energie von
+$\epsilon = \qty{2.96}{\eV}$ erreichen. 
 Die Anzahl an Elektronenlochpaaren ist mit 
 \begin{align}
     N = E_e / \epsilon 
