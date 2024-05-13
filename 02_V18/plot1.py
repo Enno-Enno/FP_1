@@ -5,17 +5,7 @@ from scipy.constants import physical_constants as const
 from scipy.signal import find_peaks
 import uncertainties as unc
 import uncertainties.unumpy as unp
-
-
-#Funktionen:
-def f(x, m, c):
-    return m*x+c 
-
-def gauß(x,h,u,s,g):
-    return h*np.exp(-((x-u)**2)/(2*s**2))+g
-
-def potenz(x,a,b,c,d):
-    return np.exp(a+b*np.log(x)+c*np.log(x)**2+d*np.log(x)**3)
+import fktn
 
 n_eu = np.genfromtxt("152Eu-Spektrum.txt", unpack=True)
 
@@ -53,7 +43,7 @@ Energie=np.array([122,245,344,411,444,779,867,964])
 W=np.array([28.58,7.583,26.5,2.234,2.821,12.942,4.245,14.605])/100
 x=np.linspace(a,b)
 
-par, cov=curve_fit(f,peak, Energie)
+par, cov=curve_fit(fktn.f,peak, Energie)
 par = unc.correlated_values(par, cov)
 m = float(unp.nominal_values(par[0]))
 c = float(unp.nominal_values(par[1]))
@@ -64,7 +54,7 @@ print(m,c)
 
 plt.figure(constrained_layout=True)
 plt.plot(peak,Energie,"rx",label="Peaks")
-plt.plot(x,f(x,m,c),"b-",label="Ausgleichsgerade")
+plt.plot(x,fktn.f(x,m,c),"b-",label="Ausgleichsgerade")
 plt.xlabel("Channel")
 plt.ylabel(r"$E \, [\mathrm{KeV}]$")
 plt.xlim(a,b)
@@ -88,7 +78,7 @@ plt.figure(constrained_layout=True)
 
 for i in range(len(peak)):
 
-    par, cov=curve_fit(gauß,x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d], p0=[12,m*peak[i],1,1],sigma=np.sqrt(N_eu[peak[i]-d:peak[i]+d])+0.01)
+    par, cov=curve_fit(fktn.gauß,x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d], p0=[12,m*peak[i],1,1],sigma=np.sqrt(N_eu[peak[i]-d:peak[i]+d])+0.01)
     par = unc.correlated_values(par, cov)
     h[i] = float(unp.nominal_values(par[0]))
     u[i] = float(unp.nominal_values(par[1]))
@@ -105,7 +95,7 @@ for i in range(len(peak)):
     plt.subplot(4,2,i+1)
     #plt.errorbar(x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d],yerr=np.sqrt(N_eu[peak[i]-d:peak[i]+d]),fmt="r")
     plt.bar(x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d],width=m,yerr=np.sqrt(N_eu[peak[i]-d:peak[i]+d]),label=f"Messdaten Peak {i+1}")
-    plt.plot(x,gauß(x,h[i],u[i],s[i],g[i]),"g-",label="Gauß-Fit")
+    plt.plot(x,fktn.gauß(x,h[i],u[i],s[i],g[i]),"g-",label="Gauß-Fit")
     plt.xlabel(r"Energie $E \, [\mathrm{KeV}]$")
     plt.xlim(x_eu[peak[i]-d],x_eu[peak[i]+d])
     plt.legend()
@@ -123,6 +113,7 @@ print("\n",h, "\n \n", u ,"\n\n" ,s ,"\n\n", g,"\n")
 #------------------------------------------------------------------------------------------
 #Vollenergie Nachweiß
 
+T=3413
 I=np.sqrt(2*np.pi)*h*s
 A=unc.ufloat(4130,60)*np.exp(-np.log(2)*(215+23*365)/(13.516*365))
 theta=2*np.pi*(1-unp.cos(unp.arctan(22.5/85)))
@@ -130,11 +121,12 @@ theta=2*np.pi*(1-unp.cos(unp.arctan(22.5/85)))
 print("n/ ",theta/4/np.pi)
 print(I)
 
-q=I*4*np.pi/(theta*A*3413)/W
+
+q=I*4*np.pi/(theta*A*T)/W
 print("Q:",q)
 Q=unp.nominal_values(q)*100
 
-par, cov=curve_fit(potenz,m*peak, Q,p0=[-24,12,-2,0.1], sigma=unp.std_devs(q))
+par, cov=curve_fit(fktn.potenz,m*peak, Q,p0=[-24,12,-2,0.1], sigma=unp.std_devs(q))
 par = unc.correlated_values(par, cov)
 a = float(unp.nominal_values(par[0]))
 b = float(unp.nominal_values(par[1]))
@@ -151,7 +143,7 @@ x=np.linspace(0,m*peak[-1],1000)
 
 plt.figure(constrained_layout=True)
 plt.plot(m*peak,Q,"rx",label="Q")
-plt.plot(x,potenz(x,a,b,c,d),"b-",label="Ausgleichsgerade")
+plt.plot(x,fktn.potenz(x,a,b,c,d),"b-",label="Ausgleichsgerade")
 plt.xlabel(r"Energie $E \, [\mathrm{KeV}]$")
 plt.ylabel(f"Q [%]")
 plt.xlim(0,m*peak[-1])

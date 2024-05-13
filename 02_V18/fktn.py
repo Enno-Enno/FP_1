@@ -17,11 +17,12 @@ m0csquared_keV = m0csquared / con.kilo / con.eV
 
 def WQ_Energie( E_gemessen,E_gamma,k, untergrund):
     # k = const * pi r_e^2 / (m_e c² epsilon²)* delta_E
-    epsilon = E_gamma/m0csquared_keV
-    T = E_gemessen 
-    t = T/E_gamma
+    epsilon = E_gamma/m0csquared_keV 
+    t = E_gemessen/E_gamma
+    T =E_gemessen/(E_gamma-E_gemessen)
 
-    WQ = k * (2+ t**2/(epsilon**2 *(1-t)**2) + t /(1-t)* (t- 2/epsilon)) + untergrund
+    WQ = k* (2+ t**2/(epsilon**2 *(1-t)**2) + t /(1-t)* (t- 2/epsilon)) + untergrund
+    #WQ = k * (2+ T**2*(1/epsilon**2  + 1/T*(1 - 2/epsilon))) + untergrund
     return WQ
 
 
@@ -37,6 +38,18 @@ def E_e(E_gamma, theta):
 
     E_e = E_gamma *(1- 1/ (1+  E_gamma *((1-np.cos(theta))/(m0csquared_keV))) )
     return E_e
+
+
+def gauß(x,h,u,s,g):
+    return h*np.exp(-((x-u)**2)/(2*s**2))+g
+
+def f(x, m, c):
+    return m*x+c 
+
+def potenz(x,a,b,c,d):
+    return np.exp(a+b*np.log(x)+c*np.log(x)**2+d*np.log(x)**3)
+
+
 
 
 
