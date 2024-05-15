@@ -33,7 +33,7 @@ peak,_=find_peaks(N_cs,height=70)
 peak2,_=find_peaks(N_cs[2200:2500],height=42,distance=10)
 peak2=peak2+2200
 peak=np.concatenate([peak, peak2])
-print("Peak Energien Cs",m*peak)
+print("Peak Energien Cs",peak)
 print(N_cs[peak])
 
 
@@ -95,27 +95,29 @@ print("\n",h, "\n ", u ,"\n" ,s ,"\n", g,"\n")
 #Kompton Kontinuum:
 
 E_Cs = 662.46453323
-Reflexionspeak = fktn.E_rückstoß(E_Cs)
+Comtonkante = fktn.E_kante(E_Cs)
+Rückstrahlpeak = fktn.E_rück(E_Cs)
+d=50
 
-par, cov=curve_fit(fktn.WQ_Energie,x_cs[peak[2]-d:peak[5]+d],N_cs[peak[2]-d:peak[5]+d])#,p0=[E_Cs,3,10])#,sigma=np.sqrt(N_cs[peak[2]-d:peak[5]+d]))
+par, cov=curve_fit(fktn.WQ_Energie,x_cs[peak[2]+d:peak[5]+d],N_cs[peak[2]+d:peak[5]+d],p0=[E_Cs,3,10],sigma=np.sqrt(N_cs[peak[2]+d:peak[5]+d]))
 par = unc.correlated_values(par, cov)
 E = float(unp.nominal_values(par[0]))
 k = float(unp.nominal_values(par[1]))
 unterG = float(unp.nominal_values(par[2]))
 
 print(E,k,unterG)
-x=np.linspace(x_cs[peak[2]-d],x_cs[peak[5]+d],1000)
+x=np.linspace(Rückstrahlpeak,Comtonkante,1000)
 
 plt.figure(constrained_layout=True)
-plt.bar(x_cs[peak[2]-d:peak[5]+d],N_cs[peak[2]-d:peak[5]+d],width=m,label="Messdaten 137Cs")
-plt.plot(fktn.WQ_Energie(x_cs*20,E_Cs,3, 10),"r", label= "Compton \"fit\"")
-plt.plot(fktn.WQ_Energie(x,E,k,unterG),"y", label= "Compton fit ")
-#plt.axvline(Reflexionspeak,color="y",label="Reflexionspeak")
+plt.bar(x_cs[peak[2]-d:peak[5]+150],N_cs[peak[2]-d:peak[5]+150],width=m,label="Messdaten 137Cs")
+plt.plot(x,fktn.WQ_Energie(x,E,k,unterG),"m", label= "Compton fit ")
+plt.axvline(Comtonkante,color="m",label="Comtonkante")
+plt.axvline(Rückstrahlpeak,color="m",label="Rückstrahlpeak")
 #plt.plot(m*peak,N_cs[peak],"rx",label="Peak")
 plt.xlabel("Energie")
 plt.ylabel("Anzahl N")
 plt.yscale("log")
-plt.xlim(x_cs[peak[2]-d],x_cs[peak[5]+d])
+plt.xlim(x_cs[peak[2]-d],x_cs[peak[5]+150])
 plt.ylim(1,200)
 plt.legend()
 #plt.show()
@@ -164,6 +166,8 @@ plt.legend()
 #Gaußanpassung
 d=25
 
+x_ba=x_ba/m
+
 h=np.zeros(len(peak_ba)); h_f=np.zeros(len(peak_ba))
 u=np.zeros(len(peak_ba)); u_f=np.zeros(len(peak_ba))
 s=np.zeros(len(peak_ba)); s_f=np.zeros(len(peak_ba))
@@ -173,7 +177,7 @@ plt.figure(constrained_layout=True)
 
 for i in range(len(peak_ba)):
 
-    par, cov=curve_fit(fktn.gauß,x_ba[peak_ba[i]-d:peak_ba[i]+d],N_ba[peak_ba[i]-d:peak_ba[i]+d], p0=[12,m*peak_ba[i],1,1],sigma=np.sqrt(N_ba[peak_ba[i]-d:peak_ba[i]+d])+0.01)
+    par, cov=curve_fit(fktn.gauß,x_ba[peak_ba[i]-d:peak_ba[i]+d],N_ba[peak_ba[i]-d:peak_ba[i]+d], p0=[12,peak_ba[i],1,1],sigma=np.sqrt(N_ba[peak_ba[i]-d:peak_ba[i]+d])+0.01)
     par = unc.correlated_values(par, cov)
     h[i] = float(unp.nominal_values(par[0]))
     u[i] = float(unp.nominal_values(par[1]))
@@ -187,7 +191,7 @@ for i in range(len(peak_ba)):
     x=np.linspace(x_ba[peak_ba[i]-d],x_ba[peak_ba[i]+d],1000)
     
     plt.subplot(3,2,i+1)
-    plt.bar(x_ba[peak_ba[i]-d:peak_ba[i]+d],N_ba[peak_ba[i]-d:peak_ba[i]+d],width=m,yerr=np.sqrt(N_ba[peak_ba[i]-d:peak_ba[i]+d]),label=f"Messdaten Peak {i+1}")
+    plt.bar(x_ba[peak_ba[i]-d:peak_ba[i]+d],N_ba[peak_ba[i]-d:peak_ba[i]+d],width=1,yerr=np.sqrt(N_ba[peak_ba[i]-d:peak_ba[i]+d]),label=f"Messdaten Peak {i+1}")
     plt.plot(x,fktn.gauß(x,h[i],u[i],s[i],g[i]),"g-",label="Gauß-Fit")
     plt.xlabel(r"Energie $E \, [\mathrm{KeV}]$")
     plt.xlim(x_ba[peak_ba[i]-d],x_ba[peak_ba[i]+d])
@@ -204,29 +208,10 @@ g=unp.uarray(g,g_f)
 I=np.sqrt(2*np.pi)*h*s
 theta=2*np.pi*(1-unp.cos(unp.arctan(22.5/85)))
 T=3816
-Q=fktn.potenz(peak_ba*m,-15.7147,9.95,-1.72,0.089)
-A=I*4*np.pi/(theta*Q*W)/T
+Q=fktn.potenz(peak_ba*m,3776.17,-0.905)/100
+print(Q)
+A=I*4*np.pi/(theta*Q*W*T)
 
-print(np.sum(N_ba/T))
 print(np.mean(A))
 
 #------------------------------------------------------------------------------------------------
-
-n_un = np.genfromtxt("000Unbekannt-Spektrum.txt", unpack=True)
-
-a=0;b=8000 #Intervall
-x_un=np.zeros(len(n_un[a:b]))
-N_un=np.zeros(len(n_un[a:b]))
-
-for index, val in enumerate(n_un[a:b]):
-    x_un[index]=(index+a)*m
-    N_un[index]=val
-
-plt.figure(constrained_layout=True)
-plt.bar(x_un,N_un,width=m,label="Messdaten Unbekannt")
-plt.xlabel("Energie E [kev]")
-plt.ylabel("Anzahl N")
-plt.yscale("log")
-plt.xlim(a*m,b*m)
-plt.legend()
-#plt.show()

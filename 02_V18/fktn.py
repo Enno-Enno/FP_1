@@ -26,12 +26,16 @@ def WQ_Energie( E_gemessen,E_gamma,k, untergrund):
     return WQ
 
 
-def E_rückstoß(E_gamma):# cite knoll Kap 10 eq 10.3
+def E_kante(E_gamma):# cite knoll Kap 10 eq 10.3
     E_e = E_gamma *(2*E_gamma/m0csquared_keV/(1+2*E_gamma/m0csquared_keV))
     return E_e
 
+def E_rück(E_gamma):
+    E_e = E_gamma *(1/(1+2*E_gamma/m0csquared_keV))
+    return E_e
 
-### ok
+
+
 def E_e(E_gamma, theta):
     m_0 , unit, delta_m= const["electron mass"]
     c, unit, delta_c = const["speed of light in vacuum"]
@@ -46,8 +50,10 @@ def gauß(x,h,u,s,g):
 def f(x, m, c):
     return m*x+c 
 
-def potenz(x,a,b,c,d):
-    return np.exp(a+b*np.log(x)+c*np.log(x)**2+d*np.log(x)**3)
+def potenz(x,a,b):
+    #potenz=np.exp(a+b*np.log(x)+c*np.log(x)**2+d*np.log(x)**3)
+    potenz=a*x**b 
+    return potenz
 
 
 

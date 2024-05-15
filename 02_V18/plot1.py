@@ -63,7 +63,7 @@ plt.legend()
 plt.savefig("build/plt2_Fit.pdf")
 #plt.show()
 
-x_eu=m*x_eu
+#x_eu=m*x_eu
 
 
 #Gaußanpassung
@@ -78,7 +78,7 @@ plt.figure(constrained_layout=True)
 
 for i in range(len(peak)):
 
-    par, cov=curve_fit(fktn.gauß,x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d], p0=[12,m*peak[i],1,1],sigma=np.sqrt(N_eu[peak[i]-d:peak[i]+d])+0.01)
+    par, cov=curve_fit(fktn.gauß,x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d], p0=[12,peak[i],1,1],sigma=np.sqrt(N_eu[peak[i]-d:peak[i]+d])+0.01)
     par = unc.correlated_values(par, cov)
     h[i] = float(unp.nominal_values(par[0]))
     u[i] = float(unp.nominal_values(par[1]))
@@ -94,7 +94,7 @@ for i in range(len(peak)):
     
     plt.subplot(4,2,i+1)
     #plt.errorbar(x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d],yerr=np.sqrt(N_eu[peak[i]-d:peak[i]+d]),fmt="r")
-    plt.bar(x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d],width=m,yerr=np.sqrt(N_eu[peak[i]-d:peak[i]+d]),label=f"Messdaten Peak {i+1}")
+    plt.bar(x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d],width=1,yerr=np.sqrt(N_eu[peak[i]-d:peak[i]+d]),label=f"Messdaten Peak {i+1}")
     plt.plot(x,fktn.gauß(x,h[i],u[i],s[i],g[i]),"g-",label="Gauß-Fit")
     plt.xlabel(r"Energie $E \, [\mathrm{KeV}]$")
     plt.xlim(x_eu[peak[i]-d],x_eu[peak[i]+d])
@@ -126,27 +126,28 @@ q=I*4*np.pi/(theta*A*T)/W
 print("Q:",q)
 Q=unp.nominal_values(q)*100
 
-par, cov=curve_fit(fktn.potenz,m*peak, Q,p0=[-24,12,-2,0.1], sigma=unp.std_devs(q))
+par, cov=curve_fit(fktn.potenz,m*peak, Q, sigma=unp.std_devs(q))
 par = unc.correlated_values(par, cov)
 a = float(unp.nominal_values(par[0]))
 b = float(unp.nominal_values(par[1]))
-c = float(unp.nominal_values(par[2]))
-d = float(unp.nominal_values(par[3]))
+#c = float(unp.nominal_values(par[2]))
+#d = float(unp.nominal_values(par[3]))
 a_f= float(unp.std_devs(par[0]))
 b_f= float(unp.std_devs(par[1]))
-c_f= float(unp.std_devs(par[2]))
-d_f= float(unp.std_devs(par[3]))
+#c_f= float(unp.std_devs(par[2]))
+#d_f= float(unp.std_devs(par[3]))
 
-print(a,b,c,d)
+print(a,b)
 
 x=np.linspace(0,m*peak[-1],1000)
 
 plt.figure(constrained_layout=True)
 plt.plot(m*peak,Q,"rx",label="Q")
-plt.plot(x,fktn.potenz(x,a,b,c,d),"b-",label="Ausgleichsgerade")
+plt.plot(x,fktn.potenz(x,a,b),"b-",label="Ausgleichsgerade")
 plt.xlabel(r"Energie $E \, [\mathrm{KeV}]$")
 plt.ylabel(f"Q [%]")
 plt.xlim(0,m*peak[-1])
+plt.ylim(0,100)
 plt.legend()
 plt.savefig("build/plt4_Q.pdf")
-#plt.show()
+plt.show()
