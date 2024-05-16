@@ -63,7 +63,7 @@ Hierfür wird in \cite[][Kap. 3.5.3]{book:kolano} die Klein-Nishina-Formel integ
 	\frac{d \sigma}{d T} =  \frac{\pi r_{e}^{2}}{m_e c^2 \epsilon}%
 	\left[2 + \frac{t^2}{\epsilon^2(1-t)^2} + \frac{t}{1-t} %
 		\left(t - \frac{2}{\epsilon} \right) \right]
-    \label{eq:compton_energie}
+	\label{eq:compton_energie}
 \end{align}
 Hier gelten $\epsilon = E_{\gamma} / (m_e c^2)$ und $t = T/ E_\gamma$.
 Bei Rückstreuung des $\gamma$ Photons wird die Energie des Elektrons maximal
@@ -140,12 +140,17 @@ ziehen.
 Die Größe des Detektors spielt eine wichtige Rolle darin wie die Energie des
 $\gamma$ Photons in ein Spektrum von Elektronenenergien übersetzt wird. Für die
 moderat Energiereichen $\gamma$ Strahlen werden für diese Diskussion nur der
-Compton Effekt und die photoelektrische absorption beachtet. In einem
-idealisierten kleinem Detektor streuen die $\gamma$ Photonen nur einmal und
-geben dabei ent Das führt dazu, dass die meisten Compton gestreuten
-Gammastrahlen meist nur einmal ihre Energie in dem Germanium Detektor
-hinterlassen und danach aus dem Detektor heraus reflektieren. Das Ergebnis ist
-ein Spektrum in der Form des Compton Wirkungsquerschnitts $d\sigma/dN$ aus Gleichung \eqref{eq:compton_energie}. 
+Compton Effekt und die photoelektrische Absorption beachtet. In einem
+idealisierten kleinen Detektor streuen die $\gamma$ Photonen nur einmal und
+geben dabei entweder ihre gesamte Energie an ein Photoelektron oder einen Teil
+der Energie an ein Compton gestreutes Elektron. Compton gestreuten
+Gammastrahlen hinterlassen nur einen teil ihrer Energie in dem Germanium
+Detektor, und verlassen diesen direkt danach wieder. Das Ergebnis ist ein
+Spektrum in der Form des Compton Wirkungsquerschnitts $d\sigma/dN$ aus
+Gleichung \eqref{eq:compton_energie}. Bei einem realistischen Detektor können
+die Compton gestreuten Photonen im Prinzip noch weitere male mit dem Detektor
+interagieren und so eine Elektronenenergie zwischen dem Vollenergiepeak und dem
+erwarteten wert im Compton Kontinuum erreichen.
 
 \subsection{Wahrscheinlichste Photonenenergien}
 
@@ -166,6 +171,7 @@ folgendermaßen berechnet:
 
 \begin{equation}
 	\overline{x} = \frac{1}{N} \cdot \sum_{i=1}^N x_i
+\end{equation}
 	\label{eqn:Mittelwert}
 \end{equation}
 
@@ -174,7 +180,6 @@ und alle \textbf{Standardabweichungen zum Mittelwert} mit:
 \begin{equation}
 	\increment\overline{x} = \sqrt{\frac{1}{N\cdot(N-1)}\cdot\sum_{i=1}^N (x_i-\overline{x})^2}
 	\label{eqn:St_Mittelwert}
-\end{equation}
 
 Der Fehler für zusammenhängende Messwerte wird dann mit der \textbf{Gaußschen
 	Fehlerfortpflanzung} berechnet:
