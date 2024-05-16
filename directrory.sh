@@ -9,7 +9,7 @@ printf "all: build/$Name.pdf
 build/plot1.pdf: plot1.py data1.txt | build
 	python plot1.py
 
-build/$Name.pdf: $Name.tex | build
+build/$Name.pdf: $Name.tex lit.bib programme.bib | build
 	lualatex --output-directory=build --interaction=batchmode --halt-on-error $Name.tex
 	BIBINPUTS=..:
 	biber build/$Name.bcf
