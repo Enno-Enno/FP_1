@@ -35,16 +35,18 @@ print(N_un[peak])
 plt.figure(constrained_layout=True)
 plt.bar(x_un,N_un,width=m,label="Messdaten Unbekannt")
 plt.plot(peak*m,N_un[peak],"rx",label="Peak")
-plt.xlabel("Energie E [kev]")
+plt.xlabel(r"Energie $E \, [\mathrm{KeV}]$")
 plt.ylabel("Anzahl N")
 plt.yscale("log")
 plt.xlim(a*m,b*m)
 plt.legend()
-plt.show()
+plt.savefig("build/plt9_Un.pdf")
+#plt.show()
 
 
 #Gaußanpassung
 d=25
+x_un=x_un/m
 
 h=np.zeros(len(peak)); h_f=np.zeros(len(peak))
 u=np.zeros(len(peak)); u_f=np.zeros(len(peak))
@@ -55,7 +57,7 @@ plt.figure(constrained_layout=True)
 
 for i in range(len(peak)):
 
-    par, cov=curve_fit(fktn.gauß,x_un[peak[i]-d:peak[i]+d],N_un[peak[i]-d:peak[i]+d], p0=[12,m*peak[i],1,1],sigma=np.sqrt(N_un[peak[i]-d:peak[i]+d])+0.01)
+    par, cov=curve_fit(fktn.gauß,x_un[peak[i]-d:peak[i]+d],N_un[peak[i]-d:peak[i]+d], p0=[12,peak[i],1,1],sigma=np.sqrt(N_un[peak[i]-d:peak[i]+d])+0.01)
     par = unc.correlated_values(par, cov)
     h[i] = float(unp.nominal_values(par[0]))
     u[i] = float(unp.nominal_values(par[1]))
@@ -69,13 +71,12 @@ for i in range(len(peak)):
     x=np.linspace(x_un[peak[i]-d],x_un[peak[i]+d],1000)
     
     plt.subplot(7,2,i+1)
-    plt.bar(x_un[peak[i]-d:peak[i]+d],N_un[peak[i]-d:peak[i]+d],width=m,yerr=np.sqrt(N_un[peak[i]-d:peak[i]+d]),label=f"Messdaten Peak {i+1}")
+    plt.bar(x_un[peak[i]-d:peak[i]+d],N_un[peak[i]-d:peak[i]+d],width=1,yerr=np.sqrt(N_un[peak[i]-d:peak[i]+d]),label=f"Messdaten Peak {i+1}")
     plt.plot(x,fktn.gauß(x,h[i],u[i],s[i],g[i]),"g-",label="Gauß-Fit")
     plt.xlabel(r"Energie $E \, [\mathrm{KeV}]$")
     plt.xlim(x_un[peak[i]-d],x_un[peak[i]+d])
     plt.legend()
     
-#plt.savefig("build/plt3_Gauß.pdf")
 #plt.show()
 
 h=unp.uarray(h,h_f)
@@ -85,3 +86,4 @@ g=unp.uarray(g,g_f)
 
 I=np.sqrt(2*np.pi)*h*s
 print(I)
+print(u*m)

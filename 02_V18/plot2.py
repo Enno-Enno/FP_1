@@ -14,7 +14,6 @@ m=0.20734414185681416
 #Funktionen:
 ## In anderer Datei!
 
-
 WQ_compton = lambda E_gamma,theta: fktn.WQ_compton
 
 
@@ -29,8 +28,8 @@ for index, val in enumerate(n_cs[a:b]):
     N_cs[index]=val
     
     
-peak,_=find_peaks(N_cs,height=70)
-peak2,_=find_peaks(N_cs[2200:2500],height=42,distance=10)
+peak,_=find_peaks(N_cs,height=70,distance=50)
+peak2,_=find_peaks(N_cs[2200:2500],height=42,distance=50)
 peak2=peak2+2200
 peak=np.concatenate([peak, peak2])
 print("Peak Energien Cs",peak)
@@ -40,17 +39,18 @@ print(N_cs[peak])
 plt.figure(constrained_layout=True)
 plt.bar(x_cs,N_cs,width=m,label="Messdaten 137Cs")
 plt.plot(m*peak,N_cs[peak],"rx",label="Peak")
-plt.xlabel("Energie")
+plt.xlabel(r"Energie $E \, [\mathrm{KeV}]$")
 plt.ylabel("Anzahl N")
 plt.yscale("log")
 plt.xlim(a*m,b*m)
 plt.legend()
+plt.savefig("build/plt5_Cs.pdf")
 #plt.show()
 
 #Zentelbreite und Halbwertsbreite Inhalt Gauß
 d=15
 
-par, cov=curve_fit(fktn.gauß,x_cs[peak[4]-d:peak[4]+d],N_cs[peak[4]-d:peak[4]+d], p0=[12,m*peak[4],1,1] ,sigma=np.sqrt(N_cs[peak[4]-d:peak[4]+d])+0.01)
+par, cov=curve_fit(fktn.gauß,x_cs[peak[2]-d:peak[2]+d],N_cs[peak[2]-d:peak[2]+d], p0=[12,m*peak[2],1,1] ,sigma=np.sqrt(N_cs[peak[2]-d:peak[2]+d])+0.01)
 par = unc.correlated_values(par, cov)
 h = float(unp.nominal_values(par[0]))
 u = float(unp.nominal_values(par[1]))
@@ -68,16 +68,17 @@ delta_xZ=s*np.sqrt(2*np.log(10*h/(h-g))) #Zentelbreite
 xZ=np.linspace(u-delta_xZ,u+delta_xZ,1000)
 
 
-x=np.linspace(x_cs[peak[4]-d],x_cs[peak[4]+d],1000)
+x=np.linspace(x_cs[peak[2]-d],x_cs[peak[2]+d],1000)
 
 plt.figure(constrained_layout=True)
-plt.bar(x_cs[peak[4]-d:peak[4]+d],N_cs[peak[4]-d:peak[4]+d],width=m,yerr=np.sqrt(N_cs[peak[4]-d:peak[4]+d]),label=f"Messdaten Photopeak ")
+plt.bar(x_cs[peak[2]-d:peak[2]+d],N_cs[peak[2]-d:peak[2]+d],width=m,yerr=np.sqrt(N_cs[peak[2]-d:peak[2]+d]),label=f"Messdaten Photopeak ")
 plt.plot(x,fktn.gauß(x,h,u,s,g),"g-",label="Gauß-Fit")
-plt.plot(xH,fktn.f(xH,0.000001,0.5*h),"y--", label="Halb Peak Breite")
-plt.plot(xZ,fktn.f(xZ,0.000001,0.1*h),"r--", label="Zehntel Peak Breite")
+plt.plot(xH,fktn.f(xH,0.000001,0.5*h),"y--", label="Halbwertsbreite")
+plt.plot(xZ,fktn.f(xZ,0.000001,0.1*h),"r--", label="Zehntelwertsbreite")
 plt.xlabel(r"Energie $E \, [\mathrm{KeV}]$")
 plt.xlim(u-3,u+3)
 plt.legend()
+plt.savefig("build/plt6_Ph_peak.pdf")
 #plt.show()
 
 h=unp.uarray(h,h_f)
@@ -99,7 +100,7 @@ Comtonkante = fktn.E_kante(E_Cs)
 Rückstrahlpeak = fktn.E_rück(E_Cs)
 d=50
 
-par, cov=curve_fit(fktn.WQ_Energie,x_cs[peak[2]+d:peak[5]+d],N_cs[peak[2]+d:peak[5]+d],p0=[E_Cs,3,10],sigma=np.sqrt(N_cs[peak[2]+d:peak[5]+d]))
+par, cov=curve_fit(fktn.WQ_Energie,x_cs[peak[1]+d:peak[-1]+d],N_cs[peak[1]+d:peak[-1]+d],p0=[E_Cs,3,10],sigma=np.sqrt(N_cs[peak[1]+d:peak[-1]+d]))
 par = unc.correlated_values(par, cov)
 E = float(unp.nominal_values(par[0]))
 k = float(unp.nominal_values(par[1]))
@@ -109,17 +110,18 @@ print(E,k,unterG)
 x=np.linspace(Rückstrahlpeak,Comtonkante,1000)
 
 plt.figure(constrained_layout=True)
-plt.bar(x_cs[peak[2]-d:peak[5]+150],N_cs[peak[2]-d:peak[5]+150],width=m,label="Messdaten 137Cs")
+plt.bar(x_cs[peak[1]-d:peak[-1]+150],N_cs[peak[1]-d:peak[-1]+150],width=m,label="Messdaten 137Cs")
 plt.plot(x,fktn.WQ_Energie(x,E,k,unterG),"m", label= "Compton fit ")
-plt.axvline(Comtonkante,color="m",label="Comtonkante")
-plt.axvline(Rückstrahlpeak,color="m",label="Rückstrahlpeak")
-#plt.plot(m*peak,N_cs[peak],"rx",label="Peak")
-plt.xlabel("Energie")
+plt.axvline(Comtonkante,color="m",ls="--",label="Comtonkante")
+plt.axvline(Rückstrahlpeak,color="m",ls="-.",label="Rückstrahlpeak")
+plt.plot(m*peak,N_cs[peak],"rx",label="Peak")
+plt.xlabel(r"Energie $E \, [\mathrm{KeV}]$")
 plt.ylabel("Anzahl N")
 plt.yscale("log")
-plt.xlim(x_cs[peak[2]-d],x_cs[peak[5]+150])
+plt.xlim(x_cs[peak[1]-d],x_cs[peak[-1]+150])
 plt.ylim(1,200)
 plt.legend()
+plt.savefig("build/plt7_Compton.pdf")
 #plt.show()
 
 
@@ -156,11 +158,12 @@ print(N_ba[peak_ba])
 plt.figure(constrained_layout=True)
 plt.bar(x_ba,N_ba,width=m,label="Messdaten 133Ba")
 plt.plot(m*peak_ba,N_ba[peak_ba],"rx",label="Peak")
-plt.xlabel("Energie E [kev]")
+plt.xlabel(r"Energie $E \, [\mathrm{KeV}]$")
 plt.ylabel("Anzahl N")
 plt.yscale("log")
 plt.xlim(a*m,b*m)
 plt.legend()
+plt.savefig("build/plt8_Ba.pdf")
 #plt.show()
 
 #Gaußanpassung
@@ -212,6 +215,7 @@ Q=fktn.potenz(peak_ba*m,3776.17,-0.905)/100
 print(Q)
 A=I*4*np.pi/(theta*Q*W*T)
 
+print(A)
 print(np.mean(A))
 
 #------------------------------------------------------------------------------------------------
