@@ -8,7 +8,7 @@ from scipy.signal import find_peaks
 import fktn
 
 #Aus Plot1.py:
-m=0.20734414185681416
+m, a1, b1, c1 = np.genfromtxt("build/data.txt", unpack=True)
 
 #Unbekannt
 

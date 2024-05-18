@@ -50,9 +50,9 @@ def gauß(x,h,u,s,g):
 def f(x, m, c):
     return m*x+c 
 
-def potenz(x,a,b):
+def potenz(x,a,b,c):
     #potenz=np.exp(a+b*np.log(x)+c*np.log(x)**2+d*np.log(x)**3)
-    potenz=a*x**b 
+    potenz=a*(x-c)**b 
     return potenz
 
 

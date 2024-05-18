@@ -257,10 +257,10 @@ bestimmt.
 
 Die Parameter dieser Ausgleichsgerade sind:
 
-\begin{align}
+\begin{align*}
 	m&=\qty[per-mode=fraction]{0.2073(0.0001)}{\kilo\eV\per\channel}\\
 	b&=\qty{-1.026(0.327)}{\kilo\eV}
-\end{align}
+\end{align*}
 
 Damit ist die Energiekalibrierung des Detektors abgeschlossen und jedem Channel kann linear ein Energiewert zugeordnet werden. 
 
@@ -347,19 +347,27 @@ Da die Vollenergienachweiswahrscheinlichkeit nicht konstant ist, sondern von der
 und eine Potenzfunktion der Form
 
 \begin{equation}
-	p(x)=ax^2
+	p(x)=a \cdot (x-b)^c
 \end{equation}
 
 gefittet. 
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{build/plt4_Q.pdf}
 	\caption{Q in Abhängigkeit der Energie}
 	\label{fig:Eu_Q}
 \end{figure}
 
+Die  Werte dieser Parameter ergeben
 
+\begin{align*}
+	a&=\num{349803(723942)}\\
+	b&=\qty{-205.7(97.1)}{\kilo\eV}\\
+	c&=\num{-1.54(0.28)}
+\end{align*}
+
+und werden im Laufe dieser Auswertung noch weiter verwendete werden. 
 
 
 \begin{figure}

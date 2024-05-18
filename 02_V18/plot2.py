@@ -9,7 +9,7 @@ import fktn ## Enthält die Hilfreichen Funktionen fürs Compton Fitten :)
 
 
 #Aus Plot1.py:
-m=0.20734414185681416
+m, a1, b1, c1 = np.genfromtxt("build/data.txt", unpack=True)
 
 #Funktionen:
 ## In anderer Datei!
@@ -211,7 +211,7 @@ g=unp.uarray(g,g_f)
 I=np.sqrt(2*np.pi)*h*s
 theta=2*np.pi*(1-unp.cos(unp.arctan(22.5/85)))
 T=3816
-Q=fktn.potenz(peak_ba*m,3776.17,-0.905)/100
+Q=fktn.potenz(peak_ba*m,a1,b1,c1)/100
 print(Q)
 A=I*4*np.pi/(theta*Q*W*T)
 
