@@ -1,0 +1,1 @@
+{"rule":"DE_AGREEMENT","sentence":"^\\QDadurch lassen sich die Peaks in einem Energie zu Channel Diagramm\\E$"}

@@ -224,61 +224,177 @@ Die
 
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
-
+\newpage
 \section{Auswertung}
+\subsection{Energiekalibrierung}
+Um den Detektor zu kalibrieren, müssen zuerst die Peaks im Spektrum gefunden werden, um diese dann mit der Literatur zu vergleichen. 
+Dafür wird aus dem Spektrum der Euridium Quelle 
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{build/plt1_Eu.pdf}
 	\caption{Aufgenommenes Spektrum 152Eu}\label{fig:Eu_spektrum}
 \end{figure}
 
-\begin{figure}
+die Peaks mittels $find-peaks$ von $scipy$ \cite{scipy} ermittelt.
+Jeder Zählrate wird einem Channel zugeordnet, dessen Energie jedoch unbekannt ist. 
+Bei der Kalibrierung des Detektors wird die Position der charakteristischen Peaks mit der aus Literatur \cite{web:Eu}
+bestimmten Energie des Peaks verbunden. 
+Dadurch lassen sich die Peaks in einem Energie zu Channel Diagramm \eqref{fig:Eu_Fit} eintragen. 
+Der sich ergebene linearer Zusammenhang wird durch eine Ausgleichsgerade der Form 
+
+\begin{equation}
+	E=m \cdot x +b
+\end{equation}
+
+bestimmt.
+
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{build/plt2_Fit.pdf}
-	\caption{Ausgeglichenes Absorptionsspektrum}\label{fig:Eu_Fit}
+	\caption{Channel Energie Beziehung}\label{fig:Eu_Fit}
 \end{figure}
+
+Die Parameter dieser Ausgleichsgerade sind:
+
+\begin{align}
+	m&=\qty[per-mode=fraction]{0.2073(0.0001)}{\kilo\eV\per\channel}\\
+	b&=\qty{-1.026(0.327)}{\kilo\eV}
+\end{align}
+
+Damit ist die Energiekalibrierung des Detektors abgeschlossen und jedem Channel kann linear ein Energiewert zugeordnet werden. 
+
+\subsection{Vollenergienachweiswahrscheinlichkeit $Q$}
+\subsubsection{Linieninhalt $Z$}
+Um die Vollenergienachweiswahrscheinlichkeit $Q$ des Detektors zu bestimmen, muss zuerst der Linieninhalt $Z$ der Einzellen Peaks bestimmt werden. 
+Dazu wird eine Gaußkurve 
+
+\begin{equation}
+	g(x)=h\cdot \exp(\frac{(x-\mu )^2}{2\sigma^2})+g
+\end{equation}
+
+an jeden Einzellen Peak mittels $curve-fit$ von $scipy$ \cite{scipy} gefittet. 
+Dabei stellt $h$ die Höhe, $\mu$ den Mittelwert, $\sigma$ die Standardabweichung und $g$ den störenden Hintergrund des Peaks dar. 
+Beim Fitten wurde die statistische Abweichung $\sqrt{N}$ der Zahlrate $N$ berücksichtigt, 
+sowie eine geschätzte Breite eines Peaks von $25$ Channel in jede Richtung angenommen. 
+Die verschiedenen Gaußkurven für die 8 unterschiedlichen Peaks sind in Abbildung \eqref{fig:Gauß} gezeigt. 
+Für alle Zukünftigen Gaußfits in der Auswertung werden diese nicht mehr explizit geplottet. 
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plt3_Gauß.pdf}
-	\caption{Ausgeglichenes Absorptionsspektrum}\label{fig:Gauß}
+	\caption{Gaußfits der Peaks im Eu-Spektrum}
+	\label{fig:Gauß}
 \end{figure}
+
+Um den Linieninhalt der Peaks schließlich zu berechnen wird die Fläche unter der Gaußkurve mittels 
+
+\begin{equation}
+	Z=\sqrt{2\pi}\cdot h\sigma
+\end{equation}
+
+bestimmt.
+Die Ergebnisse sind in der Tabelle ... zu finden. 
+
+\newpage
+\subsubsection{Berechnung von $Q$}
+Für die Berechnung der Vollenergienachweiswahrscheinlichkeit wird Formel ... nach 
+
+\begin{equation}
+	Q=\frac{4\pi \cdot Z}{\Omega \cdot AWT}
+\end{equation}
+
+umgestellt. 
+Der Raumwinkel $\frac{\Omega}{4\pi}=0.0167 $ wird über der Formel \eqref{eq:raumwinkel} mit $r=\qty{22.5}{\milli\meter}$ und $d=\qty{85}{\milli\meter}$ berechnet.
+Die aktuelle Aktivität der Eu-Probe muss aus der Ausgangsaktivität $A_0=\qty{4130(60)}{\becquerel}$ bei der Herstellung am (01.10.2000) \cite{man:v18} berechnet werden. 
+Dazu wird das Zerfallsgesetz 
+
+\begin{equation}
+	A(t)=A_0 \cdot exp(-\frac{\ln(2)}{\tau }\cdot t)
+\end{equation}
+
+mit $\tau=\qty{13.5}{\year} $ benutzt. 
+Nach mehr als 23 Jahren ergibt sich damit eine Aktivität von
+
+\begin{equation}
+	A=\qty{1232(18)}{\becquerel}
+\end{equation}
+
+Zusammen mit den Emissionswahrscheinlichkeiten aus der Literatur \cite{web:Eu} und einer Messzeit von $T=\qty{3413}{\second}$
+ergeben sich folgende Werte:
+
+\begin{table}[H]
+    \centering
+    \caption{Ergebnisse Vollenergienachweiswahrscheinlichkeit}
+    \begin{tabular}{c c c c c}
+        \toprule
+        \text{Channel}& $ E [\unit{\kilo\eV}] $ & $ Z $ & $ W [\%] $ & $ Q [\%] $\\
+        \midrule
+            594  & \num{123.2(0.1)} & \num{9202.0(261.5)} & \num{28.6} & \num{46.00(01.47)} \\
+            1186 & \num{245.9(0.1)} & \num{1522.4(69.0)}  & \num{7.6}  & \num{28.68(01.36)} \\ 
+            1666 & \num{345.4(0.2)} & \num{3784.6(130.4)} & \num{26.5} & \num{20.40(00.76)} \\ 
+            1985 & \num{411.6(0.2)} & \num{317.4(40.4)}   & \num{2.2}  & \num{20.30(02.60)} \\ 
+            2146 & \num{445.0(0.2)} & \num{362.7(44.4)}   & \num{2.8}  & \num{18.37(02.26)} \\ 
+            3760 & \num{779.6(0.4)} & \num{718.2(43.7)}   & \num{12.9} & \num{07.93(00.50)} \\
+            4190 & \num{868.8(0.5)} & \num{270.3(35.1)}   & \num{4.2}  & \num{09.10(01.19)} \\ 
+			4653 & \num{964.8(0.5)} & \num{694.9(61.8)}   & \num{14.7} & \num{06.80(00.61)} \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:data1}
+\end{table}
+
+Da die Vollenergienachweiswahrscheinlichkeit nicht konstant ist, sondern von der Energie abhängt, wird diese Abhängigkeit \eqref{fig:Eu_Q} geplottet 
+und eine Potenzfunktion der Form
+
+\begin{equation}
+	p(x)=ax^2
+\end{equation}
+
+gefittet. 
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plt4_Q.pdf}
-	\caption{Ausgeglichenes Absorptionsspektrum}\label{fig:Eu_Q}
+	\caption{Q in Abhängigkeit der Energie}
+	\label{fig:Eu_Q}
 \end{figure}
+
+
+
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plt5_Cs.pdf}
-	\caption{Aufgenommenes Spektrum 137Cs}\label{fig:Cs_spektrum}
+	\caption{Aufgenommenes Spektrum 137Cs}
+	\label{fig:Cs_spektrum}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plt6_Ph_peak.pdf}
-	\caption{Ausgeglichenes Absorptionsspektrum}\label{fig:Cs_peak}
+	\caption{Ausgeglichenes Absorptionsspektrum}
+	\label{fig:Cs_peak}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plt7_Compton.pdf}
-	\caption{Ausgeglichenes Absorptionsspektrum}\label{fig:Compton}
+	\caption{Ausgeglichenes Absorptionsspektrum}
+	\label{fig:Compton}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plt8_Ba.pdf}
-	\caption{Aufgenommenes Spektrum 133Ba}\label{fig:Ba_spektrum}
+	\caption{Aufgenommenes Spektrum 133Ba}
+	\label{fig:Ba_spektrum}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plt9_Un.pdf}
-	\caption{Unbekanntes Spektrum}\label{fig:Un_spektrum}
+	\caption{Unbekanntes Spektrum}
+	\label{fig:Un_spektrum}
 \end{figure}
 
 

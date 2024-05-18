@@ -50,7 +50,7 @@ c = float(unp.nominal_values(par[1]))
 m_f= float(unp.std_devs(par[0]))
 c_f= float(unp.std_devs(par[1]))
 
-print(m,c)
+print(m,m_f, c,c_f)
 
 plt.figure(constrained_layout=True)
 plt.plot(x,fktn.f(x,m,c),"b-",label="Ausgleichsgerade")
@@ -63,7 +63,7 @@ plt.legend()
 plt.savefig("build/plt2_Fit.pdf")
 #plt.show()
 
-#x_eu=m*x_eu
+print(unc.ufloat(m,m_f)*peak)
 
 
 #Gaußanpassung
@@ -96,8 +96,8 @@ for i in range(len(peak)):
     #plt.errorbar(x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d],yerr=np.sqrt(N_eu[peak[i]-d:peak[i]+d]),fmt="r")
     plt.bar(x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d],width=1,yerr=np.sqrt(N_eu[peak[i]-d:peak[i]+d]),label=f"{i+1}")
     plt.plot(x,fktn.gauß(x,h[i],u[i],s[i],g[i]),"g-")#,label="Gauß-Fit")
-    plt.xlabel(r"Energie $E \, [\mathrm{KeV}]$")
-    plt.xlim(x_eu[peak[i]-d],x_eu[peak[i]+d])
+    #plt.xlabel(r"Energie $E \, [\mathrm{KeV}]$")
+    plt.xlim(x_eu[peak[i]-15],x_eu[peak[i]+15])
     plt.legend()
     
 plt.savefig("build/plt3_Gauß.pdf")
@@ -118,7 +118,7 @@ I=np.sqrt(2*np.pi)*h*s
 A=unc.ufloat(4130,60)*np.exp(-np.log(2)*(215+23*365)/(13.516*365))
 theta=2*np.pi*(1-unp.cos(unp.arctan(22.5/85)))
 #theta=2*np.pi*(1-85/np.sqrt(85**2+22.5**2))
-print("n/ ",theta/4/np.pi)
+print(theta/4/np.pi,A)
 print(I)
 
 
