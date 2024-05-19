@@ -64,7 +64,7 @@ g_f= float(unp.std_devs(par[3]))
 delta_xH=s*np.sqrt(2*np.log(2*h/(h-g))) #Halbwertsbreite
 xH=np.linspace(u-delta_xH,u+delta_xH,1000)
 
-delta_xZ=s*np.sqrt(2*np.log(10*h/(h-g))) #Zentelbreite
+delta_xZ=s*np.sqrt(2*np.log(10*h/(h-9*g))) #Zentelbreite
 xZ=np.linspace(u-delta_xZ,u+delta_xZ,1000)
 
 
@@ -86,9 +86,9 @@ u=unp.uarray(u,u_f)
 s=unp.uarray(abs(s),s_f)
 g=unp.uarray(g,g_f)
 
-print("Zentelbreite=",2*s*unp.sqrt(2*unp.log(10*h/(h-g))))
+print("Zentelbreite=",2*s*unp.sqrt(2*unp.log(10*h/(h-9*g))))
 print("Halbwertsbreite=",2*s*unp.sqrt(2*unp.log(2*h/(h-g))))
-print("Inhalt=",np.sqrt(2*np.pi)*h*s)
+print("Inhalt=",np.sqrt(2*np.pi)*h*s/m)
 
 print("\n",h, "\n ", u ,"\n" ,s ,"\n", g,"\n")
 
@@ -99,6 +99,8 @@ E_Cs = 662.46453323
 Comtonkante = fktn.E_kante(E_Cs)
 Rückstrahlpeak = fktn.E_rück(E_Cs)
 d=50
+
+print(Comtonkante,Rückstrahlpeak)
 
 par, cov=curve_fit(fktn.WQ_Energie,x_cs[peak[1]+d:peak[-1]+d],N_cs[peak[1]+d:peak[-1]+d],p0=[E_Cs,3,10],sigma=np.sqrt(N_cs[peak[1]+d:peak[-1]+d]))
 par = unc.correlated_values(par, cov)

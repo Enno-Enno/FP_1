@@ -270,7 +270,8 @@ Um die Vollenergienachweiswahrscheinlichkeit $Q$ des Detektors zu bestimmen, mus
 Dazu wird eine Gaußkurve 
 
 \begin{equation}
-	g(x)=h\cdot \exp(\frac{(x-\mu )^2}{2\sigma^2})+g
+	g(x)=h\cdot \exp(-\frac{(x-\mu )^2}{2\sigma^2})+g
+	\label{eq:Gauß}
 \end{equation}
 
 an jeden Einzellen Peak mittels $curve-fit$ von $scipy$ \cite{scipy} gefittet. 
@@ -278,7 +279,7 @@ Dabei stellt $h$ die Höhe, $\mu$ den Mittelwert, $\sigma$ die Standardabweichun
 Beim Fitten wurde die statistische Abweichung $\sqrt{N}$ der Zahlrate $N$ berücksichtigt, 
 sowie eine geschätzte Breite eines Peaks von $25$ Channel in jede Richtung angenommen. 
 Die verschiedenen Gaußkurven für die 8 unterschiedlichen Peaks sind in Abbildung \eqref{fig:Gauß} gezeigt. 
-Für alle Zukünftigen Gaußfits in der Auswertung werden diese nicht mehr explizit geplottet. 
+Für alle Zukünftigen Gaußfits in der Auswertung werden diese nicht immer explizit geplottet. 
 
 \begin{figure}
     \centering
@@ -287,18 +288,19 @@ Für alle Zukünftigen Gaußfits in der Auswertung werden diese nicht mehr expli
 	\label{fig:Gauß}
 \end{figure}
 
-Um den Linieninhalt der Peaks schließlich zu berechnen wird die Fläche unter der Gaußkurve mittels 
+Um den Linieninhalt der Peaks schließlich zu berechnen wird Gaußkurve integriert und die Fläche mittels 
 
 \begin{equation}
 	Z=\sqrt{2\pi}\cdot h\sigma
+	\label{eq:Z}
 \end{equation}
 
 bestimmt.
-Die Ergebnisse sind in der Tabelle ... zu finden. 
+Die Ergebnisse davon sind in der Tabelle ... zu finden, nachdem im folgenden Abschnitt die Vollenergienachweiswahrscheinlichkeit berechnet wird. 
 
 \newpage
 \subsubsection{Berechnung von $Q$}
-Für die Berechnung der Vollenergienachweiswahrscheinlichkeit wird Formel ... nach 
+Für die Berechnung dieser Vollenergienachweiswahrscheinlichkeit $Q$ wird Formel ... nach 
 
 \begin{equation}
 	Q=\frac{4\pi \cdot Z}{\Omega \cdot AWT}
@@ -369,27 +371,66 @@ Die  Werte dieser Parameter ergeben
 
 und werden im Laufe dieser Auswertung noch weiter verwendete werden. 
 
+\subsection{Untersuchung von 137Cs Gamma-Spektrums}
+\subsubsection{Vollenergiepeak}
+Das gemessene Gamma-Spektrum zusammen mit den gefunden Peaks ist in Abbildung \eqref{fig:Cs_spektrum} zu sehen. 
+Die Channels wurden mittels zuvor bestimmten Werten direkt zu der jeweiligen Energie umgerechnet. 
+Sowie sind die Peaks wieder mittels $find-peaks$ von $scipy$ \cite{scipy} ermittelt worden. 
+Es lässt sich im Spektrum gut die Comptonkante (Peak $3$), den Rückstrahlpeak (Peak $2$) sowie das Comptonkontinuum erkennen. 
+Des Weiteren sticht der Vollenergiepeak (Peak $4$) heraus.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{build/plt5_Cs.pdf}
 	\caption{Aufgenommenes Spektrum 137Cs}
 	\label{fig:Cs_spektrum}
 \end{figure}
 
-\begin{figure}
+Dieser wird nun weiter untersucht.
+Dazu wird wieder ein Gaußkurve gefittet \eqref{fig:Cs_peak} um den Inhalt des Peaks zu bestimmen.
+Außerdem wird der Halbwertsbreite und die Zehntelwertsbreite des Peaks durch Umstellen der Gaußkurve \eqref{eq:Gauß} nach $(x-\mu)$ über
+
+\begin{align*}
+	\frac{1}{2}g(\mu)&\stackrel{!}{=}g(x_{1/2})& &\Rightarrow &E_{1/2}&=2(x_{1/2}-\mu)=2\sigma \sqrt{2 \ln{\frac{2h}{h-g}}}\\
+	\frac{1}{10}g(\mu)&\stackrel{!}{=}g(x_{1/10})& &\Rightarrow &E_{1/10}&=2(x_{1/10}-\mu)=2\sigma \sqrt{2 \ln{\frac{10h}{h-9g}}}
+\end{align*}
+
+ermittelt.
+Der Inhalt des Vollenergiepeaks wird wieder über die Formel \eqref{eq:Z} berechnet. 
+
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{build/plt6_Ph_peak.pdf}
 	\caption{Ausgeglichenes Absorptionsspektrum}
 	\label{fig:Cs_peak}
 \end{figure}
 
-\begin{figure}
+Insgesamt ergeben sich folgende Ergebnisse:
+
+\begin{align*}
+	E_{1/2}&=\qty{2.21(0.05)}{\kilo\eV}\\
+	E_{1/10}&=\qty{4.02(0.09)}{\kilo\eV}\\
+	E_{max}&=\qty{662.48(0.02)}{\kilo\eV}\\
+	Z&=\num{1.28(0.04)e4}\\
+\end{align*}
+
+\subsubsection{Comptonkontinuum}
+Wie bereits erwähnt lässt sich der Rückstrahlpeak und die Comptonkante gut erkennen, auch wenn diese verschwommen sind. 
+In der Abbildung \eqref{fig:Compton} wird das Comptonkontinuum näher dargestellt. 
+Die theoretischen Positionen vom Rückstrahlpeak $E_{RP}$ und von der Comptonkante $E_{CK}$ werden als senkrechte Linien dargestellt. 
+Diese Werte werden über die Formeln ... und ... mit $E_{\gamma}=\qty{662.5}{\kilo\eV}$ berechnet und ergeben $E_{RP}=\qty{184.4}{\kilo\eV}$ und $E_{CK}=\qty{478.1}{\kilo\eV}$.
+
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{build/plt7_Compton.pdf}
 	\caption{Ausgeglichenes Absorptionsspektrum}
 	\label{fig:Compton}
 \end{figure}
+
+Das Comptonkontinuum wurde mittels der Klein-Nishina Formel gefittet
+
+
+
 
 \begin{figure}
     \centering
