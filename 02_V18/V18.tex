@@ -116,7 +116,7 @@ voneinander getrennt.
 %% Bild aus Gilmore einfügen
 Das Leitungsband eines Halbleiters enthält meist auch Elektronen abhängig von
 der Temperatur des Materials.
-%gleichung einfügen?
+% Gleichung einfügen?
 Um einen Halbleiter zu erhalten, der nach Möglichkeit nur von außen angeregte
 Elektronen in seinem Leitungsband hat ist es sinnvoll diesen so weit wie
 möglich herunter zu kühlen. Gamma Strahlen erzeugen in der Interaktion mit dem
@@ -162,6 +162,16 @@ Ist $2\theta$ der Öffnungswinkel des Kegels so ist \cite{wiki:raum}
 	\theta = \arctan \left(\frac{r}{d} \right)
 \end{align}\label{eq:raumwinkel}
 
+Die Anzahl $Z$ an Messungen in einem bestimmten Energiepeak hängt von dem Raumwinkel $\Omega$, der 
+Emissionswahrscheinlichkeit $W$, der Aktivität $A$ und der Vollenergienachweiswahrscheinlichkeit $Q$ ab.
+Die Vollenergienachweiswahrscheinlichkeit ist eine wichtige Kenngröße des Detektors. Sie ist das Verhältnis 
+von Photoelektrisch absorbierten Gammastrahlen, die ihre Energie vollständig abgeben und z.B. Compton,
+gestreuten Elektronen, die die Energie nur teilweise abgeben.
+\begin{align}
+	Z = \frac{\Omega}{4\pi} A W Q
+	\label{eq:Q}
+\end{align}
+
 Die entstehenden Peaks haben die Form einer Gaußverteilung.
 Bei den Peaks lässt sich die Zehntelwertsbreite und die Halbwertsbreite bestimmen.
 Wenn es sich bei diesen um gaußverteilte Werte handelt haben sie eine Halbwertsbreite von $2\sqrt{2\ln 2} \sigma$
@@ -170,18 +180,20 @@ und eine Zehntelwertsbreite von $2 \sqrt{2\ln 10}\sigma$.
 
 
 
-\subsection{Wahrscheinlichste Photonenenergien}
 
-\begin{itemize}
-	\item[\ce   {^{152}Eu}] - \qty{ 40.1186 } {\keV} \qty{37.7 (5)}{\%}
-	\item[\ce   {^{152}Eu}] - \qty{121.7817 (3)} {\keV} \qty{28.41 (13)}{\%}
-	\item[\ce   {^{152}Eu}] - \qty{344.2785 (12)} {\keV} \qty{26.59 (12)}{\%}
-	\item[\ce   {^{137}Cs}] - \qty{661.6553 (30)} {\keV} \qty{85.01 (20)}{\%}
-	\item[\ce   {^{133}Ba}] - \qty{30.9731}{\keV} \qty{62.4 (7)}{\%} x ray peak
-	\item[\ce   {^{133}Ba}] - \qty{356.0129 (7)}{\keV} \qty{62.05 (19) 	}{\%} breiterer peak
-	\item[\ce   {^{125}Sb}] - \qty{427.88}{\keV} \qty{29.6}{\%}
-\end{itemize}
-\cite{web:lara}
+
+% \subsection{Wahrscheinlichste Photonenenergien}
+
+% \begin{itemize}
+% 	\item[\ce   {^{152}Eu}] - \qty{ 40.1186 } {\keV} \qty{37.7 (5)}{\%}
+% 	\item[\ce   {^{152}Eu}] - \qty{121.7817 (3)} {\keV} \qty{28.41 (13)}{\%}
+% 	\item[\ce   {^{152}Eu}] - \qty{344.2785 (12)} {\keV} \qty{26.59 (12)}{\%}
+% 	\item[\ce   {^{137}Cs}] - \qty{661.6553 (30)} {\keV} \qty{85.01 (20)}{\%}
+% 	\item[\ce   {^{133}Ba}] - \qty{30.9731}{\keV} \qty{62.4 (7)}{\%} x ray peak
+% 	\item[\ce   {^{133}Ba}] - \qty{356.0129 (7)}{\keV} \qty{62.05 (19) 	}{\%} breiterer peak
+% 	\item[\ce   {^{125}Sb}] - \qty{427.88}{\keV} \qty{29.6}{\%}
+% \end{itemize}
+% \cite{web:lara}
 
 \subsection{Fehlerrechnung}
 Für die Fehlerrechnung werden alle \textbf{Mittelwerte} von $N$ Messungen
