@@ -5,6 +5,7 @@ from scipy.constants import physical_constants as const
 import uncertainties as unc
 import uncertainties.unumpy as unp
 from scipy.signal import find_peaks
+from scipy.integrate import quad
 import fktn ## Enthält die Hilfreichen Funktionen fürs Compton Fitten :)
 
 
@@ -107,6 +108,9 @@ par = unc.correlated_values(par, cov)
 E = float(unp.nominal_values(par[0]))
 k = float(unp.nominal_values(par[1]))
 unterG = float(unp.nominal_values(par[2]))
+E_f = float(unp.std_devs(par[0]))
+k_f = float(unp.std_devs(par[1]))
+unterG_f = float(unp.std_devs(par[2]))
 
 print(E,k,unterG)
 x=np.linspace(Rückstrahlpeak,Comtonkante,1000)
@@ -126,6 +130,8 @@ plt.legend()
 plt.savefig("build/plt7_Compton.pdf")
 #plt.show()
 
+Z_com,_ = quad(fktn.WQ_Energie,x_cs[peak[1]+d], x_cs[peak[-1]+d], args=(E,k,unterG))
+print(Z_com/m, np.sqrt(Z_com/m))
 
 #Absorbtionswahrscheinlichkeit
 l=3.9
@@ -211,6 +217,7 @@ s=unp.uarray(abs(s),s_f)
 g=unp.uarray(g,g_f)
 
 I=np.sqrt(2*np.pi)*h*s
+print("I=",I)
 theta=2*np.pi*(1-unp.cos(unp.arctan(22.5/85)))
 T=3816
 Q=fktn.potenz(peak_ba*m,a1,b1,c1)/100

@@ -105,10 +105,9 @@ Gammastrahlen sind in Abbildung \ref{fig:mu} zu sehen. Abbildung \ref{fig:z}
 \subsection{Messung von Energie in Germanium Halbleiterdetektoren \cite{book:gil}}
 
 Halbleiter Können durch das Bandstruktur Modell aus der Festkörperphysik
-beschreiben werden. Elektronen befinden sich in einem Festkörper nicht auf
-Eindeutig festgelegten Energie nieavous sondern auf Materialabhängigen
+beschreiben werden. Elektronen befinden sich in einem Festkörper nicht auf Eindeutig festgelegten Energie nieavous, sondern auf Materialabhängigen
 Energiebändern. Elektronen können die Energien zwischen diesen Bändern nicht
-annehmen. Damit ein Strom in einem Material fließen kann muss ein Elektron das
+annehmen. Damit ein Strom in einem Material fließen kann, muss ein Elektron das
 sogenannte Valenzband verlassen und ins Leitungsband des Materials wechseln. In
 einem Halbleiter sind das Valenzband (das oberste voll besetzte Band) und das
 Leitungsband durch eine Bandlücke in der Größenordnung von \qty{1}{\eV}
@@ -152,36 +151,34 @@ die Compton gestreuten Photonen im Prinzip noch weitere male mit dem Detektor
 interagieren und so eine Elektronenenergie zwischen dem Vollenergiepeak und dem
 erwarteten wert im Compton Kontinuum erreichen.
 
-
 \subsection{Dateninterpretation}
 
-Die Quellen werden mit einem festen Abstand $d$ zum zylinderförmigen Detektor mit Radius $r$  eingespannt.
-Sie strahlen gleichmäßig in alle Richtungen ab können aber nur im Kegelförmigen Raumwinkel des Detektors gemessen werden.
-Ist $2\theta$ der Öffnungswinkel des Kegels so ist \cite{wiki:raum}
+Die Quellen werden mit einem festen Abstand $d$ zum zylinderförmigen Detektor
+mit Radius $r$ eingespannt. Sie strahlen gleichmäßig in alle Richtungen ab
+können aber nur im Kegelförmigen Raumwinkel des Detektors gemessen werden. Ist
+$2\theta$ der Öffnungswinkel des Kegels so ist \cite{wiki:raum}
 \begin{align}
 	\Omega = 4 \pi sin^2\left(\frac{\theta}{2}\right) \\
 	\theta = \arctan \left(\frac{r}{d} \right)
 \end{align}\label{eq:raumwinkel}
 
-Die Anzahl $Z$ an Messungen in einem bestimmten Energiepeak hängt von dem Raumwinkel $\Omega$, der 
-Emissionswahrscheinlichkeit $W$, der Aktivität $A$ und der Vollenergienachweiswahrscheinlichkeit $Q$ ab.
-Die Vollenergienachweiswahrscheinlichkeit ist eine wichtige Kenngröße des Detektors. Sie ist das Verhältnis 
-von Photoelektrisch absorbierten Gammastrahlen, die ihre Energie vollständig abgeben und z.B. Compton,
+Die Anzahl $Z$ an Messungen in einem bestimmten Energiepeak hängt von dem
+Raumwinkel $\Omega$, der Emissionswahrscheinlichkeit $W$, der Aktivität $A$ und
+der Vollenergienachweiswahrscheinlichkeit $Q$ ab. Die
+Vollenergienachweiswahrscheinlichkeit ist eine wichtige Kenngröße des
+Detektors. Sie ist das Verhältnis von Photoelektrisch absorbierten
+Gammastrahlen, die ihre Energie vollständig abgeben und z.B. Compton,
 gestreuten Elektronen, die die Energie nur teilweise abgeben.
 \begin{align}
-	Z = \frac{\Omega}{4\pi} A W Q
+	Z = \frac{\Omega}{4\pi} A T W Q
 	\label{eq:Q}
 \end{align}
 
-Die entstehenden Peaks haben die Form einer Gaußverteilung.
-Bei den Peaks lässt sich die Zehntelwertsbreite und die Halbwertsbreite bestimmen.
-Wenn es sich bei diesen um gaußverteilte Werte handelt haben sie eine Halbwertsbreite von $2\sqrt{2\ln 2} \sigma$
-und eine Zehntelwertsbreite von $2 \sqrt{2\ln 10}\sigma$.
-
-
-
-
-
+Die entstehenden Peaks haben die Form einer Gaußverteilung. Bei den Peaks lässt
+sich die Zehntelwertsbreite und die Halbwertsbreite bestimmen. Wenn es sich bei
+diesen um gaußverteilte Werte handelt haben sie eine Halbwertsbreite von
+$2\sqrt{2\ln 2} \sigma$ und eine Zehntelwertsbreite von $2 \sqrt{2\ln
+		10}\sigma$.
 
 % \subsection{Wahrscheinlichste Photonenenergien}
 
@@ -227,34 +224,34 @@ ermittelt.
 
 \section{Durchführung \cite[vgl.][]{man:v18}}
 
-Der hier verwendete Detektor ist Zylinderförmig (l= \qty{39}{\mm}, Durchmesser = \qty{45}{\mm}) und befindet sich in einer Aluminium
-Schutzhülle. Der Abstand Detektor zur Schutzhülle beträgt \qty{1.5}{\cm}  
-
+Der hier verwendete Detektor ist Zylinderförmig (l= \qty{39}{\mm}, Durchmesser
+= \qty{45}{\mm}) und befindet sich in einer Aluminium Schutzhülle. Der Abstand
+Detektor zur Schutzhülle beträgt \qty{1.5}{\cm}
 
 \subsection{Energiekalibrierung}
-Das Energiespektrum der Euridium Quelle wird aufgenommen
-Die 
-
+Das Energiespektrum der Euridium Quelle wird aufgenommen Die
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 \newpage
 \section{Auswertung}
 \subsection{Energiekalibrierung}
-Um den Detektor zu kalibrieren, müssen zuerst die Peaks im Spektrum gefunden werden, um diese dann mit der Literatur zu vergleichen. 
-Dafür wird aus dem Spektrum der Euridium Quelle 
+Um den Detektor zu kalibrieren, müssen zuerst die Peaks im Spektrum gefunden
+werden, um diese dann mit der Literatur zu vergleichen. Dafür wird aus dem
+Spektrum der Euridium Quelle
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{build/plt1_Eu.pdf}
+	\centering
+	\includegraphics[width=\textwidth]{build/plt1_Eu.pdf}
 	\caption{Aufgenommenes Spektrum 152Eu}\label{fig:Eu_spektrum}
 \end{figure}
 
-die Peaks mittels $find-peaks$ von $scipy$ \cite{scipy} ermittelt.
-Jeder Zählrate wird einem Channel zugeordnet, dessen Energie jedoch unbekannt ist. 
-Bei der Kalibrierung des Detektors wird die Position der charakteristischen Peaks mit der aus Literatur \cite{web:Eu}
-bestimmten Energie des Peaks verbunden. 
-Dadurch lassen sich die Peaks in einem Energie zu Channel Diagramm \eqref{fig:Eu_Fit} eintragen. 
-Der sich ergebene linearer Zusammenhang wird durch eine Ausgleichsgerade der Form 
+die Peaks mittels $find-peaks$ von $scipy$ \cite{scipy} ermittelt. Jeder
+Zählrate wird einem Channel zugeordnet, dessen Energie jedoch unbekannt ist.
+Bei der Kalibrierung des Detektors wird die Position der charakteristischen
+Peaks mit der aus Literatur \cite{web:Eu} bestimmten Energie des Peaks
+verbunden. Dadurch lassen sich die Peaks in einem Energie zu Channel Diagramm
+\eqref{fig:Eu_Fit} eintragen. Der sich ergebene linearer Zusammenhang wird
+durch eine Ausgleichsgerade der Form
 
 \begin{equation}
 	E=m \cdot x +b
@@ -263,157 +260,168 @@ Der sich ergebene linearer Zusammenhang wird durch eine Ausgleichsgerade der For
 bestimmt.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{build/plt2_Fit.pdf}
+	\centering
+	\includegraphics[width=\textwidth]{build/plt2_Fit.pdf}
 	\caption{Channel Energie Beziehung}\label{fig:Eu_Fit}
 \end{figure}
 
 Die Parameter dieser Ausgleichsgerade sind:
 
 \begin{align*}
-	m&=\qty[per-mode=fraction]{0.2073(0.0001)}{\kilo\eV\per\channel}\\
-	b&=\qty{-1.026(0.327)}{\kilo\eV}
+	m & =\qty[per-mode=fraction]{0.2073(0.0001)}{\kilo\eV\per\channel} \\
+	b & =\qty{-1.026(0.327)}{\kilo\eV}
 \end{align*}
 
-Damit ist die Energiekalibrierung des Detektors abgeschlossen und jedem Channel kann linear ein Energiewert zugeordnet werden. 
+Damit ist die Energiekalibrierung des Detektors abgeschlossen und jedem Channel
+kann linear ein Energiewert zugeordnet werden.
 
 \subsection{Vollenergienachweiswahrscheinlichkeit $Q$}
 \subsubsection{Linieninhalt $Z$}
-Um die Vollenergienachweiswahrscheinlichkeit $Q$ des Detektors zu bestimmen, muss zuerst der Linieninhalt $Z$ der Einzellen Peaks bestimmt werden. 
-Dazu wird eine Gaußkurve 
+Um die Vollenergienachweiswahrscheinlichkeit $Q$ des Detektors zu bestimmen,
+muss zuerst der Linieninhalt $Z$ der Einzellen Peaks bestimmt werden. Dazu wird
+eine Gaußkurve
 
 \begin{equation}
 	g(x)=h\cdot \exp(-\frac{(x-\mu )^2}{2\sigma^2})+g
 	\label{eq:Gauß}
 \end{equation}
 
-an jeden Einzellen Peak mittels $curve-fit$ von $scipy$ \cite{scipy} gefittet. 
-Dabei stellt $h$ die Höhe, $\mu$ den Mittelwert, $\sigma$ die Standardabweichung und $g$ den störenden Hintergrund des Peaks dar. 
-Beim Fitten wurde die statistische Abweichung $\sqrt{N}$ der Zahlrate $N$ berücksichtigt, 
-sowie eine geschätzte Breite eines Peaks von $25$ Channel in jede Richtung angenommen. 
-Die verschiedenen Gaußkurven für die 8 unterschiedlichen Peaks sind in Abbildung \eqref{fig:Gauß} gezeigt. 
-Für alle Zukünftigen Gaußfits in der Auswertung werden diese nicht immer explizit geplottet. 
+an jeden Einzellen Peak mittels $curve-fit$ von $scipy$ \cite{scipy} gefittet.
+Dabei stellt $h$ die Höhe, $\mu$ den Mittelwert, $\sigma$ die
+Standardabweichung und $g$ den störenden Hintergrund des Peaks dar. Beim Fitten
+wurde die statistische Abweichung $\sqrt{N}$ der Zahlrate $N$ berücksichtigt,
+sowie eine geschätzte Breite eines Peaks von $25$ Channel in jede Richtung
+angenommen. Die verschiedenen Gaußkurven für die 8 unterschiedlichen Peaks sind
+in Abbildung \eqref{fig:Gauß} gezeigt. Für alle Zukünftigen Gaußfits in der
+Auswertung werden diese nicht immer explizit geplottet.
 
 \begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{build/plt3_Gauß.pdf}
+	\centering
+	\includegraphics[width=\textwidth]{build/plt3_Gauß.pdf}
 	\caption{Gaußfits der Peaks im Eu-Spektrum}
 	\label{fig:Gauß}
 \end{figure}
 
-Um den Linieninhalt der Peaks schließlich zu berechnen wird Gaußkurve integriert und die Fläche mittels 
+Um den Linieninhalt der Peaks schließlich zu berechnen wird Gaußkurve
+integriert und die Fläche mittels
 
 \begin{equation}
 	Z=\sqrt{2\pi}\cdot h\sigma
 	\label{eq:Z}
 \end{equation}
 
-bestimmt.
-Die Ergebnisse davon sind in der Tabelle ... zu finden, nachdem im folgenden Abschnitt die Vollenergienachweiswahrscheinlichkeit berechnet wird. 
+bestimmt. Die Ergebnisse davon sind in der Tabelle ... zu finden, nachdem im
+folgenden Abschnitt die Vollenergienachweiswahrscheinlichkeit berechnet wird.
 
 \newpage
 \subsubsection{Berechnung von $Q$}
-Für die Berechnung dieser Vollenergienachweiswahrscheinlichkeit $Q$ wird Formel ... nach 
+Für die Berechnung dieser Vollenergienachweiswahrscheinlichkeit $Q$ wird Formel
+... nach
 
 \begin{equation}
 	Q=\frac{4\pi \cdot Z}{\Omega \cdot AWT}
 \end{equation}
 
-umgestellt. 
-Der Raumwinkel $\frac{\Omega}{4\pi}=0.0167 $ wird über der Formel \eqref{eq:raumwinkel} mit $r=\qty{22.5}{\milli\meter}$ und $d=\qty{85}{\milli\meter}$ berechnet.
-Die aktuelle Aktivität der Eu-Probe muss aus der Ausgangsaktivität $A_0=\qty{4130(60)}{\becquerel}$ bei der Herstellung am (01.10.2000) \cite{man:v18} berechnet werden. 
-Dazu wird das Zerfallsgesetz 
+umgestellt. Der Raumwinkel $\frac{\Omega}{4\pi}=0.0167 $ wird über der Formel
+\eqref{eq:raumwinkel} mit $r=\qty{22.5}{\milli\meter}$ und
+$d=\qty{85}{\milli\meter}$ berechnet. Die aktuelle Aktivität der Eu-Probe muss
+aus der Ausgangsaktivität $A_0=\qty{4130(60)}{\becquerel}$ bei der Herstellung
+am (01.10.2000) \cite{man:v18} berechnet werden. Dazu wird das Zerfallsgesetz
 
 \begin{equation}
 	A(t)=A_0 \cdot exp(-\frac{\ln(2)}{\tau }\cdot t)
 \end{equation}
 
-mit $\tau=\qty{13.5}{\year} $ benutzt. 
-Nach mehr als 23 Jahren ergibt sich damit eine Aktivität von
+mit $\tau=\qty{13.5}{\year} $ benutzt. Nach mehr als 23 Jahren ergibt sich
+damit eine Aktivität von
 
 \begin{equation}
 	A=\qty{1232(18)}{\becquerel}
 \end{equation}
 
-Zusammen mit den Emissionswahrscheinlichkeiten aus der Literatur \cite{web:Eu} und einer Messzeit von $T=\qty{3413}{\second}$
-ergeben sich folgende Werte:
+Zusammen mit den Emissionswahrscheinlichkeiten aus der Literatur \cite{web:Eu}
+und einer Messzeit von $T=\qty{3413}{\second}$ ergeben sich folgende Werte:
 
 \begin{table}[H]
-    \centering
-    \caption{Ergebnisse Vollenergienachweiswahrscheinlichkeit}
-    \begin{tabular}{c c c c c}
-        \toprule
-        \text{Channel}& $ E [\unit{\kilo\eV}] $ & $ Z $ & $ W [\%] $ & $ Q [\%] $\\
-        \midrule
-            594  & \num{123.2(0.1)} & \num{9202.0(261.5)} & \num{28.6} & \num{46.00(01.47)} \\
-            1186 & \num{245.9(0.1)} & \num{1522.4(69.0)}  & \num{7.6}  & \num{28.68(01.36)} \\ 
-            1666 & \num{345.4(0.2)} & \num{3784.6(130.4)} & \num{26.5} & \num{20.40(00.76)} \\ 
-            1985 & \num{411.6(0.2)} & \num{317.4(40.4)}   & \num{2.2}  & \num{20.30(02.60)} \\ 
-            2146 & \num{445.0(0.2)} & \num{362.7(44.4)}   & \num{2.8}  & \num{18.37(02.26)} \\ 
-            3760 & \num{779.6(0.4)} & \num{718.2(43.7)}   & \num{12.9} & \num{07.93(00.50)} \\
-            4190 & \num{868.8(0.5)} & \num{270.3(35.1)}   & \num{4.2}  & \num{09.10(01.19)} \\ 
-			4653 & \num{964.8(0.5)} & \num{694.9(61.8)}   & \num{14.7} & \num{06.80(00.61)} \\
-        \bottomrule
-    \end{tabular}
-    \label{tab:data1}
+	\centering
+	\caption{Ergebnisse Vollenergienachweiswahrscheinlichkeit}
+	\begin{tabular}{c c c c c}
+		\toprule
+		\text{Channel} & $ E [\unit{\kilo\eV}] $ & $ Z $               & $ W [\%] $ & $ Q [\%] $         \\
+		\midrule
+		594            & \num{123.2(0.1)}        & \num{9202.0(261.5)} & \num{28.6} & \num{46.00(01.47)} \\
+		1186           & \num{245.9(0.1)}        & \num{1522.4(69.0)}  & \num{7.6}  & \num{28.68(01.36)} \\
+		1666           & \num{345.4(0.2)}        & \num{3784.6(130.4)} & \num{26.5} & \num{20.40(00.76)} \\
+		1985           & \num{411.6(0.2)}        & \num{317.4(40.4)}   & \num{2.2}  & \num{20.30(02.60)} \\
+		2146           & \num{445.0(0.2)}        & \num{362.7(44.4)}   & \num{2.8}  & \num{18.37(02.26)} \\
+		3760           & \num{779.6(0.4)}        & \num{718.2(43.7)}   & \num{12.9} & \num{07.93(00.50)} \\
+		4190           & \num{868.8(0.5)}        & \num{270.3(35.1)}   & \num{4.2}  & \num{09.10(01.19)} \\
+		4653           & \num{964.8(0.5)}        & \num{694.9(61.8)}   & \num{14.7} & \num{06.80(00.61)} \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:data1}
 \end{table}
 
-Da die Vollenergienachweiswahrscheinlichkeit nicht konstant ist, sondern von der Energie abhängt, wird diese Abhängigkeit \eqref{fig:Eu_Q} geplottet 
-und eine Potenzfunktion der Form
+Da die Vollenergienachweiswahrscheinlichkeit nicht konstant ist, sondern von
+der Energie abhängt, wird diese Abhängigkeit \eqref{fig:Eu_Q} geplottet und
+eine Potenzfunktion der Form
 
 \begin{equation}
 	p(x)=a \cdot (x-b)^c
 \end{equation}
 
-gefittet. 
+gefittet.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{build/plt4_Q.pdf}
+	\centering
+	\includegraphics[width=\textwidth]{build/plt4_Q.pdf}
 	\caption{Q in Abhängigkeit der Energie}
 	\label{fig:Eu_Q}
 \end{figure}
 
-Die  Werte dieser Parameter ergeben
+Die Werte dieser Parameter ergeben
 
 \begin{align*}
-	a&=\num{349803(723942)}\\
-	b&=\qty{-205.7(97.1)}{\kilo\eV}\\
-	c&=\num{-1.54(0.28)}
+	a & =\num{349803(723942)}         \\
+	b & =\qty{-205.7(97.1)}{\kilo\eV} \\
+	c & =\num{-1.54(0.28)}
 \end{align*}
 
-und werden im Laufe dieser Auswertung noch weiter verwendete werden. 
+und werden im Laufe dieser Auswertung noch weiter verwendete werden.
 
 \subsection{Untersuchung von 137Cs Gamma-Spektrums}
 \subsubsection{Vollenergiepeak}
-Das gemessene Gamma-Spektrum zusammen mit den gefunden Peaks ist in Abbildung \eqref{fig:Cs_spektrum} zu sehen. 
-Die Channels wurden mittels zuvor bestimmten Werten direkt zu der jeweiligen Energie umgerechnet. 
-Sowie sind die Peaks wieder mittels $find-peaks$ von $scipy$ \cite{scipy} ermittelt worden. 
-Es lässt sich im Spektrum gut die Comptonkante (Peak $3$), den Rückstrahlpeak (Peak $2$) sowie das Comptonkontinuum erkennen. 
-Des Weiteren sticht der Vollenergiepeak (Peak $4$) heraus.
+Das gemessene Gamma-Spektrum zusammen mit den gefunden Peaks ist in Abbildung
+\eqref{fig:Cs_spektrum} zu sehen. Die Channels wurden mittels zuvor bestimmten
+Werten direkt zu der jeweiligen Energie umgerechnet. Sowie sind die Peaks
+wieder mittels $find-peaks$ von $scipy$ \cite{scipy} ermittelt worden. Es lässt
+sich im Spektrum gut die Comptonkante (Peak $3$), den Rückstrahlpeak (Peak $2$)
+sowie das Comptonkontinuum erkennen. Des Weiteren sticht der Vollenergiepeak
+(Peak $4$) heraus.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{build/plt5_Cs.pdf}
+	\centering
+	\includegraphics[width=\textwidth]{build/plt5_Cs.pdf}
 	\caption{Aufgenommenes Spektrum 137Cs}
 	\label{fig:Cs_spektrum}
 \end{figure}
 
-Dieser wird nun weiter untersucht.
-Dazu wird wieder ein Gaußkurve gefittet \eqref{fig:Cs_peak} um den Inhalt des Peaks zu bestimmen.
-Außerdem wird der Halbwertsbreite und die Zehntelwertsbreite des Peaks durch Umstellen der Gaußkurve \eqref{eq:Gauß} nach $(x-\mu)$ über
+Dieser wird nun weiter untersucht. Dazu wird wieder ein Gaußkurve gefittet
+\eqref{fig:Cs_peak} um den Inhalt des Peaks zu bestimmen. Außerdem wird der
+Halbwertsbreite und die Zehntelwertsbreite des Peaks durch Umstellen der
+Gaußkurve \eqref{eq:Gauß} nach $(x-\mu)$ über
 
 \begin{align*}
-	\frac{1}{2}g(\mu)&\stackrel{!}{=}g(x_{1/2})& &\Rightarrow &E_{1/2}&=2(x_{1/2}-\mu)=2\sigma \sqrt{2 \ln{\frac{2h}{h-g}}}\\
-	\frac{1}{10}g(\mu)&\stackrel{!}{=}g(x_{1/10})& &\Rightarrow &E_{1/10}&=2(x_{1/10}-\mu)=2\sigma \sqrt{2 \ln{\frac{10h}{h-9g}}}
+	\frac{1}{2}g(\mu)  & \stackrel{!}{=}g(x_{1/2})  &  & \Rightarrow & E_{1/2}  & =2(x_{1/2}-\mu)=2\sigma \sqrt{2 \ln{\frac{2h}{h-g}}}    \\
+	\frac{1}{10}g(\mu) & \stackrel{!}{=}g(x_{1/10}) &  & \Rightarrow & E_{1/10} & =2(x_{1/10}-\mu)=2\sigma \sqrt{2 \ln{\frac{10h}{h-9g}}}
 \end{align*}
 
-ermittelt.
-Der Inhalt des Vollenergiepeaks wird wieder über die Formel \eqref{eq:Z} berechnet. 
+ermittelt. Der Inhalt des Vollenergiepeaks wird wieder über die Formel
+\eqref{eq:Z} berechnet.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{build/plt6_Ph_peak.pdf}
+	\centering
+	\includegraphics[width=\textwidth]{build/plt6_Ph_peak.pdf}
 	\caption{Ausgeglichenes Absorptionsspektrum}
 	\label{fig:Cs_peak}
 \end{figure}
@@ -421,45 +429,76 @@ Der Inhalt des Vollenergiepeaks wird wieder über die Formel \eqref{eq:Z} berech
 Insgesamt ergeben sich folgende Ergebnisse:
 
 \begin{align*}
-	E_{1/2}&=\qty{2.21(0.05)}{\kilo\eV}\\
-	E_{1/10}&=\qty{4.02(0.09)}{\kilo\eV}\\
-	E_{max}&=\qty{662.48(0.02)}{\kilo\eV}\\
-	Z&=\num{1.28(0.04)e4}\\
+	E_{1/2}  & =\qty{2.21(0.05)}{\kilo\eV}   \\
+	E_{1/10} & =\qty{4.02(0.09)}{\kilo\eV}   \\
+	E_{max}  & =\qty{662.48(0.02)}{\kilo\eV} \\
+	Z        & =\num{1.28(0.04)e4}           \\
 \end{align*}
 
 \subsubsection{Comptonkontinuum}
-Wie bereits erwähnt lässt sich der Rückstrahlpeak und die Comptonkante gut erkennen, auch wenn diese verschwommen sind. 
-In der Abbildung \eqref{fig:Compton} wird das Comptonkontinuum näher dargestellt. 
-Die theoretischen Positionen vom Rückstrahlpeak $E_{RP}$ und von der Comptonkante $E_{CK}$ werden als senkrechte Linien dargestellt. 
-Diese Werte werden über die Formeln ... und ... mit $E_{\gamma}=\qty{662.5}{\kilo\eV}$ berechnet und ergeben $E_{RP}=\qty{184.4}{\kilo\eV}$ und $E_{CK}=\qty{478.1}{\kilo\eV}$.
+Wie bereits erwähnt lässt sich der Rückstrahlpeak und die Comptonkante gut
+erkennen, auch wenn diese verschwommen sind. In der Abbildung
+\eqref{fig:Compton} wird das Comptonkontinuum näher dargestellt. Die
+theoretischen Positionen vom Rückstrahlpeak $E_{RP}$ und von der Comptonkante
+$E_{CK}$ werden als senkrechte Linien dargestellt. Diese Werte werden über die
+Formeln ... und ... mit $E_{\gamma}=\qty{662.5}{\kilo\eV}$ berechnet und
+ergeben $E_{RP}=\qty{184.4}{\kilo\eV}$ und $E_{CK}=\qty{478.1}{\kilo\eV}$.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{build/plt7_Compton.pdf}
+	\centering
+	\includegraphics[width=\textwidth]{build/plt7_Compton.pdf}
 	\caption{Ausgeglichenes Absorptionsspektrum}
 	\label{fig:Compton}
 \end{figure}
 
-Das Comptonkontinuum wurde mittels der Klein-Nishina Formel gefittet
+Das Comptonkontinuum wurde mittels der Klein-Nishina \eqref{eq:compton_energie} Formel gefittet.
+Die Naturkonstanten wurden als konstanter Skalierungsfaktor betrachtet, um einen besseren Fit zu erreichen. 
+Dabei wurden nur die Werte hinter der Comptonkante bis kurz vor dem Rückstrahlpeak genutzt, 
+da der Bereich des Rückstrahlpeak den Fit verfälscht. 
+Um den Linieninhalt zu berechnen wird mit den ermittelten werden die Klein-Nishina Formel integriert. 
+Dazu wird von $scipy.integrate$ \cite{scipy} die Funktion $quad$ benutzt um das Integral zu approximieren. 
+Damit ergibt sich ein Linieninhalt von:
 
+\begin{equation*}
+	Z_{Compton}=\num{31.091(0.176)e3}
+\end{equation*}
 
+\subsection{Aktivitätsbestimmung}
+Die Vermessung der Barium Quelle über ein Zeitraum von $T=\qty{3816}{\second}$ ergab das in Abbildung \eqref{fig:Ba_spektrum} zu erkennen Spektrum. 
+Um die Aktivität der Quelle zu bestimmen, müssen die Linieninhalte der Peaks bestimmt werden um danach mittels der Formel \eqref{eq:Q} diese berechnen zu können. 
+Der Linieninhalt wird wie zuvor mit einem Gaußfits bestimmt. 
+Dessen Ergebnisse zusammen mit der aus der Literatur ... bestimmten Emissionswahrscheinlichkeiten und der daraus berechneten Aktivität ist der Tabelle ... zu entnehmen. 
 
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{build/plt8_Ba.pdf}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{build/plt8_Ba.pdf}
 	\caption{Aufgenommenes Spektrum 133Ba}
 	\label{fig:Ba_spektrum}
 \end{figure}
 
+\begin{table}[H]
+	\centering
+	\caption{Ergebnisse Vollenergienachweiswahrscheinlichkeit}
+	\begin{tabular}{c c c c c}
+		\toprule
+		\text{Peak} & $ E [\unit{\kilo\eV}] $ & $ Z_{Ba} $               & $ W [\%] $ & $ A [\unit{\becquerel}] $         \\
+		\midrule
+		1           & \num{82.52}         & \num{6850.29(382.71)}  & \num{34.06} & \num{560.64(31.32)} \\
+		2           & \num{277.42}        & \num{1020.26(56.61)}   & \num{7.16}  & \num{880.27(48.84)} \\
+		3           & \num{303.97}        & \num{2357.77(87.62)}   & \num{18.33} & \num{863.39(32.09)} \\
+		4           & \num{357.05}        & \num{6590.89(206.07)}  & \num{62.05} & \num{830.62(25.97)} \\
+		5           & \num{385.04}        & \num{871.814(52.94)}   & \num{8.94}  & \num{821.84(49.90)} \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:data2}
+\end{table}
+
 \begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{build/plt9_Un.pdf}
+	\centering
+	\includegraphics[width=\textwidth]{build/plt9_Un.pdf}
 	\caption{Unbekanntes Spektrum}
 	\label{fig:Un_spektrum}
 \end{figure}
-
-
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
