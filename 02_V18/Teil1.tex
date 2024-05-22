@@ -1,21 +1,47 @@
 \section{Zielsetzung}
 In diesem Versuch wird ein Germanium Energiedetektor mit einer geeichten
-\textbf{Eu} Quelle kalibriert. Die % TODO Fertig schreiben
+\textbf{Eu} Quelle kalibriert. Der kalibrierte Detektor wird anschließend
+verwendet um das Spektrum einer monochromatischen 137Cs Quelle aufzunehmen.
+Danach wird mit dem Spektrum einer 133Ba Quelle deren Aktivität bestimmt.
+Schließlich wird anhand des Spektrums eine unbekannte Quelle identifiziert.
+% TODO Fertig schreiben
 
-Stichworte:
-\begin{itemize}
-	\item Vollenergienachweiswahrscheinlichkeit
-	\item Linien des Eu Spektrums
-	\item Halbwertsbreite
-	\item Compton Kante \item
-\end{itemize}
+% Stichworte:
+% \begin{itemize}
+% \item Vollenergienachweiswahrscheinlichkeit
+% \item Linien des Eu Spektrums
+% \item Halbwertsbreite
+% \item Compton Kante \item
+% \end{itemize}
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
 \section{Theorie}
 \subsection[]{Wechselwirkung von Strahlung mit Materie}
-Aus \cite{book:knoll}. Die hauptsächlichen Wechselwirkungen von Photonen mit
-Materie die photoelektrische Absorption, die Compton Streuung und die
+Die Interaktionswahrscheinlichkeit von Gamma Strahlen mit Materie lässt sich
+durch den Dämpfungskoeffizienten $\mu$ darstellen. Die Strahlungsintensität
+fällt in dichten Materialien exponentiell ab $I ~ \exp(-\mu x)$. Dieser
+Intensitätsverlust hängt direkt mit der Wirkungsquerschnitt des materials
+zusammen und ist in $\mu$ eine additive Größe. Die Dämpfungskoeffizienten von
+Gammastrahlen sind in Abbildung \ref{fig:mu} zu sehen. Abbildung \ref{fig:z}
+
+\begin{figure}
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{./Bilder/E_mu_Gilmore.png}%
+		\caption{Linearer Dämpfungskoeffizient aus \cite{book:gil}.}\label{fig:mu}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{./Bilder/E_Z_Kolanoski.png}
+		\caption{Dominante Effekte nach $E_\gamma$ und $Z$ aus \cite{book:kolano}.}\label{fig:z}
+	\end{subfigure}
+	\caption{Interaktionswahrscheinlichkeiten von Gammastrahlen in verschiedenen Darstellungen.}\label{}
+\end{figure}
+
+Aus \cite{book:gil}. Die hauptsächlichen Wechselwirkungen von Photonen mit
+Materie sind die photoelektrische Absorption, die Compton Streuung und die
 Elektronenpaarbildung. Bei der \textbf{photoelektrischen Absorption}
 wechselwirkt das Photon mit einem im Atom gebundenen Elektron und befördert es
 aus seinem gebundenen Zustand. Die Energie des Photons wird danach von dem
@@ -24,13 +50,17 @@ findet vor allem bei niederenergetischen $\gamma$ Photonen statt. Eine grobe
 Annäherung für das Verhalten der Wechselwirkungswahrscheinlichkeit ist der
 Therm
 \begin{align}
-	\tau = \text{constant} \cdot \frac{Z^n}{E_{\gamma}^{3.5}}
-\end{align} %TODO herausfinden, was die Bedeutung von \tau ist.
-wobei $n$ zwischen 4 und 5 liegt.
+	\tau = \text{constant} \cdot \frac{Z^n}{E_{\gamma}^{m}}
+\end{align} %TODO \tau mit dem linearen <Dämpfungskoeffizienten in Verbindung bringen.
+wobei $m$ und $n$ zwischen 3 und 5 liegen \cite[vgl.][Kap 2.2.1]{book:gil}.
+$\tau$ lässt sich hier in Verbindung mit dem linearen Dämpfungskoeffizienten bringen
+\begin{align}
+	\mu_{\text{PE}} = \tau \cdot \rho \cdot N_A /A
+\end{align}
 
 Die \textbf{Compton Streuung} ist oft die häufigste Interaktion der Strahlung
 mit dem Material. Sie ist (abhängig von $Z$) dominant bei Energien im Bereich
-von etwa \qtyrange{0.5}{10}{\MeV} Ihr Differentieller Wirkungsquerschnitt wird
+von etwa \qtyrange{0.5}{10}{\MeV} Ihr differentieller Wirkungsquerschnitt wird
 durch die Klein-Nishina-Formel beschrieben
 \begin{align}
 	\frac{d\sigma}{d \Omega} = Z r_0^2 \left(\frac{1}{1+\alpha(1-\cos\theta)}\right)^2 %
@@ -68,40 +98,17 @@ Wirkungsquerschnitt ist weit oberhalb der Eigenenergie konstant in $E_\gamma$
 und proportional zu $Z^2$ des Absorbiermaterials \cite[vgl.][Kap
 	3.5.5]{book:kolano}.
 
-Die Interaktionswahrscheinlichkeit von Gamma Strahlen mit Materie lässt sich
-durch den Dämpfungskoeffizienten $\mu$ darstellen. Die Strahlungsintensität
-fällt in dichten Materialien exponentiell ab $I ~ \exp(-\mu x)$. Dieser
-Intensitätsverlust hängt direkt mit der Wirkungsquerschnitt des materials
-zusammen und ist in $\mu$ eine additive Größe. Die Dämpfungskoeffizienten von
-Gammastrahlen sind in Abbildung \ref{fig:mu} zu sehen. Abbildung \ref{fig:z}
-
-\begin{figure}
-	\centering
-	\begin{subfigure}{.5\textwidth}
-		\centering
-		\includegraphics[width=0.9\linewidth]{./Bilder/E_mu_Gilmore.png}%
-		\caption{Linearer Dämpfungskoeffizient aus \cite{book:gil}.}\label{fig:mu}
-	\end{subfigure}%
-	\begin{subfigure}{.5\textwidth}
-		\centering
-		\includegraphics[width=0.9\linewidth]{./Bilder/E_Z_Kolanoski.png}
-		\caption{Dominante Effekte nach $E_\gamma$ und $Z$ aus \cite{book:kolano}.}\label{fig:z}
-	\end{subfigure}
-	\caption{Interaktionswahrscheinlichkeiten von Gammastrahlen in verschiedenen Darstellungen.}\label{}
-\end{figure}
-
 \subsection{Messung von Energie in Germanium Halbleiterdetektoren \cite{book:gil}}
 
 Halbleiter Können durch das Bandstruktur Modell aus der Festkörperphysik
 beschreiben werden. Elektronen befinden sich in einem Festkörper nicht auf
-Eindeutig festgelegten Energie nieavous, sondern auf Materialabhängigen
+eindeutig festgelegten Energieniveaus, sondern auf Materialabhängigen
 Energiebändern. Elektronen können die Energien zwischen diesen Bändern nicht
 annehmen. Damit ein Strom in einem Material fließen kann, muss ein Elektron das
 sogenannte Valenzband verlassen und ins Leitungsband des Materials wechseln. In
 einem Halbleiter sind das Valenzband (das oberste voll besetzte Band) und das
 Leitungsband durch eine Bandlücke in der Größenordnung von \qty{1}{\eV}
 voneinander getrennt.
-%% Bild aus Gilmore einfügen
 \begin{figure}
 	\centering
 	\includegraphics[width=0.4\textwidth]{./Bilder/ElectronBandsGilmore.png}
@@ -124,9 +131,6 @@ Elektronenlochpaare erzeugen, wenn diese die notwendige Energie von $\epsilon =
 proportional zu der Energie $E_e$ des Elektrons. Basierend auf der Stärke des
 Halbleiterstroms lassen sich so Rückschlüsse auf die Energie des Elektrons
 ziehen.
-
-% Gamma Strahlen Photoeffekt -> Voller Energieübertrag
-% Compton: Energie basierend auf theta 
 
 \subsection{Form des Detektors \cite[vgl][Kap. 2.4]{book:gil}}
 
@@ -236,8 +240,26 @@ diesen zu einem effektiven Halbleiter macht.
 	\caption{Querschnitt des Germanium Detektors}\label{fig:cross}
 \end{figure}
 
-% TODO Bilder einfügen und Abmessungen fertig machen
+% TODO Abmessungen fertig machen
 
-\subsection{Energiekalibrierung}
-Das Energiespektrum der Euridium Quelle wird aufgenommen Die
+\subsection{Elektronik}
+Der Detektor wird in diesem Versuchsaufbau durch vorgefertigte Bauteile
+kontrolliert und ausgelesen. Ein Temperaturwächter kontrolliert die Kühlung des
+Detektors und hält dessen Temperatur konstant auf \textbf{Wert einfügen TODO}
+Kelvin. Eine Hochspannungsquelle erhält die Verarmungszone des Halbleiters
+aufrecht. Die Signale, die durch die Gammastrahlen in dem Detektor entstehen,
+werden elektrisch verstärkt und mit einem Analog-Digital Wandler in Zählsignale
+umgesetzt. Diese werden dem Computer übergeben, der ein Histogramm der
+Ereignisse abhängig von den gemessenen Strömen erstellt.
+
+\subsection{Messprogramm}
+Die Energiespektren von 152Europium, der 137Cäsium und 133Barium werden
+aufgenommen. hierzu werden die Proben in einem Abstand von \qty{70}{\mm} von
+der Aluminium Abschirmung befestigt. Das Histogramm wird automatisiert jeweils
+für etwa eine Stunde aufgenommen. Die genaue Messzeit wird in den Daten
+automatisch hinterlegt. Schließlich wird die Unbekannte Quelle auf der
+Schutzhülle positioniert. Deren Spektrum wird in gleicher Weise für etwa
+\qty{45}{\min} aufgenommen.
+
 %TODO weiterschreiben
+
