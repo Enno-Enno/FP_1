@@ -1,6 +1,6 @@
 \section{Zielsetzung}
 In diesem Versuch wird ein Germanium Energiedetektor mit einer geeichten
-\textbf{Eu} Quelle kalibriert. Die
+\textbf{Eu} Quelle kalibriert. Die % TODO Fertig schreiben
 
 Stichworte:
 \begin{itemize}
@@ -93,7 +93,8 @@ Gammastrahlen sind in Abbildung \ref{fig:mu} zu sehen. Abbildung \ref{fig:z}
 \subsection{Messung von Energie in Germanium Halbleiterdetektoren \cite{book:gil}}
 
 Halbleiter Können durch das Bandstruktur Modell aus der Festkörperphysik
-beschreiben werden. Elektronen befinden sich in einem Festkörper nicht auf Eindeutig festgelegten Energie nieavous, sondern auf Materialabhängigen
+beschreiben werden. Elektronen befinden sich in einem Festkörper nicht auf
+Eindeutig festgelegten Energie nieavous, sondern auf Materialabhängigen
 Energiebändern. Elektronen können die Energien zwischen diesen Bändern nicht
 annehmen. Damit ein Strom in einem Material fließen kann, muss ein Elektron das
 sogenannte Valenzband verlassen und ins Leitungsband des Materials wechseln. In
@@ -101,6 +102,11 @@ einem Halbleiter sind das Valenzband (das oberste voll besetzte Band) und das
 Leitungsband durch eine Bandlücke in der Größenordnung von \qty{1}{\eV}
 voneinander getrennt.
 %% Bild aus Gilmore einfügen
+\begin{figure}
+	\centering
+	\includegraphics[width=0.4\textwidth]{./Bilder/ElectronBandsGilmore.png}
+	\caption{Elektronen Bandstruktur aus \cite{book:gil}}\label{fig:eband}
+\end{figure}
 Das Leitungsband eines Halbleiters enthält meist auch Elektronen abhängig von
 der Temperatur des Materials.
 % Gleichung einfügen?
@@ -155,8 +161,8 @@ Raumwinkel $\Omega$, der Emissionswahrscheinlichkeit $W$, der Aktivität $A$ und
 der Vollenergienachweiswahrscheinlichkeit $Q$ ab. Die
 Vollenergienachweiswahrscheinlichkeit ist eine wichtige Kenngröße des
 Detektors. Sie ist das Verhältnis von Photoelektrisch absorbierten
-Gammastrahlen, die ihre Energie vollständig abgeben und z.B. Compton
-gestreuten Elektronen, die die Energie nur teilweise abgeben.
+Gammastrahlen, die ihre Energie vollständig abgeben und z.B. Compton gestreuten
+Elektronen, die die Energie nur teilweise abgeben.
 \begin{align}
 	Z = \frac{\Omega}{4\pi} A T W Q
 	\label{eq:Q}
@@ -197,9 +203,9 @@ und alle \textbf{Standardabweichungen zum Mittelwert} mit:
 	\label{eqn:St_Mittelwert}
 \end{equation}
 
-Bei einigen Messungen bzw Messdaten ist der Fehler auch schon im Vorhinein angegeben.
-Der Fehler für zusammenhängende Messwerte wird dann mit der \textbf{Gaußschen
-	Fehlerfortpflanzung} berechnet:
+Bei einigen Messungen bzw Messdaten ist der Fehler auch schon im Vorhinein
+angegeben. Der Fehler für zusammenhängende Messwerte wird dann mit der
+\textbf{Gaußschen Fehlerfortpflanzung} berechnet:
 
 \begin{equation}
 	\increment{f} = \sqrt{ \sum_{i = 1}^{N}  \biggl(\frac{\partial{f}}{\partial{x_i}}\biggr)^2\cdot(\increment{x_i})^2}
@@ -215,9 +221,23 @@ ermittelt.
 
 Der hier verwendete Detektor ist Zylinderförmig (l= \qty{39}{\mm}, Durchmesser
 = \qty{45}{\mm}) und befindet sich in einer Aluminium Schutzhülle. Der Abstand
-des Detektors zur Schutzhülle beträgt \qty{1.5}{\cm}. 
+des Detektors zur Schutzhülle beträgt \qty{1.5}{\cm}. Die Schutzhülle sorgt
+dafür, dass Gammastrahlen mit einer Energie niedriger als etwa
+\qtyrange{40}{50}{\keV} nicht gemessen werden können. Für die
+Vollenergienachweiswahrscheinlichkeit werden nur Energien größer
+\qty{150}{\keV} betrachtet. Im Inneren des Detektors befindet sich eine
+Koaxiale Bohrung deren innere Oberfläche mit Gold bedampft ist. Dieser Metall
+Kontakt sorgt für die Ausprägung einer Verarmungszone in dem Detektor, die
+diesen zu einem effektiven Halbleiter macht.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.4\textwidth]{./Bilder/querschnitt_detektor.png}
+	\caption{Querschnitt des Germanium Detektors}\label{fig:cross}
+\end{figure}
 
 % TODO Bilder einfügen und Abmessungen fertig machen
 
 \subsection{Energiekalibrierung}
 Das Energiespektrum der Euridium Quelle wird aufgenommen Die
+%TODO weiterschreiben
