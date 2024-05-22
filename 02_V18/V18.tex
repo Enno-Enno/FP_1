@@ -382,8 +382,8 @@ gefittet.
 Die Werte dieser Parameter ergeben
 
 \begin{align*}
-	a & =\num{349803(723942)}         \\
-	b & =\qty{-205.7(97.1)}{\kilo\eV} \\
+	a & =\num{349803(723940)}         \\
+	b & =\qty{-206.7(97.1)}{\kilo\eV} \\
 	c & =\num{-1.54(0.28)}
 \end{align*}
 
@@ -421,7 +421,7 @@ ermittelt. Der Inhalt des Vollenergiepeaks wird wieder über die Formel
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{build/plt6_Ph_peak.pdf}
+	\includegraphics[width=1\textwidth]{build/plt6_Ph_peak.pdf}
 	\caption{Ausgeglichenes Absorptionsspektrum}
 	\label{fig:Cs_peak}
 \end{figure}
@@ -431,7 +431,7 @@ Insgesamt ergeben sich folgende Ergebnisse:
 \begin{align*}
 	E_{1/2}  & =\qty{2.21(0.05)}{\kilo\eV}   \\
 	E_{1/10} & =\qty{4.02(0.09)}{\kilo\eV}   \\
-	E_{max}  & =\qty{662.48(0.02)}{\kilo\eV} \\
+	E_{max}  & =\qty{661.45(0.02)}{\kilo\eV} \\
 	Z        & =\num{1.28(0.04)e4}           \\
 \end{align*}
 
@@ -441,12 +441,12 @@ erkennen, auch wenn diese verschwommen sind. In der Abbildung
 \eqref{fig:Compton} wird das Comptonkontinuum näher dargestellt. Die
 theoretischen Positionen vom Rückstrahlpeak $E_{RP}$ und von der Comptonkante
 $E_{CK}$ werden als senkrechte Linien dargestellt. Diese Werte werden über die
-Formeln ... und ... mit $E_{\gamma}=\qty{662.5}{\kilo\eV}$ berechnet und
+Formeln ... und ... mit $E_{\gamma}=\qty{661.45}{\kilo\eV}$ berechnet und
 ergeben $E_{RP}=\qty{184.4}{\kilo\eV}$ und $E_{CK}=\qty{478.1}{\kilo\eV}$.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{build/plt7_Compton.pdf}
+	\includegraphics[width=0.9\textwidth]{build/plt7_Compton.pdf}
 	\caption{Ausgeglichenes Absorptionsspektrum}
 	\label{fig:Compton}
 \end{figure}
@@ -463,15 +463,25 @@ Damit ergibt sich ein Linieninhalt von:
 	Z_{Compton}=\num{31.091(0.176)e3}
 \end{equation*}
 
+\subsubsection{Absorptionswahrscheinlichkeit}
+Aus der Detektorlänge $l=\qty{39}{\milli\meter}$ und den aus der Literatur ... entnommenen Extinktionskoeffizienten für den Photopeak und die Comptonkante lässen sich über 
+
+\begin{equation}
+	P=1-\exp(-\mu d)
+\end{equation}
+
+die Absorptionswahrscheinlichkeit $P_{Ph}=\num{1}$ und $P_{Ck}=\num{1}$ berechnen.
+
 \subsection{Aktivitätsbestimmung}
 Die Vermessung der Barium Quelle über ein Zeitraum von $T=\qty{3816}{\second}$ ergab das in Abbildung \eqref{fig:Ba_spektrum} zu erkennen Spektrum. 
 Um die Aktivität der Quelle zu bestimmen, müssen die Linieninhalte der Peaks bestimmt werden um danach mittels der Formel \eqref{eq:Q} diese berechnen zu können. 
 Der Linieninhalt wird wie zuvor mit einem Gaußfits bestimmt. 
-Dessen Ergebnisse zusammen mit der aus der Literatur ... bestimmten Emissionswahrscheinlichkeiten und der daraus berechneten Aktivität ist der Tabelle ... zu entnehmen. 
+Dessen Ergebnisse zusammen mit der aus der Literatur \cite{web:nuclear} bestimmten Emissionswahrscheinlichkeiten und 
+der daraus berechneten Aktivität ist der Tabelle \eqref{tab:data2} zu entnehmen. 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{build/plt8_Ba.pdf}
+	\includegraphics[width=0.95\textwidth]{build/plt8_Ba.pdf}
 	\caption{Aufgenommenes Spektrum 133Ba}
 	\label{fig:Ba_spektrum}
 \end{figure}
@@ -483,22 +493,33 @@ Dessen Ergebnisse zusammen mit der aus der Literatur ... bestimmten Emissionswah
 		\toprule
 		\text{Peak} & $ E [\unit{\kilo\eV}] $ & $ Z_{Ba} $               & $ W [\%] $ & $ A [\unit{\becquerel}] $         \\
 		\midrule
-		1           & \num{82.52}         & \num{6850.29(382.71)}  & \num{34.06} & \num{560.64(31.32)} \\
-		2           & \num{277.42}        & \num{1020.26(56.61)}   & \num{7.16}  & \num{880.27(48.84)} \\
-		3           & \num{303.97}        & \num{2357.77(87.62)}   & \num{18.33} & \num{863.39(32.09)} \\
-		4           & \num{357.05}        & \num{6590.89(206.07)}  & \num{62.05} & \num{830.62(25.97)} \\
-		5           & \num{385.04}        & \num{871.814(52.94)}   & \num{8.94}  & \num{821.84(49.90)} \\
+		1           & \num{81.50}   &  \num{6850.29(382.71)}  & \num{34.06} & \num{560.64(31.32)} \\
+		2           & \num{276.40}  &  \num{1020.26(56.61)}   & \num{7.16}  & \num{880.27(48.84)} \\
+		3           & \num{302.94}  &  \num{2357.77(87.62)}   & \num{18.33} & \num{863.39(32.09)} \\
+		4           & \num{356.02}  &  \num{6590.89(206.07)}  & \num{62.05} & \num{830.62(25.97)} \\
+		5           & \num{384.01}  &  \num{871.814(52.94)}   & \num{8.94}  & \num{821.84(49.90)} \\
 		\bottomrule
 	\end{tabular}
 	\label{tab:data2}
 \end{table}
 
-\begin{figure}
+Im mittel ergibt sich eine Aktivität von $\qty{791(17)}{\becquerel}$.
+
+\subsection{Gammaspektroskopie einer unbekannten Probe}
+Um die Unbekannte Probe zu bestimmen, wurde diese mit dem Germanium-Detektor eine Stunde lang vermessen und die Peaks wieder mit $find-peaks$ ermittelt. 
+
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{build/plt9_Un.pdf}
 	\caption{Unbekanntes Spektrum}
 	\label{fig:Un_spektrum}
 \end{figure}
+
+In der obigen Abbildung ist das Gamma-Spektrum sowie die Einzellen Peaks in Abhängigkeit der Energie gezeigt. 
+Zur Identifizierung der Probe soll die Energie jedes Peak mit der Datenbank ... abgeglichen werden um die Wahrscheinlichste Quelle zu ermittelten. 
+Dazu wurde um jeden Peak wieder ein Gaußfit gelegt um einen genaueren Wert für die Energie $E=\mu$ des Peaks zuhaben. 
+Als Beispiel wird diese einmal mit dem größten Peak bei $E=\qty{295.36(0.01)}{\kilo\eV}$ mit $N=3160$ gemacht. 
+
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 

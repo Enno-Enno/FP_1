@@ -47,8 +47,8 @@ def E_e(E_gamma, theta):
 def gauß(x,h,u,s,g):
     return h*np.exp(-((x-u)**2)/(2*s**2))+g
 
-def f(x, m, c):
-    return m*x+c 
+def f(x, m, d):
+    return m*x+d 
 
 def potenz(x,a,b,c):
     #potenz=np.exp(a+b*np.log(x)+c*np.log(x)**2+d*np.log(x)**3)

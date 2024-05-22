@@ -46,14 +46,14 @@ x=np.linspace(a,b)
 par, cov=curve_fit(fktn.f,peak, Energie)
 par = unc.correlated_values(par, cov)
 m = float(unp.nominal_values(par[0]))
-c = float(unp.nominal_values(par[1]))
+d1 = float(unp.nominal_values(par[1]))
 m_f= float(unp.std_devs(par[0]))
-c_f= float(unp.std_devs(par[1]))
+d1_f= float(unp.std_devs(par[1]))
 
-print(m,m_f, c,c_f)
+print(m,m_f, d1,d1_f)
 
 plt.figure(constrained_layout=True)
-plt.plot(x,fktn.f(x,m,c),"b-",label="Ausgleichsgerade")
+plt.plot(x,fktn.f(x,m,d1),"b-",label="Ausgleichsgerade")
 plt.plot(peak,Energie,"rx",label="Peaks")
 plt.xlabel("Channel")
 plt.ylabel(r"$E \, [\mathrm{KeV}]$")
@@ -126,7 +126,7 @@ q=I*4*np.pi/(theta*A*T)/W
 print("Q:",q)
 Q=unp.nominal_values(q)*100
 
-par, cov=curve_fit(fktn.potenz,m*peak, Q, sigma=unp.std_devs(q),p0=[33,0.8,0])
+par, cov=curve_fit(fktn.potenz,m*peak+d1, Q, sigma=unp.std_devs(q),p0=[33,0.8,0])
 par = unc.correlated_values(par, cov)
 a = float(unp.nominal_values(par[0]))
 b = float(unp.nominal_values(par[1]))
@@ -137,11 +137,11 @@ c_f= float(unp.std_devs(par[2]))
 
 print(a,a_f,b,b_f,c,c_f)
 
-x=np.linspace(0,m*peak[-1],1000)
+x=np.linspace(0,m*peak[-1]+d1,1000)
 
 plt.figure(constrained_layout=True)
 plt.plot(x,fktn.potenz(x,a,b,c),"b-",label="Potenz Fit")
-plt.errorbar(m*peak,Q,yerr=unp.std_devs(q)*100,fmt="m.",label="Q Vollenergienachweiswahrscheinlichkeit")
+plt.errorbar(m*peak+d1,Q,yerr=unp.std_devs(q)*100,fmt="m.",label="Q Vollenergienachweiswahrscheinlichkeit")
 plt.xlabel(r"Energie $E \, [\mathrm{KeV}]$")
 plt.ylabel(f"Q [%]")
 plt.xlim(0,m*peak[-1]+10)
@@ -151,4 +151,4 @@ plt.savefig("build/plt4_Q.pdf")
 #plt.show()
 
 datei = open('build/data.txt','w')
-datei.writelines(f"{m} {a} {b} {c}")
+datei.writelines(f"{m} {d1} {a} {b} {c}")
