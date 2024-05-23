@@ -87,5 +87,6 @@ print(I/np.sum(I))
 
 m=unc.ufloat(m,m_f)
 d1=unc.ufloat(d1,d1_f)
+print(u)
 print("Peak Energien Unbekannt \n",peak*m+d1)
 print(N_un[peak])

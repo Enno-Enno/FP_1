@@ -39,7 +39,7 @@ plt.savefig("build/plt1_Eu.pdf")
 
 
 #Energiezuteilung
-Energie=np.array([122,245,344,411,444,779,867,964])
+Energie=np.array([122.7817,244.6975,344.2785,411.1163,443.965,778.904,867.378,964.079])
 W=np.array([28.58,7.583,26.5,2.234,2.821,12.942,4.245,14.605])/100
 x=np.linspace(a,b)
 
@@ -116,12 +116,11 @@ T=3413
 I=np.sqrt(2*np.pi)*h*s
 A=unc.ufloat(4130,60)*np.exp(-np.log(2)*(215+23*365)/(13.516*365))
 theta=2*np.pi*(1-unp.cos(unp.arctan(22.5/85)))
-#theta=2*np.pi*(1-85/np.sqrt(85**2+22.5**2))
+q=I*4*np.pi/(theta*A*T)/W
+
+
 print(theta/4/np.pi,A)
 print(I)
-
-
-q=I*4*np.pi/(theta*A*T)/W
 print("Q:",q)
 Q=unp.nominal_values(q)*100
 

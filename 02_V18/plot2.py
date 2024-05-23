@@ -217,13 +217,13 @@ s=unp.uarray(abs(s),s_f)
 g=unp.uarray(g,g_f)
 
 I=np.sqrt(2*np.pi)*h*s
-print("I=",I)
 theta=2*np.pi*(1-unp.cos(unp.arctan(22.5/85)))
 T=3816
 Q=fktn.potenz(peak_ba*m+d1,a1,b1,c1)/100
-print(Q)
 A=I*4*np.pi/(theta*Q*W*T)
 
+print("I=",I)
+print(Q)
 print(A)
 print(np.mean(A))
 
