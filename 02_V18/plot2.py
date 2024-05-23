@@ -132,6 +132,7 @@ plt.savefig("build/plt7_Compton.pdf")
 
 Z_com,_ = quad(fktn.WQ_Energie,x_cs[peak[1]+d], x_cs[peak[-1]+d], args=(E,k,unterG))
 print(Z_com/m, np.sqrt(Z_com/m))
+print(Z_com/sum(N_cs))
 
 #Absorbtionswahrscheinlichkeit
 l=3.9

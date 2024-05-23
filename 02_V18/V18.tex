@@ -130,14 +130,14 @@ und einer Messzeit von $T=\qty{3413}{\second}$ ergeben sich folgende Werte:
 		\toprule
 		\text{Channel} & $ E [\unit{\kilo\eV}] $ & $ Z $               & $ W [\%] $ & $ Q [\%] $         \\
 		\midrule
-		594            & \num{123.2(0.1)}        & \num{9202.0(261.5)} & \num{28.6} & \num{46.00(01.47)} \\
-		1186           & \num{245.9(0.1)}        & \num{1522.4(69.0)}  & \num{7.6}  & \num{28.68(01.36)} \\
-		1666           & \num{345.4(0.2)}        & \num{3784.6(130.4)} & \num{26.5} & \num{20.40(00.76)} \\
-		1985           & \num{411.6(0.2)}        & \num{317.4(40.4)}   & \num{2.2}  & \num{20.30(02.60)} \\
-		2146           & \num{445.0(0.2)}        & \num{362.7(44.4)}   & \num{2.8}  & \num{18.37(02.26)} \\
-		3760           & \num{779.6(0.4)}        & \num{718.2(43.7)}   & \num{12.9} & \num{07.93(00.50)} \\
-		4190           & \num{868.8(0.5)}        & \num{270.3(35.1)}   & \num{4.2}  & \num{09.10(01.19)} \\
-		4653           & \num{964.8(0.5)}        & \num{694.9(61.8)}   & \num{14.7} & \num{06.80(00.61)} \\
+		594            & \num{122.4(0.1)}        & \num{9202.0(261.5)} & \num{28.6} & \num{46.00(01.47)} \\
+		1186           & \num{245.1(0.2)}        & \num{1522.4(69.0)}  & \num{7.6}  & \num{28.68(01.36)} \\
+		1666           & \num{344.6(0.2)}        & \num{3784.6(130.4)} & \num{26.5} & \num{20.40(00.76)} \\
+		1985           & \num{410.7(0.2)}        & \num{317.4(40.4)}   & \num{2.2}  & \num{20.30(02.60)} \\
+		2146           & \num{444.1(0.2)}        & \num{362.7(44.4)}   & \num{2.8}  & \num{18.37(02.26)} \\
+		3760           & \num{778.7(0.3)}        & \num{718.2(43.7)}   & \num{12.9} & \num{07.93(00.50)} \\
+		4190           & \num{867.8(0.4)}        & \num{270.3(35.1)}   & \num{4.2}  & \num{09.10(01.19)} \\
+		4653           & \num{963.8(0.5)}        & \num{694.9(61.8)}   & \num{14.7} & \num{06.80(00.61)} \\
 		\bottomrule
 	\end{tabular}
 	\label{tab:data1}
@@ -163,8 +163,8 @@ gefittet.
 Die Werte dieser Parameter ergeben
 
 \begin{align*}
-	a & =\num{349803(723940)}         \\
-	b & =\qty{-206.7(97.1)}{\kilo\eV} \\
+	a & =\num{349803(723674)}         \\
+	b & =\qty{-206.4(97.1)}{\kilo\eV} \\
 	c & =\num{-1.54(0.28)}
 \end{align*}
 
@@ -212,7 +212,7 @@ Insgesamt ergeben sich folgende Ergebnisse:
 \begin{align*}
 	E_{1/2}  & =\qty{2.21(0.05)}{\kilo\eV}   \\
 	E_{1/10} & =\qty{4.02(0.09)}{\kilo\eV}   \\
-	E_{max}  & =\qty{661.45(0.02)}{\kilo\eV} \\
+	E_{max}  & =\qty{661.57(0.02)}{\kilo\eV} \\
 	Z        & =\num{1.28(0.04)e4}           \\
 \end{align*}
 
@@ -222,7 +222,7 @@ erkennen, auch wenn diese verschwommen sind. In der Abbildung
 \eqref{fig:Compton} wird das Comptonkontinuum näher dargestellt. Die
 theoretischen Positionen vom Rückstrahlpeak $E_{RP}$ und von der Comptonkante
 $E_{CK}$ werden als senkrechte Linien dargestellt. Diese Werte werden über die
-Formeln ... und ... mit $E_{\gamma}=\qty{661.45}{\kilo\eV}$ berechnet und
+Formeln \eqref{eq:CK} und \eqref{eq:RP} mit $E_{\gamma}=\qty{661.45}{\kilo\eV}$ berechnet und
 ergeben $E_{RP}=\qty{184.4}{\kilo\eV}$ und $E_{CK}=\qty{478.1}{\kilo\eV}$.
 
 \begin{figure}[H]
@@ -245,10 +245,12 @@ Damit ergibt sich ein Linieninhalt von:
 \end{equation*}
 
 \subsubsection{Absorptionswahrscheinlichkeit}
-Aus der Detektorlänge $l=\qty{39}{\milli\meter}$ und den aus der Literatur \cite{web:nist} entnommenen Extinktionskoeffizienten für den Photopeak und die Comptonkante lässen sich über 
+Aus der Detektorlänge $l=\qty{39}{\milli\meter}$ und 
+den aus der Literatur \cite{web:nist} entnommenen Extinktionskoeffizienten für den Photopeak und die Comptonkante lässen sich über 
 
 \begin{equation}
 	P=1-\exp(-\mu d)
+	\label{eq:Absorption}
 \end{equation}
 
 die Absorptionswahrscheinlichkeit $P_{Ph}=\qty{76.3}{\%}$ und $P_{Ck}=\qty{81.8}{\%}$ berechnen.
@@ -274,11 +276,11 @@ der daraus berechneten Aktivität ist der Tabelle \eqref{tab:data2} zu entnehmen
 		\toprule
 		\text{Peak} & $ E [\unit{\kilo\eV}] $ & $ Z_{Ba} $    & $ W [\%] $ & $ A [\unit{\becquerel}] $         \\
 		\midrule
-		1           & \num{81.50}   &  \num{6850.29(382.71)}  & \num{34.06} & \num{560.64(31.32)} \\
-		2           & \num{276.40}  &  \num{1020.26(56.61)}   & \num{7.16}  & \num{880.27(48.84)} \\
-		3           & \num{302.94}  &  \num{2357.77(87.62)}   & \num{18.33} & \num{863.39(32.09)} \\
-		4           & \num{356.02}  &  \num{6590.89(206.07)}  & \num{62.05} & \num{830.62(25.97)} \\
-		5           & \num{384.01}  &  \num{871.814(52.94)}   & \num{8.94}  & \num{821.84(49.90)} \\
+		1           & \num{81.74}   &  \num{6850.29(382.71)}  & \num{34.06} & \num{560.64(31.32)} \\
+		2           & \num{276.61}  &  \num{1020.26(56.61)}   & \num{7.16}  & \num{880.27(48.84)} \\
+		3           & \num{303.14}  &  \num{2357.77(87.62)}   & \num{18.33} & \num{863.39(32.09)} \\
+		4           & \num{356.21}  &  \num{6590.89(206.07)}  & \num{62.05} & \num{830.62(25.97)} \\
+		5           & \num{384.19}  &  \num{871.814(52.94)}   & \num{8.94}  & \num{821.84(49.90)} \\
 		\bottomrule
 	\end{tabular}
 	\label{tab:data2}
@@ -291,13 +293,13 @@ Um die unbekannte Probe zu bestimmen, wurde diese mit dem Germanium-Detektor ein
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{build/plt9_Un.pdf}
+	\includegraphics[width=0.95\textwidth]{build/plt9_Un.pdf}
 	\caption{Unbekanntes Spektrum}
 	\label{fig:Un_spektrum}
 \end{figure}
 
 In der obigen Abbildung ist das Gamma-Spektrum sowie die Einzellen Peaks in Abhängigkeit der Energie gezeigt. 
-Zur Identifizierung der Probe soll die Energie jedes Peak mit der Datenbank ... abgeglichen werden um die Wahrscheinlichste Quelle zu ermittelten. 
+Zur Identifizierung der Probe soll die Energie jedes Peak mit der Datenbank \cite{nuclear} abgeglichen werden um die Wahrscheinlichste Quelle zu ermittelten. 
 Dazu wurde um jeden Peak wieder ein Gaußfit gelegt um einen genaueren Wert für die Energie $E=\mu$ des Peaks zuhaben. 
 Als Beispiel wird diese einmal mit dem größten Peak bei $E=\qty{351.87(0.38)}{\kilo\eV}$ mit $N=3160$ gemacht. 
 In einem Bereich von $\pm 0.38\unit{\kilo\eV}$ um den Peak herum sind mehrere mögliche Kandidaten für den Peak.
@@ -335,26 +337,35 @@ In folgender Tabelle sind die Energie der Einzellen Peaks zusammen mit dem best 
 	\label{tab:data3}
 \end{table}
 
+Es ist zuerkennen, dass die in der Tabelle erhaltenen Elemente $U$, $Pa$, $Th$, $Ra$, $At$ und $Bi$ kommen alle in Zerfallsreihen von Uran Isotope vor. 
+Außerdem ist im Spektrum \eqref{fig:Un_spektrum} eine große Anzahl von verschiedenen großen Peaks und viel Untergrundstrahlung zu erkennen,
+welches auf ein Quelle bestehend aus mehreren zerfallenden Elementen, mit mehrenden Zerfallsmoden, schließen lässt. 
+Daher ist anzunehmen das es sich bei der unbekannten Quelle um ein Uranerz handelt, welches so in der Natur zu finden ist und noch nicht angereichert wurde. 
+
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 \newpage
 \section{Diskussion}
 
-In diesem Versuch konnte der Germanium Detektor erfolgreich mit der 152Eu Quelle
-kalibriert werden.
-Anhand dieser Kalibrierung konnten die weiteren Spektren mit Energiewerten 
-versehen werden.
+In diesem Versuch konnte der Germanium-Detektor erfolgreich mit der $\ce{^{152}_{63}}Eu$ Quelle kalibriert werden.
+Anhand dieser Kalibrierung konnten die weiteren Spektren mit Energiewerten versehen werden.
 Die Vollenergienachweiswahrscheinlichkeit wurde anhand der Linieninhalte
-der 152Eu Quelle ausgemessen und in einer Potenzfunktion angenähert.
+der $\ce{^{152}_{63}}Eu$ Quelle ausgemessen und in einer Potenzfunktion angenähert.
 
-Bei der Monochromatischen 137Cs Quelle konnten der Vollenergiepeak und
-die Peaks des Compton-Kontinuums identifiziert werden. 
-Das Histogramm konnte Erfolgreich mit dem Energiewirkungsquerschnitt 
-des Compton-Kontinuums dargestellt werden
+Bei der Monochromatischen $\ce{^{137}_{55}}Cs$ Quelle konnten der Vollenergiepeak und
+die Peaks des Compton-Kontinuums identifiziert werden, welche jedoch bei der Comptonkante deutliche mit $3.9\%$ von der Theorie abwichen. 
+Auch ist diese nicht wie in der Theorie steil und abrupt, sondern verrauscht, welches am Hintergrund liegt. 
+Durch Fitten des Compton-Kontinuums konnte der Linieninhalt von $Z_{Compton}=\num{31.091(0.176)e3}$ bestimmt werden welches ein Anteil von $7.59\%$
+am gesamten Spektrum entspricht. 
+Dieses weicht stark von den in \eqref{eq:Absorption} berechneten Absorptionswahrscheinlichkeit ab, 
+da die Photonen nach der Compton WW noch weiter Wechselwirken können und so für mehr Pulse im Detektor sorgen. 
+Daher ist der Linieninhalt kein verlässliches Maß für die Absorptionswahrscheinlichkeit. 
 
-Bei der 133Ba Quelle konnten wir eine Aktivität von \qty{791(17)}{\becquerel} messen.
+Bei der $\ce{^{133}_{56}}Ba$ Quelle konnten wir eine Aktivität von \qty{791(17)}{\becquerel} messen.
 Wir kennen keinen Vergleichswert für diese Probe.
 
-Die Unbekannte Quelle zu identifizieren ist schwierig ... 
+Die unbekannte Quelle zu identifizieren ist schwierig, da die Energiekalibrierung ein relativ großen Fehler für eine sehr genaue Bestimmung der Elemente hat. 
+Da in der Datenbank in einem relativ kleinen Energieintervall viele verschiedenen mögliche Quellen infrage kommen. 
+Trotzdem lassen sich verschiedenen Elemente von der Zerfallsreihen von Uran Isotopen bestimmen, welches auf Uranerz schließt.
 
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
