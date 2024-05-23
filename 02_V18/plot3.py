@@ -8,7 +8,7 @@ from scipy.signal import find_peaks
 import fktn
 
 #Aus Plot1.py:
-m, d1, a1, b1, c1 = np.genfromtxt("build/data.txt", unpack=True)
+m,m_f, d1, d1_f, a1, b1, c1 = np.genfromtxt("build/data.txt", unpack=True)
 
 #Unbekannt
 
@@ -29,8 +29,6 @@ peak3,_=find_peaks(N_un[5000:8000],height=60,distance=10)
 peak2=peak2+3000
 peak3=peak3+5000
 peak=np.concatenate([peak, peak2, peak3])
-print("Peak Energien Unbekannt",peak)
-print(N_un[peak])
 
 plt.figure(constrained_layout=True)
 plt.bar(x_un,N_un,width=m,label="Messdaten Unbekannt")
@@ -70,19 +68,24 @@ for i in range(len(peak)):
     x=np.linspace(x_un[peak[i]-d],x_un[peak[i]+d],1000)
     
     plt.subplot(7,2,i+1)
-    plt.bar(x_un[peak[i]-d:peak[i]+d],N_un[peak[i]-d:peak[i]+d],width=m,yerr=np.sqrt(N_un[peak[i]-d:peak[i]+d]),label=f"Messdaten Peak {i+1}")
+    plt.bar(x_un[peak[i]-d:peak[i]+d],N_un[peak[i]-d:peak[i]+d],width=1,yerr=np.sqrt(N_un[peak[i]-d:peak[i]+d]),label=f"Messdaten Peak {i+1}")
     plt.plot(x,fktn.gauß(x,h[i],u[i],s[i],g[i]),"g-",label="Gauß-Fit")
     plt.xlabel(r"Energie $E \, [\mathrm{KeV}]$")
     plt.xlim(x_un[peak[i]-d],x_un[peak[i]+d])
     plt.legend()
     
-plt.show()
+#plt.show()
 
 h=unp.uarray(h,h_f)
 u=unp.uarray(u,u_f)
 s=unp.uarray(abs(s),s_f)
 g=unp.uarray(g,g_f)
 
-I=np.sqrt(2*np.pi)*h*s
+I=np.sqrt(2*np.pi)*h*s/m
 print(I)
-print(u)
+print(I/np.sum(I))
+
+m=unc.ufloat(m,m_f)
+d1=unc.ufloat(d1,d1_f)
+print("Peak Energien Unbekannt \n",peak*m+d1)
+print(N_un[peak])

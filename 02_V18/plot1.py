@@ -63,7 +63,7 @@ plt.legend()
 plt.savefig("build/plt2_Fit.pdf")
 #plt.show()
 
-print(unc.ufloat(m,m_f)*peak)
+print(unc.ufloat(m,m_f)*peak+d1)
 
 
 #Gaußanpassung
@@ -93,7 +93,6 @@ for i in range(len(peak)):
     x=np.linspace(x_eu[peak[i]-d],x_eu[peak[i]+d],1000)
     
     plt.subplot(4,2,i+1)
-    #plt.errorbar(x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d],yerr=np.sqrt(N_eu[peak[i]-d:peak[i]+d]),fmt="r")
     plt.bar(x_eu[peak[i]-d:peak[i]+d],N_eu[peak[i]-d:peak[i]+d],width=1,yerr=np.sqrt(N_eu[peak[i]-d:peak[i]+d]),label=f"{i+1}")
     plt.plot(x,fktn.gauß(x,h[i],u[i],s[i],g[i]),"g-")#,label="Gauß-Fit")
     #plt.xlabel(r"Energie $E \, [\mathrm{KeV}]$")
@@ -151,4 +150,4 @@ plt.savefig("build/plt4_Q.pdf")
 #plt.show()
 
 datei = open('build/data.txt','w')
-datei.writelines(f"{m} {d1} {a} {b} {c}")
+datei.writelines(f"{m} {m_f} {d1} {d1_f} {a} {b} {c}")

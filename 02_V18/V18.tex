@@ -464,13 +464,13 @@ Damit ergibt sich ein Linieninhalt von:
 \end{equation*}
 
 \subsubsection{Absorptionswahrscheinlichkeit}
-Aus der Detektorlänge $l=\qty{39}{\milli\meter}$ und den aus der Literatur ... entnommenen Extinktionskoeffizienten für den Photopeak und die Comptonkante lässen sich über 
+Aus der Detektorlänge $l=\qty{39}{\milli\meter}$ und den aus der Literatur \cite{web:nist} entnommenen Extinktionskoeffizienten für den Photopeak und die Comptonkante lässen sich über 
 
 \begin{equation}
 	P=1-\exp(-\mu d)
 \end{equation}
 
-die Absorptionswahrscheinlichkeit $P_{Ph}=\num{1}$ und $P_{Ck}=\num{1}$ berechnen.
+die Absorptionswahrscheinlichkeit $P_{Ph}=\qty{76.3}{\%}$ und $P_{Ck}=\qty{81.8}{\%}$ berechnen.
 
 \subsection{Aktivitätsbestimmung}
 Die Vermessung der Barium Quelle über ein Zeitraum von $T=\qty{3816}{\second}$ ergab das in Abbildung \eqref{fig:Ba_spektrum} zu erkennen Spektrum. 
@@ -481,7 +481,7 @@ der daraus berechneten Aktivität ist der Tabelle \eqref{tab:data2} zu entnehmen
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.95\textwidth]{build/plt8_Ba.pdf}
+	\includegraphics[width=0.9\textwidth]{build/plt8_Ba.pdf}
 	\caption{Aufgenommenes Spektrum 133Ba}
 	\label{fig:Ba_spektrum}
 \end{figure}
@@ -506,7 +506,7 @@ der daraus berechneten Aktivität ist der Tabelle \eqref{tab:data2} zu entnehmen
 Im mittel ergibt sich eine Aktivität von $\qty{791(17)}{\becquerel}$.
 
 \subsection{Gammaspektroskopie einer unbekannten Probe}
-Um die Unbekannte Probe zu bestimmen, wurde diese mit dem Germanium-Detektor eine Stunde lang vermessen und die Peaks wieder mit $find-peaks$ ermittelt. 
+Um die unbekannte Probe zu bestimmen, wurde diese mit dem Germanium-Detektor eine Stunde lang vermessen und die Peaks wieder mit $find-peaks$ ermittelt. 
 
 \begin{figure}[H]
 	\centering
@@ -518,11 +518,44 @@ Um die Unbekannte Probe zu bestimmen, wurde diese mit dem Germanium-Detektor ein
 In der obigen Abbildung ist das Gamma-Spektrum sowie die Einzellen Peaks in Abhängigkeit der Energie gezeigt. 
 Zur Identifizierung der Probe soll die Energie jedes Peak mit der Datenbank ... abgeglichen werden um die Wahrscheinlichste Quelle zu ermittelten. 
 Dazu wurde um jeden Peak wieder ein Gaußfit gelegt um einen genaueren Wert für die Energie $E=\mu$ des Peaks zuhaben. 
-Als Beispiel wird diese einmal mit dem größten Peak bei $E=\qty{295.36(0.01)}{\kilo\eV}$ mit $N=3160$ gemacht. 
+Als Beispiel wird diese einmal mit dem größten Peak bei $E=\qty{351.87(0.38)}{\kilo\eV}$ mit $N=3160$ gemacht. 
+In einem Bereich von $\pm 0.38\unit{\kilo\eV}$ um den Peak herum sind mehrere mögliche Kandidaten für den Peak.
+Die drei besten Kandidaten sind: 
 
+\begin{align*}
+	\ce{^{233}_{92}U}&  &E=\qty{351.81}{\kilo\eV}\\
+	\ce{^{231}_{90}Th}& &E=\qty{351.84}{\kilo\eV}\\
+	\ce{^{214}_{83}Bi}& &E=\qty{351.90}{\kilo\eV}\\
+\end{align*}
+
+In folgender Tabelle sind die Energie der Einzellen Peaks zusammen mit dem best oder wahrscheinlichst passenden Kandidaten mit deren Literaturwert. 
+
+\begin{table}[H]
+	\centering
+	\caption{Mögliche Kandidaten für die Einzellen Peaks}
+	\begin{tabular}{c c c}
+		\toprule
+		$ E_{\gamma} [\unit{\kilo\eV}] $ & $ \text{bester Kandidat} $ & $ E_{Theorie} [\unit{\kilo\eV}] $ \\
+		\midrule
+		\num{ 77.558(0.329)}    &  \ce{^{229}_{90}Th}  & \num{77.685} \\
+		\num{ 93.109(0.330)}    &  \ce{^{231}_{90}Th}  & \num{93.063} \\
+		\num{ 186.206(0.342)}   &  \ce{^{239}_{92}U}   & \num{186.15} \\
+		\num{ 242.396(0.352)}   &  \ce{^{229}_{90}Th}  & \num{242.4} \\
+		\num{ 295.269(0.364)}   &  \ce{^{233}_{92}U}   & \num{295.2}  \\
+		\num{ 351.874(0.379)}   &  \ce{^{231}_{90}Th}  & \num{351.84} \\
+		\num{ 609.188(0.466)}   &  \ce{^{214}_{83}Bi}  & \num{609.312}  \\
+		\num{ 768.221(0.532)}   &  \ce{^{201}_{83}Bi}  & \num{768.2} \\
+		\num{ 933.889(0.606)}   &  \ce{^{214}_{83}Bi}  & \num{934.06} \\
+		\num{ 1119.877(0.693)}  &  \ce{^{210}_{83}Bi}  & \num{1120}  \\
+		\num{ 1237.648(0.751)}  &  \ce{^{192}_{83}Bi}  & \num{1237.7}  \\
+		\num{ 1377.398(0.820)}  &  \ce{^{214}_{83}Bi}  & \num{1377.669} \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:data3}
+\end{table}
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
-
+\newpage
 \section{Diskussion}
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%

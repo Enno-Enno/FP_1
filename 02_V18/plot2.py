@@ -10,7 +10,7 @@ import fktn ## Enthält die Hilfreichen Funktionen fürs Compton Fitten :)
 
 
 #Aus Plot1.py:
-m, d1, a1, b1, c1 = np.genfromtxt("build/data.txt", unpack=True)
+m,_, d1,_, a1, b1, c1 = np.genfromtxt("build/data.txt", unpack=True)
 
 #Funktionen:
 ## In anderer Datei!
@@ -135,11 +135,11 @@ print(Z_com/m, np.sqrt(Z_com/m))
 
 #Absorbtionswahrscheinlichkeit
 l=3.9
-u_c=unc.ufloat(0.38,0.03)
-u_ph=unc.ufloat(0.002,0.003)
+u_c=0.437
+u_ph=0.369363
 
-p_c=1-unp.exp(-u_c*l)
-p_ph=1-unp.exp(-u_ph*l)
+p_c=1-np.exp(-u_c*l)
+p_ph=1-np.exp(-u_ph*l)
 print(p_c,p_ph)
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
