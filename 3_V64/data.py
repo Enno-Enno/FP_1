@@ -4,7 +4,6 @@ from scipy.optimize import curve_fit
 import uncertainties as unc
 import uncertainties.unumpy as unp
 
-x = np.genfromtxt("data1.txt", unpack=True)
 polarization_angles_deg = np.array(
     [
         0,
@@ -88,7 +87,6 @@ Emax = np.array(
 )
 
 RefIndexGlasNumbers = np.array([35, 31, 30, 37, 38, 37, 37, 34, 33, 37, 34])
-print(len(RefIndexGlasNumbers))
 pressures_mbar = np.zeros(21)
 pi = 0
 for i, _ in enumerate(pressures_mbar):
@@ -100,13 +98,22 @@ counter_air = np.array(
         [0, 2, 4, 6, 8, 10, 15, 17, 19, 21, 22, 25, 27, 29, 31, 34, 36, 38, 40, 42, 44],
         [0, 2, 4, 6, 8, 11, 13, 15, 17, 19, 21, 23, 25, 28, 30, 33, 35, 37, 39, 41, 43],
         [0, 2, 4, 6, 9, 10, 13, 15, 17, 19, 21, 23, 25, 27, 30, 32, 34, 36, 38, 40, 42],
-        [0, 2, 4, 6, 8, 11, 13, 15, 17, 19, 21, 23, 25, 27, 30, 32, 34, 36, 38, 40, 42]
+        [0, 2, 4, 6, 8, 11, 13, 15, 17, 19, 21, 23, 25, 27, 30, 32, 34, 36, 38, 40, 42],
     ]
 )
 
 T_cel = 20.1
 
 if __name__ == "__main__":
-    print(len(Emax), len(Emin), len(polarization_angles_deg))
-    print(pressures_mbar)
-    print(np.shape(counter_air))
+    print("shape(RefIndexGlasNumbers)", np.shape(RefIndexGlasNumbers))
+    print(
+        "shape(Emax),shape(Emin),shape(polarization_angles_deg)",
+        np.shape(Emax),
+        np.shape(Emin),
+        np.shape(polarization_angles_deg),
+    )
+    print(
+        "np.shape(counter_air),np.shape(pressures_mbar)",
+        np.shape(counter_air),
+        np.shape(pressures_mbar),
+    )

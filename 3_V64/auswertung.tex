@@ -2,3 +2,55 @@
 
 %Alignment of the Laser paths
 
+\subsection{Optimal polarization adjustment}
+In tabular ... the minimal and maximal Energies recorded by the photodiode are
+noted. The original measured values can be found in the appendix in tabular ...
+the mean values and their standard deviations are calculated. For Intensity
+standard deviations less than the digital reading error of \qty{0.005}{\volt}
+the error of \qty{0.005}{\volt} is assumed.
+
+
+\begin{table}[H]
+	\centering
+	\sisetup{table-align-uncertainty}
+	\begin{tabular}{S S S S S}
+		{Polarization/\unit{\degree}} & {$I_\text{max}/\unit{\volt}$} & {$I_\text{min}/\unit{\volt}$} & {Contrast}                       \\
+		0                             & 1.600 (0.022)                 & 1.357 (0.005)                 & 0.082 (0.007 ) & 0.082 (0.007 )  \\
+		10                            & 1.327 (0.005)                 & 0.950 (0.008)                 & 0.165 (0.005 ) & 0.165 (0.005 )  \\
+		20                            & 1.440 (0.016)                 & 0.453 (0.005)                 & 0.521 (0.006 ) & 0.521 (0.006 )  \\
+		25                            & 1.333 (0.025)                 & 0.300 (0.008)                 & 0.633 (0.010 ) & 0.633 (0.010 )  \\
+		30                            & 1.203 (0.033)                 & 0.217 (0.017)                 & 0.695 (0.021 ) & 0.695 (0.021 )  \\
+		35                            & 1.160 (0.005)                 & 0.177 (0.005)                 & 0.736 (0.007 ) & 0.736 (0.007 )  \\
+		40                            & 1.150 (0.022)                 & 0.120 (0.005)                 & 0.811 (0.008 ) & 0.811 (0.008 )  \\
+		45                            & 1.290 (0.022)                 & 0.100 (0.005)                 & 0.856 (0.007 ) & 0.856 (0.007 )  \\
+		50                            & 1.363 (0.005)                 & 0.103 (0.005)                 & 0.859 (0.006 ) & 0.859 (0.006 )  \\
+		55                            & 1.500 (0.008)                 & 0.120 (0.005)                 & 0.852 (0.006 ) & 0.852 (0.006 )  \\
+		60                            & 1.617 (0.009)                 & 0.180 (0.005)                 & 0.800 (0.005 ) & 0.800 (0.005 )  \\
+		70                            & 2.010 (0.022)                 & 0.417 (0.005)                 & 0.657 (0.005 ) & 0.657 (0.005 )  \\
+		80                            & 2.153 (0.025)                 & 0.920 (0.005)                 & 0.401 (0.005 ) & 0.401 (0.005 )  \\
+		90                            & 2.200 (0.008)                 & 1.613 (0.009)                 & 0.1538(0.0034) & 0.1538 (0.0034) \\
+		100                           & 2.673 (0.024)                 & 1.683 (0.012)                 & 0.227 (0.005 ) & 0.227 (0.005 )  \\
+		110                           & 3.94  (0.05 )                 & 1.077 (0.017)                 & 0.570 (0.007 ) & 0.570 (0.007 )  \\
+		120                           & 4.68  (0.10 )                 & 0.657 (0.025)                 & 0.754 (0.009 ) & 0.754 (0.009 )  \\
+		130                           & 4.94  (0.09 )                 & 0.383 (0.017)                 & 0.856 (0.006 ) & 0.856 (0.006 )  \\
+		140                           & 5.11  (0.05 )                 & 0.430 (0.008)                 & 0.8449(0.0031) & 0.8449 (0.0031) \\
+		150                           & 4.28  (0.10 )                 & 0.64  (0.04 )                 & 0.740 (0.014 ) & 0.740 (0.014 )  \\
+		160                           & 3.39  (0.15 )                 & 0.867 (0.017)                 & 0.593 (0.016 ) & 0.593 (0.016 )  \\
+		170                           & 2.35  (0.09 )                 & 1.163 (0.024)                 & 0.337 (0.019 ) & 0.337 (0.019 )  \\
+		180                           & 1.663 (0.005)                 & 1.387 (0.005)                 & 0.0907(0.0023) & 0.0907 (0.0023) \\
+        
+	\end{tabular}
+
+\end{table}
+
+The contrast ist calculated with
+\begin{align}
+    \text{contrast} = \frac{I_\text{max} -I_\text{min}}{I_\text{max}-I_\text{min}}
+\end{align}
+Based on formula ... for the maximal and minimal intensities one expects the contrast to have the form
+\begin{align}
+    \text{contrast}(\theta) = 2\cos(theta)\sin(theta) 
+\end{align}
+
+
+
