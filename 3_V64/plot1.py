@@ -64,5 +64,7 @@ plt.plot(theta_x, expected_contrast_deg(theta_x), label="Expected contrast")
 plt.errorbar(angles, consNom,fmt="x", yerr=consDel, label="Measured contrasts")
 plt.grid()
 plt.legend()
+plt.xlabel("theta/°")
 # plt.show()
+
 plt.savefig("build/plot1.pdf")
