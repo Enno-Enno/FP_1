@@ -47,7 +47,6 @@ for i,_ in enumerate(Emin):
     consDel[i] = unc.std_dev(con)
 cons = unp.uarray(consNom,consDel)
 
-
 p = False
 if p:
     for i,_ in enumerate(Emin):
@@ -68,3 +67,4 @@ plt.xlabel("theta/°")
 # plt.show()
 
 plt.savefig("build/plot1.pdf")
+

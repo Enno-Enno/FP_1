@@ -14,7 +14,9 @@ the error of \qty{0.005}{\volt} is assumed.
 	\centering
 	\sisetup{table-align-uncertainty}
 	\begin{tabular}{S S S S S}
+		\toprule
 		{Polarization/\unit{\degree}} & {$I_\text{max}/\unit{\volt}$} & {$I_\text{min}/\unit{\volt}$} & {Contrast}                       \\
+		\midrule
 		0                             & 1.600 (0.022)                 & 1.357 (0.005)                 & 0.082 (0.007 ) & 0.082 (0.007 )  \\
 		10                            & 1.327 (0.005)                 & 0.950 (0.008)                 & 0.165 (0.005 ) & 0.165 (0.005 )  \\
 		20                            & 1.440 (0.016)                 & 0.453 (0.005)                 & 0.521 (0.006 ) & 0.521 (0.006 )  \\
@@ -38,7 +40,7 @@ the error of \qty{0.005}{\volt} is assumed.
 		160                           & 3.39  (0.15 )                 & 0.867 (0.017)                 & 0.593 (0.016 ) & 0.593 (0.016 )  \\
 		170                           & 2.35  (0.09 )                 & 1.163 (0.024)                 & 0.337 (0.019 ) & 0.337 (0.019 )  \\
 		180                           & 1.663 (0.005)                 & 1.387 (0.005)                 & 0.0907(0.0023) & 0.0907 (0.0023) \\
-        
+        \bottomrule
 	\end{tabular}
 
 \end{table}
@@ -51,6 +53,18 @@ Based on formula ... for the maximal and minimal intensities one expects the con
 \begin{align}
     \text{contrast}(\theta) = 2\cos(\theta)\sin(\theta) 
 \end{align}
+
+\subsection{Refractive index of glass}
+\textbf{The following part could go into theory}
+When changing the angle of attack $\theta$ for the glass panels the Phaseshift $\Delta\Phi$ can be approximated for small angles
+as 
+$$\Delta\Phi = 2* \frac{2\pi}{\lambda_\text{vac}} T(\theta)\left(\frac{n-1}{2n} \theta^2 \right)$$.
+The length of the way of travel for the glass $T$ can be calculated with
+$$T(\theta) = \frac{T_0}{\cos\theta}$$
+
+Rearranging this formula makes it posssilble to calculate $n$ from the Phase shift.
+
+
 
 
 
