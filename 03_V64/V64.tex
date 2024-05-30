@@ -2,7 +2,7 @@
 
 \title{V64: Modern Interferometry}
 \author{Benedikt Lütke Lanfer \and Enno Wellmann}
-\date{13. Dezember 2024}
+\date{13. Mai 2024}
 \publishers{TU Dortmund – Fakultät Physik}
 
 \begin{document}
@@ -13,39 +13,46 @@
 
 
 % \input{./vorbereitung.tex}
-\section{Zielsetzung}
+\section{Objective}
+Goal of this Experiment is to learn the function of a Sagnac Interfermeter and to measure its contrast as well as the 
+refractive index of glass and air, dependent of the pressure. 
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
-\section{Theorie}
+\section{Theory}
+\subsection{Polarization}
 
-\subsection{Fehlerrechnung}
-Für die Fehlerrechnung werden alle \textbf{Mittelwerte} von $N$ Messungen folgendermaßen berechnet:
+\subsection{Sagnac-Interfermeter}
+
+\subsection{Refractive Index}
+
+\subsection{Error calculation}
+For error calculation, all \textbf{mean values} of N measurements are calculated as follows:
 
 \begin{equation}
     \overline{x} = \frac{1}{N} \cdot \sum_{i=1}^N x_i
     \label{eqn:Mittelwert}
 \end{equation}
 
-und alle \textbf{Standardabweichungen zum Mittelwert} mit:
+and all \textbf{standard deviations of the mean} with:
 
 \begin{equation}
     \increment\overline{x} = \sqrt{\frac{1}{N\cdot(N-1)}\cdot\sum_{i=1}^N (x_i-\overline{x})^2}
     \label{eqn:St_Mittelwert}
 \end{equation}
 
-Der Fehler für zusammenhängende Messwerte wird dann mit der \textbf{Gaußschen Fehlerfortpflanzung} berechnet:
+The error for correlated measurements is then calculated using the \textbf{Gaussian error propagation}:
 
 \begin{equation}
     \increment{f} = \sqrt{ \sum_{i = 1}^{N}  \biggl(\frac{\partial{f}}{\partial{x_i}}\biggr)^2\cdot(\increment{x_i})^2}
     \label{eqn:Gauss}
 \end{equation}
 
-Die Fehlerfortpflanzung wird mit Uncertainties in Python \cite{uncertainties} ermittelt.
+Error propagation is determined using the Uncertainties \cite{uncertainties} package in Python.
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
-\section{Durchführung}
+\section{Experimental Procedure}
 
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
@@ -54,7 +61,7 @@ Die Fehlerfortpflanzung wird mit Uncertainties in Python \cite{uncertainties} er
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
-\section{Diskussion}
+\section{Discussion}
 
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
