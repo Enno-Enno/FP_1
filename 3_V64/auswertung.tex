@@ -42,7 +42,7 @@ the error of \qty{0.005}{\volt} is assumed.
 		180                           & 1.663 (0.005)                 & 1.387 (0.005)                 & 0.0907(0.0023) & 0.0907 (0.0023) \\
         \bottomrule
 	\end{tabular}
-
+	\caption{Intensities and contrast for different polarization angles}
 \end{table}
 
 The contrast ist calculated with
@@ -56,14 +56,20 @@ Based on formula ... for the maximal and minimal intensities one expects the con
 
 \subsection{Refractive index of glass}
 \textbf{The following part could go into theory}
-When changing the angle of attack $\theta$ for the glass panels the Phaseshift $\Delta\Phi$ can be approximated for small angles
+When changing the angle of attack $\theta$ for the glass panels the phase shift $\Delta\Phi$ can be approximated for small angles
 as 
 $$\Delta\Phi = 2* \frac{2\pi}{\lambda_\text{vac}} T(\theta)\left(\frac{n-1}{2n} \theta^2 \right)$$.
 The length of the way of travel for the glass $T$ can be calculated with
 $$T(\theta) = \frac{T_0}{\cos\theta}$$
 
-Rearranging this formula makes it posssilble to calculate $n$ from the Phase shift.
-
+Rearranging this formula makes it possible to calculate $n$ from the accumulated phase shift $\Delta \Phi$
+\begin{align}
+	\Delta \Phi (\qty{10}{\deg})- \qty{0}{\deg} =\Delta \Phi (\qty{10}{\deg}) \\
+	n (\Delta \Phi) = \frac{1}{1-\frac{\Delta\Phi}{2\pi} \frac{\lambda_\text{vac}\cos{\theta}}{T_0 \theta^2}}
+\end{align}
+In the calculation all angle vales are converted into RAD Format.
+In the measurement the number of full relative phase rotations 
+$k = \frac{\Delta Phi}{2 \pi}$ was counted.
 
 
 

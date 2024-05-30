@@ -5,5 +5,13 @@ import uncertainties as unc
 import uncertainties.unumpy as unp
 import data as d
 import pprint
+from plot1 import degReturnRad
 
 pp = pprint.PrettyPrinter(indent=4)
+
+def nGlass(k, rotation_angle_deg):
+    lamVac = 632.990 # nm
+    theta = degReturnRad(rotation_angle_deg)
+    return 1/(1-k* lamVac* np.cos(theta)/(theta**2))    
+    ...
+

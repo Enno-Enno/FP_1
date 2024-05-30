@@ -58,13 +58,15 @@ def expected_contrast_deg(theta):
     theta_rad = degReturnRad(theta)
     return np.abs(2* np.cos(theta_rad)* np.sin(theta_rad))
 
-theta_x = np.linspace(0,180,180)
-plt.plot(theta_x, expected_contrast_deg(theta_x), label="Expected contrast")
-plt.errorbar(angles, consNom,fmt="x", yerr=consDel, label="Measured contrasts")
-plt.grid()
-plt.legend()
-plt.xlabel("theta/°")
-# plt.show()
 
-plt.savefig("build/plot1.pdf")
+if __name__ == "__main__":
+    theta_x = np.linspace(0,180,180)
+    plt.plot(theta_x, expected_contrast_deg(theta_x), label="Expected contrast")
+    plt.errorbar(angles, consNom,fmt="x", yerr=consDel, label="Measured contrasts")
+    plt.grid()
+    plt.legend()
+    plt.xlabel("theta/°")
+    # plt.show()
+
+    plt.savefig("build/plot1.pdf")
 
