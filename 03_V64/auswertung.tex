@@ -9,7 +9,6 @@ the mean values and their standard deviations are calculated. For Intensity
 standard deviations less than the digital reading error of \qty{0.005}{\volt}
 the error of \qty{0.005}{\volt} is assumed.
 
-
 \begin{table}[H]
 	\centering
 	\sisetup{table-align-uncertainty}
@@ -40,37 +39,73 @@ the error of \qty{0.005}{\volt} is assumed.
 		160                           & 3.39  (0.15 )                 & 0.867 (0.017)                 & 0.593 (0.016 ) & 0.593 (0.016 )  \\
 		170                           & 2.35  (0.09 )                 & 1.163 (0.024)                 & 0.337 (0.019 ) & 0.337 (0.019 )  \\
 		180                           & 1.663 (0.005)                 & 1.387 (0.005)                 & 0.0907(0.0023) & 0.0907 (0.0023) \\
-        \bottomrule
+		\bottomrule
 	\end{tabular}
 	\caption{Intensities and contrast for different polarization angles}
 \end{table}
 
 The contrast ist calculated with
 \begin{align}
-    \text{contrast} = \frac{I_\text{max} -I_\text{min}}{I_\text{max}-I_\text{min}}
+	\text{contrast} = \frac{I_\text{max} -I_\text{min}}{I_\text{max}-I_\text{min}}
 \end{align}
-Based on formula ... for the maximal and minimal intensities one expects the contrast to have the form
+Based on formula ... for the maximal and minimal intensities one expects the
+contrast to have the form
 \begin{align}
-    \text{contrast}(\theta) = 2\cos(\theta)\sin(\theta) 
+	\text{contrast}(\theta) = 2\cos(\theta)\sin(\theta)
 \end{align}
 
 \subsection{Refractive index of glass}
 \textbf{The following part could go into theory}
-When changing the angle of attack $\theta$ for the glass panels the phase shift $\Delta\Phi$ can be approximated for small angles
-as 
-$$\Delta\Phi = 2* \frac{2\pi}{\lambda_\text{vac}} T(\theta)\left(\frac{n-1}{2n} \theta^2 \right)$$.
-The length of the way of travel for the glass $T$ can be calculated with
-$$T(\theta) = \frac{T_0}{\cos\theta}$$
-
-Rearranging this formula makes it possible to calculate $n$ from the accumulated phase shift $\Delta \Phi$
+When changing the angle of attack $\theta$ for the glass panels the phase shift $\Phi$ can be approximated for small angles
+as
 \begin{align}
-	\Delta \Phi (\qty{10}{\deg})- \qty{0}{\deg} =\Delta \Phi (\qty{10}{\deg}) \\
-	n (\Delta \Phi) = \frac{1}{1-\frac{\Delta\Phi}{2\pi} \frac{\lambda_\text{vac}\cos{\theta}}{T_0 \theta^2}}
+	\Phi = 2 \cdot \frac{2\pi}{\lambda_\text{vac}} T(\theta)\left(\frac{n-1}{2n} \theta^2 \right)\\
+	T(\theta) = \frac{T_0}{\cos\theta}
 \end{align}
-In the calculation all angle vales are converted into RAD Format.
-In the measurement the number of full relative phase rotations 
-$k = \frac{\Delta Phi}{2 \pi}$ was counted.
+The length of the way of light in the Glass
+It is useful to separate the equation dependent on $\theta$ into its own function
+\begin{align}
+	R(\theta)= T(\theta)\cdot \theta^2
+\end{align}
+so that we can deal with the differently angled Glass panels. 
+They have a starting angle of $\theta_{01} = 10°$ and $\theta_{02}= -10°$ 
+which gets added to the adjusted angle $\theta$.
+This way we get a combined function
+\begin{align}
+	R_\text{comb} (\theta) = R(\theta_{01}+\theta) + R(\theta_{02}+\theta)\\
+	\Phi = R_\text{comb}(\theta) \frac{n-1}{2n}
+\end{align}
+We measure a change in Phase shift $\Delta \Phi$ by counting the number 
+of full relative phase rotations $2 \pi k = \Delta Phi$.
+From there we obtain $n$ via
+\begin{align} 
+	\Delta \Phi &= \Phi_2 -\Phi_1 %
+	= \left[ R_\text{comb}(\theta_{2})-R_\text{comb}(\theta_{1}) \right] \frac{n-1}{2n}\\
+	\Rightarrow n &= \frac{1}{1-\frac{2\Delta \Phi}{R_\text{comb}(\theta_{2})-R_\text{comb}(\theta_{1})} }
+\end{align}
 
 
+We measured the following Values for $\theta_1 = 0°$ and $\theta_2 = 10°$
+\begin{table}
+	\centering
+	\begin{tabular}{c}
+		\toprule
+		Number of phase rotations\\
+		\midrule
+		35 \\ 
+		31 \\ 
+		30 \\ 
+		37 \\ 
+		38 \\ 
+		37 \\ 
+		37 \\ 
+		34 \\ 
+		33 \\ 
+		37 \\ 
+		34 \\ 	
+		\bottomrule	
+	\end{tabular}
+\end{table}
 
-
+This results in a count of \num{34.8(26)} and a measured diffraction index
+of n= 
