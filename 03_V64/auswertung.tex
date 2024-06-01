@@ -11,34 +11,34 @@ the error of \qty{0.005}{\volt} is assumed.
 
 \begin{table}[H]
 	\centering
-	\sisetup{table-align-uncertainty}
-	\begin{tabular}{S S S S S}
+	\sisetup{table-align-uncertainty,table-format=1.3(3)}
+	\begin{tabular}{S[table-format=3.0] S S S[table-format=1.4(2)]}
 		\toprule
-		{Polarization/\unit{\degree}} & {$I_\text{max}/\unit{\volt}$} & {$I_\text{min}/\unit{\volt}$} & {Contrast}                       \\
+		{Polarization$/\unit{\degree}$} & {$I_\t{max}/\unit{\volt}$} & {$I_\t{min}/\unit{\volt}$} & {Contrast}     \\
 		\midrule
-		0                             & 1.600 (0.022)                 & 1.357 (0.005)                 & 0.082 (0.007 ) & 0.082 (0.007 )  \\
-		10                            & 1.327 (0.005)                 & 0.950 (0.008)                 & 0.165 (0.005 ) & 0.165 (0.005 )  \\
-		20                            & 1.440 (0.016)                 & 0.453 (0.005)                 & 0.521 (0.006 ) & 0.521 (0.006 )  \\
-		25                            & 1.333 (0.025)                 & 0.300 (0.008)                 & 0.633 (0.010 ) & 0.633 (0.010 )  \\
-		30                            & 1.203 (0.033)                 & 0.217 (0.017)                 & 0.695 (0.021 ) & 0.695 (0.021 )  \\
-		35                            & 1.160 (0.005)                 & 0.177 (0.005)                 & 0.736 (0.007 ) & 0.736 (0.007 )  \\
-		40                            & 1.150 (0.022)                 & 0.120 (0.005)                 & 0.811 (0.008 ) & 0.811 (0.008 )  \\
-		45                            & 1.290 (0.022)                 & 0.100 (0.005)                 & 0.856 (0.007 ) & 0.856 (0.007 )  \\
-		50                            & 1.363 (0.005)                 & 0.103 (0.005)                 & 0.859 (0.006 ) & 0.859 (0.006 )  \\
-		55                            & 1.500 (0.008)                 & 0.120 (0.005)                 & 0.852 (0.006 ) & 0.852 (0.006 )  \\
-		60                            & 1.617 (0.009)                 & 0.180 (0.005)                 & 0.800 (0.005 ) & 0.800 (0.005 )  \\
-		70                            & 2.010 (0.022)                 & 0.417 (0.005)                 & 0.657 (0.005 ) & 0.657 (0.005 )  \\
-		80                            & 2.153 (0.025)                 & 0.920 (0.005)                 & 0.401 (0.005 ) & 0.401 (0.005 )  \\
-		90                            & 2.200 (0.008)                 & 1.613 (0.009)                 & 0.1538(0.0034) & 0.1538 (0.0034) \\
-		100                           & 2.673 (0.024)                 & 1.683 (0.012)                 & 0.227 (0.005 ) & 0.227 (0.005 )  \\
-		110                           & 3.94  (0.05 )                 & 1.077 (0.017)                 & 0.570 (0.007 ) & 0.570 (0.007 )  \\
-		120                           & 4.68  (0.10 )                 & 0.657 (0.025)                 & 0.754 (0.009 ) & 0.754 (0.009 )  \\
-		130                           & 4.94  (0.09 )                 & 0.383 (0.017)                 & 0.856 (0.006 ) & 0.856 (0.006 )  \\
-		140                           & 5.11  (0.05 )                 & 0.430 (0.008)                 & 0.8449(0.0031) & 0.8449 (0.0031) \\
-		150                           & 4.28  (0.10 )                 & 0.64  (0.04 )                 & 0.740 (0.014 ) & 0.740 (0.014 )  \\
-		160                           & 3.39  (0.15 )                 & 0.867 (0.017)                 & 0.593 (0.016 ) & 0.593 (0.016 )  \\
-		170                           & 2.35  (0.09 )                 & 1.163 (0.024)                 & 0.337 (0.019 ) & 0.337 (0.019 )  \\
-		180                           & 1.663 (0.005)                 & 1.387 (0.005)                 & 0.0907(0.0023) & 0.0907 (0.0023) \\
+		0                               & 1.600 (0.022)              & 1.357 (0.005)              & 0.082 (0.007 ) \\
+		10                              & 1.327 (0.005)              & 0.950 (0.008)              & 0.165 (0.005 ) \\
+		20                              & 1.440 (0.016)              & 0.453 (0.005)              & 0.521 (0.006 ) \\
+		25                              & 1.333 (0.025)              & 0.300 (0.008)              & 0.633 (0.010 ) \\
+		30                              & 1.203 (0.033)              & 0.217 (0.017)              & 0.695 (0.021 ) \\
+		35                              & 1.160 (0.005)              & 0.177 (0.005)              & 0.736 (0.007 ) \\
+		40                              & 1.150 (0.022)              & 0.120 (0.005)              & 0.811 (0.008 ) \\
+		45                              & 1.290 (0.022)              & 0.100 (0.005)              & 0.856 (0.007 ) \\
+		50                              & 1.363 (0.005)              & 0.103 (0.005)              & 0.859 (0.006 ) \\
+		55                              & 1.500 (0.008)              & 0.120 (0.005)              & 0.852 (0.006 ) \\
+		60                              & 1.617 (0.009)              & 0.180 (0.005)              & 0.800 (0.005 ) \\
+		70                              & 2.010 (0.022)              & 0.417 (0.005)              & 0.657 (0.005 ) \\
+		80                              & 2.153 (0.025)              & 0.920 (0.005)              & 0.401 (0.005 ) \\
+		90                              & 2.200 (0.008)              & 1.613 (0.009)              & 0.1538(0.0034) \\
+		100                             & 2.673 (0.024)              & 1.683 (0.012)              & 0.227 (0.005 ) \\
+		110                             & 3.94  (0.05 )              & 1.077 (0.017)              & 0.570 (0.007 ) \\
+		120                             & 4.68  (0.10 )              & 0.657 (0.025)              & 0.754 (0.009 ) \\
+		130                             & 4.94  (0.09 )              & 0.383 (0.017)              & 0.856 (0.006 ) \\
+		140                             & 5.11  (0.05 )              & 0.430 (0.008)              & 0.8449(0.0031) \\
+		150                             & 4.28  (0.10 )              & 0.64  (0.04 )              & 0.740 (0.014 ) \\
+		160                             & 3.39  (0.15 )              & 0.867 (0.017)              & 0.593 (0.016 ) \\
+		170                             & 2.35  (0.09 )              & 1.163 (0.024)              & 0.337 (0.019 ) \\
+		180                             & 1.663 (0.005)              & 1.387 (0.005)              & 0.0907(0.0023) \\
 		\bottomrule
 	\end{tabular}
 	\caption{Intensities and contrast for different polarization angles}
@@ -46,12 +46,12 @@ the error of \qty{0.005}{\volt} is assumed.
 
 The contrast ist calculated with
 \begin{align}
-	\text{contrast} = \frac{I_\text{max} -I_\text{min}}{I_\text{max}-I_\text{min}}
+	\t{contrast} = \frac{I_\t{max} -I_\t{min}}{I_\t{max}-I_\t{min}}
 \end{align}
 Based on formula ... for the maximal and minimal intensities one expects the
 contrast to have the form
 \begin{align}
-	\text{contrast}(\theta) = 2\cos(\theta)\sin(\theta)
+	\t{contrast}(\theta) = 2\cos(\theta)\sin(\theta)
 \end{align}
 
 \subsection{Refractive index of glass}
@@ -59,53 +59,91 @@ contrast to have the form
 When changing the angle of attack $\theta$ for the glass panels the phase shift $\Phi$ can be approximated for small angles
 as
 \begin{align}
-	\Phi = 2 \cdot \frac{2\pi}{\lambda_\text{vac}} T(\theta)\left(\frac{n-1}{2n} \theta^2 \right)\\
-	T(\theta) = \frac{T_0}{\cos\theta}
+	\Phi      & = 2 \cdot \frac{2\pi}{\lambda_\t{vac}} T(\theta)\left(\frac{n-1}{2n} \theta^2 \right) \\
+	T(\theta) & = \frac{T_0}{\cos\theta}
 \end{align}
 The length of the way of light in the Glass
 It is useful to separate the equation dependent on $\theta$ into its own function
 \begin{align}
-	R(\theta)= T(\theta)\cdot \theta^2
+	R(\theta)= 2\cdot \frac{2\pi}{\lambda_\t{vac}} T(\theta)\cdot \theta^2
 \end{align}
-so that we can deal with the differently angled Glass panels. 
-They have a starting angle of $\theta_{01} = 10°$ and $\theta_{02}= -10°$ 
+so that we can deal with the differently angled Glass panels.
+They have a starting angle of $\theta_{01} = 10°$ and $\theta_{02}= -10°$
 which gets added to the adjusted angle $\theta$.
 This way we get a combined function
 \begin{align}
-	R_\text{comb} (\theta) = R(\theta_{01}+\theta) + R(\theta_{02}+\theta)\\
-	\Phi = R_\text{comb}(\theta) \frac{n-1}{2n}
+	R_\t{comb} (\theta) = R(\theta_{01}+\theta) + R(\theta_{02}+\theta) \\
+	\Phi = R_\t{comb}(\theta) \frac{n-1}{2n}
 \end{align}
-We measure a change in Phase shift $\Delta \Phi$ by counting the number 
+We measure a change in Phase shift $\Delta \Phi$ by counting the number
 of full relative phase rotations $2 \pi k = \Delta Phi$.
 From there we obtain $n$ via
-\begin{align} 
-	\Delta \Phi &= \Phi_2 -\Phi_1 %
-	= \left[ R_\text{comb}(\theta_{2})-R_\text{comb}(\theta_{1}) \right] \frac{n-1}{2n}\\
-	\Rightarrow n &= \frac{1}{1-\frac{2\Delta \Phi}{R_\text{comb}(\theta_{2})-R_\text{comb}(\theta_{1})} }
+\begin{align}
+	\Delta \Phi   & = \left|\Phi_2 -\Phi_1\right|                                                                  %
+	= \left[ \left|R_\t{comb}(\theta_{2})-R_\t{comb}(\theta_{1})\right| \right] \frac{n-1}{2n}                     \\
+	\Rightarrow n & = \frac{1}{1-\frac{2\Delta \Phi}{\left|R_\t{comb}(\theta_{2})-R_\t{comb}(\theta_{1})\right|} }
 \end{align}
 
-
 We measured the following Values for $\theta_1 = 0°$ and $\theta_2 = 10°$
-\begin{table}
+\begin{table}[H]
 	\centering
 	\begin{tabular}{c}
 		\toprule
-		Number of phase rotations\\
+		Number of phase rotations \\
 		\midrule
-		35 \\ 
-		31 \\ 
-		30 \\ 
-		37 \\ 
-		38 \\ 
-		37 \\ 
-		37 \\ 
-		34 \\ 
-		33 \\ 
-		37 \\ 
-		34 \\ 	
-		\bottomrule	
+		35                        \\
+		31                        \\
+		30                        \\
+		37                        \\
+		38                        \\
+		37                        \\
+		37                        \\
+		34                        \\
+		33                        \\
+		37                        \\
+		34                        \\
+		\bottomrule
 	\end{tabular}
 \end{table}
 
-This results in a count of \num{34.8(26)} and a measured diffraction index
-of n= 
+This results in a count of \num{34.8(26)} and a measured diffraction index of
+$n = \num{1.48(5)}$
+
+\subsection{Refractive index of Air}
+The light beam undergoes a phase shift of
+\begin{align}
+	\Delta\Phi = \frac{2 \pi}{\lambda_\t{vac} \Delta n L }
+\end{align}
+Where $\Delta n = n_\t{air}- n_\t{vac} = n_\t{air}-1 $.
+
+\begin{table}
+	\centering
+	\sisetup{table-format=2.0}
+	\begin{tabular}
+		\toprule
+		{#1} & {#2} & {#3} & {#4} \\
+		\midrule
+		0    & 0    & 0    & 0    \\
+		2    & 2    & 2    & 2    \\
+		4    & 4    & 4    & 4    \\
+		6    & 6    & 6    & 6    \\
+		8    & 8    & 9    & 8    \\
+		10   & 11   & 10   & 11   \\
+		15   & 13   & 13   & 13   \\
+		17   & 15   & 15   & 15   \\
+		19   & 17   & 17   & 17   \\
+		21   & 19   & 19   & 19   \\
+		22   & 21   & 21   & 21   \\
+		25   & 23   & 23   & 23   \\
+		27   & 25   & 25   & 25   \\
+		29   & 28   & 27   & 27   \\
+		31   & 30   & 30   & 30   \\
+		34   & 33   & 32   & 32   \\
+		36   & 35   & 34   & 34   \\
+		38   & 37   & 36   & 36   \\
+		40   & 39   & 38   & 38   \\
+		44   & 43   & 42   & 42   \\
+		42   & 41   & 40   & 40   \\
+		\bottomrule
+	\end{tabular}
+\end{table}
