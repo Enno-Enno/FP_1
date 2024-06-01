@@ -2,12 +2,11 @@
 
 \title{V64: Modern Interferometry}
 \author{Benedikt Lütke Lanfer \and Enno Wellmann}
-\date{13. Mai 2024}
+\date{27. Mai 2024}
 \publishers{TU Dortmund – Fakultät Physik}
 
 \begin{document}
-% \input{../Titelseite.tex}
-\maketitle
+\input{../Titelseite.tex}
 \tableofcontents
 \newpage
 
@@ -20,11 +19,83 @@ refractive index of glass and air, dependent of the pressure.
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
 \section{Theory}
-\subsection{Polarization}
+In the experiment a Helium-Neon-Laser, which emits linear polarized coherent light, is used in a Sagnac Interferometer.
+To understand the experiment properly the following theory will explain the necessary technical terms as well as the used setup. 
 
-\subsection{Sagnac-Interferometer}
+\subsection{Coherence}
+Coherence describes weather light is temporally or spatial in Phase. 
+If light is temporally coherent than its Phase difference is constant for a time period $\Delta t_c$, 
+equally if light is spatial coherent than its Phase difference is constant in a limited space. 
+As a result of superimposing two coherent waves, spatial and temporally Interference can be observed.
+
+\subsection{Polarization}
+Another characteristic of light is its polarization, which describes the geometrical orientation of the oscillations of the light. 
+Light consists of perpendicular oscillating electric and magnetic fields.
+Normally for polarization only one field oscillations is depicted for simplicity, because the fields always stands perpendicular to each other and
+therefore have the same polarization.
+The three common polarization types are
+
+\begin{enumerate}
+    \item linear polarization: oscillations on a line 
+    \item circular polarization: oscillations on a circle
+    \item elliptic polarization: oscillations on an ellipse
+\end{enumerate}
+
+which are better shown in the following graphic
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Bilder/Polarization.png}
+	\caption{Polarization types \cite{...}}\label{fig:po}
+\end{figure}
+
+The polarization influences weather interference pattern occur or not.
+To be able to observe interference the waves have to be coherent and have the same polarization. 
+In the following experiment only linear polarized light is used.
+To change the direction of oscillation of the linear light a polarization filter, which only lets light oscillating in one direction trough, can be used.  
+If linear light oscillating in an angle $\alpha $ to the polarization filter, the intensity of the light decreases by
+
+\begin{equation}
+    I=I_0 \cdot \cos^2(\alpha )
+\end{equation}
+
+after passing the filter. 
 
 \subsection{Refractive Index}
+The refractive index $n$ describes the velocity of the light in matter
+
+\begin{equation}
+    c_m=\frac{c}{n}
+\end{equation}
+
+compared to constant vacuum velocity $c$. 
+Although the phase of the light change in matter by constant phase $\varphi $. 
+To estimate the refractive index of glass in the experiment two rotatable glass planes get inserted in the light beam. 
+Each of the plane changes the phase of the light dependent of the rotation angel $\theta $ by
+
+\begin{equation}
+    \Delta \varphi(\theta ) =\frac{2\pi }{\lambda_{vac}}T \cdot \left(\frac{n-1}{2n}\theta ^2 +O(\theta ^4)  \right)
+\end{equation}
+
+With the wavelength of the laser $\lambda_{vac}$ and the thickness $T$.
+Together the two glass planes, which are each tilted by $\varphi_0=\pm 10°$, change the phase by 
+
+\begin{align}
+    \Delta \varphi(\theta ) &=\frac{2\pi T}{\lambda_{vac}} \frac{n-1}{2n} \cdot \left[(\theta+\varphi_0)^2 - (\theta-\varphi_0)^2 +O(\theta ^4)  \right] \notag\\
+                            &=\frac{4\pi T}{\lambda_{vac}} \frac{n-1}{n} \cdot \theta\varphi_0
+\end{align}
+
+The phase shift is connected to the number of interference maxima and minima by 
+
+\begin{equation}
+    M=\frac{\Delta \varphi(\theta)}{2\pi}
+\end{equation}
+
+
+\subsection{Contrast}
+
+
+
 
 \subsection{Error calculation}
 For error calculation, all \textbf{mean values} of N measurements are calculated as follows:
@@ -53,6 +124,8 @@ Error propagation is determined using the Uncertainties \cite{uncertainties} pac
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
 \section{Experimental Procedure}
+
+\subsection{Sagnac-Interferometer}
 
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
