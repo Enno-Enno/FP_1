@@ -6,6 +6,7 @@ import uncertainties.unumpy as unp
 import data as d
 import pprint
 from plot1 import degReturnRad
+import numpy.polynomial.polynomial as pol
 
 pp = pprint.PrettyPrinter(indent=4)
 lamVac = 632.990 * 1e-9# m
@@ -71,4 +72,18 @@ delNFine = deltaN(dcounter*np.pi, L) * len(difference_array[0,:])
 print(delNFine)
 
 for i,_ in enumerate(d.counter_air[0,:]):
-    print(d.counter_air[0,i], " & ",d.counter_air[1,i], " & ",d.counter_air[2,i], " & ",d.counter_air[3,i], r" \\",)
+    print(d.pressures_mbar[i], " & ",d.counter_air[0,i], " & ",d.counter_air[1,i], " & ",d.counter_air[2,i], " & ",d.counter_air[3,i], r" \\",)
+
+delN = deltaN(d.counter_air.flatten()*2*np.pi,L)
+nomN = unp.nominal_values(delN)
+
+print(np.shape(nomN))
+deltaPhis= d.counter_air.flatten()*2*np.pi
+polynomial_fit = np.polyfit(deltaPhis,unp.nominal_values(delN))
+
+print(polynomial_fit)
+
+plt.plot(deltaPhis,nomN- polynomial_fit(deltaPhis),".",label="Dunkelheit")
+
+plt.legend()
+plt.show()
