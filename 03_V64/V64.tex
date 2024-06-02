@@ -71,7 +71,7 @@ The refractive index $n$ describes the velocity of the light in matter
 \end{equation}
 
 compared to constant vacuum velocity $c$. 
-Although the phase of the light change in matter by constant phase $\varphi $. 
+Also,, the phase of the light change in matter by constant phase $\varphi $. 
 
 \subsubsection{Refractive index of glass}
 To estimate the refractive index of glass in the experiment two rotatable glass planes get inserted in the light beam. 
@@ -96,17 +96,47 @@ The phase shift is connected to the number of interference maxima and minima by
 \end{equation}
 
 \subsubsection{Refractive index of gas}
-The refractive index of gas is dependent of the temperature and the pressure of the gas by
+To determine the refractive index of gas a pressure control tube of the gas is inserted in the beam.
+The refractive index of gas is dependent of the temperature $T$ and the pressure $p$ of the gas by the Lorentz-Lorenz-Law
 
 \begin{equation}
     \frac{n^2-1}{n^2+1}=\frac{Ap}{RT}
 \end{equation}
 
+were $R$ is the gas constant and $A$ is the molar refractive.
+Furthermore, the light phase is shifted in the tube of length $L$ by
 
+\begin{equation}
+    \Delta \varphi(\theta ) =\frac{2\pi }{\lambda_{vac}}\Delta n L
+\end{equation}
 
 \subsection{Contrast}
+The contrast of an interferometer 
 
+\begin{equation}
+    C=\frac{I_{max}-I_{min}}{I_{max}+I_{min}}
+\end{equation}
 
+describes the normalized difference in the maximal intensity $I_{max}$ and the minimal intensity $I_{min}$ and therefore $C \in [0,1] $.
+The superposition of two waves with electric field components $E_1$, $E_2$ and a phase shift $\varphi $ result in an intensity of
+
+\begin{equation}
+    I\varpropto \langle |E_1 \cos(\omega t) + E_2 \cos(\omega t+\varphi ) | \rangle 
+\end{equation}.
+
+In the experiment the laser beam is split in two, therefore the absolute value of the electric field components of the two waves are the same $E_1^2=E_2^2$.
+Only different in there polarization, so you can write $E_1=\frac{1}{2} \sqrt{I_{laser}} \cdot \cos(\phi )$ and $E_2=\frac{1}{2} \sqrt{I_{laser}} \cdot \sin(\phi )$, 
+which result in 
+
+\begin{equation}
+    I_{\frac{max}{min}}\varpropto I_{laser}\cdot [1\pm 2\cos(\phi )\sin(\phi )]
+\end{equation}
+
+Finally, inserting this in the formula for the contrast yield
+
+\begin{equation}
+    C=\sin(2\phi )
+\end{equation}
 
 
 \subsection{Error calculation}
