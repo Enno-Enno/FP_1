@@ -93,13 +93,15 @@ d1 = float(unp.nominal_values(par[1]))
 m_f= float(unp.std_devs(par[0]))
 d1_f= float(unp.std_devs(par[1]))
 
-print(par)
+print(par[0], par[1])
+xplot= np.linspace(0,1000)
 
 plt.figure(constrained_layout=True)
 plt.plot(pressures_mbar, unp.nominal_values(deltaN(deltaPhis,L)),".",label="measured values")
+plt.plot(xplot, m*xplot+ d1, label = "linear fit")
 
 plt.xlabel(r"$p/\text{mBar}$")
 plt.ylabel(r" $\Delta n = n-1$")
 plt.legend()
 plt.savefig("build/plot2.pdf")
-plt.show()
+# plt.show()
