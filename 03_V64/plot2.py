@@ -13,22 +13,27 @@ lamVac = 632.990 * 1e-9# m
 counter_glass = d.RefIndexGlasNumbers
 T_0 = 1e-3 #m
 
+## Falsche Formeln
 def T(theta_rad):
     '''return thickness of glass for the laser'''
     return T_0/np.cos(theta_rad)
-    ...
+    # return T_0
 
     
 def R(theta_rad):
-    return  4*np.pi/(lamVac) *T_0/(np.cos(theta_rad))* theta_rad**2
+    return  2*np.pi/(lamVac) *T(theta_rad) * theta_rad**2
 
+## bis hier
 def Rcombined(theta_deg):
     theta_rad = degReturnRad(theta_deg)
-    theta_01_deg = 10 
+    theta_0_deg = 10 
     theta_02_deg = -10
-    theta_01_rad = degReturnRad(theta_01_deg) 
-    theta_02_rad = degReturnRad(theta_02_deg) 
-    return (R(theta_01_rad + theta_rad) + R(theta_rad + theta_02_rad))  
+    theta_0_rad = degReturnRad(theta_0_deg) 
+    # theta_02_rad = degReturnRad(theta_02_deg) 
+    # return (R(theta_01_rad + theta_rad) + R(theta_rad + theta_02_rad))  
+    return (4*np.pi *T_0)/(lamVac) * theta_rad * theta_0_rad
+
+
 
 
 def nGlass(DeltaPhi):
@@ -48,7 +53,7 @@ n = nGlass(DeltaPhi)
 print(n)
 print("Kontrolle", getk(n, 10))
 
-### Refractive Index air
+print("Refractive Index air ----------------------------------")
 print(d.counter_air)
 difference_array = np.zeros((np.shape(d.counter_air)[0],np.shape(d.counter_air)[1]-1))
 for i,_ in enumerate(difference_array[0,:]):
@@ -79,7 +84,7 @@ nomN = unp.nominal_values(delN)
 
 print(np.shape(nomN))
 deltaPhis= d.counter_air.flatten()*2*np.pi
-polynomial_fit = np.polyfit(deltaPhis,unp.nominal_values(delN))
+polynomial_fit = np.polyfit(deltaPhis,unp.nominal_values(delN),1)
 
 print(polynomial_fit)
 
