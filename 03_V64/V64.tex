@@ -104,7 +104,7 @@ The refractive index of gas is dependent of the temperature $T$ and the pressure
 \end{equation}
 
 were $R$ is the gas constant and $A$ is the molar refractive.
-Furthermore, the light phase is shifted in the tube of length $L$ by
+Also, the light phase is shifted in the tube of length $L$ by
 
 \begin{equation}
     \Delta \varphi(\theta ) =\frac{2\pi }{\lambda_{vac}}\Delta n L
@@ -115,6 +115,7 @@ The contrast of an interferometer
 
 \begin{equation}
     C=\frac{I_{max}-I_{min}}{I_{max}+I_{min}}
+    \label{eq:contrast}
 \end{equation}
 
 describes the normalized difference in the maximal intensity $I_{max}$ and the minimal intensity $I_{min}$ and therefore $C \in [0,1] $.
@@ -124,15 +125,22 @@ The superposition of two waves with electric field components $E_1$, $E_2$ and a
     I\varpropto \langle |E_1 \cos(\omega t) + E_2 \cos(\omega t+\varphi ) | \rangle 
 \end{equation}.
 
-In the experiment the laser beam is split in two, therefore the absolute value of the electric field components of the two waves are the same $E_1^2=E_2^2$.
-Only different in there polarization, so you can write $E_1=\frac{1}{2} \sqrt{I_{laser}} \cdot \cos(\phi )$ and $E_2=\frac{1}{2} \sqrt{I_{laser}} \cdot \sin(\phi )$, 
+In the experiment the laser beam is split in two, 
+therefore the absolute value squared of the electric field components of the two waves add up to the laser intensity $I_{laser}=E_1^2+E_2^2$.
+Furthermore, they only different in there polarization orientation and not in there amplitude, so you can write   
+
+\begin{align*}
+    E_1 &=\sqrt{\frac{I_{laser}}{2}} \cdot \cos(\phi )\\
+    E_2 &=\sqrt{\frac{I_{laser}}{2}} \cdot \sin(\phi )
+\end{align*}
+
 which result in 
 
 \begin{equation}
     I_{\frac{max}{min}}\varpropto I_{laser}\cdot [1\pm 2\cos(\phi )\sin(\phi )]
 \end{equation}
 
-Finally, inserting this in the formula for the contrast yield
+Finally, inserting this in the formula for the contrast \eqref{eq:contrast} yield
 
 \begin{equation}
     C=\sin(2\phi )
@@ -166,12 +174,31 @@ Error propagation is determined using the Uncertainties \cite{uncertainties} pac
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
 \section{Experimental Procedure}
-
 \subsection{Sagnac-Interferometer}
+In the experiment a Sagnac-Interferometer is used in the following setup
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Bilder/Aufbau.png}
+	\caption{Polarization types \cite{man:64}}\label{fig:Aufbau}
+\end{figure}
+
+Form the HeNe-Laser the beam, with wavelength $\qty{632.990}{\nano\meter}$, goes in the polarizing beam splitter cube (PBSC), 
+where it gets split $90°$ and two overlapping beams go around the setup in opposite direction. 
+Until there are recombined in the PBSC and interfere with each other. 
+To fine tune the interferometer each mirror can be adjusted either horizontal or vertical, which will be described later in the alignment chapter.
+Furthermore, the mirror two can be rotated so that the light does not hit the cube perfectly in the middle 
+and therefore the two beams are separate parallel beams and not overlapping. 
+One of the beams can now be manipulated separately and the result can be measured in the interference pattern, with the differential voltage method. 
+This done by splitting the final beam again with a PBSC and converting the two beams signal each with a diode in to voltage. 
+The differential of these voltages are measured in the differential voltage method.
+
+\subsection{Alignment}
+
+\subsection{Procedure}
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
-
+\newpage
 \input{auswertung.tex}
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
