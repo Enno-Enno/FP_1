@@ -56,7 +56,7 @@ degReturnRad = lambda deg: 2 *np.pi/360 *deg
 
 def expected_contrast_deg(theta):
     theta_rad = degReturnRad(theta)
-    return np.abs(2* np.cos(theta_rad)* np.sin(theta_rad))
+    return np.abs(np.sin(2*theta_rad))
 
 
 if __name__ == "__main__":
@@ -65,7 +65,8 @@ if __name__ == "__main__":
     plt.errorbar(angles, consNom,fmt="x", yerr=consDel, label="Measured contrasts")
     plt.grid()
     plt.legend()
-    plt.xlabel("theta/°")
+    plt.xlabel("$\phi/°$")
+    plt.ylabel("contrast")
     # plt.show()
 
     plt.savefig("build/plot1.pdf")

@@ -3,10 +3,10 @@
 %Alignment of the Laser paths
 
 \subsection{Optimal polarization adjustment}
-In tabular ref{tab:contrast} the minimal and maximal Energies recorded by the
-photodiode are noted and the mean values and their standard deviations calculated. 
-The original measured values can be found in the appendix.
-For Intensity standard deviations less than the digital reading error of
+In tabular \ref{tab:contrast} the minimal and maximal Energies recorded by the
+photodiode are noted and the mean values and their standard deviations
+calculated. The original measured values can be found in the appendix. For
+Intensity standard deviations less than the digital reading error of
 $\qty{0.005}{\volt}$ the error of $ \qty{0.005}{\volt}$ is assumed.
 
 \begin{table}[H]
@@ -44,11 +44,23 @@ $\qty{0.005}{\volt}$ the error of $ \qty{0.005}{\volt}$ is assumed.
 	\caption{Intensities and contrast for different polarization angles}\label{tab:contrast}
 \end{table}
 
-The contrast 
+The contrast
 \begin{align}
 	C = \frac{I_\t{max} -I_\t{min}}{I_\t{max}-I_\t{min}}
 \end{align}
 is calculated dependent on the angel of polarization with the formula \eqref{eq:contrast_phi}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{./build/plot1.pdf}
+	\caption{Contrast by polarization angle $\phi$.}\label{fig:contrast}
+\end{figure}
+
+There are two angles of maximum polarization, one at \qty{50}{\degree} and one
+at \qty{130}{\degree}. The absolute values for the intensities are much higher
+at \qty{130}{\degree}. For this reason all further measurements are conducted
+with a polarization angle of \qty{130}{\degree}.
+
 %Based on formula \eqref{eq:contrast} for the maximal and minimal intensities one expects the
 %contrast to have the form
 %\begin{align}
@@ -80,8 +92,8 @@ We measure a change in phase shift $\Delta \Phi$ by counting the number of full
 relative phase rotations $2 \pi M = \Delta \Phi$. From there we obtain $n$ via
 equation \eqref{eq:glass}
 \begin{align}
-	R_\t{comb}(\theta) &= \frac{4\pi T}{\lambda_\t{vac}}\theta\phi_0\\
-	n & = \frac{1}{1-\frac{\Delta \Phi}{\left|R_\t{comb}(\theta_{2})-R_\t{comb}(\theta_{1})\right|} } \label{eq:nAtmos}
+	R_\t{comb}(\theta) & = \frac{4\pi T}{\lambda_\t{vac}}\theta\phi_0                                                                    \\
+	n                  & = \frac{1}{1-\frac{\Delta \Phi}{\left|R_\t{comb}(\theta_{2})-R_\t{comb}(\theta_{1})\right|} } \label{eq:nAtmos}
 \end{align}
 
 We measured the following Values for $\theta_1 = 0°$ and $\theta_2 = 10°$
@@ -158,12 +170,14 @@ not yet that relevant.
 \end{table}
 
 The central data point from table \ref{tab:air} is the $\Delta n$ at
-atmospheric pressure $\Delta n = 0.000271\pm0.000005$. In figure \ref{fig:air}
-the measured values are compared to a linear fit with the parameters
+atmospheric pressure $\Delta n = 0.000271\pm0.000005$. According to the
+Lorentz-Lorentz-Law the value of the refractive index can be approximated in a
+linear fit for $\Delta n << 1$. In figure \ref{fig:air} the measured values are
+compared to a linear fit with the parameters
 \begin{align}
-	\Delta n &= mp +b \\
-	m &= \qty{2.735(17)d-07}{\per\milli\bar}\\
-	b &= \num{-0.7(1.0)d-06}
+	\Delta n & = mp +b                               \\
+	m        & = \qty{2.735(17)d-07}{\per\milli\bar} \\
+	b        & = \num{-0.7(1.0)d-06}
 \end{align}
 The resulting refractive index at a standard atmospheric pressure of
 $p_\t{atm}=\qty{1013.25}{\milli\bar}$ turns out to be
