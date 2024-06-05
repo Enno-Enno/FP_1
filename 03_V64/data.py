@@ -105,15 +105,19 @@ counter_air = np.array(
 T_cel = 20.1
 
 if __name__ == "__main__":
-    print("shape(RefIndexGlasNumbers)", np.shape(RefIndexGlasNumbers))
-    print(
-        "shape(Emax),shape(Emin),shape(polarization_angles_deg)",
-        np.shape(Emax),
-        np.shape(Emin),
-        np.shape(polarization_angles_deg),
-    )
-    print(
-        "np.shape(counter_air),np.shape(pressures_mbar)",
-        np.shape(counter_air),
-        np.shape(pressures_mbar),
-    )
+    # print("shape(RefIndexGlasNumbers)", np.shape(RefIndexGlasNumbers))
+    # print(
+        # "shape(Emax),shape(Emin),shape(polarization_angles_deg)",
+        # np.shape(Emax),
+        # np.shape(Emin),
+        # np.shape(polarization_angles_deg),
+    # )
+    # print(
+        # "np.shape(counter_air),np.shape(pressures_mbar)",
+        # np.shape(counter_air),
+        # np.shape(pressures_mbar),
+    # )
+    for i, deg in enumerate(polarization_angles_deg):
+        print(deg," & ", Emin[i,0]," & ", Emax[i,0], r" \\")
+        print(" & ", Emin[i,1]," & ", Emax[i,1], r" \\")
+        print(" & ", Emin[i,2]," & ", Emax[i,2], r" \\")

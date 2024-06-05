@@ -12,35 +12,39 @@
 %Shortcuts
 \let\t\text\
 
-
 % \input{./vorbereitung.tex}
 \section{Objective}
-Goal of this Experiment is to learn the function of a Sagnac Interferometer and to measure its contrast as well as the 
-refractive index of glass and air, dependent of the pressure. 
+Goal of this Experiment is to learn the function of a Sagnac Interferometer and
+to measure its contrast as well as the refractive index of glass and air,
+dependent of the pressure.
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
 \section{Theory}
-In the experiment a Helium-Neon-Laser, which emits linear polarized coherent light, is used in a Sagnac Interferometer.
-To understand the experiment properly the following theory will explain the necessary technical terms as well as the used setup. 
+In the experiment a Helium-Neon-Laser, which emits linear polarized coherent
+light, is used in a Sagnac Interferometer. To understand the experiment
+properly the following theory will explain the necessary technical terms as
+well as the used setup.
 
 \subsection{Coherence}
-Coherence describes weather light is temporally or spatial in Phase. 
-If light is temporally coherent than its Phase difference is constant for a time period $\Delta t_c$, 
-equally if light is spatial coherent than its Phase difference is constant in a limited space. 
-As a result of superimposing two coherent waves, spatial and temporally Interference can be observed.
+Coherence describes weather light is temporally or spatial in Phase. If light
+is temporally coherent than its Phase difference is constant for a time period
+$\Delta t_c$, equally if light is spatial coherent than its Phase difference is
+constant in a limited space. As a result of superimposing two coherent waves,
+spatial and temporally Interference can be observed.
 
 \subsection{Polarization}
-Another characteristic of light is its polarization, which describes the geometrical orientation of the oscillations of the light. 
-Light consists of perpendicular oscillating electric and magnetic fields.
-Normally for polarization only one field oscillations is depicted for simplicity, because the fields always stands perpendicular to each other and
-therefore have the same polarization.
-The three common polarization types are
+Another characteristic of light is its polarization, which describes the
+geometrical orientation of the oscillations of the light. Light consists of
+perpendicular oscillating electric and magnetic fields. Normally for
+polarization only one field oscillations is depicted for simplicity, because
+the fields always stands perpendicular to each other and therefore have the
+same polarization. The three common polarization types are
 
 \begin{enumerate}
-    \item linear polarization: oscillations on a line 
-    \item circular polarization: oscillations on a circle
-    \item elliptic polarization: oscillations on an ellipse
+	\item linear polarization: oscillations on a line
+	\item circular polarization: oscillations on a circle
+	\item elliptic polarization: oscillations on an ellipse
 \end{enumerate}
 
 which are better shown in the following graphic
@@ -51,126 +55,137 @@ which are better shown in the following graphic
 	\caption{Polarization types \cite{...}}\label{fig:po}
 \end{figure}
 
-The polarization influences weather interference pattern occur or not.
-To be able to observe interference the waves have to be coherent and have the same polarization. 
-In the following experiment only linear polarized light is used.
-To change the direction of oscillation of the linear light a polarization filter, which only lets light oscillating in one direction trough, can be used.  
-If linear light oscillating in an angle $\alpha $ to the polarization filter, the intensity of the light decreases by
+The polarization influences weather interference pattern occur or not. To be
+able to observe interference the waves have to be coherent and have the same
+polarization. In the following experiment only linear polarized light is used.
+To change the direction of oscillation of the linear light a polarization
+filter, which only lets light oscillating in one direction trough, can be used.
+If linear light oscillating in an angle $\alpha $ to the polarization filter,
+the intensity of the light decreases by
 
 \begin{equation}
-    I=I_0 \cdot \cos^2(\alpha )
-    \label{eq:pol}
+	I=I_0 \cdot \cos^2(\alpha )
+	\label{eq:pol}
 \end{equation}
 
-after passing the filter. 
+after passing the filter.
 
 \subsection{Refractive Index}
 The refractive index $n$ describes the velocity of the light in matter
 
 \begin{equation}
-    c_m=\frac{c}{n}
+	c_m=\frac{c}{n}
 \end{equation}
 
-compared to constant vacuum velocity $c$. 
-Also,, the phase of the light change in matter by constant phase $\varphi $. 
+compared to constant vacuum velocity $c$. Also,, the phase of the light change
+in matter by constant phase $\varphi $.
 
 \subsubsection{Refractive index of glass}
-To estimate the refractive index of glass in the experiment two rotatable glass planes get inserted in the light beam. 
-Each of the plane changes the phase of the light dependent of the rotation angel $\theta $ by
+To estimate the refractive index of glass in the experiment two rotatable glass
+planes get inserted in the light beam. Each of the plane changes the phase of
+the light dependent of the rotation angel $\theta $ by
 
 \begin{equation}
-    \Delta \varphi(\theta ) =\frac{2\pi }{\lambda_{vac}}T \cdot \left(\frac{n-1}{2n}\theta ^2 +O(\theta ^4)  \right)
+	\Delta \varphi(\theta ) =\frac{2\pi }{\lambda_{vac}}T \cdot \left(\frac{n-1}{2n}\theta ^2 +O(\theta ^4)  \right)
 \end{equation}
 
 With the wavelength of the laser $\lambda_{vac}$ and the thickness $T$.
-Together the two glass planes, which are each tilted by $\varphi_0=\pm 10°$, change the phase by 
+Together the two glass planes, which are each tilted by $\varphi_0=\pm 10°$,
+change the phase by
 
 \begin{align}
-    \Delta \varphi(\theta ) &=\frac{2\pi T}{\lambda_{vac}} \frac{n-1}{2n} \cdot \left[(\theta+\varphi_0)^2 - (\theta-\varphi_0)^2 +O(\theta ^4)  \right] \notag\\
-                            &=\frac{4\pi T}{\lambda_{vac}} \frac{n-1}{n} \cdot \theta\varphi_0 +O(\theta ^4) 
+	\Delta \varphi(\theta ) & =\frac{2\pi T}{\lambda_{vac}} \frac{n-1}{2n} \cdot \left[(\theta+\varphi_0)^2 - (\theta-\varphi_0)^2 +O(\theta ^4)  \right] \notag \\
+	                        & =\frac{4\pi T}{\lambda_{vac}} \frac{n-1}{n} \cdot \theta\varphi_0 +O(\theta ^4)
 \end{align}\label{eq:glass}
 
-The phase shift is connected to the number of interference maxima and minima by 
+The phase shift is connected to the number of interference maxima and minima by
 
 \begin{equation}
-    M=\frac{\Delta \varphi(\theta)}{2\pi}
+	M=\frac{\Delta \varphi(\theta)}{2\pi}
 \end{equation}
 
 \subsubsection{Refractive index of gas}
-To determine the refractive index of gas a pressure control tube of the gas is inserted in the beam.
-The refractive index of gas is dependent of the temperature $T$ and the pressure $p$ of the gas by the Lorentz-Lorenz-Law
+To determine the refractive index of gas a pressure control tube of the gas is
+inserted in the beam. The refractive index of gas is dependent of the
+temperature $T$ and the pressure $p$ of the gas by the Lorentz-Lorenz-Law
 
 \begin{equation}
-    \frac{n^2-1}{n^2+1}=\frac{Ap}{RT}
+	\frac{n^2-1}{n^2+1}=\frac{Ap}{RT}
 \end{equation}
 
-were $R$ is the gas constant and $A$ is the molar refractive.
-Also, the light phase is shifted in the tube of length $L$ by
+were $R$ is the gas constant and $A$ is the molar refractive. Also, the light
+phase is shifted in the tube of length $L$ by
 
 \begin{equation}
-    \Delta \varphi(\theta ) =\frac{2\pi }{\lambda_{vac}}\Delta n L
+	\Delta \varphi(\theta ) =\frac{2\pi }{\lambda_{vac}}\Delta n L
 \end{equation}
 
 \subsection{Contrast}
-The contrast of an interferometer 
+The contrast of an interferometer
 
 \begin{equation}
-    C=\frac{I_{max}-I_{min}}{I_{max}+I_{min}}
-    \label{eq:contrast}
+	C=\frac{I_{max}-I_{min}}{I_{max}+I_{min}}
+	\label{eq:contrast}
 \end{equation}
 
-describes the normalized difference in the maximal intensity $I_{max}$ and the minimal intensity $I_{min}$ and therefore $C \in [0,1] $.
-The superposition of two waves with electric field components $E_1$, $E_2$ and a phase shift $\varphi $ result in an intensity of
+describes the normalized difference in the maximal intensity $I_{max}$ and the
+minimal intensity $I_{min}$ and therefore $C \in [0,1] $. The superposition of
+two waves with electric field components $E_1$, $E_2$ and a phase shift
+$\varphi $ result in an intensity of
 
 \begin{equation}
-    I\varpropto \langle |E_1 \cos(\omega t) + E_2 \cos(\omega t+\varphi ) | \rangle 
+	I\varpropto \langle |E_1 \cos(\omega t) + E_2 \cos(\omega t+\varphi ) | \rangle
 \end{equation}.
 
-In the experiment the laser beam is split in two, 
-therefore the absolute value squared of the electric field components of the two waves add up to the laser intensity $I_{laser}=E_1^2+E_2^2$.
-Furthermore, they only different in there polarization orientation and not in there amplitude, so you can write   
+In the experiment the laser beam is split in two, therefore the absolute value
+squared of the electric field components of the two waves add up to the laser
+intensity $I_{laser}=E_1^2+E_2^2$. Furthermore, they only different in there
+polarization orientation and not in there amplitude, so you can write
 
 \begin{align*}
-    E_1 &=\sqrt{\frac{I_{laser}}{2}} \cdot \cos(\phi )\\
-    E_2 &=\sqrt{\frac{I_{laser}}{2}} \cdot \sin(\phi )
+	E_1 & =\sqrt{\frac{I_{laser}}{2}} \cdot \cos(\phi ) \\
+	E_2 & =\sqrt{\frac{I_{laser}}{2}} \cdot \sin(\phi )
 \end{align*}
 
-which result in 
+which result in
 
 \begin{equation}
-    I_{\frac{max}{min}}\varpropto I_{laser}\cdot [1\pm 2\cos(\phi )\sin(\phi )]
+	I_{\frac{max}{min}}\varpropto I_{laser}\cdot [1\pm 2\cos(\phi )\sin(\phi )]
 \end{equation}
 
-Finally, inserting this in the formula for the contrast \eqref{eq:contrast} yield
+Finally, inserting this in the formula for the contrast \eqref{eq:contrast}
+yield
 
 \begin{equation}
-    C=\sin(2\phi )
+	C=\sin(2\phi )
 \end{equation}
-
 
 \subsection{Error calculation}
-For error calculation, all \textbf{mean values} of N measurements are calculated as follows:
+For error calculation, all \textbf{mean values} of N measurements are
+calculated as follows:
 
 \begin{equation}
-    \overline{x} = \frac{1}{N} \cdot \sum_{i=1}^N x_i
-    \label{eqn:Mittelwert}
+	\overline{x} = \frac{1}{N} \cdot \sum_{i=1}^N x_i
+	\label{eqn:Mittelwert}
 \end{equation}
 
 and all \textbf{standard deviations of the mean} with:
 
 \begin{equation}
-    \increment\overline{x} = \sqrt{\frac{1}{N\cdot(N-1)}\cdot\sum_{i=1}^N (x_i-\overline{x})^2}
-    \label{eqn:St_Mittelwert}
+	\increment\overline{x} = \sqrt{\frac{1}{N\cdot(N-1)}\cdot\sum_{i=1}^N (x_i-\overline{x})^2}
+	\label{eqn:St_Mittelwert}
 \end{equation}
 
-The error for correlated measurements is then calculated using the \textbf{Gaussian error propagation}:
+The error for correlated measurements is then calculated using the
+\textbf{Gaussian error propagation}:
 
 \begin{equation}
-    \increment{f} = \sqrt{ \sum_{i = 1}^{N}  \biggl(\frac{\partial{f}}{\partial{x_i}}\biggr)^2\cdot(\increment{x_i})^2}
-    \label{eqn:Gauss}
+	\increment{f} = \sqrt{ \sum_{i = 1}^{N}  \biggl(\frac{\partial{f}}{\partial{x_i}}\biggr)^2\cdot(\increment{x_i})^2}
+	\label{eqn:Gauss}
 \end{equation}
 
-Error propagation is determined using the Uncertainties \cite{uncertainties} package in Python.
+Error propagation is determined using the Uncertainties \cite{uncertainties}
+package in Python.
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
@@ -184,39 +199,52 @@ In the experiment a Sagnac-Interferometer is used in the following setup
 	\caption{Polarization types \cite{man:v64}}\label{fig:Aufbau}
 \end{figure}
 
-Form the HeNe-Laser the beam, with wavelength $\qty{632.990}{\nano\meter}$, goes through a polarization filter were its polarization direction can be set \eqref{eq:pol}.
-After this the beam goes in the polarizing beam splitter cube (PBSC), 
-where it gets split $90°$ and two overlapping beams go around the setup in opposite direction. 
-Until there are recombined in the PBSC and interfere with each other. 
-To fine tune the interferometer each mirror can be adjusted either horizontal or vertical, which will be described later in the alignment chapter.
-Furthermore, the mirror two can be rotated so that the light does not hit the cube perfectly in the middle 
-and therefore the two beams are separate parallel beams and not overlapping. 
-One of the beams can now be manipulated separately and the result can be measured in the interference pattern, with the differential voltage method. 
-This done by splitting the final beam again with a PBSC and converting the two beams signal each with a diode in to voltage. 
-The differential of these voltages are measured in the differential voltage method.
+Form the HeNe-Laser the beam, with wavelength $\qty{632.990}{\nano\meter}$,
+goes through a polarization filter were its polarization direction can be set
+\eqref{eq:pol}. After this the beam goes in the polarizing beam splitter cube
+(PBSC), where it gets split $90°$ and two overlapping beams go around the setup
+in opposite direction. Until there are recombined in the PBSC and interfere
+with each other. To fine tune the interferometer each mirror can be adjusted
+either horizontal or vertical, which will be described later in the alignment
+chapter. Furthermore, the mirror two can be rotated so that the light does not
+hit the cube perfectly in the middle and therefore the two beams are separate
+parallel beams and not overlapping. One of the beams can now be manipulated
+separately and the result can be measured in the interference pattern, with the
+differential voltage method. This done by splitting the final beam again with a
+PBSC and converting the two beams signal each with a diode in to voltage. The
+differential of these voltages are measured in the differential voltage method.
 
 \subsection{Alignment}
-Before beginning the experiment the setup has to be aligned to assure the best possible measuring results.  
-First two alignment plate with fixed holes for references are placed in position 2 and 3 \eqref{fig:Aufbau}. 
-Then with mirror $M1$ the height and with M2 the translation of the beam can be changed.
-By repeated adjustments of the beam with only mirror $M2$ to the plate on position 3 and $M1$ only to the plate on position 2, 
-the beam hits the PBSC and the Mirror $M_A$ in the middle after handful of repetition. 
-This method is repeated also for the other mirrors, by placing the alignment plate to the position $[(4,5);(6,7);(8,9)]$ 
-and then adjusting the respective mirrors $[M_A;M_B;M_C]$. 
-At the end the two beams are ideally perfectly overlapping and hitting each other in the middle of the PBSC, 
-which is checked with a second polarization filter. 
-If fringes can be detected the two beams are at an angle to each other and so are not perfectly aligned.
-After this last fine-tuning the mirror $M2$ is shifted so that the beam is separate to two parallel beams. 
-Then two thin tilted rotatable glass plates are installed in the beam, which gives the last option of fine-tuning.
-Finally, to begin measuring, the second polarization filter is removed and replaced with a second PBSC and two diodes for the differential voltage method.
+Before beginning the experiment the setup has to be aligned to assure the best
+possible measuring results. First two alignment plate with fixed holes for
+references are placed in position 2 and 3 \eqref{fig:Aufbau}. Then with mirror
+$M1$ the height and with M2 the translation of the beam can be changed. By
+repeated adjustments of the beam with only mirror $M2$ to the plate on position
+3 and $M1$ only to the plate on position 2, the beam hits the PBSC and the
+Mirror $M_A$ in the middle after handful of repetition. This method is repeated
+also for the other mirrors, by placing the alignment plate to the position
+$[(4,5);(6,7);(8,9)]$ and then adjusting the respective mirrors
+$[M_A;M_B;M_C]$. At the end the two beams are ideally perfectly overlapping and
+hitting each other in the middle of the PBSC, which is checked with a second
+polarization filter. If fringes can be detected the two beams are at an angle
+to each other and so are not perfectly aligned. After this last fine-tuning the
+mirror $M2$ is shifted so that the beam is separate to two parallel beams. Then
+two thin tilted rotatable glass plates are installed in the beam, which gives
+the last option of fine-tuning. Finally, to begin measuring, the second
+polarization filter is removed and replaced with a second PBSC and two diodes
+for the differential voltage method.
 
 \subsection{Procedure}
-The contrast is determined by changing the angle of the polarization filter in $10°$ steps form $0°$ to $180°$ and measuring the resulting voltage. 
+The contrast is determined by changing the angle of the polarization filter in
+$10°$ steps form $0°$ to $180°$ and measuring the resulting voltage.
 
-After measuring the contrast the polarization will be set to the angle with the biggest contrast and the measurement of the refractive index of glass 
-is executed by counting the number of interference maxima and minima $M$ digital as function of angle of the two glass plates. 
+After measuring the contrast the polarization will be set to the angle with the
+biggest contrast and the measurement of the refractive index of glass is
+executed by counting the number of interference maxima and minima $M$ digital
+as function of angle of the two glass plates.
 
-Finally, a pressure tube is inserted in one of the beams and again $M$ is counted in dependency of the pressure in $\qty{50}{\milli\bar}$ steps. 
+Finally, a pressure tube is inserted in one of the beams and again $M$ is
+counted in dependency of the pressure in $\qty{50}{\milli\bar}$ steps.
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 \newpage
@@ -225,10 +253,21 @@ Finally, a pressure tube is inserted in one of the beams and again $M$ is counte
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
 \section{Discussion}
+In this experiment we could successfully align the Sagnac interferometer in
+order to measure the refractive indices of glass and air. For the refractive
+index of glass a value of $n_\t{glass} = \num{1.57(7)}$ is measured. This is
+compatible with the accepted value of $n_\t{glass,lit} = \num{1.5151}$
+\cite{web:refglass} at the given wavelength of $\lambda_\t{vac} = \qty{632,990}{\nm}$.
 
+The refractive index of air was determined to be at $n_\t{air}=\num{1.000271(5)}$. 
+With a linear approximation the refractive index at a standard pressure
+could be measured $n_\t{air,fit} = num{1.0002765 (10)}$. This is consistent with
+the accepted refractive index of air referenced in \cite*{atc:2011AmJP}
+$n_\t{air,lit} = \num{1.000271375(6)}$. 
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 \newpage
 \printbibliography
+\input{appendix.tex}
 
 \end{document}
