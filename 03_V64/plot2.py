@@ -120,7 +120,7 @@ plt.figure(constrained_layout=True)
 plt.plot(pressures_mbar, unp.nominal_values(deltaN(deltaPhis,L)),".",label="measured values")
 plt.plot(xplot, m*xplot+ d1, label = "linear fit")
 
-plt.xlabel(r"$p/\text{mBar}$")
+plt.xlabel(r"$p/ \mathrm{mBar}$")
 plt.ylabel(r" $\Delta n = n-1$")
 plt.legend()
 plt.savefig("build/plot2.pdf")
