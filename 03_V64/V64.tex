@@ -59,6 +59,7 @@ If linear light oscillating in an angle $\alpha $ to the polarization filter, th
 
 \begin{equation}
     I=I_0 \cdot \cos^2(\alpha )
+    \label{eq:pol}
 \end{equation}
 
 after passing the filter. 
@@ -174,7 +175,7 @@ Error propagation is determined using the Uncertainties \cite{uncertainties} pac
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
 \section{Experimental Procedure}
-\subsection{Sagnac-Interferometer}
+\subsection{Setup Sagnac-Interferometer}
 In the experiment a Sagnac-Interferometer is used in the following setup
 
 \begin{figure}[H]
@@ -183,7 +184,8 @@ In the experiment a Sagnac-Interferometer is used in the following setup
 	\caption{Polarization types \cite{man:64}}\label{fig:Aufbau}
 \end{figure}
 
-Form the HeNe-Laser the beam, with wavelength $\qty{632.990}{\nano\meter}$, goes in the polarizing beam splitter cube (PBSC), 
+Form the HeNe-Laser the beam, with wavelength $\qty{632.990}{\nano\meter}$, goes through a polarization filter were its polarization direction can be set \eqref{eq:pol}.
+After this the beam goes in the polarizing beam splitter cube (PBSC), 
 where it gets split $90°$ and two overlapping beams go around the setup in opposite direction. 
 Until there are recombined in the PBSC and interfere with each other. 
 To fine tune the interferometer each mirror can be adjusted either horizontal or vertical, which will be described later in the alignment chapter.
@@ -194,8 +196,27 @@ This done by splitting the final beam again with a PBSC and converting the two b
 The differential of these voltages are measured in the differential voltage method.
 
 \subsection{Alignment}
+Before beginning the experiment the setup has to be aligned to assure the best possible measuring results.  
+First two alignment plate with fixed holes for references are placed in position 2 and 3 \eqref{fig:Aufbau}. 
+Then with mirror $M1$ the height and with M2 the translation of the beam can be changed.
+By repeated adjustments of the beam with only mirror $M2$ to the plate on position 3 and $M1$ only to the plate on position 2, 
+the beam hits the PBSC and the Mirror $M_A$ in the middle after handful of repetition. 
+This method is repeated also for the other mirrors, by placing the alignment plate to the position $[(4,5);(6,7);(8,9)]$ 
+and then adjusting the respective mirrors $[M_A;M_B;M_C]$. 
+At the end the two beams are ideally perfectly overlapping and hitting each other in the middle of the PBSC, 
+which is checked with a second polarization filter. 
+If fringes can be detected the two beams are at an angle to each other and so are not perfectly aligned.
+After this last fine-tuning the mirror $M2$ is shifted so that the beam is separate to two parallel beams. 
+Then two thin tilted rotatable glass plates are installed in the beam, which gives the last option of fine-tuning.
+Finally, to begin measuring, the second polarization filter is removed and replaced with a second PBSC and two diodes for the differential voltage method.
 
 \subsection{Procedure}
+The contrast is determined by changing the angle of the polarization filter in $10°$ steps form $0°$ to $180°$ and measuring the resulting voltage. 
+
+After measuring the contrast the polarization will be set to the angle with the biggest contrast and the measurement of the refractive index of glass 
+is executed by counting the number of interference maxima and minima $M$ digital as function of angle of the two glass plates. 
+
+Finally, a pressure tube is inserted in one of the beams and again $M$ is counted in dependency of the pressure in $\qty{50}{\milli\bar}$ steps. 
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 \newpage
