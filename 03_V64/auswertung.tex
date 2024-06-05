@@ -7,7 +7,7 @@ In tabular ref{tab:contrast} the minimal and maximal Energies recorded by the
 photodiode are noted and the mean values and their standard deviations calculated. 
 The original measured values can be found in the appendix.
 For Intensity standard deviations less than the digital reading error of
-\qty{0.005}{\volt} the error of \qty{0.005}{\volt} is assumed.
+$\qty{0.005}{\volt}$ the error of $ \qty{0.005}{\volt}$ is assumed.
 
 \begin{table}[H]
 	\centering
@@ -44,15 +44,16 @@ For Intensity standard deviations less than the digital reading error of
 	\caption{Intensities and contrast for different polarization angles}\label{tab:contrast}
 \end{table}
 
-The contrast ist calculated with
+The contrast 
 \begin{align}
-	\t{contrast} = \frac{I_\t{max} -I_\t{min}}{I_\t{max}-I_\t{min}}
+	C = \frac{I_\t{max} -I_\t{min}}{I_\t{max}-I_\t{min}}
 \end{align}
-Based on formula ... for the maximal and minimal intensities one expects the
-contrast to have the form
-\begin{align}
-	\t{contrast}(\theta) = 2\cos(\theta)\sin(\theta)
-\end{align}
+is calculated dependent on the angel of polarization with the formula \eqref{eq:contrast_phi}.
+%Based on formula \eqref{eq:contrast} for the maximal and minimal intensities one expects the
+%contrast to have the form
+%\begin{align}
+%	\t{contrast}(\theta) = 2\cos(\theta)\sin(\theta)
+%\end{align}
 
 \subsection{Refractive index of glass}
 % \textbf{The following part could go into theory}
@@ -75,11 +76,11 @@ contrast to have the form
 % R_\t{comb} (\theta) = R(\theta_{01}+\theta) + R(\theta_{02}+\theta) \\
 % \Phi = R_\t{comb}(\theta) \frac{n-1}{2n}
 % \end{align}
-We measure a change in Phase shift $\Delta \Phi$ by counting the number of full
-relative phase rotations $2 \pi M = \Delta Phi$. From there we obtain $n$ via
+We measure a change in phase shift $\Delta \Phi$ by counting the number of full
+relative phase rotations $2 \pi M = \Delta \Phi$. From there we obtain $n$ via
 equation \eqref{eq:glass}
 \begin{align}
-	R_\t{comb}(\theta) = \frac{4\pi T}{\lambda_\t{vac}}\theta\phi_0
+	R_\t{comb}(\theta) &= \frac{4\pi T}{\lambda_\t{vac}}\theta\phi_0\\
 	n & = \frac{1}{1-\frac{\Delta \Phi}{\left|R_\t{comb}(\theta_{2})-R_\t{comb}(\theta_{1})\right|} } \label{eq:nAtmos}
 \end{align}
 
@@ -105,24 +106,24 @@ We measured the following Values for $\theta_1 = 0°$ and $\theta_2 = 10°$
 	\end{tabular}
 \end{table}
 
-This results in a count of \num{34.8(26)} and a measured diffraction index of
+This results in a count of $\num{34.8(26)}$ and a measured diffraction index of
 $n = \num{1.57(7)}$
 
 \subsection{Refractive index of Air}
 The light beam undergoes a phase shift of
 \begin{align}
-	\Delta\Phi = \frac{2 \pi}{\lambda_\t{vac} \Delta n L }
+	\Delta\Phi = \frac{2 \pi}{\lambda_{vac} \Delta n L }
 \end{align}
 Where $\Delta n = n_\t{air}- n_\t{vac} = n_\t{air}-1 $.
 
 In table \ref{tab:air} the refractive indices are calculated with the vacuum
-chamber length of \qty{100.0(1)}{\mm}. The calculated uncertainties
-underestimate the actual uncertainties because the Phase shift was included
+chamber length of $\qty{100.0(1)}{\mm}$. The calculated uncertainties
+underestimate the actual uncertainties because the phase shift was included
 without the reading error of $\pm \pi$. This is more relevant for the low
-Pressures where the count is low and averaging effects of the measurement are
+pressures where the count is low and averaging effects of the measurement are
 not yet that relevant.
 
-\begin{table}[]
+\begin{table}[H]
 	\centering
 	\sisetup{table-format=2.0}
 	\begin{tabular}{S[table-format=3.0] S S S S S[table-format = 1.9(2)] S[table-format = 1.9(2)]}
@@ -157,12 +158,12 @@ not yet that relevant.
 \end{table}
 
 The central data point from table \ref{tab:air} is the $\Delta n$ at
-atmospheric pressure $\Delta n = 0.000271\pm0.000005$ In figure \ref{fig:air}
+atmospheric pressure $\Delta n = 0.000271\pm0.000005$. In figure \ref{fig:air}
 the measured values are compared to a linear fit with the parameters
 \begin{align}
-	\Delta n = mp +b \\
-	m = \qty{2.735(17)d-07}{1\per\milli\bar}
-	b = \num{-0.7(1.0)d-06}
+	\Delta n &= mp +b \\
+	m &= \qty{2.735(17)d-07}{\per\milli\bar}\\
+	b &= \num{-0.7(1.0)d-06}
 \end{align}
 The resulting refractive index at a standard atmospheric pressure of
 $p_\t{atm}=\qty{1013.25}{\milli\bar}$ turns out to be
