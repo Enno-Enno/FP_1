@@ -93,6 +93,12 @@ d1 = float(unp.nominal_values(par[1]))
 m_f= float(unp.std_devs(par[0]))
 d1_f= float(unp.std_devs(par[1]))
 
+A_air = None
+alphamol = unc.ufloat(2.118, 0.091)*e-29 # m³
+
+n_lorentz = lambda T, p:np.sqrt((1 + (A_air*P)/(R*T))/(1 -(A_air*P)/(R*T))) 
+
+
 print(par[0], par[1])
 xplot= np.linspace(0,1000)
 

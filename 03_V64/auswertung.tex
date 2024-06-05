@@ -59,25 +59,25 @@ contrast to have the form
 % When changing the angle of attack $\theta$ for the glass panels the phase shift $\Phi$ can be approximated for small angles
 % as
 % \begin{align}
-	% \Phi      & = 2 \cdot \frac{2\pi}{\lambda_\t{vac}} T(\theta)\left(\frac{n-1}{2n} \theta^2 \right) \\
-	% T(\theta) & = \frac{T_0}{\cos\theta}
+% \Phi      & = 2 \cdot \frac{2\pi}{\lambda_\t{vac}} T(\theta)\left(\frac{n-1}{2n} \theta^2 \right) \\
+% T(\theta) & = \frac{T_0}{\cos\theta}
 % \end{align}
 % The length of the way of light in the Glass
 % It is useful to separate the equation dependent on $\theta$ into its own function
 % \begin{align}
-	% R(\theta)= 2\cdot \frac{2\pi}{\lambda_\t{vac}} T(\theta)\cdot \theta^2
+% R(\theta)= 2\cdot \frac{2\pi}{\lambda_\t{vac}} T(\theta)\cdot \theta^2
 % \end{align}
 % so that we can deal with the differently angled Glass panels.
 % They have a starting angle of $\theta_{01} = 10°$ and $\theta_{02}= -10°$
 % which gets added to the adjusted angle $\theta$.
 % This way we get a combined function
 % \begin{align}
-	% R_\t{comb} (\theta) = R(\theta_{01}+\theta) + R(\theta_{02}+\theta) \\
-	% \Phi = R_\t{comb}(\theta) \frac{n-1}{2n}
+% R_\t{comb} (\theta) = R(\theta_{01}+\theta) + R(\theta_{02}+\theta) \\
+% \Phi = R_\t{comb}(\theta) \frac{n-1}{2n}
 % \end{align}
-We measure a change in Phase shift $\Delta \Phi$ by counting the number
-of full relative phase rotations $2 \pi M = \Delta Phi$.
-From there we obtain $n$ via equation \eqref{eq:glass}
+We measure a change in Phase shift $\Delta \Phi$ by counting the number of full
+relative phase rotations $2 \pi M = \Delta Phi$. From there we obtain $n$ via
+equation \eqref{eq:glass}
 \begin{align}
 	R_\t{comb}(\theta) = \frac{4\pi T}{\lambda_\t{vac}}\theta\phi_0
 	n & = \frac{1}{1-\frac{\Delta \Phi}{\left|R_\t{comb}(\theta_{2})-R_\t{comb}(\theta_{1})\right|} }
@@ -120,33 +120,35 @@ Where $\Delta n = n_\t{air}- n_\t{vac} = n_\t{air}-1 $.
 	\sisetup{table-format=2.0}
 	\begin{tabular}{S[table-format=3.0] S S S S}
 		\toprule
-		                           & \multicolumn{4}{c}{measurement number} \\
+		                           & \multicolumn{4}{c}{measurement number}                         \\
 		{$ p / \unit{\milli\bar}$} & {\#1}                                  & {\#2} & {\#3} & {\#4} \\
 		\midrule
-		{$\simeq 0$}                       & 0                                      & 0     & 0     & 0     \\
-		50                       & 2                                      & 2     & 2     & 2     \\
-		100                      & 4                                      & 4     & 4     & 4     \\
-		150                      & 6                                      & 6     & 6     & 6     \\
-		200                      & 8                                      & 8     & 9     & 8     \\
-		250                      & 10                                     & 11    & 10    & 11    \\
-		300                      & 15                                     & 13    & 13    & 13    \\
-		350                      & 17                                     & 15    & 15    & 15    \\
-		400                      & 19                                     & 17    & 17    & 17    \\
-		450                      & 21                                     & 19    & 19    & 19    \\
-		500                      & 22                                     & 21    & 21    & 21    \\
-		550                      & 25                                     & 23    & 23    & 23    \\
-		600                      & 27                                     & 25    & 25    & 25    \\
-		650                      & 29                                     & 28    & 27    & 27    \\
-		700                      & 31                                     & 30    & 30    & 30    \\
-		750                      & 34                                     & 33    & 32    & 32    \\
-		800                      & 36                                     & 35    & 34    & 34    \\
-		850                      & 38                                     & 37    & 36    & 36    \\
-		900                      & 40                                     & 39    & 38    & 38    \\
-		950                      & 42                                     & 41    & 40    & 40    \\
-		{$p_{max} \simeq 1000$}  & 44                                     & 43    & 42    & 42    \\
+		{$\simeq 0$}               & 0                                      & 0     & 0     & 0     \\
+		50                         & 2                                      & 2     & 2     & 2     \\
+		100                        & 4                                      & 4     & 4     & 4     \\
+		150                        & 6                                      & 6     & 6     & 6     \\
+		200                        & 8                                      & 8     & 9     & 8     \\
+		250                        & 10                                     & 11    & 10    & 11    \\
+		300                        & 15                                     & 13    & 13    & 13    \\
+		350                        & 17                                     & 15    & 15    & 15    \\
+		400                        & 19                                     & 17    & 17    & 17    \\
+		450                        & 21                                     & 19    & 19    & 19    \\
+		500                        & 22                                     & 21    & 21    & 21    \\
+		550                        & 25                                     & 23    & 23    & 23    \\
+		600                        & 27                                     & 25    & 25    & 25    \\
+		650                        & 29                                     & 28    & 27    & 27    \\
+		700                        & 31                                     & 30    & 30    & 30    \\
+		750                        & 34                                     & 33    & 32    & 32    \\
+		800                        & 36                                     & 35    & 34    & 34    \\
+		850                        & 38                                     & 37    & 36    & 36    \\
+		900                        & 40                                     & 39    & 38    & 38    \\
+		950                        & 42                                     & 41    & 40    & 40    \\
+		{$p_{max} \simeq 1000$}    & 44                                     & 43    & 42    & 42    \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
-
 The measurements do demonstrate a
+
+
+According to \cite{atc:2011AmJP} the mean polarizability of air 
