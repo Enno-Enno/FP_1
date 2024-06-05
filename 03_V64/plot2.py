@@ -47,14 +47,14 @@ def getk(n,theta):
     # print(val, r"\\ ")
 
 uCounterGlass = unc.ufloat(np.mean(counter_glass), np.std(counter_glass))
-print(uCounterGlass)
+# print(uCounterGlass)
 DeltaPhi = 2 *np.pi* uCounterGlass
 n = nGlass(DeltaPhi)
-print(n)
-print("Kontrolle", getk(n, 10))
-
-print("Refractive Index air ----------------------------------")
-print(d.counter_air)
+# print(n)
+# print("Kontrolle", getk(n, 10))
+# 
+# print("Refractive Index air ----------------------------------")
+# print(d.counter_air)
 # difference_array = np.zeros((np.shape(d.counter_air)[0],np.shape(d.counter_air)[1]-1))
 # for i,_ in enumerate(difference_array[0,:]):
     # difference_array[0,i] = d.counter_air[0,i+1] - d.counter_air[0,i]
@@ -76,8 +76,6 @@ print("Delta n ", delN)
 # delNFine = deltaN(dcounter*np.pi, L) * len(difference_array[0,:])
 # print(delNFine)
 # 
-for i,_ in enumerate(d.counter_air[0,:]):
-    print(d.pressures_mbar[i], " & ",d.counter_air[0,i], " & ",d.counter_air[1,i], " & ",d.counter_air[2,i], " & ",d.counter_air[3,i], r" \\",)
 # 
 # delN = deltaN(d.counter_air.flatten()*2*np.pi,L)
 # nomN = unp.nominal_values(delN)
@@ -93,9 +91,31 @@ d1 = float(unp.nominal_values(par[1]))
 m_f= float(unp.std_devs(par[0]))
 d1_f= float(unp.std_devs(par[1]))
 
+mean_counters = np.zeros(np.shape(d.counter_air)[1])
+std_counters = np.zeros(np.shape(d.counter_air)[1])
+for i,_ in enumerate(mean_counters):
+    mean_counters[i] = np.mean(d.counter_air[:,i])
+    std_counters[i] = np.std(d.counter_air[:,i])
+airCounters =unp.uarray(mean_counters,std_counters)
+deltaNs = deltaN(airCounters*2*np.pi,L)
+nAirs = 1+ deltaN(airCounters*2*np.pi,L)
+# print(nAirs)
+
+# for i,_ in enumerate(d.counter_air[0,:]):
+    # print(d.pressures_mbar[i], " & ",d.counter_air[0,i], " & ",d.counter_air[1,i], " & ",d.counter_air[2,i], " & ",d.counter_air[3,i], " & ",deltaNs[i], " & ", nAirs[i] , r" \\",)
+### Lorentz does not get done
+#A_air = None
+# alphamol = unc.ufloat(2.118e-29, 0.091e-29) # m³
+# n_lorentz = lambda T, p:np.sqrt((1 + (A_air*P)/(R*T))/(1 -(A_air*P)/(R*T))) 
+
+
 print(par[0], par[1])
 xplot= np.linspace(0,1000)
 
+print(par[0]*1013.25+par[1] + 1)
+
+
+### Plot 
 plt.figure(constrained_layout=True)
 plt.plot(pressures_mbar, unp.nominal_values(deltaN(deltaPhis,L)),".",label="measured values")
 plt.plot(xplot, m*xplot+ d1, label = "linear fit")
@@ -105,3 +125,4 @@ plt.ylabel(r" $\Delta n = n-1$")
 plt.legend()
 plt.savefig("build/plot2.pdf")
 # plt.show()
+
