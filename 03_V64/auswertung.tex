@@ -3,7 +3,7 @@
 %Alignment of the Laser paths
 
 \subsection{Optimal polarization adjustment}
-In tabular ... the minimal and maximal Energies recorded by the photodiode are
+In tabular ref{tab:contrast} the minimal and maximal Energies recorded by the photodiode are
 noted. The original measured values can be found in the appendix in tabular ...
 the mean values and their standard deviations are calculated. For Intensity
 standard deviations less than the digital reading error of \qty{0.005}{\volt}
@@ -41,7 +41,7 @@ the error of \qty{0.005}{\volt} is assumed.
 		180                             & 1.663 (0.005)              & 1.387 (0.005)              & 0.0907(0.0023) \\
 		\bottomrule
 	\end{tabular}
-	\caption{Intensities and contrast for different polarization angles}
+	\caption{Intensities and contrast for different polarization angles}\label{tab:contrast}
 \end{table}
 
 The contrast ist calculated with
@@ -80,7 +80,7 @@ relative phase rotations $2 \pi M = \Delta Phi$. From there we obtain $n$ via
 equation \eqref{eq:glass}
 \begin{align}
 	R_\t{comb}(\theta) = \frac{4\pi T}{\lambda_\t{vac}}\theta\phi_0
-	n & = \frac{1}{1-\frac{\Delta \Phi}{\left|R_\t{comb}(\theta_{2})-R_\t{comb}(\theta_{1})\right|} }
+	n & = \frac{1}{1-\frac{\Delta \Phi}{\left|R_\t{comb}(\theta_{2})-R_\t{comb}(\theta_{1})\right|} } \label{eq:nAtmos}
 \end{align}
 
 We measured the following Values for $\theta_1 = 0°$ and $\theta_2 = 10°$
@@ -115,40 +115,67 @@ The light beam undergoes a phase shift of
 \end{align}
 Where $\Delta n = n_\t{air}- n_\t{vac} = n_\t{air}-1 $.
 
+In table \ref{tab:air} the refractive indices are calculated with the vacuum chamber 
+length of \qty{100.0(1)}{\mm}.
+The calculated uncertainties underestimate the actual uncertainties because the Phase shift
+was included without the reading error of $\pm \pi$. This is more relevant for the low
+Pressures where the count is low and averaging effects of the measurement are not yet that relevant.
+
 \begin{table}[]
 	\centering
 	\sisetup{table-format=2.0}
-	\begin{tabular}{S[table-format=3.0] S S S S}
+	\begin{tabular}{S[table-format=3.0] S S S S S[table-format = 1.9(2)] S[table-format = 1.9(2)]}
 		\toprule
-		                           & \multicolumn{4}{c}{measurement number}                         \\
-		{$ p / \unit{\milli\bar}$} & {\#1}                                  & {\#2} & {\#3} & {\#4} \\
+		                           & \multicolumn{4}{c}{measurement number}                                                            \\
+		{$ p / \unit{\milli\bar}$} & {\#1}                                  & {\#2} & {\#3} & {\#4} & {$\Delta n$}   & {$n$}           \\
 		\midrule
-		{$\simeq 0$}               & 0                                      & 0     & 0     & 0     \\
-		50                         & 2                                      & 2     & 2     & 2     \\
-		100                        & 4                                      & 4     & 4     & 4     \\
-		150                        & 6                                      & 6     & 6     & 6     \\
-		200                        & 8                                      & 8     & 9     & 8     \\
-		250                        & 10                                     & 11    & 10    & 11    \\
-		300                        & 15                                     & 13    & 13    & 13    \\
-		350                        & 17                                     & 15    & 15    & 15    \\
-		400                        & 19                                     & 17    & 17    & 17    \\
-		450                        & 21                                     & 19    & 19    & 19    \\
-		500                        & 22                                     & 21    & 21    & 21    \\
-		550                        & 25                                     & 23    & 23    & 23    \\
-		600                        & 27                                     & 25    & 25    & 25    \\
-		650                        & 29                                     & 28    & 27    & 27    \\
-		700                        & 31                                     & 30    & 30    & 30    \\
-		750                        & 34                                     & 33    & 32    & 32    \\
-		800                        & 36                                     & 35    & 34    & 34    \\
-		850                        & 38                                     & 37    & 36    & 36    \\
-		900                        & 40                                     & 39    & 38    & 38    \\
-		950                        & 42                                     & 41    & 40    & 40    \\
-		{$p_{max} \simeq 1000$}    & 44                                     & 43    & 42    & 42    \\
+		{$\simeq 0.0$}             & 0                                      & 0     & 0     & 0     & 0.0            & 1.0             \\
+		50                         & 2                                      & 2     & 2     & 2     & 0.000012660(13) & 1.000012660(13) \\
+		100                        & 4                                      & 4     & 4     & 4     & 0.000025320(25) & 1.000025320(25) \\
+		150                        & 6                                      & 6     & 6     & 6     & 0.00003798(4)   & 1.00003798(4)   \\
+		200                        & 8                                      & 8     & 9     & 8     & 0.0000522(27)   & 1.0000522(27)   \\
+		250                        & 10                                     & 11    & 10    & 11    & 0.0000665(32)   & 1.0000665(32)   \\
+		300                        & 15                                     & 13    & 13    & 13    & 0.000085(5)     & 1.000085(5)     \\
+		350                        & 17                                     & 15    & 15    & 15    & 0.000098(5)     & 1.000098(5)     \\
+		400                        & 19                                     & 17    & 17    & 17    & 0.000111(5)    & 1.000111(5)     \\
+		450                        & 21                                     & 19    & 19    & 19    & 0.000123(5)    & 1.000123(5)     \\
+		500                        & 22                                     & 21    & 21    & 21    & 0.0001345(27)  & 1.0001345(27)   \\
+		550                        & 25                                     & 23    & 23    & 23    & 0.000149(5)    & 1.000149(5)     \\
+		600                        & 27                                     & 25    & 25    & 25    & 0.000161(5)    & 1.000161(5)     \\
+		650                        & 29                                     & 28    & 27    & 27    & 0.000176(5)    & 1.000176(5)     \\
+		700                        & 31                                     & 30    & 30    & 30    & 0.0001915(27)  & 1.0001915(27)   \\
+		750                        & 34                                     & 33    & 32    & 32    & 0.000207(5)    & 1.000207(5)     \\
+		800                        & 36                                     & 35    & 34    & 34    & 0.000220(5)    & 1.000220(5)     \\
+		850                        & 38                                     & 37    & 36    & 36    & 0.000233(5)    & 1.000233(5)     \\
+		900                        & 40                                     & 39    & 38    & 38    & 0.000245(5)    & 1.000245(5)     \\
+		950                        & 42                                     & 41    & 40    & 40    & 0.000258(5)    & 1.000258(5)     \\
+		{$\simeq $1000.0}          & 44                                     & 43    & 42    & 42    & 0.000271(5)    & 1.000271(5)     \\
 		\bottomrule
 	\end{tabular}
+	\caption{Measured counts and values for the refractive index of air.}\label{tab:air}
 \end{table}
 
-The measurements do demonstrate a
+
+The central data point from table \ref{tab:air} is the $\Delta n$ at atmospheric pressure
+$\Delta n =  0.000271\pm0.000005$
+In figure \ref{fig:air} the measured values are compared to a linear fit with the parameters
+\begin{align}
+	\Delta n = mp +b \\
+	m = \qty{2.735(17)d-07}{1\per\milli\bar}
+	b = \num{-0.7(1.0)d-06}
+\end{align}
+The resulting refractive index at a standard atmospheric pressure of 
+$p_\t{atm}=\qty{1013.25}{\milli\bar}$ turns out to be
+\begin{align}
+	n_\t{fit} = \num{1.0002765 (10)}
+\end{align}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\textwidth]{./build/plot2.pdf}
+    \caption{Measured $\Delta n$ with linear fit}\label{fig:air}
+\end{figure}
 
 
-According to \cite{atc:2011AmJP} the mean polarizability of air 
+
+% According to \cite{atc:2011AmJP} the mean polarizability of air 
