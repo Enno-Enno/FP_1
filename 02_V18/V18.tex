@@ -16,14 +16,15 @@
 \newpage
 \section{Auswertung}
 \subsection{Energiekalibrierung}
-Um den Detektor zu kalibrieren, müssen zuerst die Peaks im Spektrum gefunden
+Um den Detektor zu kalibrieren, müssen zuerst die markanten und klar herausstechende Peaks im Spektrum gefunden
 werden, um diese dann mit der Literatur zu vergleichen. Dafür wird aus dem
-Spektrum der Europium Quelle
+Spektrum der Europium-Quelle
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{build/plt1_Eu.pdf}
 	\caption{Aufgenommenes Spektrum 152Eu}\label{fig:Eu_spektrum}
+	\FloatBarrier
 \end{figure}
 
 die Peaks mittels $find-peaks$ von $scipy$ \cite{scipy} ermittelt. Jeder
@@ -59,7 +60,7 @@ kann linear ein Energiewert zugeordnet werden.
 \subsection{Vollenergienachweiswahrscheinlichkeit $Q$}
 \subsubsection{Linieninhalt $Z$}
 Um die Vollenergienachweiswahrscheinlichkeit $Q$ des Detektors zu bestimmen,
-muss zuerst der Linieninhalt $Z$ der Einzellen Peaks bestimmt werden. Dazu wird
+muss zuerst der Linieninhalt $Z$ der einzelnen Peaks bestimmt werden. Dazu wird
 eine Gaußkurve
 
 \begin{equation}
@@ -67,7 +68,7 @@ eine Gaußkurve
 	\label{eq:Gauß}
 \end{equation}
 
-an jeden Einzellen Peak mittels $curve-fit$ von $scipy$ \cite{scipy} gefittet.
+an jeden einzelen Peak mittels $curve-fit$ von $scipy$ \cite{scipy} gefittet.
 Dabei stellt $h$ die Höhe, $\mu$ den Mittelwert, $\sigma$ die
 Standardabweichung und $g$ den störenden Hintergrund des Peaks dar. Beim Fitten
 wurde die statistische Abweichung $\sqrt{N}$ der Zahlrate $N$ berücksichtigt,
@@ -177,7 +178,7 @@ Das gemessene Gamma-Spektrum zusammen mit den gefunden Peaks ist in Abbildung
 \eqref{fig:Cs_spektrum} zu sehen. Die Channels wurden mittels zuvor bestimmten
 Werten direkt zu der jeweiligen Energie umgerechnet. Sowie sind die Peaks
 wieder mittels $find-peaks$ von $scipy$ \cite{scipy} ermittelt worden. Es lässt
-sich im Spektrum gut die Comptonkante (Peak $3$), den Rückstrahlpeak (Peak $2$)
+sich im Spektrum gut die Comptonkante (Peak $3$), den Rückstreupeak (Peak $2$)
 sowie das Comptonkontinuum erkennen. Des Weiteren sticht der Vollenergiepeak
 (Peak $4$) heraus.
 
@@ -218,10 +219,10 @@ Insgesamt ergeben sich folgende Ergebnisse:
 \end{align*}
 
 \subsubsection{Comptonkontinuum}
-Wie bereits erwähnt lässt sich der Rückstrahlpeak und die Comptonkante gut
+Wie bereits erwähnt lässt sich der Rückstreupeak und die Comptonkante gut
 erkennen, auch wenn diese verschwommen sind. In der Abbildung
 \eqref{fig:Compton} wird das Comptonkontinuum näher dargestellt. Die
-theoretischen Positionen vom Rückstrahlpeak $E_{RP}$ und von der Comptonkante
+theoretischen Positionen vom Rückstreupeak $E_{RP}$ und von der Comptonkante
 $E_{CK}$ werden als senkrechte Linien dargestellt. Diese Werte werden über die
 Formeln \eqref{eq:CK} und \eqref{eq:RP} mit $E_{\gamma}=\qty{661.45}{\kilo\eV}$
 berechnet und ergeben $E_{RP}=\qty{184.4}{\kilo\eV}$ und
@@ -237,9 +238,9 @@ $E_{CK}=\qty{478.1}{\kilo\eV}$.
 Das Comptonkontinuum wurde mittels der Klein-Nishina \eqref{eq:compton_energie}
 Formel gefittet. Die Naturkonstanten wurden als konstanter Skalierungsfaktor
 betrachtet, um einen besseren Fit zu erreichen. Dabei wurden nur die Werte
-hinter der Comptonkante bis kurz vor dem Rückstrahlpeak genutzt, da der Bereich
-des Rückstrahlpeak den Fit verfälscht. Um den Linieninhalt zu berechnen wird
-mit den ermittelten werden die Klein-Nishina Formel integriert. Dazu wird von
+hinter der Comptonkante bis kurz vor dem Rückstreupeak genutzt, da der Bereich
+des Rückstreupeak den Fit verfälscht. Um den Linieninhalt zu berechnen wird
+mit den ermittelten Werten die Klein-Nishina Formel integriert. Dazu wird von
 $scipy.integrate$ \cite{scipy} die Funktion $quad$ benutzt um das Integral zu
 approximieren. Damit ergibt sich ein Linieninhalt von:
 
@@ -262,10 +263,10 @@ $P_{Ck}=\qty{81.8}{\%}$ berechnen.
 
 \subsection{Aktivitätsbestimmung}
 Die Vermessung der Barium Quelle über ein Zeitraum von $T=\qty{3816}{\second}$
-ergab das in Abbildung \eqref{fig:Ba_spektrum} zu erkennen Spektrum. Um die
+ergab das in Abbildung \eqref{fig:Ba_spektrum} zu erkennenen Spektrum. Um die
 Aktivität der Quelle zu bestimmen, müssen die Linieninhalte der Peaks bestimmt
-werden um danach mittels der Formel \eqref{eq:Q} diese berechnen zu können. Der
-Linieninhalt wird wie zuvor mit einem Gaußfits bestimmt. Dessen Ergebnisse
+werden, um danach mittels der Formel \eqref{eq:Q} diese berechnen zu können. Der
+Linieninhalt wird wie zuvor mit einem Gaußfit bestimmt. Dessen Ergebnisse
 zusammen mit der aus der Literatur \cite{web:nuclear} bestimmten
 Emissionswahrscheinlichkeiten und der daraus berechneten Aktivität ist der
 Tabelle \eqref{tab:data2} zu entnehmen.
@@ -284,11 +285,11 @@ Tabelle \eqref{tab:data2} zu entnehmen.
 		\toprule
 		\text{Peak} & $ E [\unit{\kilo\eV}] $ & $ Z_{Ba} $            & $ W [\%] $  & $ A [\unit{\becquerel}] $ \\
 		\midrule
-		1           & \num{81.74}             & \num{6850.29(382.71)} & \num{34.06} & \num{560.64(31.32)}       \\
-		2           & \num{276.61}            & \num{1020.26(56.61)}  & \num{7.16}  & \num{880.27(48.84)}       \\
-		3           & \num{303.14}            & \num{2357.77(87.62)}  & \num{18.33} & \num{863.39(32.09)}       \\
-		4           & \num{356.21}            & \num{6590.89(206.07)} & \num{62.05} & \num{830.62(25.97)}       \\
-		5           & \num{384.19}            & \num{871.814(52.94)}  & \num{8.94}  & \num{821.84(49.90)}       \\
+		1           & \num{81.74}             & \num{6850.29(382.71)} & \num{34.06} & \num{561(31)}       \\
+		2           & \num{276.61}            & \num{1020.26(56.61)}  & \num{7.16}  & \num{880(49)}       \\
+		3           & \num{303.14}            & \num{2357.77(87.62)}  & \num{18.33} & \num{863(32)}       \\
+		4           & \num{356.21}            & \num{6590.89(206.07)} & \num{62.05} & \num{831(26)}       \\
+		5           & \num{384.19}            & \num{871.814(52.94)}  & \num{8.94}  & \num{822(50)}       \\
 		\bottomrule
 	\end{tabular}
 	\label{tab:data2}
@@ -307,10 +308,10 @@ eine Stunde lang vermessen und die Peaks wieder mit $find-peaks$ ermittelt.
 	\label{fig:Un_spektrum}
 \end{figure}
 
-In der obigen Abbildung ist das Gamma-Spektrum sowie die Einzellen Peaks in
+In der obigen Abbildung ist das Gamma-Spektrum sowie die einzelnen markanten Peaks in
 Abhängigkeit der Energie gezeigt. Zur Identifizierung der Probe soll die
-Energie jedes Peak mit der Datenbank \cite{nuclear} abgeglichen werden um die
-Wahrscheinlichste Quelle zu ermittelten. Dazu wurde um jeden Peak wieder ein
+Energie jedes Peaks mit der Datenbank \cite{web:nuclear} abgeglichen werden um die
+best passende Quelle zu ermittelten. Dazu wurde um jeden markanten Peak wieder ein
 Gaußfit gelegt um einen genaueren Wert für die Energie $E=\mu$ des Peaks
 zuhaben. Als Beispiel wird diese einmal mit dem größten Peak bei
 $E=\qty{351.87(0.38)}{\kilo\eV}$ mit $N=3160$ gemacht. In einem Bereich von
@@ -323,7 +324,7 @@ für den Peak. Die drei besten Kandidaten sind:
 	\ce{^{214}_{83}Bi} &  & E=\qty{351.90}{\kilo\eV} \\
 \end{align*}
 
-In folgender Tabelle sind die Energie der Einzellen Peaks zusammen mit dem best
+In folgender Tabelle sind die Energie, der einzelnen Peaks zusammen mit dem best
 oder wahrscheinlichst passenden Kandidaten mit deren Literaturwert.
 
 \begin{table}[H]
@@ -355,7 +356,7 @@ $Th$, $Ra$, $At$ und $Bi$ alle in der Zerfallsreihe von Uran vorkommen.
 Außerdem ist im Spektrum in Abbildung \ref{fig:Un_spektrum} eine große Anzahl
 von verschiedenen großen Peaks und viel Untergrundstrahlung zu erkennen,
 welches auf ein Quelle bestehend aus mehreren zerfallenden Elementen, mit
-mehrenden Zerfallsmoden, schließen lässt. Daher ist anzunehmen das es sich bei
+mehrenden Zerfallsmoden, schließen lässt. Daher ist anzunehmen, dass es sich bei
 der unbekannten Quelle um ein Uranerz handelt, welches so in der Natur zu
 finden ist und noch nicht angereichert wurde.
 
@@ -372,25 +373,25 @@ $\ce{^{152}_{63}}Eu$ Quelle ausgemessen und in einer Potenzfunktion angenähert.
 Bei der Monochromatischen $\ce{^{137}_{55}}Cs$ Quelle konnten der
 Vollenergiepeak und die Peaks des Compton-Kontinuums identifiziert werden,
 welche jedoch bei der Comptonkante deutliche mit $3.9\%$ von der Theorie
-abwichen. Auch ist diese nicht wie in der Theorie steil und abrupt, sondern
+abweichen. Auch ist diese nicht wie in der Theorie steil und abrupt, sondern
 verrauscht, welches am Hintergrund liegt. Durch Fitten des Compton-Kontinuums
 konnte der Linieninhalt von $Z_{Compton}=\num{31.091(0.176)e3}$ bestimmt werden
 welches ein Anteil von $7.59\%$ am gesamten Spektrum entspricht. Dieses weicht
 stark von den in \eqref{eq:Absorption} berechneten
 Absorptionswahrscheinlichkeit ab, da die Photonen nach der Compton WW noch
-weiter Wechselwirken können und so für mehr Pulse im Detektor sorgen. Daher ist
-der Linieninhalt kein verlässliches Maß für die Absorptionswahrscheinlichkeit.
+weiter Wechselwirken können und so für mehr Pulse im Detektor sorgen. 
+Daher ist der in diesem Experiment bestimmter Linieninhalt kein verlässliches Maß für die Absorptionswahrscheinlichkeit.
 
 Bei der $\ce{^{133}_{56}}Ba$ Quelle konnten wir eine Aktivität von
 \qty{791(17)}{\becquerel} messen. Wir kennen keinen Vergleichswert für diese
 Probe.
 
 Die unbekannte Quelle zu identifizieren ist schwierig, da die
-Energiekalibrierung ein relativ großen Fehler für eine sehr genaue Bestimmung
+Energiekalibrierung ein relativ große Unsicherheit für eine sehr genaue Bestimmung
 der Elemente hat. Da in der Datenbank in einem relativ kleinen Energieintervall
-viele verschiedenen mögliche Quellen infrage kommen. Trotzdem lassen sich
-verschiedenen Elemente von der Zerfallsreihen von Uran Isotopen bestimmen. Es
-ist deshalb also naheliegend, davon auszugehen, dass es sich um Uran handelt.
+viele verschiedenen Quellen liegen, passen zu einem bestimmten Energiewert mit Unsicherheit mehrere theoretisch mögliche Quellen. 
+Da das Mineral einen gelben Farbton besitzt, lässt sich trotzdem auf verschiedenen Elemente von der Zerfallsreihen von Uran Isotopen schließen. 
+Es ist deshalb naheliegend, davon auszugehen, dass es sich um Uran handelt.
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 \newpage
