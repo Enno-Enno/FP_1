@@ -99,11 +99,12 @@ print("\n",h, "\n ", u ,"\n" ,s ,"\n", g,"\n")
 E_Cs = 661.454
 Comtonkante = fktn.E_kante(E_Cs)
 Rückstrahlpeak = fktn.E_rück(E_Cs)
+ck=120# Beginn Stärkster abfall
 d=50
 
 print(Comtonkante,Rückstrahlpeak)
 
-par, cov=curve_fit(fktn.WQ_Energie,x_cs[peak[1]+d:peak[-1]+d],N_cs[peak[1]+d:peak[-1]+d],p0=[E_Cs,3,10],sigma=np.sqrt(N_cs[peak[1]+d:peak[-1]+d]))
+par, cov=curve_fit(fktn.WQ_Energie,x_cs[peak[1]+d:peak[-1]+ck],N_cs[peak[1]+d:peak[-1]+ck],p0=[E_Cs,3,10],sigma=np.sqrt(N_cs[peak[1]+d:peak[-1]+ck]))
 par = unc.correlated_values(par, cov)
 E = float(unp.nominal_values(par[0]))
 k = float(unp.nominal_values(par[1]))
@@ -116,7 +117,7 @@ print(E,k,unterG)
 x=np.linspace(Rückstrahlpeak,Comtonkante,1000)
 
 plt.figure(constrained_layout=True)
-plt.bar(x_cs[peak[1]-d:peak[-1]+150],N_cs[peak[1]-d:peak[-1]+150],width=m,label="Messdaten 137Cs")
+plt.bar(x_cs[peak[1]-d:peak[-1]+ck],N_cs[peak[1]-d:peak[-1]+ck],width=m,label="Messdaten 137Cs")
 plt.plot(x,fktn.WQ_Energie(x,E,k,unterG),"m", label= "Compton fit ")
 plt.axvline(Comtonkante,color="m",ls="--",label="Comtonkante")
 plt.axvline(Rückstrahlpeak,color="m",ls="-.",label="Rückstrahlpeak")
@@ -124,15 +125,15 @@ plt.plot(m*peak+d1,N_cs[peak],"rx",label="Peak")
 plt.xlabel(r"Energie $E \, [\mathrm{KeV}]$")
 plt.ylabel("Anzahl N")
 plt.yscale("log")
-plt.xlim(x_cs[peak[1]-d],x_cs[peak[-1]+150])
+plt.xlim(x_cs[peak[1]-d],x_cs[peak[-1]+ck])
 plt.ylim(1,200)
 plt.legend()
 plt.savefig("build/plt7_Compton.pdf")
 #plt.show()
 
-Z_com,_ = quad(fktn.WQ_Energie,x_cs[peak[1]+d], x_cs[peak[-1]+d], args=(E,k,unterG))
-print(Z_com/m, np.sqrt(Z_com/m))
-print(Z_com/sum(N_cs))
+Z_com,_ = quad(fktn.WQ_Energie,x_cs[peak[1]+d], x_cs[peak[-1]+ck], args=(E,k,unterG))
+print(Z_com/m, np.sqrt(Z_com/m)) 
+print(sum(N_cs)) #84887
 
 #Absorbtionswahrscheinlichkeit
 l=3.9
