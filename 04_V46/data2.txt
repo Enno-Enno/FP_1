@@ -1,4 +1,4 @@
-#GaAs n     GaAs rein       GaAs n2
+#GaAs n2,8     GaAs rein       GaAs n1,2
 #1  1   2  2   1  1   2  2   1  1   2  2
 77 30  88 36  70 30  93 30  78 25  87 3
 78 0   86 7   75 5   90 25  80 10  86 56
