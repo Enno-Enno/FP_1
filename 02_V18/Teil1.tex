@@ -1,11 +1,9 @@
 \section{Zielsetzung}
-In diesem Versuch wird ein Germanium Energiedetektor mit einer geeichten
-152Eu Quelle kalibriert. Der kalibrierte Detektor wird anschließend
-verwendet um das Spektrum einer monochromatischen 137Cs Quelle aufzunehmen.
-Danach wird mit dem Spektrum einer 133Ba Quelle deren Aktivität bestimmt.
-Schließlich wird anhand eines weiteren Spektrums eine unbekannte Quelle 
-identifiziert.
-
+In diesem Versuch wird ein Germanium Energiedetektor mit einer geeichten 152Eu
+Quelle kalibriert. Der kalibrierte Detektor wird anschließend verwendet um das
+Spektrum einer monochromatischen 137Cs Quelle aufzunehmen. Danach wird mit dem
+Spektrum einer 133Ba Quelle deren Aktivität bestimmt. Schließlich wird anhand
+eines weiteren Spektrums eine unbekannte Quelle identifiziert.
 
 % Stichworte:
 % \begin{itemize}
@@ -24,7 +22,7 @@ durch den Dämpfungskoeffizienten $\mu$ darstellen. Die Strahlungsintensität
 fällt in dichten Materialien exponentiell ab $I ~ \exp(-\mu x)$. Dieser
 Intensitätsverlust hängt direkt mit der Wirkungsquerschnitt des materials
 zusammen und ist in $\mu$ eine additive Größe. Die Dämpfungskoeffizienten von
-Gammastrahlen sind in Abbildung \ref{fig:mu} zu sehen. Abbildung \ref{fig:z}
+Gammastrahlen sind in Abbildung \ref{fig:mu} zu sehen.
 
 \begin{figure}
 	\centering
@@ -38,18 +36,17 @@ Gammastrahlen sind in Abbildung \ref{fig:mu} zu sehen. Abbildung \ref{fig:z}
 		\includegraphics[width=0.9\linewidth]{./Bilder/E_Z_Kolanoski.png}
 		\caption{Dominante Effekte nach $E_\gamma$ und $Z$ aus \cite{book:kolano}.}\label{fig:z}
 	\end{subfigure}
-	\caption{Interaktionswahrscheinlichkeiten von Gammastrahlen in verschiedenen Darstellungen.}\label{}
+	\caption{Interaktionswahrscheinlichkeiten von Gammastrahlen in verschiedenen Darstellungen.}\label{fig:zmu}
 \end{figure}
 
-Aus \cite{book:gil}. Die hauptsächlichen Wechselwirkungen von Photonen mit
+Aus \cite{book:gil}. Die dominierenden Wechselwirkungen von Photonen mit
 Materie sind die photoelektrische Absorption, die Compton Streuung und die
 Elektronenpaarbildung. Bei der \textbf{photoelektrischen Absorption}
 wechselwirkt das Photon mit einem im Atom gebundenen Elektron und befördert es
 aus seinem gebundenen Zustand. Die Energie des Photons wird danach von dem
 Elektron getragen und das Atom emittiert Röntgenstrahlung. Diese Interaktion
-findet vor allem bei niederenergetischen $\gamma$ Photonen statt. Eine grobe
-Annäherung für das Verhalten der Wechselwirkungswahrscheinlichkeit ist der
-Therm
+findet vor allem bei niederenergetischen Photonen statt. Eine grobe Annäherung
+für das Verhalten der Wechselwirkungswahrscheinlichkeit ist der Therm
 \begin{align}
 	\tau = \text{constant} \cdot \frac{Z^n}{E_{\gamma}^{m}}
 \end{align} %TODO \tau mit dem linearen <Dämpfungskoeffizienten in Verbindung bringen.
@@ -59,17 +56,18 @@ $\tau$ lässt sich hier in Verbindung mit dem linearen Dämpfungskoeffizienten b
 	\mu_{\text{PE}} = \tau \cdot \rho \cdot N_A /A
 \end{align}
 
-Die \textbf{Compton Streuung} ist oft die häufigste Interaktion der Strahlung
-mit dem Material. Sie ist (abhängig von $Z$) dominant bei Energien im Bereich
-von etwa \qtyrange{0.5}{10}{\MeV} Ihr differentieller Wirkungsquerschnitt wird
-durch die Klein-Nishina-Formel beschrieben
+Die \textbf{Compton Streuung} ist in diesem Versuch aufgrund kleiner Energien
+und großen $Z$ die häufigste Interaktion der Strahlung mit dem Material. Sie
+ist (abhängig von $Z$) dominant bei Energien im Bereich von etwa
+\qtyrange{0.5}{10}{\MeV} Ihr differentieller Wirkungsquerschnitt wird durch die
+Klein-Nishina-Formel beschrieben
 \begin{align}
-	\frac{d\sigma}{d \Omega} = Z r_0^2 \left(\frac{1}{1+\alpha(1-\cos\theta)}\right)^2 %
+	\frac{d\sigma}{d \Omega} = Z r_0^2 \left(\frac{1}{1+\alpha(1-\cos\theta)}\right)^2
 	\left(\frac{1+ \cos^2\theta}{2}\right)%
 	\left(1+ \frac{\alpha^2(1-\cos \theta)^2}{(1+\cos^2 \theta)[1+\alpha(1-\cos(\theta))]}\right)
 	\label{eq:wq_compton}
 \end{align}% 
-wobei $\alpha = h \nu / m_0 c²$ und $r_0$ der klassische Elektronenradius ist (vgl. \cite{book:knoll}).%TODO Kapitelmarke?
+wobei $\alpha = h \nu / m_0 c²$ und $r_0$ der klassische Elektronenradius ist (vgl. \cite{book:knoll}).
 Der Energieübertrag auf das Elektron wird berechnet durch
 \begin{align}
 	E_{e} = E_{\gamma} \left\{1- \frac{1}{1+ E_{\gamma}(1-\cos\theta)/m_0 c^2} \right\}
@@ -103,7 +101,7 @@ und der Rückstrahlpeak bei
 
 Bei Energien oberhalb der doppelten Ruhemasse des Elektrons (\qty{1.02}{\MeV})
 ist die \textbf{Elektronenpaarbildung} möglich. Diese Wechselwirkung tritt aber
-realistischerweise nur bei sehr hochenergetischen Gammastrahlen auf. Ihr
+nur bei sehr hochenergetischen Gammastrahlen auf (vgl \ref{fig:zmu}). Ihr
 Wirkungsquerschnitt ist weit oberhalb der Eigenenergie konstant in $E_\gamma$
 und proportional zu $Z^2$ des Absorbiermaterials \cite[vgl.][Kap
 	3.5.5]{book:kolano}.
@@ -128,7 +126,7 @@ Das Leitungsband eines Halbleiters enthält meist auch Elektronen abhängig von
 der Temperatur des Materials.
 % Gleichung einfügen?
 Um einen Halbleiter zu erhalten, der nach Möglichkeit nur von außen angeregte
-Elektronen in seinem Leitungsband hat ist es sinnvoll diesen so weit wie
+Elektronen in seinem Leitungsband hat, ist es sinnvoll diesen so weit wie
 möglich herunter zu kühlen. Gamma Strahlen erzeugen in der Interaktion mit dem
 Detektor schnelle Elektronen, die durch das anregen von Bandelektronen ihre
 Energie abgeben. Dieses Elektronen können in einem Germanium Halbleiter
@@ -182,10 +180,11 @@ Elektronen, die die Energie nur teilweise abgeben.
 	\label{eq:Q}
 \end{align}
 
-Die entstehenden Peaks haben die Form einer Gaußverteilung. Bei den Peaks lässt
-sich die Zehntelwertsbreite und die Halbwertsbreite bestimmen. Wenn es sich bei
-diesen um gaußverteilte Werte handelt haben sie eine Halbwertsbreite von
-$2\sqrt{2\ln 2} \sigma$ und eine Zehntelwertsbreite von $2 \sqrt{2\ln
+Die entstehenden Peaks sind Poisson verteilt. Für große N können die
+Histogramme aber mit einer Gaußverteilung angenähert werden. Bei den Peaks
+lässt sich die Zehntelwertsbreite und die Halbwertsbreite bestimmen. Wenn es
+sich bei diesen um gaußverteilte Werte handelt haben sie eine Halbwertsbreite
+von $2\sqrt{2\ln 2} \sigma$ und eine Zehntelwertsbreite von $2 \sqrt{2\ln
 		10}\sigma$.
 
 % \subsection{Wahrscheinlichste Photonenenergien}
@@ -253,24 +252,22 @@ diesen zu einem effektiven Halbleiter macht.
 
 % TODO Abmessungen fertig machen
 
-\subsection{Elektronik}
+\subsection{Elektronik \cite[][Kap.17]{book:kolano}}
 Der Detektor wird in diesem Versuchsaufbau durch vorgefertigte Bauteile
 kontrolliert und ausgelesen. Ein Temperaturwächter kontrolliert die Kühlung des
-Detektors und hält dessen Temperatur konstant auf \qty{77}{\kelvin}. 
-Eine Hochspannungsquelle erhält die Verarmungszone des Halbleiters
-aufrecht. Die Signale, die durch die Gammastrahlen in dem Detektor entstehen,
-werden elektrisch verstärkt und mit einem Analog-Digital Wandler in Zählsignale
+Detektors und hält dessen Temperatur konstant auf \qty{77}{\kelvin}. Eine
+Hochspannungsquelle erhält die Verarmungszone des Halbleiters aufrecht.
+
+Die Signale, die durch die Gammastrahlen in dem Detektor entstehen, werden
+elektrisch verstärkt und mit einem Analog-Digital Wandler in Zählsignale
 umgesetzt. Diese werden dem Computer übergeben, der ein Histogramm der
 Ereignisse abhängig von den gemessenen Strömen erstellt.
 
 \subsection{Messprogramm}
-Die Energiespektren von 152Europium, der 137Cäsium und 133Barium werden
+Die Energiespektren von \ce{^{152}Eu}, der \ce{^{137}Cs} und \ce{^{133}Ba} werden
 aufgenommen. hierzu werden die Proben in einem Abstand von \qty{70}{\mm} von
 der Aluminium Abschirmung befestigt. Das Histogramm wird automatisiert jeweils
 für etwa eine Stunde aufgenommen. Die genaue Messzeit wird in den Daten
 automatisch hinterlegt. Schließlich wird die Unbekannte Quelle auf der
 Schutzhülle positioniert. Deren Spektrum wird in gleicher Weise für etwa
 \qty{45}{\min} aufgenommen.
-
-
-
