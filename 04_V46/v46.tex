@@ -1,8 +1,8 @@
 \input{../header.tex}
 
-\title{Vxxx:\\ Doffes Osziloskop}
+\title{V46:\\ Faraday-Effekt an Halbleitern}
 \author{Benedikt Lütke Lanfer \and Enno Wellmann}
-\date{13. Dezember 2024}
+\date{10. Juni 2024}
 \publishers{TU Dortmund – Fakultät Physik}
 
 \begin{document}
@@ -46,9 +46,102 @@ Die Fehlerfortpflanzung wird mit Uncertainties in Python \cite{uncertainties} er
 
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
-
+\newpage
 \section{Auswertung}
+\subsection{Bestimmung des B-Feldes}
+Die Messung des B-Feldes mittels einer Hall-Sonde ergibt die in Tabelle \eqref{tab:B_Feld} folgende Werte:
 
+\begin{table}[H]
+	\centering
+	\begin{tabular}{c c}
+		\toprule
+		$d \, [\unit{\milli\meter}]$ & $B \, [\unit{\milli\tesla}] $  \\
+		\midrule
+        170 & 1 \\
+        160 & 0 \\
+        150 & 0 \\
+        140 & 0 \\
+        130 & 1 \\
+        120 & 6 \\
+        112 & 92 \\
+        110 & 176 \\
+        108 & 280 \\
+        105 & 382 \\
+        102 & 418 \\
+        100 & 426 \\
+        98  & 428 \\
+        95  & 420 \\
+        90  & 340 \\
+        87  & 236 \\
+        85  & 97 \\
+        80  & 17 \\
+        70  & 0  \\
+		\bottomrule
+	\end{tabular}
+    \label{tab:B_Feld}
+\end{table}
+
+Diese Werte werden einmal geplottet \eqref{fig:B_Feld}, welches eine gut sichtbare Parabel förmige Struktur ergibt. 
+Jedoch wurden die Werte von $\qty{140}{\milli\meter}$ bis $\qty{170}{\milli\meter}$ ausgelassen das diese Vernachlässigt werden können. 
+Das maximale B-Feld ergibt sich dabei mit $\qty{428}{\milli\tesla}$ bei $\qty{98}{\milli\meter}$. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{build/B_Feld.pdf}
+	\caption{Messdaten B-Feld}\label{fig:B_Feld}
+\end{figure}
+
+\subsection{Bestimmung der effektiven Masse}
+Die Differenz der einzelnen aufgenommen Messwerte der Winkel je nach B-Feld Ausrichtung werden zuerst mittels 
+
+\begin{equation}
+    \theta=\frac{\theta_2 - \theta_1}{2L} 
+\end{equation}
+
+auf die Länge $L$ normiert. 
+Der Faktor $2$ kommt daher, dass die Differenz des B-Feldes doppelt so stark ist wie das vorher bestimmte maximale B-Feld ist. 
+
+\begin{table}[H]
+	\centering
+	\caption{Ergebnisse Vollenergienachweiswahrscheinlichkeit}
+	\begin{tabular}{|c c | c c | c c|}
+		\toprule
+		\multicolumn{2}{|c|}{$GaAs_n$}  & \multicolumn{2}{|c|}{$GaAs_r \, $}  & \multicolumn{2}{|c|}{$GaAs_n \, $}   \\
+        \multicolumn{2}{|c|}{$N=\qty[per-mode=fraction]{2.8e18}{\per\cubic\centi\meter} $}  & \multicolumn{2}{|c|}{$ $}  & \multicolumn{2}{|c|}{$N=\qty[per-mode=fraction]{1.28e18}{\per\cubic\centi\meter} $}   \\
+        \midrule
+        $\theta_1$ & $\theta_2 $ & $\theta_1 $ & $ \theta_2 $ & $\theta_1 $ & $ \theta_2 $ \\
+		\midrule
+            \num{77.50} & \num{88.60} & \num{70.50} & \num{93.50} & \num{78.42} & \num{87.05} \\
+            \num{78.00} & \num{86.12} & \num{75.08} & \num{90.42} & \num{80.17} & \num{86.93} \\
+            \num{74.17} & \num{87.63} & \num{78.50} & \num{90.50} & \num{80.25} & \num{88.08} \\
+            \num{77.08} & \num{86.48} & \num{78.53} & \num{87.00} & \num{80.00} & \num{86.75} \\
+            \num{71.33} & \num{87.27} & \num{74.83} & \num{82.50} & \num{75.33} & \num{81.08} \\
+            \num{69.50} & \num{82.32} & \num{74.67} & \num{79.17} & \num{72.78} & \num{78.83} \\
+            \num{44.08} & \num{51.50} & \num{48.50} & \num{52.50} & \num{45.25} & \num{50.25} \\
+            \num{27.50} & \num{40.41} & \num{29.17} & \num{32.33} & \num{28.25} & \num{36.00} \\
+            \num{63.75} & \num{78.22} & \num{67.83} & \num{73.17} & \num{66.60} & \num{73.08} \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:data2}
+\end{table}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{build/Messdaten.pdf}
+	\caption{Messdaten Proben}\label{fig:Aufbau}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{build/plot1.pdf}
+	\caption{Ausgleichsgerade}\label{fig:Aufbau}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{build/plot2.pdf}
+	\caption{Ausgleichsgerade}\label{fig:Aufbau}
+\end{figure}
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
