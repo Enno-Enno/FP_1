@@ -17,9 +17,20 @@ freien Leitungsband. Diese Bandlücke ist bei Halbleitern in der Größenordnung
 von etwa $qty{1}{\eV}$. Die Bandstruktur von Halbleitern ist auch eine Funktion
 des Impuls der Elektronen bzw. des Wellenvektors $\vec{k}$
 
+\subsection{Effektive Masse}
+
 Vielleicht braucht man ja diese Formeln:
 \begin{align}
-	E                 & = E_L + (\hbar k²)/(2 m_e)                     \\
+	E                 & = E_L + \frac{\hbar k²}{2 m_e}                 \\
 	\frac{d v_g}{d t} & = \frac{1}{\hbar^2}\frac{d^2 E}{d^2 k} \vec{F} \\
 	m^*               & = \hbar^2 \cdot \frac{d²E}{d k_i d k_j^{-1}}
+	E_e(\vec{k})	& = \frac{\hbar²}{3m^*_e}
 \end{align}
+
+\section{Durchführung\cite{man}}% TODO Zahlen überprüfen
+Zwei Spulen werden hintereinander mit einem konstanten Strom von
+$\qty{10}{\ampere}$ versorgt. Eine Hallsonde wird durch die Spule geschoben um
+die Magnetfeldverteilung zu messen. Die Proben werden im Versuch in der 
+Mitte der Spule eingespannt wo das Magnetfeld am stärksten ist.
+
+Zur Messung des Faraday Effekts wird die 
