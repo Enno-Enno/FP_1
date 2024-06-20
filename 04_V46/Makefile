@@ -3,7 +3,7 @@ all: build/v46.pdf
 build/plot1.pdf: plot1.py data1.txt | build
 	python plot1.py
 
-build/v46.pdf: build/plot1.pdf v46.tex lit.bib programme.bib | build
+build/v46.pdf: build/plot1.pdf v46.tex *.tex lit.bib programme.bib | build
 	lualatex --output-directory=build --interaction=batchmode --halt-on-error v46.tex
 	BIBINPUTS=..:
 	biber build/v46.bcf
