@@ -31,6 +31,8 @@ delta_r=abs(th1_r-th2_r)/(2*L_r)/180*np.pi
 delta_n2=abs(th1_n2-th2_n2)/(2*L_n2)/180*np.pi
 
 print(delta_n1)
+print(delta_r)
+print(delta_n2)
 
 plt.figure(constrained_layout=True)
 plt.plot(d,B, "rx",label="Messdaten B-Feld")
@@ -59,9 +61,9 @@ m_f= float(unp.std_devs(par[0]))
 print(m,m_f)
 
 plt.figure(constrained_layout=True)
-plt.plot(lamda**2,abs(delta_n2-delta_r), "gx",label=r"$\Delta \theta_1$")
+plt.plot(lamda**2,abs(delta_n2-delta_r), "gx",label=r"$\Theta_{2,3}$")
 plt.plot(x,f(x,m),"b-", label="Ausgleichsgerade")
-plt.ylabel(r"$\theta  [\mathrm{rad/m}]$")
+plt.ylabel(r"$[\mathrm{rad/m}]$")
 plt.xlabel(r"$\lambda^2 [\mathrm{\mu m}^2]$")
 plt.legend()
 plt.savefig("build/plot1.pdf")
@@ -77,9 +79,9 @@ m_f= float(unp.std_devs(par[0]))
 print(m,m_f)
 
 plt.figure(constrained_layout=True)
-plt.plot(lamda**2,abs(delta_n1-delta_r), "gx",label=r"$\Delta \theta_1$")
+plt.plot(lamda**2,abs(delta_n1-delta_r), "gx",label=r"$\Theta_{2,1}$")
 plt.plot(x,f(x,m),"b-", label="Ausgleichsgerade")
-plt.ylabel(r"$\theta  [\mathrm{rad/m}]$")
+plt.ylabel(r"$[\mathrm{rad/m}]$")
 plt.xlabel(r"$\lambda^2 [\mathrm{\mu m}^2]$")
 plt.legend()
 plt.savefig("build/plot2.pdf")
