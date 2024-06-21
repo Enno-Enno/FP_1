@@ -92,3 +92,4 @@ m2=unp.sqrt((con.e**3*2.8*10**(24)*0.428)/(8*3.857*con.epsilon_0*m*10**(12)*con.
 
 print(m1/con.m_e)
 print(m2/con.m_e)
+print((m1+m2)/2/con.m_e)

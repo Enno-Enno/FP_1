@@ -82,7 +82,7 @@ Die Messung des B-Feldes mittels einer Hall-Sonde ergibt die in Tabelle \eqref{t
 
 Diese Werte werden einmal geplottet \eqref{fig:B_Feld}, welches eine gut sichtbare Parabel förmige Struktur ergibt. 
 Jedoch wurden die Werte von $\qty{140}{\milli\meter}$ bis $\qty{170}{\milli\meter}$ ausgelassen das diese Vernachlässigt werden können. 
-Das maximale B-Feld ergibt sich dabei mit $\qty{428}{\milli\tesla}$ bei $\qty{98}{\milli\meter}$. 
+Das maximale B-Feld ergibt sich dabei mit $B=\qty{428}{\milli\tesla}$ bei $d=\qty{98}{\milli\meter}$. 
 
 \begin{figure}[H]
 	\centering
@@ -148,26 +148,55 @@ Schließlich wird diese gegen $\lambda^2$ aufgetragen und mittels der Formel ...
 
 \begin{equation}
     \Theta=\underbrace{\frac{NBe_0^3}{8 \pi^2 n \varepsilon_0 c^3} \frac{1}{(m^{\ast})^2}}_{a} \cdot \underbrace{\lambda^2}_{x}
+    \label{eqn:theta}
 \end{equation}
-
-
-
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{build/plot1.pdf}
+	\includegraphics[width=\textwidth]{build/plot2.pdf}
 	\caption{Ausgleichsgerade}\label{fig:plt1}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{build/plot2.pdf}
+	\includegraphics[width=\textwidth]{build/plot1.pdf}
 	\caption{Ausgleichsgerade}\label{fig:plt2}
 \end{figure}
+
+Die Werte der Ausgleichsgerade 
+
+\begin{align}
+    a_{2,1}&=\qty{14.35(1.94)}{\per\cubic\meter} & N&=\qty{2.8e18}{\per\cubic\centi\meter}\\
+    a_{2,3}&=\qty{6.24(0.74)}{\per\cubic\meter}  & N&=\qty{1.28e18}{\per\cubic\centi\meter}
+\end{align}
+
+sind mittels $curfit$ von $scipy$ \cite{scipy} bestimmt worden.
+Durch Umstellen der Formeln \eqref{eqn:theta} nach der effektiven Masse
+
+\begin{equation}
+    m^{\ast}=\sqrt{\frac{NBe_0^3}{8 \pi^2 n \varepsilon_0 c^3} \cdot \frac{1}{a}}
+\end{equation}
+
+kann diese schließlich aus den bestimmten Parameter ermittelt werden 
+
+\begin{align}
+    \frac{m^{\ast}}{m_0}&=\qty{7.5(0.5)}{\%}\\
+    \frac{m^{\ast}}{m_0}&=\qty{7.7(0.5)}{\%}
+    \label{eqn:Werte}
+\end{align}
+
+welches im Mittel dann $\frac{m^{\ast}}{m_0}=\qty{7.64(0.34)}{\%}$ ergibt
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
 \section{Diskussion}
+Aus der Vermessung des B-Feldes lässt sich gut ein maximales B-Feld $B=\qty{428}{\milli\tesla}$ von ablesen. 
+
+Die Messung des Faraday Winkel stellt sich als schwierig und ungenau heraus. 
+So ist die Minimierung des Signals durch Verstellen des Winkels ungenau und nicht exakt, 
+da durch das starke Schwanken des Signals auf dem Oszilloskop, ein genauer minimaler Winkel nicht auf eine Nachkommastelle einstellbar ist. 
+So mit weichen auch die ermittelten Werte \eqref{eqn:Werte}, für die effektive Elektronenmasse, 
+im Mittel um $\qty{12.3}{\%}$ von dem Literaturwert von $\frac{m^{\ast}}{m_0}=\qty{6.7}{\%}$ \cite{web:GaAs} ab.
 
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
