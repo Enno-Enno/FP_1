@@ -27,10 +27,45 @@ Vielleicht braucht man ja diese Formeln:
 	E_e(\vec{k})	& = \frac{\hbar²}{3m^*_e}
 \end{align}
 
+
+\subsection{Fehlerrechnung}
+Für die Fehlerrechnung werden alle \textbf{Mittelwerte} von $N$ Messungen folgendermaßen berechnet:
+
+\begin{equation}
+    \overline{x} = \frac{1}{N} \cdot \sum_{i=1}^N x_i
+    \label{eqn:Mittelwert}
+\end{equation}
+
+und alle \textbf{Standardabweichungen zum Mittelwert} mit:
+
+\begin{equation}
+    \increment\overline{x} = \sqrt{\frac{1}{N\cdot(N-1)}\cdot\sum_{i=1}^N (x_i-\overline{x})^2}
+    \label{eqn:St_Mittelwert}
+\end{equation}
+
+Der Fehler für zusammenhängende Messwerte wird dann mit der \textbf{Gaußschen Fehlerfortpflanzung} berechnet:
+
+\begin{equation}
+    \increment{f} = \sqrt{ \sum_{i = 1}^{N}  \biggl(\frac{\partial{f}}{\partial{x_i}}\biggr)^2\cdot(\increment{x_i})^2}
+    \label{eqn:Gauss}
+\end{equation}
+
+Die Fehlerfortpflanzung wird mit Uncertainties in Python \cite{uncertainties} ermittelt.
+
+
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------%
+
 \section{Durchführung\cite{man}}% TODO Zahlen überprüfen
 Zwei Spulen werden hintereinander mit einem konstanten Strom von
 $\qty{10}{\ampere}$ versorgt. Eine Hallsonde wird durch die Spule geschoben um
 die Magnetfeldverteilung zu messen. Die Proben werden im Versuch in der 
 Mitte der Spule eingespannt wo das Magnetfeld am stärksten ist.
 
-Zur Messung des Faraday Effekts wird die 
+Der Versuch wird wie in Abbildung \ref{fig:aufbau} aufgebaut.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{./Bilder/aufbau.png}
+    \caption{Der Versuchsaufbau \cite{man}}\label{fig:aufbau}
+\end{figure}
+
