@@ -41,7 +41,7 @@ polarisierte Welle zu zerlegen.
 \begin{align}
 	E(z)    & = \frac{1}{2}(E_R(z) + E_L(z))                   \\
 	E_R (z) & = (E_0 \vec{x}_0  - i E_0 \vec{y}_0) e^{i k_R z} \\
-	E_L (z) & = (E_0 \vec{x}_0  + i E_0 \vec{y}_0) e^{i k_L z} 
+	E_L (z) & = (E_0 \vec{x}_0  + i E_0 \vec{y}_0) e^{i k_L z}
 \end{align}
 
 Mit den Abkürzungen $ \psi := \frac{L}{2} (k_R + k_L)$ und
@@ -53,15 +53,23 @@ Mit den Abkürzungen $ \psi := \frac{L}{2} (k_R + k_L)$ und
 Die Phasengeschwindigkeit der Welle kann im allgemeinen durch die relation $V_{Ph}=\omega/k$
 ausgedrückt werden. Es folgt
 \begin{align}
-	\theta &= \frac{L \omega}{2c} \left(\frac{1}{V_{Ph_R}} - \frac{1}{V_{Ph_L}}\right).
-	\intertext{Das lässt sich auch bezogen auf die Brechungsindices mit 
+	\theta & = \frac{L \omega}{2c} \left(\frac{1}{V_{Ph_R}} - \frac{1}{V_{Ph_L}}\right).
+	\intertext{Das lässt sich auch bezogen auf die Brechungsindices mit
 	der Vakuumlichtgeschwindigkeit $c$ mit $n = c/v_{Ph}$ darstellen}
-	\theta = \frac{L\omega}{2c}(n_R -n_L)
+	\theta & = \frac{L\omega}{2c}(n_R -n_L)
 \end{align}
 
 \subsection{Berechnung der Doppelbrechung in einem anisotropen Medium \cite{man_a} }
-Die 
-
+Bei der Polarisation eines Kristalls $\vec{P} = \epsilon_0 \chi \vec{E}$ hat die dielektrische Suszeptibilität
+im einfachsten anisotropen Fall die Form
+\begin{align}
+	\chi = %
+	\begin{pmatrix}
+		\chi_{xx}     & i \chi_{xy} & 0         \\
+		- i \chi_{xy} & \chi_{yy}   & 0         \\
+		0             & 0           & \chi_{zz}
+	\end{pmatrix}
+\end{align}
 
 \subsection{Berechnung des Rotationswinkels der Polarisationsebene beim Faraday Effekt \cite{man_a} }
 Die Bewegungsgleichung für ein gebundenes Elektron in einem Festkörper lautet
