@@ -1,13 +1,13 @@
-all: build/v46.pdf
+all: build/V46.pdf
 
 build/plot1.pdf: plot1.py data1.txt | build
 	python plot1.py
 
-build/v46.pdf: build/plot1.pdf v46.tex *.tex lit.bib programme.bib | build
-	lualatex --output-directory=build --interaction=batchmode --halt-on-error v46.tex
+build/V46.pdf: build/plot1.pdf V46.tex *.tex lit.bib programme.bib | build
+	lualatex --output-directory=build --interaction=batchmode --halt-on-error V46.tex
 	BIBINPUTS=..:
-	biber build/v46.bcf
-	lualatex --output-directory=build --interaction=batchmode --halt-on-error v46.tex
+	biber build/V46.bcf
+	lualatex --output-directory=build --interaction=batchmode --halt-on-error V46.tex
 
 build:
 	mkdir -p build
