@@ -15,7 +15,15 @@ zeichnen sich durch Elektronen im ungebundenen Zustand aus. Isolatoren wiederum
 haben eine große Bandlücke zwischen den Gebundenen Elektronen und dem ersten
 freien Leitungsband. Diese Bandlücke ist bei Halbleitern in der Größenordnung
 von etwa $\qty{1}{\eV}$. Die Bandstruktur von Halbleitern ist auch eine Funktion
-des Impuls der Elektronen bzw. deren Wellenvektor $\vec{k}$
+des Impuls der Elektronen bzw. deren Wellenvektor $\vec{k}$.
+Die Energiefunktion die das Band beschreibt kann durch eine quadratische Funktion angenähert werden
+(siehe Abbildung \ref{fig:band}).
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{./Bilder/bandstrukt.png}
+    \caption{Die Bandstruktur eines Halbleiters im $k$-Raum}\label{fig:band}
+\end{figure}
+
 
 \subsection{Effektive Masse \cite[][Kap. 14]{book:expi3}}
 Die Effektive Masse ist relevant für die Bewegungsgleichungen der Elektronen im
@@ -54,12 +62,14 @@ Die Phasengeschwindigkeit der Welle kann im allgemeinen durch die relation $V_{P
 ausgedrückt werden. Es folgt
 \begin{align}
 	\theta & = \frac{L \omega}{2c} \left(\frac{1}{V_{Ph_R}} - \frac{1}{V_{Ph_L}}\right).
-	\intertext{Das lässt sich auch bezogen auf die Brechungsindices mit
+	\intertext{Das lässt sich auch bezogen auf die Brechungsindizes mit
 	der Vakuumlichtgeschwindigkeit $c$ mit $n = c/v_{Ph}$ darstellen}
 	\theta & = \frac{L\omega}{2c}(n_R -n_L)
+	\label{eq:kodern}
 \end{align}
 
 \subsection{Berechnung der Doppelbrechung in einem anisotropen Medium \cite{man_a} }
+\label{sec:anisotrop}
 Bei der Polarisation eines Kristalls $\vec{P} = \epsilon_0 \chi \vec{E}$ hat die dielektrische Suszeptibilität $\chi$
 im einfachsten anisotropen Fall die Form
 \begin{align}
@@ -87,7 +97,7 @@ Es ergeben sich weiter zwei Phasengeschwindigkeiten mit $v = \omega/ k$
 \end{align}
 die entweder größer oder Kleiner als die Phasengeschwindigkeit $v_{Ph}= \frac{c}{\sqrt{1+\chi_{xx}}}$ bei $	$ sind.
 
-Der Drehwinkel lässt sich gemäß ... berechnen
+Der Drehwinkel lässt sich gemäß \eqref{eq:kodern} berechnen
 \begin{align}
 	\theta = \frac{L}{2}(k_+ -k_-) = \frac{L\omega}{2c}{ \sqrt{(1+ \chi_{xx} )+ \chi_{xy}} - \sqrt{(1+ \chi_{xx} )-\chi_{xy}} }
 \end{align}
@@ -113,10 +123,41 @@ und einem Elektrischen Feld der Form $\vec{E} = e^{- i \omega t}$ ergibt sich f�
 	-m\omega² \vec{P} + K \vec{P} = e_0^2 E_y -i e_0 \omega \vec{P} \times \vec{B}
 \end{align}
 Der Magnetisierungstensor $\chi$ kann wie in \eqref{eq:chi} angenommen werden. 
-Analog zu Abschnitt ... kann die Drehung des Polarisationswinkels festgestellt werden 
+Analog zu Abschnitt \ref{sec:anisotrop} kann die Drehung des Polarisationswinkels festgestellt werden 
 \begin{align} 
 	\theta = \frac{e_0^3 \omega² NBL}{2 \epsilon_0 c(-m\omega²+ K)² -(e_0 \omega B)}
 \end{align}
+Die Frequenzabhängigkeit wird noch einmal separat diskutiert. 
+
+\begin{align}
+	\theta = \frac{e_0^3 \omega² NBL}{2 \epsilon_0 c m²(-\omega²+ \frac{K}{m})² -(\frac{e_0}{m}\omega B)}
+\end{align}
+
+In dieser Darstellung sind die Frequenzen $\omega_0  = \sqrt{K/m}$ und $\omega_C = Be_0/m$ von Bedeutung.
+$\omega_0$ ist eine Resonanzfrequenz. $\omega_C$ ist die Zyklotronfrequenz, bei der ein freies Elektron 
+im Magnetfeld einer Kreisbahn folgen würde.
+Mit $B \simeq \qty{1}{\tesla}$ ergeben sich Zyklotronfrequenzen von $\omega_C \simeq \qty{e11}{\hertz}$.
+die Resonanzfrequenzen liegen bei Halbleitern normalerweise im Infrarot ( $\omega_0 \simeq \qtyrange{e14}{e15}{\hertz}$).
+So ist zumeist $(\omega_0- \omega)>> \omega² \omega_C²$
+und folgende Näherungen werden für $\omega$ mit großen (und größerem) Abstand von $\omega_0$ möglich
+\begin{align}
+	\theta \simeq \frac{e_0³}{2\epsilon_0 c}\frac{1}{m²}\frac{\omega²}{(\omega_0²- \omega²)²}\frac{NBL}{n}%
+	% \simeq \frac{e_0³}{2\epsilon_0 c}\frac{1}{m²}\frac{\omega²}{\omega_0⁴}\frac{NBL}{n}.
+\end{align}
+Mit Wellenlänge anstelle der Kreisfrequenz wird der Fall quasifreier Ladungsträger betrachtet ($\omega \rightarrow 0$)
+\begin{align}
+	\theta \simeq  \frac{e_0³}{2\epsilon_0 c}\frac{1}{m²}\frac{1}{\omega²}\frac{NBL}{n}%
+	= \frac{e_0³}{8\pi²\epsilon_0 c³}\frac{1}{m²}\frac{NBL}{n}
+\end{align}
+Diese Gleichung bleibt auch für Kristallelektronen gültig, wenn man $m$ durch die effektive Masse $m^*$ ersetzt.
+Die Endgültige Gleichung für $\theta_{frei} = \theta / L$ ist also 
+\begin{align}
+	\theta_{frei} = \frac{e_0³}{8\pi²\epsilon_0 c³}\frac{1}{(m^*)²}\frac{NB}{n}
+	\label{eq:theta_final}
+\end{align}
+
+
+
 %% Hier kommt noch ein Teil hin um zu der verwendeten Formel zu kommen 
 
 % Vielleicht braucht man ja diese Formeln:
