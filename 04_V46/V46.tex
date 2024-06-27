@@ -19,6 +19,7 @@
 
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
+\text{}
 \newpage
 \section{Auswertung}
 \subsection{Bestimmung des B-Feldes}
@@ -26,6 +27,7 @@ Die Messung des B-Feldes mittels einer Hall-Sonde ergibt die in Tabelle \eqref{t
 
 \begin{table}[H]
 	\centering
+    \label{tab:B_Feld}
 	\begin{tabular}{c c}
 		\toprule
 		$d \, [\unit{\milli\meter}]$ & $B \, [\unit{\milli\tesla}] $  \\
@@ -78,7 +80,7 @@ Die Proben $1$ und $3$ sind jeweils n-dotiert und die Probe 2 besteht aus reinem
 
 \begin{table}[H]
 	\centering
-	\caption{Messergebnisse der 3 Proben}
+	\caption{Messergebnisse der 3 Proben \eqref{fig:Messwert1} \eqref{fig:Messwert2}}
 	\begin{tabular}{|c|c c c|c c c|c c c|}
 		\toprule
 		& \multicolumn{3}{|c|}{Probe 1:}  & \multicolumn{3}{|c|}{Probe 2:}  & \multicolumn{3}{|c|}{Probe 3:}   \\
@@ -118,7 +120,7 @@ Um schließlich die effektive Elektronenmasse zu bestimmen wird jeweils die Diff
 \end{align*}
 
 bestimmt.
-Schließlich wird diese gegen $\lambda^2$ aufgetragen und mittels der Formel ... jeweils eine Ausgleichsgerade \eqref{fig:plt1} \eqref{fig:plt2} der Form $f(x)=a\cdot x$
+Schließlich wird diese gegen $\lambda^2$ aufgetragen und mittels der Formel \eqref{eqn:theta} jeweils eine Ausgleichsgerade \eqref{fig:plt1} \eqref{fig:plt2} der Form $f(x)=a\cdot x$
 
 \begin{equation}
     \Theta=\underbrace{\frac{NBe_0^3}{8 \pi^2 n \varepsilon_0 c^3} \frac{1}{(m^{\ast})^2}}_{a} \cdot \underbrace{\lambda^2}_{x}
@@ -177,4 +179,18 @@ im Mittel um $\qty{12.3}{\%}$ von dem Literaturwert von $\frac{m^{\ast}}{m_0}=\q
 \newpage
 \printbibliography
 
+\section*{Anhang}
+\addcontentsline{toc}{section}{Anhang}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Bilder/Daten_V46.pdf} 
+    \caption{Messwerte von B-Feld und Faraday Winkel}
+    \label{fig:Messwert1}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Bilder/Daten_V46.png} 
+    \caption{Messwerte von Faraday Winkel Proben 1 und 2}
+    \label{fig:Messwert2}
+\end{figure}
 \end{document}
