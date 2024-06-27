@@ -60,7 +60,7 @@ ausgedrückt werden. Es folgt
 \end{align}
 
 \subsection{Berechnung der Doppelbrechung in einem anisotropen Medium \cite{man_a} }
-Bei der Polarisation eines Kristalls $\vec{P} = \epsilon_0 \chi \vec{E}$ hat die dielektrische Suszeptibilität
+Bei der Polarisation eines Kristalls $\vec{P} = \epsilon_0 \chi \vec{E}$ hat die dielektrische Suszeptibilität $\chi$
 im einfachsten anisotropen Fall die Form
 \begin{align}
 	\chi = %
@@ -69,6 +69,27 @@ im einfachsten anisotropen Fall die Form
 		- i \chi_{xy} & \chi_{yy}   & 0         \\
 		0             & 0           & \chi_{zz}
 	\end{pmatrix}
+\end{align}
+Verwenden der Wellengleichung $\nabla \times (\nabla \times \vec{E}) = \frac{1}{c²}(1 + \chi)\frac{d² \vec{E}}{d t²}$
+mit der dielektrischen Verschiebung $\vec{D} = \epsilon_0 \vec{E}+ \vec{P}$ und einer Ebenen welle 
+$\vec{E}(\vec{r},t) = \vec{E}_0 e^{i(\vec{k}\vec{r} - \omega t)}$ ergibt sich eine Form
+\begin{align}
+	\vec{k} \times (\vec{k} \times \vec{E})= -\frac{\omega²}{c²} \vec{E}- \frac{\omega²}{c²}\chi \vec{E}
+\end{align}
+Mit einem $\vec{k}$ in $z$ richtung ergeben sich für die Wellenzahl zwei Werte
+\begin{align}
+	k_{\pm} = \frac{\omega}{c}\sqrt{(1+\chi_{xx})\pm \chi_{xy}}
+\end{align}
+Es ergeben sich weiter zwei Phasengeschwindigkeiten mit $v = \omega/ k$
+\begin{align}
+	v_{Ph_R} = \frac{c}{\sqrt{1+\chi_{xx}+\chi{xy}}} \text{und} v_{Ph_L} = \frac{c}{\sqrt{1+\chi_{xx}-\chi{xy}}}
+\end{align}
+die entweder größer oder Kleiner als die Phasengeschwindigkeit $v_{Ph}= \frac{c}{\sqrt{1+\chi_{xx}}}$ bei $	$ sind. 
+
+
+Der Drehwinkel lässt sich gemäß ... berechnen
+\begin{align}
+	\theta = \frac{L}{2}(k_+ -k_-) = \frac{L\omega}{2c}{ \sqrt{(1+ \chi )+ \chi} - \sqrt{(1+ \chi )-\chi} }
 \end{align}
 
 \subsection{Berechnung des Rotationswinkels der Polarisationsebene beim Faraday Effekt \cite{man_a} }
