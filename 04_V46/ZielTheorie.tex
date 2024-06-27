@@ -69,9 +69,10 @@ im einfachsten anisotropen Fall die Form
 		- i \chi_{xy} & \chi_{yy}   & 0         \\
 		0             & 0           & \chi_{zz}
 	\end{pmatrix}
+	\label{eq:chi}
 \end{align}
 Verwenden der Wellengleichung $\nabla \times (\nabla \times \vec{E}) = \frac{1}{c²}(1 + \chi)\frac{d² \vec{E}}{d t²}$
-mit der dielektrischen Verschiebung $\vec{D} = \epsilon_0 \vec{E}+ \vec{P}$ und einer Ebenen welle 
+mit der dielektrischen Verschiebung $\vec{D} = \epsilon_0 \vec{E}+ \vec{P}$ und einer Ebenen welle
 $\vec{E}(\vec{r},t) = \vec{E}_0 e^{i(\vec{k}\vec{r} - \omega t)}$ ergibt sich eine Form
 \begin{align}
 	\vec{k} \times (\vec{k} \times \vec{E})= -\frac{\omega²}{c²} \vec{E}- \frac{\omega²}{c²}\chi \vec{E}
@@ -84,12 +85,19 @@ Es ergeben sich weiter zwei Phasengeschwindigkeiten mit $v = \omega/ k$
 \begin{align}
 	v_{Ph_R} = \frac{c}{\sqrt{1+\chi_{xx}+\chi{xy}}} \text{und} v_{Ph_L} = \frac{c}{\sqrt{1+\chi_{xx}-\chi{xy}}}
 \end{align}
-die entweder größer oder Kleiner als die Phasengeschwindigkeit $v_{Ph}= \frac{c}{\sqrt{1+\chi_{xx}}}$ bei $	$ sind. 
-
+die entweder größer oder Kleiner als die Phasengeschwindigkeit $v_{Ph}= \frac{c}{\sqrt{1+\chi_{xx}}}$ bei $	$ sind.
 
 Der Drehwinkel lässt sich gemäß ... berechnen
 \begin{align}
-	\theta = \frac{L}{2}(k_+ -k_-) = \frac{L\omega}{2c}{ \sqrt{(1+ \chi )+ \chi} - \sqrt{(1+ \chi )-\chi} }
+	\theta = \frac{L}{2}(k_+ -k_-) = \frac{L\omega}{2c}{ \sqrt{(1+ \chi_{xx} )+ \chi_{xy}} - \sqrt{(1+ \chi_{xx} )-\chi_{xy}} }
+\end{align}
+
+Da die Werte für $\chi_{xy}$ typischerweise deutlich kleiner sind als
+$\chi_{xx}$ kann dieser Ausdruck noch weiter genähert und mit der Phasengeschwindigkeit und dem
+Brechungsindex $n$ vereinfacht werden.
+
+\begin{align}
+	\theta \simeq \frac{L \omega}{2c}\left\{ \sqrt{1+\chi_{xx}}\right\}^{-1} \chi_{xy} =\frac{L \omega}{2c²} v_{Ph} \chi_{xy} = \frac{L \omega}{2c n} \chi_{xy}
 \end{align}
 
 \subsection{Berechnung des Rotationswinkels der Polarisationsebene beim Faraday Effekt \cite{man_a} }
@@ -97,25 +105,26 @@ Die Bewegungsgleichung für ein gebundenes Elektron in einem Festkörper lautet
 \begin{align}
 	m \frac{d² \vec{r}}{d t²} + K \vec{r} = -e_0 \vec{E}(\vec{r}) \frac{d \vec{r}}{dt} \times \vec{B}.
 \end{align}
-$K$ ist hierbei eine Konstante.
+$K$ ist hierbei eine Konstante, und $\vec{r}$ ist die auslenkung des Elektrons aus seiner Ruhelage.
 Aus der Beschreibung dieser Gleichung im Sinne des Verschiebungsstroms $\vec{P} = -N e_0 \vec{r}$
 mit N der Ladungsdichte
 und einem Elektrischen Feld der Form $\vec{E} = e^{- i \omega t}$ ergibt sich für große $\omega$
 \begin{align}
 	-m\omega² \vec{P} + K \vec{P} = e_0^2 E_y -i e_0 \omega \vec{P} \times \vec{B}
 \end{align}
-Berechnungen mit dem Magnetisierungstensor $\chi$ in \cite{man_a} ergibt sich für den Winkel Theta
-die Form
-\begin{align} % Es fehlt hier noch die verbindung \chi zu brechungsindizes 
+Der Magnetisierungstensor $\chi$ kann wie in \eqref{eq:chi} angenommen werden. 
+Analog zu Abschnitt ... kann die Drehung des Polarisationswinkels festgestellt werden 
+\begin{align} 
 	\theta = \frac{e_0^3 \omega² NBL}{2 \epsilon_0 c(-m\omega²+ K)² -(e_0 \omega B)}
 \end{align}
+%% Hier kommt noch ein Teil hin um zu der verwendeten Formel zu kommen 
 
-Vielleicht braucht man ja diese Formeln:
-\begin{align}
-	E                 & = E_L + \frac{\hbar k²}{2 m_e}                 \\
-	\frac{d v_g}{d t} & = \frac{1}{\hbar^2}\frac{d^2 E}{d^2 k} \vec{F} \\
-	E_e(\vec{k})      & = \frac{\hbar²}{3m^*_e}
-\end{align}
+% Vielleicht braucht man ja diese Formeln:
+% \begin{align}
+% 	E                 & = E_L + \frac{\hbar k²}{2 m_e}                 \\
+% 	\frac{d v_g}{d t} & = \frac{1}{\hbar^2}\frac{d^2 E}{d^2 k} \vec{F} \\
+% 	E_e(\vec{k})      & = \frac{\hbar²}{3m^*_e}
+% \end{align}
 
 \subsection{Fehlerrechnung}
 Für die Fehlerrechnung werden alle \textbf{Mittelwerte} von $N$ Messungen
@@ -156,17 +165,22 @@ Der Versuch wird wie in Abbildung \ref{fig:aufbau} aufgebaut. Weißes Licht wird
 in einem einstellbaren Polarisator polarisiert und scheint durch die Spule. Im
 Zentrum der Spule wird bei dem höchsten Magnetfeld eine Probe mit einer
 bekannten Elektronenlochdichte eingespannt. Das Licht fällt danach auf ein
-Glen-Thomson Prisma, welches das Licht in s-polarisiertes und p-polarisiertes Licht spaltet. 
-Die beiden Photowiderstände messen die zwei Lichtstrahlen und geben ihr Signal weiter an einen Differenzverstärker. 
-Dessen Signalspannung ist proportional zu dem Intensitätsunterschied zwischen den beiden Polarisationsachsen. 
-Wenn die Signalspannung des Differenzverstärkers null (bzw. minimal) wird, ist die Polarisation genau diagonal zu dem Prisma. 
-Außerdem wird noch einen Wellenlängenfilter nach der Probe im Lichtstrahl eingebaut damit 
-die Messung des Faraday Winkels in Abhängigkeit der Wellenlänge möglich ist. 
+Glen-Thomson Prisma, welches das Licht in s-polarisiertes und p-polarisiertes
+Licht spaltet. Die beiden Photowiderstände messen die zwei Lichtstrahlen und
+geben ihr Signal weiter an einen Differenzverstärker. Dessen Signalspannung ist
+proportional zu dem Intensitätsunterschied zwischen den beiden
+Polarisationsachsen. Wenn die Signalspannung des Differenzverstärkers null
+(bzw. minimal) wird, ist die Polarisation genau diagonal zu dem Prisma.
+Außerdem wird noch einen Wellenlängenfilter nach der Probe im Lichtstrahl
+eingebaut damit die Messung des Faraday Winkels in Abhängigkeit der Wellenlänge
+möglich ist.
 
-Der Faraday Effekt rotiert die Polarisationsebene des Lichtes in der Probe um den Winkel $\theta$. 
-Um diesen Winkel zu messen wird, das mit einem Goniometer einstellbare, Glen-Thomson-Prisma gedreht bis die Differenzspannung minimal ist.
-Dannach wird das Magnetfeld umgepolt und das Signal erneut minimiert. 
-Dieses wird dann für alle $3 \, GaAS$ - Proben und für jeweils $9$ verschiedenen Wellenlängen durchgeführt. 
+Der Faraday Effekt rotiert die Polarisationsebene des Lichtes in der Probe um
+den Winkel $\theta$. Um diesen Winkel zu messen wird, das mit einem Goniometer
+einstellbare, Glen-Thomson-Prisma gedreht bis die Differenzspannung minimal
+ist. Dannach wird das Magnetfeld umgepolt und das Signal erneut minimiert.
+Dieses wird dann für alle $3 \, GaAS$ - Proben und für jeweils $9$
+verschiedenen Wellenlängen durchgeführt.
 
 \begin{figure}
 	\centering
