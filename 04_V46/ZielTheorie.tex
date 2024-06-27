@@ -15,15 +15,55 @@ zeichnen sich durch Elektronen im ungebundenen Zustand aus. Isolatoren wiederum
 haben eine große Bandlücke zwischen den Gebundenen Elektronen und dem ersten
 freien Leitungsband. Diese Bandlücke ist bei Halbleitern in der Größenordnung
 von etwa $\qty{1}{\eV}$. Die Bandstruktur von Halbleitern ist auch eine Funktion
-des Impuls der Elektronen bzw. des Wellenvektors $\vec{k}$
+des Impuls der Elektronen bzw. deren Wellenvektor $\vec{k}$
 
-\subsection{Effektive Masse}
+\subsection{Effektive Masse \cite[][Kap. 14]{book:expi3}}
+Die Effektive Masse ist relevant für die Bewegungsgleichungen der Elektronen im
+Leitungsband von Halbleitern sowie der Elektronen löcher im Valenzband. Sie
+kann anstelle der Masse eines freien Elektrons verwendet werden. Sie ist
+definiert als
+\begin{align}
+	m^* & = \hbar^2 \cdot \frac{d²E}{d k_i d k_j}
+\end{align}
+
+\subsection{Zirkulare Doppelbrechung \cite{man_a}}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./Bilder/zirpol.png}
+	\caption{Zirkulare Polarisation \cite{man_a} }\label{fig:zirpol}
+\end{figure}
+
+Bestimmte Kristalle können die Polarisationsebene eines Linear polarisierten
+Lichtstrahls drehen. dies kann dadurch erklärt werden, dass der Brechungsindex
+für links und für rechtszirkular Polarisiertes licht unterschiedlich sind. Es
+ist möglich das linear polarisierte Licht in eine rechts und eine linkszirkular
+polarisierte Welle zu zerlegen.
+\begin{align}
+	E(z)    & = \frac{1}{2}(E_R(z) + E_L(z))                   \\
+	E_R (z) & = (E_0 \vec{x}_0  - i E_0 \vec{y}_0) e^{i k_R z} \\
+	E_L (z) & = (E_0 \vec{x}_0  + i E_0 \vec{y}_0) e^{i k_L z} 
+\end{align}
+
+Mit den Abkürzungen $ \psi := \frac{L}{2} (k_R + k_L)$ und
+\begin{align}
+	\theta & := \frac{L}{2} (k_R -k_L)                                    \\
+	\intertext{ergibt sich für die Polatisationsebene am Ende des Kristalls mit der Länge $L$}
+	E(L)   & = E_0 e^{i\psi} (\cos\theta \vec{x}_0 + sin\theta \vec{y}_0)
+\end{align}
+Die Phasengeschwindigkeit der Welle kann im allgemeinen durch die relation $V_{Ph}=\omega/k$
+ausgedrückt werden. Es folgt
+\begin{align}
+	\theta &= \frac{L \omega}{2c} \left(\frac{1}{V_{Ph_R}} - \frac{1}{V_{Ph_L}}\right).
+	\intertext{Das lässt sich auch bezogen auf die Brechungsindices mit 
+	der Vakuumlichtgeschwindigkeit $c$ mit $n = c/v_{Ph}$ darstellen}
+	\theta = \frac{L\omega}{2c}(n_R -n_L)
+\end{align}
+
 
 Vielleicht braucht man ja diese Formeln:
 \begin{align}
 	E                 & = E_L + \frac{\hbar k²}{2 m_e}                 \\
 	\frac{d v_g}{d t} & = \frac{1}{\hbar^2}\frac{d^2 E}{d^2 k} \vec{F} \\
-	m^*               & = \hbar^2 \cdot \frac{d²E}{d k_i d k_j^{-1}}
 	E_e(\vec{k})      & = \frac{\hbar²}{3m^*_e}
 \end{align}
 
@@ -64,18 +104,19 @@ Mitte der Spule eingespannt wo das Magnetfeld am stärksten ist.
 
 Der Versuch wird wie in Abbildung \ref{fig:aufbau} aufgebaut. Weißes licht wird
 in einem einstellbaren Polarisator polarisiert und scheint durch die Spule. Im
-Zentrum der Spule wird bei dem höchsten Magnetfeld eine Probe mit einer % Hier die Sorten der Proben einfügen
+Zentrum der Spule wird bei dem höchsten Magnetfeld eine Probe mit einer
 bekannten Elektronenlochdichte eingespannt. Das Licht fällt danach auf ein
 Glen-Thomson Prisma. Es spaltet das Licht in zwei Teile mit zueinander
 senkrechter linearer Polarisation. Die beiden Photowiderstände geben ihr Signal
 weiter an einen Differenzverstärker. Dessen Signalspannung ist proportional zu
-dem Intensitätsunterschied zwischen den beiden Polarisationsachsen. Wenn die Signalspannung des 
-Differenzverstärkers null (bzw. minimal) wird, ist die Polarisation genau diagonal zu dem Prisma.
-Um das Rauschen der Photowiderstände von dem Lichtsignal zu unterscheiden wird zusätzlich der  
+dem Intensitätsunterschied zwischen den beiden Polarisationsachsen. Wenn die
+Signalspannung des Differenzverstärkers null (bzw. minimal) wird, ist die
+Polarisation genau diagonal zu dem Prisma. Um das Rauschen der Photowiderstände
+von dem Lichtsignal zu unterscheiden wird zusätzlich der % Hier die Sorten der Proben einfügen
 
-Der Faraday Effekt rotiert die Polarisationsebene des Lichtes um den Winkel $\theta$.
-Das mit einem Goniometer einstellbare Glen-Thomson-Prisma wird auf den Winkel gedreht, bei dem
-die differenzspannung minimal ist. 
+Der Faraday Effekt rotiert die Polarisationsebene des Lichtes um den Winkel
+$\theta$. Das mit einem Goniometer einstellbare Glen-Thomson-Prisma wird auf
+den Winkel gedreht, bei dem die Differenzspannung minimal ist.
 
 \begin{figure}
 	\centering
