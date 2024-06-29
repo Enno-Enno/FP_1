@@ -42,25 +42,26 @@ the fields always stands perpendicular to each other and therefore have the
 same polarization. The three common polarization types are
 
 \begin{enumerate}
-	\item linear polarization: oscillations on a line
-	\item circular polarization: oscillations on a circle
-	\item elliptic polarization: oscillations on an ellipse
+	\item \textbf{linear polarization:} oscillations on a line perpendicular along the trajectory
+	\item \textbf{circular polarization:} oscillations on a circle perpendicular around the trajectory
+	\item \textbf{elliptic polarization:} oscillations on an ellipse perpendicular around the trajectory
 \end{enumerate}
 
 which are better shown in the following graphic
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{Bilder/Polarization.png}
-	\caption{Polarization types \cite{book:skript}}\label{fig:po}
+	\includegraphics[width=\textwidth]{Bilder/polarization.png}
+	\caption{Linear, Circular, Elliptical Polarization \cite{book:skript}}\label{fig:po}
 \end{figure}
 
 The polarization influences weather interference pattern occur or not. To be
 able to observe interference the waves have to be coherent and have the same
-polarization. In the following experiment only linear polarized light is used.
-To change the direction of oscillation of the linear light a polarization
-filter, which only lets light oscillating in one direction trough, can be used.
-If linear light oscillating in an angle $\alpha $ to the polarization filter,
+polarization. In the following experiment only linear polarized light is used. 
+To change the direction of oscillation of the linear light a polarization filter can be used. 
+This polarization filter determines the plane of oscillation, 
+so that light after the filter only has linear polarization along this plane. 
+If the polarization plane of the incident linear light beam is at an angle $\alpha $ to this specified plane of the filter,
 the intensity of the light decreases by
 
 \begin{equation}
@@ -69,6 +70,10 @@ the intensity of the light decreases by
 \end{equation}
 
 after passing the filter.
+So a polarization filter allows the rotation of the oscillation plan of linear light, but reduces in the process the intensity of the beam. 
+Note that an angle of $\alpha=\frac{\pi}{2} \vee \frac{3\pi}{2}  $ the intensity of the light falls to zero, 
+because the planes of oscillation and of the filter are now perpendicular to each other.
+On the other hand if the planes are now parallel to each other ($\alpha=0 \vee \pi$) the intensity is at a maxima. 
 
 \subsection{Refractive Index}
 The refractive index $n$ describes the velocity of the light in matter
@@ -77,25 +82,26 @@ The refractive index $n$ describes the velocity of the light in matter
 	c_m=\frac{c}{n}
 \end{equation}
 
-compared to constant vacuum velocity $c$. Also,, the phase of the light change
+compared to constant vacuum velocity $c$. Also, the phase of the light change
 in matter by constant phase $\varphi $.
 
 \subsubsection{Refractive index of glass}
-To estimate the refractive index of glass in the experiment two rotatable glass
-planes get inserted in the light beam. Each of the plane changes the phase of
-the light dependent of the rotation angel $\theta $ by
+To estimate the refractive index of glass in the experiment two rotatable, in the opposite direction to each other, glass
+planes get inserted in the light beam. When the rotation angel $\theta=0 $ the glass planes are perpendicular to the direction of the light beam. 
+By rotating the glass planes they change opposite to each other their angle $\theta$ to the direction of propagation, around an axis perpendicular to the ground. 
+Each of the plane changes the phase of the light dependent on this rotation angel $\theta $ by
 
 \begin{equation}
 	\Delta \varphi(\theta ) =\frac{2\pi }{\lambda_{vac}}T \cdot \left(\frac{n-1}{2n}\theta ^2 +O(\theta ^4)  \right)
 \end{equation}
 
 With the wavelength of the laser $\lambda_{vac}$ and the thickness $T$.
-Together the two glass planes, which are each tilted by $\varphi_0=\pm 10°$,
+Together the two glass planes, which are each tilted by $\theta_0 =\pm 10°$,
 change the phase by
 
 \begin{align}
-	\Delta \varphi(\theta ) & =\frac{2\pi T}{\lambda_{vac}} \frac{n-1}{2n} \cdot \left[(\theta+\varphi_0)^2 - (\theta-\varphi_0)^2 +O(\theta ^4)  \right] \notag \\
-	                        & =\frac{4\pi T}{\lambda_{vac}} \frac{n-1}{n} \cdot \theta\varphi_0 +O(\theta ^4) \label{eq:glass}
+	\Delta \varphi(\theta ) & =\frac{2\pi T}{\lambda_{vac}} \frac{n-1}{2n} \cdot \left[(\theta+\theta_0 )^2 - (\theta-\theta_0 )^2 +O(\theta ^4)  \right] \notag \\
+	                        & =\frac{4\pi T}{\lambda_{vac}} \frac{n-1}{n} \cdot \theta\theta_0  +O(\theta ^4) \label{eq:glass}
 \end{align}
 
 The phase shift is connected to the number of interference maxima and minima by
@@ -135,8 +141,9 @@ two waves with electric field components $E_1$, $E_2$ and a phase shift
 $\varphi $ result in an intensity of
 
 \begin{equation}
-	I\varpropto \langle |E_1 \cos(\omega t) + E_2 \cos(\omega t+\varphi ) | \rangle
-\end{equation}.
+	I\varpropto \langle |E_1 \cos(\omega t) + E_2 \cos(\omega t+\varphi ) |^2 \rangle
+	\label{eqn:intensity}
+\end{equation}
 
 In the experiment the laser beam is split in two, therefore the absolute value
 squared of the electric field components of the two waves add up to the laser
@@ -144,11 +151,27 @@ intensity $I_{laser}=E_1^2+E_2^2$. Furthermore, they only different in there
 polarization orientation and not in there amplitude, so you can write
 
 \begin{align*}
-	E_1 & =\sqrt{\frac{I_{laser}}{2}} \cdot \cos(\phi ) \\
-	E_2 & =\sqrt{\frac{I_{laser}}{2}} \cdot \sin(\phi )
+	E_1 & =\sqrt{I_{laser}} \cdot \cos(\phi ) \\
+	E_2 & =\sqrt{I_{laser}} \cdot \sin(\phi )
 \end{align*}
 
-which result in
+Inserting this in the equation \eqref{eqn:intensity} yields
+
+\begin{align*}
+	I \varpropto & \, \sqrt{I_{laser}}^2 \cdot \langle |\cos(\phi ) \cos(\omega t) + \sin(\phi )\cos(\omega t+\varphi ) |^2 \rangle \\
+	  \varpropto & \, I_{laser} \cdot \langle \cos^2(\phi )\cos^2(\omega t) + \sin^2(\phi )\cos^2(\omega t+\varphi ) \\
+	   & \, +2\cos(\phi )\sin(\phi )\cos(\omega t)\cos(\omega t+\varphi ) \rangle
+\end{align*}
+
+The time average is given by $\langle \cos^2(\omega t+\varphi) \rangle=1/2$ and $\langle \cos(\omega t)\cos(\omega t+\varphi) \rangle=1/2\cos(\varphi)$.
+By using the Pythagorean trigonemic theorem the equation simplifies to
+
+\begin{align*}
+	I&\varpropto I_{laser}\cdot [1/2 + 2\cos(\phi )\sin(\phi )\cdot 1/2\cos(\varphi)]\\
+	 &\varpropto I_{laser}\cdot [1 + 2\cos(\phi )\sin(\phi )\cos(\varphi)]
+\end{align*}
+
+which, for the maxima and minima interference intensity ($\cos(\varphi)=\pm1$) , results in
 
 \begin{equation}
 	I_{\frac{max}{min}}\varpropto I_{laser}\cdot [1\pm 2\cos(\phi )\sin(\phi )]
