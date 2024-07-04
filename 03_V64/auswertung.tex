@@ -53,13 +53,14 @@ is calculated dependent on the angel of polarization with the formula \eqref{eq:
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{./build/plot1.pdf}
-	\caption{Contrast by polarization angle $\phi$.}\label{fig:contrast}
+	\caption{Measured and Expected Contrast by polarization angle $\alpha $.}
+	\label{fig:contrast}
 \end{figure}
 
-There are two angles of maximum polarization, one at \qty{50}{\degree} and one
-at \qty{130}{\degree}. The absolute values for the intensities are much higher
-at \qty{130}{\degree}. For this reason all further measurements are conducted
-with a polarization angle of \qty{130}{\degree}.
+There are two angles of maximum polarization, one at $\qty{50}{\degree}$ and one
+at $\qty{130}{\degree}$. The absolute values for the intensities are much higher
+at $\qty{130}{\degree}$. For this reason all further measurements are conducted
+with a polarization angle of $\qty{130}{\degree}$.
 
 %Based on formula \eqref{eq:contrast} for the maximal and minimal intensities one expects the
 %contrast to have the form
@@ -89,14 +90,15 @@ with a polarization angle of \qty{130}{\degree}.
 % \Phi = R_\t{comb}(\theta) \frac{n-1}{2n}
 % \end{align}
 We measure a change in phase shift $\Delta \Phi$ by counting the number of full
-relative phase rotations $2 \pi M = \Delta \Phi$. From there we obtain $n$ via
+relative phase rotations $M = \frac{\Delta \Phi}{2 \pi}$. From there we obtain $n$ via
 equation \eqref{eq:glass}
 \begin{align}
-	R_\t{comb}(\theta) & = \frac{4\pi T}{\lambda_\t{vac}}\theta\phi_0                                                                    \\
-	n                  & = \frac{1}{1-\frac{\Delta \Phi}{\left|R_\t{comb}(\theta_{2})-R_\t{comb}(\theta_{1})\right|} } \label{eq:nAtmos}
+	n&=\frac{1}{1-\frac{\Delta \Phi}{\frac{4\pi T\theta \theta_0}{\lambda_{vac}}}}\\
+	n&=\frac{1}{1-\frac{M\lambda_{vac}}{2 T \theta \theta_0}}
+	\label{eq:nAtmos}
 \end{align}
 
-We measured the following Values for $\theta_1 = 0°$ and $\theta_2 = 10°$
+with $\theta_0 = 10°$.
 \begin{table}[H]
 	\centering
 	\begin{tabular}{c}
@@ -188,7 +190,7 @@ $p_\t{atm}=\qty{1013.25}{\milli\bar}$ turns out to be
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{./build/plot2.pdf}
-	\caption{Measured $\Delta n$ with linear fit}\label{fig:air}
+	\caption{Preasure dependent refractive index $\Delta n$ of air with linear regression}\label{fig:air}
 \end{figure}
 
 % According to \cite{atc:2011AmJP} the mean polarizability of air 

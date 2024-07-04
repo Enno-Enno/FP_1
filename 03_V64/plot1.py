@@ -65,7 +65,7 @@ if __name__ == "__main__":
     plt.errorbar(angles, consNom,fmt="x", yerr=consDel, label="Measured contrasts")
     plt.grid()
     plt.legend()
-    plt.xlabel("$\phi/°$")
+    plt.xlabel(r"$ \alpha \, /°$")
     plt.ylabel("contrast")
     # plt.show()
 
