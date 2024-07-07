@@ -4,35 +4,63 @@
 
 \section{Theorie}
 \subsection{Myonen}
+Myonen sind Teilchen des Standardmodells.
+Sie können in einem Prozess der schwachen Wechselwirkung in ein
+Elektron zerfallen und haben dabei eine mittlere Lebensdauer
+$\tau = \qty{2.197}{\micro\s}$\cite{PhysRev.132.2693}.
+Die mittlere Lebensdauer eines Teilchens ist eine Kennziffer für
+Allgemeine Zerfallsprozesse, die in der Form
+\begin{align}
+	N(t) = N_0 e^{-\lambda t}
+\end{align}
+ablaufen wobei $\tau = \frac{1}{\lambda}$.
+Myonen entstehen durch kosmische Strahlung in der oberen Atmosphäre.
+und erreichen die Erdoberfläche aufgrund von der Zeitdilatation in
+der speziellen Relativitätstheorie.% Rechnung nachreichen
+
 % Standardmodell
 % Lebensdauer
 % Reichweite klassisch und relativistisch (E_\mu = \qty{10}{\GeV})
 
-\subsection{Messung vom Szintillationsleuchten im Photodetektor}
+\subsection{Messung von Szintillationsleuchten mit Photodetektoren \cite{book:kolano}}
+
+Szintillatoren sind Materialien, die leuchten wenn sie von geladenen Teilchen durchquert werden.
+Diese Teilchen Ionisieren die Atome im Szintillationsmedium. Bei der Rückkehr der Teilchen in den
+Grundzustand geben diese Energie in Form von Licht ab. Der Szintillator ist so gewählt, dass das
+Material durchsichtig für die Wellenlänge des erzeugten Lichtes ist.
+Der Szintillatortank ist von einer reflektierenden Schicht umgeben, die dafür sorgt, dass das licht in
+einem der beiden Photodetektoren landet.
+Photodetektoren sind Messgräte, die dazu gedacht sind einzelne Photonen nachzuweisen.
+Sie basieren auf dem Photoeffekt. Ein Photon löst ein Elektron auf einem unter hochspannung stehenden Kondensator aus.
+Das Elektron wird zum Kondensator auf der nächsthöheren Spannungsstufe beschleunigt. Dort löst es weitere Elektronen
+aus der nächsten Kondensatorplatte heraus. Diese Kaskade verstärkt sich über mehrere hintereinander geschaltete Kondensatorplatten
+bis ein Messbares Signal entsteht.
+Um das Hintergrundrauschen des Photodetektors von den tatsächlichen Signalen zu unterscheiden wird das Signal von zwei Photodetektoren
+miteinander verglichen.
+
 % Szintillator
 % Photodetektor
-
 
 \subsection{Fehlerrechnung}
 Für die Fehlerrechnung werden alle \textbf{Mittelwerte} von $N$ Messungen folgendermaßen berechnet:
 
 \begin{equation}
-    \overline{x} = \frac{1}{N} \cdot \sum_{i=1}^N x_i
-    \label{eqn:Mittelwert}
+	\overline{x} = \frac{1}{N} \cdot \sum_{i=1}^N x_i
+	\label{eqn:Mittelwert}
 \end{equation}
 
 und alle \textbf{Standardabweichungen zum Mittelwert} mit:
 
 \begin{equation}
-    \increment\overline{x} = \sqrt{\frac{1}{N\cdot(N-1)}\cdot\sum_{i=1}^N (x_i-\overline{x})^2}
-    \label{eqn:St_Mittelwert}
+	\increment\overline{x} = \sqrt{\frac{1}{N\cdot(N-1)}\cdot\sum_{i=1}^N (x_i-\overline{x})^2}
+	\label{eqn:St_Mittelwert}
 \end{equation}
 
 Der Fehler für zusammenhängende Messwerte wird dann mit der \textbf{Gaußschen Fehlerfortpflanzung} berechnet:
 
 \begin{equation}
-    \increment{f} = \sqrt{ \sum_{i = 1}^{N}  \biggl(\frac{\partial{f}}{\partial{x_i}}\biggr)^2\cdot(\increment{x_i})^2}
-    \label{eqn:Gauss}
+	\increment{f} = \sqrt{ \sum_{i = 1}^{N}  \biggl(\frac{\partial{f}}{\partial{x_i}}\biggr)^2\cdot(\increment{x_i})^2}
+	\label{eqn:Gauss}
 \end{equation}
 
 Die Fehlerfortpflanzung wird mit Uncertainties in Python \cite{uncertainties} ermittelt.
@@ -43,10 +71,10 @@ Die Fehlerfortpflanzung wird mit Uncertainties in Python \cite{uncertainties} er
 % Diskriminator mit variabler Schwelle
 
 \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]{./Bilder/aufbau.png}
-    \caption{Blockschaltbild des Versuchsaufbaus}\label{fig:aufbau}
+	\centering
+	\includegraphics[width=0.8\textwidth]{./Bilder/aufbau.png}
+	\caption{Blockschaltbild des Versuchsaufbaus}\label{fig:aufbau}
 \end{figure}
 
 In Abbildung \ref{fig:aufbau} ist der Aufbau abgebildet.
-Der Szintillator Tank 
+Der Szintillator Tank
