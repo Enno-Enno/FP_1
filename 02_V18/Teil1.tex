@@ -44,9 +44,9 @@ Materie sind die photoelektrische Absorption, die Compton Streuung und die
 Elektronenpaarbildung. Bei der \textbf{photoelektrischen Absorption}
 wechselwirkt das Photon mit einem im Atom gebundenen Elektron und befördert es
 aus seinem gebundenen Zustand. Die Energie des Photons wird danach von dem
-Elektron getragen und das Atom emittiert Röntgenstrahlung. Diese Interaktion
+Elektron getragen und das Atom emittiert Strahlung, wenn es sich wieder abregt. Diese Interaktion
 findet vor allem bei niederenergetischen Photonen statt. Eine grobe Annäherung
-für das Verhalten der Wechselwirkungswahrscheinlichkeit ist der Therm
+für das Verhalten der Wechselwirkungswahrscheinlichkeit ist der Term
 \begin{align}
 	\tau = \text{constant} \cdot \frac{Z^n}{E_{\gamma}^{m}}
 \end{align} %TODO \tau mit dem linearen <Dämpfungskoeffizienten in Verbindung bringen.
@@ -59,7 +59,7 @@ $\tau$ lässt sich hier in Verbindung mit dem linearen Dämpfungskoeffizienten b
 Die \textbf{Compton Streuung} ist in diesem Versuch aufgrund kleiner Energien
 und großen $Z$ die häufigste Interaktion der Strahlung mit dem Material. Sie
 ist (abhängig von $Z$) dominant bei Energien im Bereich von etwa
-\qtyrange{0.5}{10}{\MeV} Ihr differentieller Wirkungsquerschnitt wird durch die
+$\qtyrange{0.5}{10}{\MeV}$ Ihr differentieller Wirkungsquerschnitt wird durch die
 Klein-Nishina-Formel beschrieben
 \begin{align}
 	\frac{d\sigma}{d \Omega} = Z r_0^2 \left(\frac{1}{1+\alpha(1-\cos\theta)}\right)^2
@@ -73,7 +73,7 @@ Der Energieübertrag auf das Elektron wird berechnet durch
 	E_{e} = E_{\gamma} \left\{1- \frac{1}{1+ E_{\gamma}(1-\cos\theta)/m_0 c^2} \right\}
 	\label{eq:ecompton}
 \end{align}
-Für diesen Versuch ist es wichtig den Wirkungsquerschnitt der Comptonstreuung in Abhängigkeit der
+Für diesen Versuch ist es wichtig, den Wirkungsquerschnitt der Comptonstreuung in Abhängigkeit der
 Energie des gestreuten Elektrons $T = E_{\gamma} - E'_{\gamma}$ zu betrachten.
 Hierfür wird in \cite[][Kap. 3.5.3]{book:kolano} die Klein-Nishina-Formel integriert.
 \begin{align}
@@ -97,9 +97,9 @@ und der Rückstrahlpeak bei
 \begin{align}
 	T_{RP}= E_\gamma \frac{1}{1+2\epsilon}
 	\label{eq:RP}
-\end{align}.
+\end{align}
 
-Bei Energien oberhalb der doppelten Ruhemasse des Elektrons (\qty{1.02}{\MeV})
+Bei Energien oberhalb der doppelten Ruhemasse des Elektrons ($\qty{1.02}{\MeV}$)
 ist die \textbf{Elektronenpaarbildung} möglich. Diese Wechselwirkung tritt aber
 nur bei sehr hochenergetischen Gammastrahlen auf (vgl \ref{fig:zmu}). Ihr
 Wirkungsquerschnitt ist weit oberhalb der Eigenenergie konstant in $E_\gamma$
@@ -115,7 +115,7 @@ Energiebändern. Elektronen können die Energien zwischen diesen Bändern nicht
 annehmen. Damit ein Strom in einem Material fließen kann, muss ein Elektron das
 sogenannte Valenzband verlassen und ins Leitungsband des Materials wechseln. In
 einem Halbleiter sind das Valenzband (das oberste voll besetzte Band) und das
-Leitungsband durch eine Bandlücke in der Größenordnung von \qty{1}{\eV}
+Leitungsband durch eine Bandlücke in der Größenordnung von $\qty{1}{\eV}$
 voneinander getrennt.
 \begin{figure}
 	\centering
@@ -184,8 +184,7 @@ Die entstehenden Peaks sind Poisson verteilt. Für große N können die
 Histogramme aber mit einer Gaußverteilung angenähert werden. Bei den Peaks
 lässt sich die Zehntelwertsbreite und die Halbwertsbreite bestimmen. Wenn es
 sich bei diesen um gaußverteilte Werte handelt haben sie eine Halbwertsbreite
-von $2\sqrt{2\ln 2} \sigma$ und eine Zehntelwertsbreite von $2 \sqrt{2\ln
-		10}\sigma$.
+von $2\sqrt{2\ln 2} \sigma$ und eine Zehntelwertsbreite von $2 \sqrt{2\ln10}\sigma$.
 
 % \subsection{Wahrscheinlichste Photonenenergien}
 
@@ -255,19 +254,36 @@ diesen zu einem effektiven Halbleiter macht.
 \subsection{Elektronik \cite[][Kap.17]{book:kolano}}
 Der Detektor wird in diesem Versuchsaufbau durch vorgefertigte Bauteile
 kontrolliert und ausgelesen. Ein Temperaturwächter kontrolliert die Kühlung des
-Detektors und hält dessen Temperatur konstant auf \qty{77}{\kelvin}. Eine
+Detektors und hält dessen Temperatur konstant auf $\qty{77}{\kelvin}$. Eine
 Hochspannungsquelle erhält die Verarmungszone des Halbleiters aufrecht.
+Um die Signale mit dem im PC eingebauten Viel-Kanal-Analysator detektieren können, 
+müssen diese erst Analog verarbeitet und verstärkt werden. 
+Dabei geht man hier wie folgt vor:
 
-Die Signale, die durch die Gammastrahlen in dem Detektor entstehen, werden
-elektrisch verstärkt und mit einem Analog-Digital Wandler in Zählsignale
-umgesetzt. Diese werden dem Computer übergeben, der ein Histogramm der
-Ereignisse abhängig von den gemessenen Strömen erstellt.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{./Bilder/Elektronik.png}
+	\caption{Verarbeitungselektronik \cite{book:kolano}}\label{fig:elek}
+\end{figure}
+
+\begin{enumerate}
+	\item \textbf{Vorverstärker:} Dieser verstärkt die Amplitude des gemessenen Signals, welches meist nur im Nanoampere Bereich ist. 
+	\item \textbf{Der Shaper} verhindert die Überlagerung von Signal Pulsen ($pile-up$) und verringert das Hintergrundrauschen. 
+	Diese $pile-up$ können am Ausgang des Vorverstärkers entstehen, wenn ein weiteres Signal während seiner Abklingzeit eintritt.
+	Durch eine Reihe von Hoch/Tiefpässen können so die $pile-up$ in Gaußförmige Pulse umgeformt ($shapen$) werden. 
+	\item \textbf{Diskriminator:} Um das Signal vom Rauschen zu filtern, wird ein Diskriminator, welche die Signale nach einem Schwellwertes ($threshold$) sortiert, eingesezt.
+	Überschreitet das Signal diesen Schwellwert wird ein logisches Signale erzeugt und damit das analoge Signal in ein digitales Signal umgewandelt, 
+	der Rest (also der Hintergurnd) wird heraus gefilltert. 
+\end{enumerate}
+
+Diese Signale werden dann dem Computer übergeben, der mittels eines Viel-Kanal-Analysator ein Histogramm mit Zählrate in Abhängig vom Kanal erstellt.
+Diese Kanäle müssen dann in der Auswertung, mittels des $\ce{^{152}Eu}$-Spektrums, nach der Energie Kalibriert werden.  
 
 \subsection{Messprogramm}
-Die Energiespektren von \ce{^{152}Eu}, der \ce{^{137}Cs} und \ce{^{133}Ba} werden
-aufgenommen. hierzu werden die Proben in einem Abstand von \qty{70}{\mm} von
+Die Energiespektren von $\ce{^{152}Eu}$, der $\ce{^{137}Cs}$ und $\ce{^{133}Ba}$ werden
+aufgenommen. Hierzu werden die Proben in einem Abstand von $\qty{70}{\mm}$ von
 der Aluminium Abschirmung befestigt. Das Histogramm wird automatisiert jeweils
 für etwa eine Stunde aufgenommen. Die genaue Messzeit wird in den Daten
 automatisch hinterlegt. Schließlich wird die Unbekannte Quelle auf der
 Schutzhülle positioniert. Deren Spektrum wird in gleicher Weise für etwa
-\qty{45}{\min} aufgenommen.
+$\qty{45}{\min}$ aufgenommen.
