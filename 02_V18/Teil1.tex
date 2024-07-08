@@ -268,12 +268,15 @@ Dabei geht man hier wie folgt vor:
 
 \begin{enumerate}
 	\item \textbf{Vorverstärker:} Dieser verstärkt die Amplitude des gemessenen Signals, welches meist nur im Nanoampere Bereich ist. 
-	\item \textbf{Der Shaper} verhindert die Überlagerung von Signal Pulsen ($pile-up$) und verringert das Hintergrundrauschen. 
+	\item \textbf{Der Shaper} verhindert die Überlagerung von Signal-Pulsen ($pile-up$) und verringert das Hintergrundrauschen. 
 	Diese $pile-up$ können am Ausgang des Vorverstärkers entstehen, wenn ein weiteres Signal während seiner Abklingzeit eintritt.
-	Durch eine Reihe von Hoch/Tiefpässen können so die $pile-up$ in Gaußförmige Pulse umgeformt ($shapen$) werden. 
-	\item \textbf{Diskriminator:} Um das Signal vom Rauschen zu filtern, wird ein Diskriminator, welche die Signale nach einem Schwellwertes ($threshold$) sortiert, eingesezt.
-	Überschreitet das Signal diesen Schwellwert wird ein logisches Signale erzeugt und damit das analoge Signal in ein digitales Signal umgewandelt, 
-	der Rest (also der Hintergurnd) wird heraus gefilltert. 
+	Durch eine Reihe von Hoch-/Tiefpässen können so die $pile-up$ in gaußförmige Pulse umgeformt ($shapen$) werden.
+	Dieser Effekt wird im einfachsten Fall durch eine Reduzierung der Bandbreite der Signale erreicht.   
+	\item \textbf{Diskriminator:} Um das Signal vom Rauschen zu filtern, wird ein Diskriminator eingesezt, welcher 
+	die Signale oberhalb eines bestimmten Schwellwerts ($threshold$) durchlässt.
+	Überschreitet das Signal diesen Schwellwert wird ein logisches Signal erzeugt. 
+	Dies kann als Trigger für den Multichannel Analyzer verwendet werden.
+	Auf diese Weise wird das weniger starke Hintergrundsignal herausgefiltert. 
 \end{enumerate}
 
 Diese Signale werden dann dem Computer übergeben, der mittels eines Viel-Kanal-Analysator ein Histogramm mit Zählrate in Abhängig vom Kanal erstellt.
