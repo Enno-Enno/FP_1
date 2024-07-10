@@ -5,6 +5,9 @@ import uncertainties as unc
 import uncertainties.unumpy as unp
 from scipy.signal import find_peaks
 
+def g(x, c):
+    return 0*x+c
+
 def f(x, m, b):
     return m*x+b 
 
@@ -21,24 +24,25 @@ T,N=np.genfromtxt('data2.txt', unpack=True)
 
 #Plato Bestimmung 
 
-par, cov=curve_fit(f,T[3:9], N[3:9])
+par, cov=curve_fit(g,T[3:9], N[3:9],sigma=np.sqrt(N[3:9]))
 par = unc.correlated_values(par, cov)
-m = float(unp.nominal_values(par[0]))
-b = float(unp.nominal_values(par[1]))
-m_f= float(unp.std_devs(par[0]))
-b_f= float(unp.std_devs(par[1]))
+c = float(unp.nominal_values(par[0]))
+#b = float(unp.nominal_values(par[1]))
+c_f= float(unp.std_devs(par[0]))
+#b_f= float(unp.std_devs(par[1]))
 
-print(m,b)
-x=np.linspace(4,16)
+print(c)
+x=np.linspace(4,14)
 
 plt.figure(constrained_layout=True)
-plt.plot(x,f(x,m,b),"b-",label="Ausgleichsgerade")
-plt.plot(T[3:9],N[3:9],"gx",label="Messwerte Plato")
-plt.plot(T[9:-1],N[9:-1],"rx",label="Messwerte Randbereich")
-plt.plot(T[0:3],N[0:3],"rx")
+plt.plot(x,g(x,c),"b-",label="Plateau")
+plt.errorbar(T[3:9],N[3:9],yerr=np.sqrt(N[3:9]),fmt="gx",label="Messwerte Plateau")
+plt.errorbar(T[9:-1],N[9:-1],yerr=np.sqrt(N[9:-1]),fmt="rx",label="Messwerte Randbereich")
+plt.errorbar(T[0:3],N[0:3],yerr=np.sqrt(N[0:3]),fmt="rx")
 plt.ylabel(r"$N$")
 plt.xlabel(r"$t \, [\mathrm{\mu s}]$")
 plt.legend()
+plt.savefig("build/plot1.pdf")
 #plt.show()
 
 
@@ -67,6 +71,7 @@ plt.plot(peak,t_kal,"gx",label="Messwerte Kalibrierung")
 plt.xlabel(r"Channel")
 plt.ylabel(r"$t \, [\mathrm{\mu s}]$")
 plt.legend()
+plt.savefig("build/plot2.pdf")
 #plt.show()
 
 
@@ -89,6 +94,7 @@ plt.xlabel(r"$t \, [\mathrm{\mu s}]$")
 plt.ylabel(r"Anzahl $\log(N)$")
 plt.xlim(0,t_myon[-1])
 plt.legend()
+plt.savefig("build/plot3.pdf")
 #plt.show()
 
 par, cov=curve_fit(exp,t_myon[A:B],N_myon[A:B],p0=[1/2.2,125,2],sigma=np.sqrt(N_myon[A:B]))
@@ -116,6 +122,7 @@ plt.plot(t,np.log(exp(t,lamda,N,U)),"r-",label="Exponitialfit")
 plt.xlabel(r"$t \, [\mathrm{\mu s}]$")
 plt.xlim(A*m+b,B*m+b)
 plt.legend()
+plt.savefig("build/plot4.pdf")
 #plt.show()
 
 lamda=unp.uarray(lamda,lamda_f)
@@ -171,7 +178,8 @@ plt.xlabel(r"$t \, [\mathrm{\mu s}]$")
 plt.ylabel(r"Anzahl $\log(N)$")
 plt.xlim(C*m+b,B*m+b)
 plt.legend()
-plt.show()
+plt.savefig("build/plot5.pdf")
+#plt.show()
 
 print("Tau=",1/lamda)
 print(lamda,N,U)
