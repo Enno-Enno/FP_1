@@ -15,7 +15,7 @@
 
 \section{Auswertung}
 \subsection{Anmerkungen}
-Die aufgenommenen Daten zur Myonenlebenszeit besitzen eine viel zu hohe Zählrate, als von Myonen zu erwarten.
+Die aufgenommenen Daten zur Myonenlebenszeit geben nicht den erwarteten Verlauf wieder und besitzen eine viel zu hohe Zählrate, als von Myonen zu erwarten.
 Dieses liegt an einem Fehler beim Kalibrieren der Apparatur und dem Messen. 
 Einer der Diskriminatoren die benutzt wurden, ist defekt und konnte nicht eingestellt werden. 
 Dieses ist bei der Kalibrierung der Diskriminatoren uns nicht aufgefallen, sondern erst am Ende der Messzeit. 
@@ -25,21 +25,54 @@ Eine dritte Messreihe hat nicht genug Datenpunkte um, eine Analyse zu beginnen.
 Daher wird mit dem fehlerhaften Datensatz gearbeitet und eine ungefähre Bestimmung der Lebensdauer von Myonen versucht.    
 
 \subsection{Bestimmung der Verzögerungszeit}
-Die aufgenommenen Zählraten \eqref{tab:data1} wurden gegen die jeweilige Verzögerungszeit $T_{vz}$ geplottet \eqref{fig:plt1} und das sich abweichende Plateau über den Mittelwert bestimmt. 
+Die aufgenommenen Zählraten \eqref{tab:data1} wurden gegen die jeweilige Verzögerungszeit $T_{vz}$ geplottet \eqref{fig:plt1} 
+und das sich abzeichnende Plateau über den Mittelwert bestimmt. Dieser ergibt ein Wert von $\num{159.5}$ im Bereich von $\qty{4}{\us}$ bis $\qty{14}{\us}$.
+Für die folgenden Messungen wurde eine Verzögerung von $\qty{10}{\us}$ gewählt, welches mittig im Intervall liegt. 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{build/plot1.pdf}
+	\includegraphics[width=0.9\textwidth]{build/plot1.pdf}
 	\caption{Verzögerungszeit Bestimmung}\label{fig:plt1}
 \end{figure}
 
+\begin{table}[H]
+	\centering
+	\begin{tabular}{c c}
+		\toprule
+		$T_{vz} \, [\unit{\us}]$ & $N $  \\
+		\midrule
+        0  & 128 \\
+        1  & 123 \\
+        2  & 118 \\
+        4  & 157 \\ 
+        6  & 151 \\
+        8  & 149 \\
+        10 & 169 \\
+        12 & 156 \\
+        14 & 179 \\
+        16 & 118 \\
+        20 & 85  \\ 
+        24 & 44  \\
+        32 & 29  \\
+		\bottomrule
+	\end{tabular}
+    \caption{Messdaten der Versicherungsmessung}
+    \label{tab:data1}
+\end{table}
+
 \subsection{Kalibrierung}
 
-\begin{figure}[H]
+\begin{wrapfigure}{r}{0.6\textwidth}
 	\centering
-	\includegraphics[width=\textwidth]{build/plot2.pdf}
-	\caption{Verzögerungszeit Bestimmung}\label{fig:plt2}
-\end{figure}
+	\includegraphics[width=0.6\textwidth]{build/plot2.pdf}
+	\caption{Kalibrierungsspektrum}\label{fig:plt2}
+\end{wrapfigure}
+
+Die Kalibrierung des Viel-Kanal-Analysator ergab das in die nebenstehende Abbildung \eqref{fig:plt2} geplottete Spektrum. 
+Der Doppelimpulsgenerator wurde immer um $\qty{0.5}{\us}$, beginnend bei $\qty{0.4}{\us}$ erhöht, daher hat jeder Peak im Spektrum diesen Abstand.
+Die Peaks werden mittels  $find-peaks$ von $scipy$ \cite{scipy} bestimmt und danach die Zeit $t$ gegen die Channels aufgetragen. 
+Dabei wird eine Ausgleichsgerade der Form $f(x)=m \cdot x+b$ durch die Messwerte gelegt und dessen Steigung bestimmt. 
+
 
 \begin{figure}[H]
 	\centering
@@ -47,17 +80,88 @@ Die aufgenommenen Zählraten \eqref{tab:data1} wurden gegen die jeweilige Verzö
 	\caption{Verzögerungszeit Bestimmung}\label{fig:plt3}
 \end{figure}
 
+
+Die Parameter der Ausgleichsgerade
+
+\begin{align*}
+	m&=\qty{21,67(0,01)e-3}{\us\per\channel}\\
+	b&=\qty{0,1651(0,0026)}{\us}
+\end{align*}
+
+werden im Folgenden benutzt, um die Channels in Zerfallszeit umzurechnen. 
+
+\subsection{Lebensdauerbestimmung}
+Wie bereits erwähnt sind die in Abbildung \eqref{fig:plt3} zusehenden Daten fehlerhaft. 
+Neben einer viel zu hohen Zahlrate von Insgesamt $1.648.692$ innerhalb von einer Messzeit von $T_{mess}=\qty{157226}{\s}$,
+weist das Spektrum eine ungewöhnliche Kante bei $t_k=\qty{1.075}{\us}$ auf.
+Daher kann angenommen das die Myonensignale, gerade für kleine Zeiten $t<t_k$, von anderen unbekannten Signalen überlagert werden. 
+Daher ist eine theoretische Berechnung des Hintergrundes unpraktisch, sondern dieser wird in den jeweiligen Ausgleichsrechnungen berücksichtigt. 
+Im Folgenden werden verschiedene Methoden aus probiert, um die Lebensdauer zu extrapolieren. 
+ 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{build/plot4.pdf}
 	\caption{Verzögerungszeit Bestimmung}\label{fig:plt4}
 \end{figure}
 
+Dazu ist das Spektrum in verschiedenen Bereiche unterteilt. 
+
+\begin{enumerate}
+	\item \textbf{Der rote Bereich} sind alle Daten die nicht benutzt werden, da sie entweder nach der Suchzeit $T_{such}=\qty{10}{\us}$ sind 
+	oder sie zu random sind (Die Messwerte am Anfang), das eine Betrachtung keinen Nutzen bringt. 
+	\item \textbf{Der blaue Bereich} ist deutlich höher als alle anderen Messwerte und weist einen steilen Abfall auf. 
+	\item \textbf{Der cyane Bereich} wird durch ein Flachen linearen Abfall gekennzeichnet, welcher am ehesten von der Messrate her auf Myonenzerfall hindeuten könnte. 
+\end{enumerate}
+
+\subsubsection{Der Cyan Bereich}
+Der Bereich mit der ungewöhnlichen Kante wird ignoriert, da dessen Zählraten deutlich über die zu erwartenden Zahlraten von Myonen sind. 
+Die Zählraten haben dabei jeweils den Fehler $\sqrt(N) $, welcher in allen kommenden Fits berücksichtigt wird. 
+Der zu erwartenden Verlauf von dem Zerfall von Myonen ist ein exponentieller Abfall der Zahlrate oder in einem Logarithmischen Plot einen linearen Abfall. 
+Dazu kommt ein möglicher Untergrund $U$ in den Messwerten, der zu berücksichtigt werden sollte. 
+Deshalb wird eine exponentielle Ausgleichsrechnung der Funktion
+
+\begin{equation}
+	f(t)=N_0 \cdot \exp(-\lambda t) + U
+\end{equation}
+
+und eine lineare Ausgleichsgerade der Form
+
+\begin{equation}
+	g(t)=m \cdot t +b
+\end{equation}
+
+mittels $curfit$ von $scipy$ ermittelt. 
+Der exponentiell Fit berücksichtigt dabei einen nicht trivialen Untergrund die lineare Ausgleichsgerade geht von einem vernachlässigbaren aus. 
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{build/plot5.pdf}
 	\caption{Verzögerungszeit Bestimmung}\label{fig:plt5}
 \end{figure}
+
+Die Parameter des exponentiellen Fit ergeben:
+
+\begin{align}
+	\lambda&=\qty{0.607(0.019)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{\lambda }=\qty{1.65(0.05)}{\us} \\
+	N_0&=\num{186(8)} \notag \\
+	U&=\num{1.83(0.26)} \notag
+\end{align}
+
+und die der Ausgleichsgerade: 
+
+\begin{align}
+	m&=\qty{-0.423(0.014)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{|m|}=\qty{2.37(0.08)}{\us} \\
+	b&=\num{4.51(0.11)} &\Rightarrow & & N_0&=\num{91(10)} \notag
+\end{align}
+
+\subsubsection{Keine Ahnung wie ich das nennen aber kein Bock mehr auf die Scheiße}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{build/plot6.pdf}
+	\caption{Verzögerungszeit Bestimmung}\label{fig:plt6}
+\end{figure}
+
 
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
