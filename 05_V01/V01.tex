@@ -122,12 +122,14 @@ Deshalb wird eine exponentielle Ausgleichsrechnung der Funktion
 
 \begin{equation}
 	f(t)=N_0 \cdot \exp(-\lambda t) + U
+	\label{eqn:exp}
 \end{equation}
 
 und eine lineare Ausgleichsgerade der Form
 
 \begin{equation}
 	g(t)=m \cdot t +b
+	\label{eqn:lin}
 \end{equation}
 
 mittels $curfit$ von $scipy$ ermittelt. 
@@ -142,19 +144,24 @@ Der exponentiell Fit berücksichtigt dabei einen nicht trivialen Untergrund die 
 Die Parameter des exponentiellen Fit ergeben:
 
 \begin{align}
-	\lambda&=\qty{0.607(0.019)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{\lambda }=\qty{1.65(0.05)}{\us} \\
-	N_0&=\num{186(8)} \notag \\
-	U&=\num{1.83(0.26)} \notag
+	\lambda&=\qty{0.602(0.018)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{\lambda }=\qty{1.66(0.05)}{\us} \\
+	N_0&=\num{184(8)} \notag \\
+	U&=\num{1.71(0.25)} \notag
 \end{align}
 
 und die der Ausgleichsgerade: 
 
 \begin{align}
-	m&=\qty{-0.423(0.014)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{|m|}=\qty{2.37(0.08)}{\us} \\
-	b&=\num{4.51(0.11)} &\Rightarrow & & N_0&=\num{91(10)} \notag
+	m&=\qty{-0.436(0.014)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{|m|}=\qty{2.29(0.07)}{\us} \\
+	b&=\num{4.59(0.11)} &\Rightarrow & & N_0&=\num{99(11)} \notag
 \end{align}
 
-\subsubsection{Keine Ahnung wie ich das nennen aber kein Bock mehr auf die Scheiße}
+\subsubsection{Verbindung vom Blauen und den Cyanen Bereich}
+Es soll nun versucht werden die ungewöhnliche Kante zu entfernen und danach eine weitere Ausgleichsrechnung durchzuführen. 
+Dazu werden alle Messwerte im blauen Bereich um die ungefähre Höhe der Kante reduziert. 
+Eine Betrachtung des blauen Bereichs allein ist nicht sinnvoll, da dieser definitiv keine Myonen widerspiegelt, sondern deren Signal nur überlagert. 
+Die Überlegung hinter der Reduzierung des Gebietes ist diese Überlagerung zu verkleinern, ohne den charakteristischen Verlauf des Bereichs zu verändern. 
+Es wird danach wieder die zwei Ausgleichsrechnungen \eqref{eqn:exp} und \eqref{eqn:lin} durchgeführt. 
 
 \begin{figure}[H]
 	\centering
@@ -162,10 +169,24 @@ und die der Ausgleichsgerade:
 	\caption{Verzögerungszeit Bestimmung}\label{fig:plt6}
 \end{figure}
 
+\newpage
+Diesmal sind die Parameter des exponentiellen Fit:
 
+\begin{align}
+	\lambda&=\qty{18.31(0.015)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{\lambda }=\qty{0.0546(0.0005)}{\us} \\
+	N_0&=\num{1.13(0.1)e10} \notag \\
+	U&=\num{5.8(1)} \notag
+\end{align}
+
+und die der Ausgleichsgerade:
+
+\begin{align}
+	m&=\qty{-0.437(0.013)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{|m|}=\qty{2.29(0.07)}{\us} \\
+	b&=\num{4.60(0.11)} &\Rightarrow & & N_0&=\num{99(11)} \notag
+\end{align}
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
-
+\newpage
 \section{Diskussion}
 
 
