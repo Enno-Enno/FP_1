@@ -122,7 +122,7 @@ Dazu kommt ein möglicher Untergrund $U$ in den Messwerten, der zu berücksichti
 Deshalb wird eine exponentielle Ausgleichsrechnung der Funktion
 
 \begin{equation}
-	f(t)=N_0 \cdot \exp(-\lambda t) + U
+	f(t)=N \cdot \exp(-\lambda t) + U
 	\label{eqn:exp}
 \end{equation}
 
@@ -145,16 +145,16 @@ Der exponentiell Fit berücksichtigt dabei einen nicht trivialen Untergrund die 
 Die Parameter des exponentiellen Fit ergeben:
 
 \begin{align}
-	\lambda&=\qty{0.602(0.018)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{\lambda }=\qty{1.66(0.05)}{\us} \\
-	N_0&=\num{184(8)} \notag \\
-	U&=\num{1.71(0.26)} \notag
+	\lambda_C&=\qty{0.602(0.018)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{\lambda }=\qty{1.66(0.05)}{\us} \\
+	N_C&=\num{184(8)} \notag \\
+	U_C&=\num{1.71(0.26)} \notag
 \end{align}
 
 und die der Ausgleichsgerade: 
 
 \begin{align}
-	m&=\qty{-0.438(0.014)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{|m|}=\qty{2.28(0.07)}{\us} \\
-	b&=\num{4.60(0.11)} &\Rightarrow & & N_0&=\num{100(11)} \notag
+	m_C&=\qty{-0.438(0.014)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{|m_C|}=\qty{2.28(0.07)}{\us} \\
+	b_C&=\num{4.60(0.11)} &\Rightarrow & & N&=\num{100(11)} \notag
 \end{align}
 
 \subsubsection{Verbindung vom Blauen und den Cyanen Bereich}
@@ -174,22 +174,35 @@ Es wird danach wieder die zwei Ausgleichsrechnungen \eqref{eqn:exp} und \eqref{e
 Diesmal sind die Parameter des exponentiellen Fit:
 
 \begin{align}
-	\lambda&=\qty{18.31(0.015)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{\lambda }=\qty{0.0546(0.0005)}{\us} \\
-	N_0&=\num{1.13(0.1)e10} \notag \\
-	U&=\num{5.8(1)} \notag
+	\lambda_{CB}&=\qty{18.31(0.015)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{\lambda }=\qty{0.0546(0.0005)}{\us} \\
+	N_{CB}&=\num{1.13(0.1)e10} \notag \\
+	U_{CB}&=\num{5.8(1)} \notag
 \end{align}
 
 und die der Ausgleichsgerade:
 
 \begin{align}
-	m&=\qty{-0.439(0.013)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{|m|}=\qty{2.28(0.07)}{\us} \\
-	b&=\num{4.61(0.11)} &\Rightarrow & & N_0&=\num{101(11)} \notag
+	m_{CB}&=\qty{-0.439(0.013)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{|m|}=\qty{2.28(0.07)}{\us} \\
+	b_{CB}&=\num{4.61(0.11)} &\Rightarrow & & N&=\num{101(11)} \notag
 \end{align}
+
+Dabei fällt auf das die Parameter der Ausgleichsgerade kaum durch die Messdaten des blauen Bereiches verändert wurden, 
+sondern der Fit am Ende den, bis auf zwei Nachkommastellen genau, gleichen Wert für $\tau $ liefert. 
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 \newpage
 \section{Diskussion}
+Trotz der fehlerhaften Daten war eine ungefähre Bestimmung der Myonenlebenszeit möglich. 
+So weichen diese, durch die Ausgleichsgerade bestimmten Werte... nur um ... von der Teorie ab. 
 
+Jedoch sind die Exponital Fits deutlich weiter vom Literaturwert entfernt. 
+Dieses könnte daran liegen, dass diese von einem Signifikanten Untergrund von $U_C=\num{1.71(0.26)}$ ausgehen, 
+welcher aber anscheind nicht eine so dominante Rolle für Messwerte über $\qty{1}{\us} $ spielen. 
+
+Wenn man versucht die ungewöhnliche Kante an die anderen Messwerte anzupassen werden die Ergebnisse ... gerade für den Exponital Fit noch ungenauer. 
+Da wir keinen Plan haben woher dieser kommt und die Ergebnisse schlechter werden, 
+ist davon auszugehen das dieser Teil der Daten komplett unbrauchbar für die Bestimmung der Lebnsdauer ist.
+Daher ist das Ergebniss der Ausgleichsgerade im Intervall von $[\qty{1}{\us}-\qty{10}{\us}]$ die beste Annäherung an den Literaturwert, der mit diesen Daten möglich ist. 
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 \newpage
