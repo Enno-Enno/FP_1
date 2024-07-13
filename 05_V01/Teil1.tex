@@ -6,10 +6,10 @@
 \subsection{Myonen}
 Myonen sind Teilchen des Standardmodells.
 Sie können in einem Prozess der schwachen Wechselwirkung in ein
-Elektron zerfallen und haben dabei eine mittlere Lebensdauer
-$\tau = \qty{2.197}{\micro\s}$\cite{PhysRev.132.2693}.
+Elektron und Neutrinos zerfallen und haben dabei eine mittlere Lebensdauer
+$\tau = \qty{2.197}{\micro\s}$\cite{Workman:2022ynf}.
 Die mittlere Lebensdauer eines Teilchens ist eine Kennziffer für
-Allgemeine Zerfallsprozesse, die in der Form
+allgemeine Zerfallsprozesse, die in der Form
 \begin{align}
 	N(t) = N_0 e^{-\lambda t}
 \end{align}
@@ -18,9 +18,19 @@ Myonen entstehen durch kosmische Strahlung in der oberen Atmosphäre.
 und erreichen die Erdoberfläche aufgrund von der Zeitdilatation in
 der speziellen Relativitätstheorie.% Rechnung nachreichen
 
+Bei einer Ruhemasse des Myons von $m_\mu c² = \qty{105.7}{\MeV}$
+einer mittleren Lebensdauer von $\tau = \qty{2.197e-6}{\s}$ (Vgl. \cite{Workman:2022ynf})
+und einer Geschwindigkeit von $v \simeq c$ mit $c \simeq \qty{3e8}{\meter\per\second}$ ergibt sich eine mittlere
+Reichweite von $R_\text{klassisch} = v\cdot\tau = c\cdot \tau \simeq \qty{660}{\m}$. 
+Bei der Entstehung oberhalb von $\qty{10}{\km}$ ist also in der klassischen Rechnung  nicht mit Myonen auf der Erdoberfläche
+zu rechnen.
+Die relativistische Berechnung ergibt $\gamma = \frac{\qty{10}{\GeV}}{\qty{105.7}{\MeV}} \simeq \num{94.6}$
+Im Ruhesystem ist die relativistische Lebensdauer dann $\tau' = \gamma \tau = 94.6 \cdot \qty{2.2e-6}{\s}=\qty{2.08e-4}{s} $
+Es ergibt sich eine Reichweite von $R_\text{relativistisch}= v⋅τ'=c⋅τ'=\qty{3e8}{\meter\per\second} \cdot \qty{2.08e-4}{s}=\qty{62.4}{km}$
+
 % Standardmodell
-% Lebensdauer
-% Reichweite klassisch und relativistisch (E_\mu = \qty{10}{\GeV})
+% Lebensdauer DONE 
+% Reichweite klassisch und relativistisch (E_\mu = \qty{10}{\GeV}) DONE
 
 \subsection{Messung von Szintillationsleuchten mit Photodetektoren \cite{book:kolano}}
 
@@ -34,12 +44,12 @@ Photodetektoren sind Messgräte, die dazu gedacht sind einzelne Photonen nachzuw
 Sie basieren auf dem Photoeffekt. Ein Photon löst ein Elektron auf einem unter hochspannung stehenden Kondensator aus.
 Das Elektron wird zum Kondensator auf der nächsthöheren Spannungsstufe beschleunigt. Dort löst es weitere Elektronen
 aus der nächsten Kondensatorplatte heraus. Diese Kaskade verstärkt sich über mehrere hintereinander geschaltete Kondensatorplatten
-bis ein Messbares Signal entsteht.
+bis ein Messbares Signal entsteht. 
 Um das Hintergrundrauschen des Photodetektors von den tatsächlichen Signalen zu unterscheiden wird das Signal von zwei Photodetektoren
 miteinander verglichen.
 
-% Szintillator
-% Photodetektor
+% Szintillator DONE
+% Photodetektor DONE
 
 \subsection{Fehlerrechnung}
 Für die Fehlerrechnung werden alle \textbf{Mittelwerte} von $N$ Messungen folgendermaßen berechnet:
@@ -85,5 +95,13 @@ Signale die von den PMT gleichzeitig kommen sind durch ein geladenes Teilchen im
 ausgelöst, das beide Detektoren gleichzeitig aktivieren kann und nicht durch eine zufällige 
 thermische Kaskade in einem der PMT.
 
+Der zweite Teil der Schaltung ist dazu da die Signale von den Myonen herauszufiltern, die tatsächlich
+in der Myonenkammer zerfallen. Ein Signal, das die Koinzidenzschaltung durchquert
+sendet an die beiden AND-Gatter ein Signal. Der invertierte Monoflop Ausgang sendet solange kein
+Signal diesen erreicht ein Signal auf dem invertierten Ausgang und keins auf dem nicht invertierten Ausgang
+Auf diese Weise erreicht das erste Signal den Start Trigger des Time-Amplitute-Converrters (TAC).
+Das Signal landet bei dem Monoflop nach einer Verzögerung von \qty{30}{\ns}. 
+Die Ausgangssignale des Monoflops werden invertiert, sodass das nächste Signal in dem 
 
-%% Monoflop Zeug Signal Kommm
+
+%% Monoflop Zeug Signal verstehen
