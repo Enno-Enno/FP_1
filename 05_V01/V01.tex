@@ -2,7 +2,7 @@
 
 \title{V01:\\ Kosmische Myonen}
 \author{Benedikt Lütke Lanfer \and Enno Wellmann}
-\date{01.Juli 2024}
+\date{01. Juli 2024}
 \publishers{TU Dortmund – Fakultät Physik}
 
 \begin{document}
@@ -68,7 +68,7 @@ Für die folgenden Messungen wurde eine Verzögerung von $\qty{10}{\us}$ gewähl
 	\caption{Kalibrierungsdaten}\label{fig:plt2}
 \end{wrapfigure}
 
-Die Kalibrierung des Viel-Kanal-Analysator ergab das in die nebenstehende Abbildung \eqref{fig:plt2} geplottete Spektrum. 
+Die Kalibrierung des Viel-Kanal-Analysators ergab das in die nebenstehende Abbildung \eqref{fig:plt2} geplottete Spektrum. 
 Der Doppelimpulsgenerator wurde immer um $\qty{0.5}{\us}$, beginnend bei $\qty{0.4}{\us}$ erhöht, daher hat jeder Peak im Spektrum diesen Abstand.
 Die Peaks werden mittels  $find-peaks$ von $scipy$ \cite{scipy} bestimmt und danach die Zeit $t$ gegen die Channels aufgetragen. 
 Dabei wird eine Ausgleichsgerade der Form $f(x)=m \cdot x+b$ durch die Messwerte gelegt und dessen Steigung bestimmt. 
@@ -108,13 +108,13 @@ Dazu ist das Spektrum in verschiedenen Bereiche unterteilt.
 
 \begin{enumerate}
 	\item \textbf{Der rote Bereich} sind alle Daten die nicht benutzt werden, da sie entweder nach der Suchzeit $T_{such}=\qty{10}{\us}$ sind 
-	oder sie zu random sind (Die Messwerte am Anfang), das eine Betrachtung keinen Nutzen bringt. 
-	\item \textbf{Der blaue Bereich} ist deutlich höher als alle anderen Messwerte und weist einen steilen Abfall auf. ($\qty{0.533}{\us}<t_B<\qty{1.075}{\us}$)
-	\item \textbf{Der cyane Bereich} wird durch ein Flachen linearen Abfall gekennzeichnet, 
+	oder sie zu vor den exponentiell abfallenden Daten sich nicht exponentiell abfallend verhalten. 
+	\item \textbf{Der blaue Bereich} ist deutlich höher als alle anderen Messwerte und weist einen steilen Abfall auf ($\qty{0.533}{\us}<t_B<\qty{1.075}{\us}$).
+	\item \textbf{Der cyane Bereich} wird durch ein flachen, näherungsweise linearen Abfall gekennzeichnet, 
 	welcher am ehesten von der Messrate her auf Myonenzerfall hindeuten könnte. ($\qty{1.075}{\us}<t_B<\qty{10}{\us}$)
 \end{enumerate}
 
-\subsubsection{Der Cyan Bereich}
+\subsubsection{Der cyane Bereich}
 Der Bereich mit der ungewöhnlichen Kante wird ignoriert, da dessen Zählraten deutlich über die zu erwartenden Zahlraten von Myonen sind. 
 Die Zählraten haben dabei jeweils den Fehler $\sqrt(N) $, welcher in allen kommenden Fits berücksichtigt wird. 
 Der zu erwartenden Verlauf von dem Zerfall von Myonen ist ein exponentieller Abfall der Zahlrate oder in einem Logarithmischen Plot einen linearen Abfall. 
@@ -126,7 +126,7 @@ Deshalb wird eine exponentielle Ausgleichsrechnung der Funktion
 	\label{eqn:exp}
 \end{equation}
 
-und eine lineare Ausgleichsgerade der Form
+und in den logarithmierten Werten eine lineare Ausgleichsgerade der Form
 
 \begin{equation}
 	g(t)=m \cdot t +b
@@ -174,7 +174,7 @@ Es wird danach wieder die zwei Ausgleichsrechnungen \eqref{eqn:exp} und \eqref{e
 Diesmal sind die Parameter des exponentiellen Fit:
 
 \begin{align}
-	\lambda_{CB}&=\qty{18.31(0.015)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{\lambda }=\qty{0.0546(0.0005)}{\us} \\
+	\lambda_{CB}&=\qty{18.31(0.015)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{\lambda }=\qty{0.0546(0.0005)}{\us} \\ 
 	N_{CB}&=\num{1.13(0.1)e10} \notag \\
 	U_{CB}&=\num{5.8(1)} \notag
 \end{align}
@@ -182,7 +182,7 @@ Diesmal sind die Parameter des exponentiellen Fit:
 und die der Ausgleichsgerade:
 
 \begin{align}
-	m_{CB}&=\qty{-0.439(0.013)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{|m|}=\qty{2.28(0.07)}{\us} \\
+	m_{CB}&=\qty{-0.439(0.013)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{|m|}=\qty{2.28(0.07)}{\us} \\ \label{eq:good_tau}
 	b_{CB}&=\num{4.61(0.11)} &\Rightarrow & & N&=\num{101(11)} \notag
 \end{align}
 
@@ -192,17 +192,22 @@ sondern der Fit am Ende den, bis auf zwei Nachkommastellen genau, gleichen Wert 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 \newpage
 \section{Diskussion}
-Trotz der fehlerhaften Daten war eine ungefähre Bestimmung der Myonenlebenszeit möglich. 
-So weichen diese, durch die Ausgleichsgerade bestimmten Werte... nur um ... von der Teorie ab. 
+Die Daten sind fehlerhaft, deshalb lässt sich aus diesem Experiment allein keine Aussage über die Zerfallskonstante des
+Myons herleiten. Trotzdem konnten in den Daten Hinweise darauf gefunden werden, dass in dieser Messung tatsächlich 
+die Lebenszeit von zerfallenden Myonen mit einer mittleren Lebenszeit von $\tau_\text{lit} = \qty{2.197}{\micro\s}$\cite{Workman:2022ynf}
+gemessen wurden.
+Die durch die Ausgleichsgerade bestimmten Werte im Cyan-Bereich von $\tau_c= \qty{2.28(0.07)}{\us}$ nur um 
+$\frac{|\tau_\text{lit} - \tau_c|}{\tau_\text{lit}} = \qty{3.7(3.1)}{\percent}$  von der Theorie ab. 
 
-Jedoch sind die Exponital Fits deutlich weiter vom Literaturwert entfernt. 
-Dieses könnte daran liegen, dass diese von einem Signifikanten Untergrund von $U_C=\num{1.71(0.26)}$ ausgehen, 
-welcher aber anscheind nicht eine so dominante Rolle für Messwerte über $\qty{1}{\us} $ spielen. 
+Alle anderen unternommenen Versuche ergeben Werte, die klar von dem Literaturwert abweichen.
+Der Exponentialfit in den nicht logarithmierten Daten 
+Dieses könnte daran liegen, dass diese von einem signifikanten Untergrund von $U_C=\num{1.71(0.26)}$ ausgehen, 
+welcher aber anscheinend nicht eine so dominante Rolle für Messwerte über $\qty{1}{\us} $ spielen. 
 
-Wenn man versucht die ungewöhnliche Kante an die anderen Messwerte anzupassen werden die Ergebnisse ... gerade für den Exponital Fit noch ungenauer. 
-Da wir keinen Plan haben woher dieser kommt und die Ergebnisse schlechter werden, 
-ist davon auszugehen das dieser Teil der Daten komplett unbrauchbar für die Bestimmung der Lebnsdauer ist.
-Daher ist das Ergebniss der Ausgleichsgerade im Intervall von $[\qty{1}{\us}-\qty{10}{\us}]$ die beste Annäherung an den Literaturwert, der mit diesen Daten möglich ist. 
+Wenn man versucht die ungewöhnliche Kante an die anderen Messwerte anzupassen werden die Ergebnisse ... gerade für den Exponentialfit noch ungenauer. 
+Da wir nicht wissen, woher dieser kommt und die Ergebnisse schlechter werden, 
+ist davon auszugehen das dieser Teil der Daten komplett unbrauchbar für die Bestimmung der Lebensdauer ist.
+Daher ist das Ergebnis der Ausgleichsgerade im Intervall von $[\qty{1}{\us}-\qty{10}{\us}]$ die beste Annäherung an den Literaturwert, der mit diesen Daten möglich ist. 
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 \newpage
