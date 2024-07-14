@@ -17,6 +17,7 @@ def exp(t,lamda,N,U):
 def poisson(t,lamda,N,U):
     return N*lamda*t*np.exp(-lamda*t) +U
 
+tau_lit=2.197
 
 N_kal=np.genfromtxt('data_kal.txt', unpack=True)
 N_myon=np.genfromtxt('data1.txt', unpack=True)
@@ -142,8 +143,8 @@ N=unp.uarray(N,N_f)
 U=unp.uarray(U,U_f)
 m2=unp.uarray(m2,m2_f)
 b2=unp.uarray(b2,b2_f)
-print("Tau=",1/lamda)
-print("Tau=",1/m2)
+print("Tau=",1/lamda,1-1/(lamda*tau_lit))
+print("Tau=",1/m2,1+1/(m2*tau_lit))
 print(lamda,N,U)
 print(m2,b2,unp.exp(b2))
 
@@ -211,8 +212,8 @@ N2=unp.uarray(N2,N2_f)
 U2=unp.uarray(U2,U2_f)
 m3=unp.uarray(m3,m3_f)
 b3=unp.uarray(b3,b3_f)
-print("Tau=",1/lamda2)
-print("Tau=",1/m3)
+print("Tau=",1/lamda2,1-1/(lamda2*tau_lit))
+print("Tau=",1/m3,1+1/(m3*tau_lit))
 print(lamda2,N2,U2)
 print(m3,b3,unp.exp(b3))
 

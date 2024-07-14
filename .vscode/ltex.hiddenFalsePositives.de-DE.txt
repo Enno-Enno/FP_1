@@ -1,2 +1,6 @@
 {"rule":"DE_AGREEMENT","sentence":"^\\QDadurch lassen sich die Peaks in einem Energie zu Channel Diagramm\\E$"}
 {"rule":"GERMAN_SPELLER_RULE","sentence":"^\\QAus der Detektorlänge \\E(?:Dummy|Ina|Jimmy-)[0-9]+$"}
+{"rule":"GERMAN_SPELLER_RULE","sentence":"^\\QDie durch die Ausgleichsgerade bestimmten Werte im Cyan-Bereich von \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q weichen nur um \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Qlit\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Qlit\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q von dem Literaturwert ab.\\E$"}
+{"rule":"GERMAN_SPELLER_RULE","sentence":"^\\QTrotzdem konnten in den Daten Hinweise auf die Lebenszeit von zerfallenden Myonen, mit einer mittleren theoretischen Lebenszeit von \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Qlit\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, gefunden werden.\\E$"}
+{"rule":"GERMAN_SPELLER_RULE","sentence":"^\\QDie durch die beiden Ausgleichsgeraden ermittelter Wert von \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q sind in beiden Bereichen bis auf zwei Nachkommastellen gleich und weichen nur um \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Qlit\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Qlit\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q von dem Literaturwert ab.\\E$"}
+{"rule":"SUBJUNKTION_KOMMA_2","sentence":"^\\QWenn man versucht die ungewöhnliche Kante an die anderen Messwerte anzupassen werden die Ergebnisse gerade für den Exponentialfit noch ungenauer.\\E$"}
