@@ -88,9 +88,10 @@ t_myon=np.arange(1, len(N_myon)+1)
 t_myon=f(t_myon,m,b)
 
 A=int(np.floor((1.1-b)/m)+1)-2
-B=int(np.floor((10-b)/m)+1)
+B=int(np.floor((10-b)/m)+1)-1
 C=17
-print(A,B,m*A+b)
+print(A,B,C)
+print(m*np.array([A,B,C])+b)
 print(sum(N_myon))
 
 plt.figure(constrained_layout=True)
@@ -198,7 +199,7 @@ plt.bar(t_myon[C:A],N_myon[C:A],color="b",width=m,label="Korregierte Messwerte V
 plt.plot(t,exp(t,lamda2,N2,U2),"k-",label="Exponitialfit")
 plt.plot(t,np.exp(f(t,m3,b3)),"m-",label="Ausgleichsgerade")
 plt.xlabel(r"$t \, [\mathrm{\mu s}]$")
-plt.ylabel(r"$\log(N)$")
+plt.ylabel(r"$N$")
 plt.xlim(C*m+b,B*m+b)
 plt.yscale("log")
 plt.legend()
