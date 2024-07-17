@@ -23,7 +23,7 @@
 \newpage
 \section{Auswertung}
 \subsection{Bestimmung des B-Feldes}
-Die Messung des B-Feldes mittels einer Hall-Sonde ergibt die in Tabelle \eqref{tab:B_Feld} folgende Werte:
+Die Messung des B-Feldes mittels einer Hall-Sonde ergibt die in Tabelle \eqref{tab:B_Feld} folgenden Werte:
 
 \begin{table}[H]
 	\centering
@@ -56,8 +56,8 @@ Die Messung des B-Feldes mittels einer Hall-Sonde ergibt die in Tabelle \eqref{t
     \caption{Magnetfeld in der Spule}\label{tab:B_Feld}
 \end{table}
 
-Diese Werte werden einmal geplottet \eqref{fig:B_Feld}, welches eine gut sichtbare Parabel förmige Struktur ergibt. 
-Jedoch wurden die Werte von $\qty{140}{\milli\meter}$ bis $\qty{170}{\milli\meter}$ ausgelassen das diese Vernachlässigt werden können. 
+Diese Werte werden in Abbildung \eqref{fig:B_Feld} geplottet. 
+Jedoch wurden die Werte von $\qty{140}{\milli\meter}$ bis $\qty{170}{\milli\meter}$ ausgelassen, da diese vernachlässigt werden können. 
 Das maximale B-Feld ergibt sich dabei mit $B=\qty{428}{\milli\tesla}$ bei $d=\qty{98}{\milli\meter}$. 
 
 \begin{figure}[H]
@@ -67,7 +67,7 @@ Das maximale B-Feld ergibt sich dabei mit $B=\qty{428}{\milli\tesla}$ bei $d=\qt
 \end{figure}
 
 \subsection{Bestimmung der effektiven Masse}
-Die Differenz der einzelnen aufgenommen Winkel \eqref{tab:data} je nach B-Feld Ausrichtung werden zuerst mittels 
+Die Differenz der einzelnen aufgenommen Winkel (in Tabelle \eqref{tab:data}) je nach B-Feld Ausrichtung werden zuerst mittels 
 
 \begin{equation}
     \Theta =\frac{\theta_2 - \theta_1}{2L} 
@@ -110,7 +110,7 @@ Diese Faraday Rotation wird im folgenden Plot gegen das Quadrat der Wellenlänge
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{build/Messdaten.pdf}
-	\caption{Messdaten Proben}\label{fig:Aufbau}
+	\caption{Normierter Faradaywinkel der drei Galliumarsenidproben}\label{fig:Aufbau}
 \end{figure}
 
 Um schließlich die effektive Elektronenmasse zu bestimmen wird jeweils die Differenz zwischen der reinen Probe und den n-dotierten Proben
@@ -120,7 +120,8 @@ Um schließlich die effektive Elektronenmasse zu bestimmen wird jeweils die Diff
 \end{align*}
 
 bestimmt.
-Schließlich wird diese gegen $\lambda^2$ aufgetragen und mittels der Formel \eqref{eqn:theta} jeweils eine Ausgleichsgerade \eqref{fig:plt1} \eqref{fig:plt2} der Form $f(x)=a\cdot x$
+Schließlich wird diese gegen $\lambda^2$ aufgetragen und 
+mittels der Formel \eqref{eqn:theta} jeweils eine Ausgleichsgerade (Abbildung \eqref{fig:plt1} \eqref{fig:plt2}) der Form $f(x)=a\cdot x$
 
 \begin{equation}
     \Theta=\underbrace{\frac{NBe_0^3}{8 \pi^2 n \varepsilon_0 c^3} \frac{1}{(m^{\ast})^2}}_{a} \cdot \underbrace{\lambda^2}_{x}
@@ -130,13 +131,13 @@ Schließlich wird diese gegen $\lambda^2$ aufgetragen und mittels der Formel \eq
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.95\textwidth]{build/plot2.pdf}
-	\caption{Ausgleichsgerade}\label{fig:plt1}
+	\caption{Differenz der normierten Rotationswinkel zwischen reiner und n-dotiert Probe 1 in Abhängigkeit des Quadrats der Wellenlänge}\label{fig:plt1}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.95\textwidth]{build/plot1.pdf}
-	\caption{Ausgleichsgerade}\label{fig:plt2}
+	\caption{Differenz der normierten Rotationswinkel zwischen reiner und n-dotiert Probe 3 in Abhängigkeit des Quadrats der Wellenlänge}\label{fig:plt2}
 \end{figure}
 
 Die Werte der Ausgleichsgerade 
@@ -147,13 +148,13 @@ Die Werte der Ausgleichsgerade
 \end{align}
 
 sind mittels $curvefit$ von $scipy$ \cite{scipy} bestimmt worden.
-Durch Umstellen der Formeln \eqref{eqn:theta} nach der effektiven Masse
+Durch Umstellen der Formel \eqref{eqn:theta} nach der effektiven Masse
 
 \begin{equation}
     m^{\ast}=\sqrt{\frac{NBe_0^3}{8 \pi^2 n \varepsilon_0 c^3} \cdot \frac{1}{a}}
 \end{equation}
 
-kann diese schließlich aus den bestimmten Parameter ermittelt werden 
+kann diese schließlich mit dem Brechungsindex $n=3.81$ \cite{web:Brechungsindex} und aus den bestimmten Parameter ermittelt werden 
 
 \begin{align}
     \frac{m^{\ast}}{m_0}&=\qty{7.5(0.5)}{\%}\\
@@ -161,7 +162,7 @@ kann diese schließlich aus den bestimmten Parameter ermittelt werden
     \label{eqn:Werte}
 \end{align}
 
-welches im Mittel dann $\frac{m^{\ast}}{m_0}=\qty{7.64(0.34)}{\%}$ ergibt
+welches im Mittel dann $\frac{m^{\ast}}{m_0}=\qty{7.64(0.34)}{\%}$ ergibt.
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
@@ -173,6 +174,9 @@ So ist die Minimierung des Signals durch Verstellen des Winkels ungenau und nich
 da durch das starke Schwanken des Signals auf dem Oszilloskop, ein genauer minimaler Winkel nicht auf eine Nachkommastelle einstellbar ist. 
 So mit weichen auch die ermittelten Werte \eqref{eqn:Werte}, für die effektive Elektronenmasse, 
 im Mittel um $\qty{12.3}{\%}$ von dem Literaturwert von $\frac{m^{\ast}}{m_0}=\qty{6.7}{\%}$ \cite{web:GaAs} ab.
+Neben den Ablesefehlern könnte noch ein weiterer Effekt ein Teil der hohen Abweichung erklären.
+Für das Magnetfeld werden hohe Ströme benötigt, welche wiederum den Magneten erhitzen.
+Dadurch wird wiederum die Probe im Inneren des Magneten erwärmt und somit den Brechungsindex der Galliumarsenidproben verändert. 
 
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%

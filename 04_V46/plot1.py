@@ -70,7 +70,7 @@ plt.savefig("build/plot1.pdf")
 #plt.show()
 
 m=unp.uarray(m,m_f)
-m1=unp.sqrt((con.e**3*1.28*10**(24)*0.428)/(8*3.857*con.epsilon_0*m*10**(12)*con.c**3*np.pi**2))
+m1=unp.sqrt((con.e**3*1.28*10**(24)*0.428)/(8*3.81*con.epsilon_0*m*10**(12)*con.c**3*np.pi**2))
 
 par, cov=curve_fit(f,lamda**2, abs(delta_n1-delta_r))
 par = unc.correlated_values(par, cov)
@@ -88,7 +88,7 @@ plt.savefig("build/plot2.pdf")
 #plt.show()
 
 m=unp.uarray(m,m_f)
-m2=unp.sqrt((con.e**3*2.8*10**(24)*0.428)/(8*3.857*con.epsilon_0*m*10**(12)*con.c**3*np.pi**2))
+m2=unp.sqrt((con.e**3*2.8*10**(24)*0.428)/(8*3.81*con.epsilon_0*m*10**(12)*con.c**3*np.pi**2))
 
 print(m1/con.m_e)
 print(m2/con.m_e)
