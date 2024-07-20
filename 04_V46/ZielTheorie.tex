@@ -4,32 +4,37 @@ effektive Masse der Leitungselektronen in n-dotierten Galliumarsenid zu messen.
 
 \section{Theorie}
 In diesem Versuch scheint eine polarisierte elektromagnetische Welle durch
-einen Halbleiter. Dieser Halbleiter wird einem Magnetfeld ausgesetzt was zu
-einer Verdrehung der Polarisationsachse führt. Diese Begriffe werden im
-folgenden definiert
+einen Halbleiter. Dieser Halbleiter wird einem Magnetfeld parallel zur
+Lichtausbreitung ausgesetzt, was zu einer Drehung der Polarisationsachse führt.
+Die konkreten Prozesse werden im Folgenden beschrieben.
 
 \subsection{Halbleiter \cite[][Kap. 14]{book:expi3}}
+
 Elektronen in Festkörpern haben anstelle von diskret definierten Zuständen
-aufenthaltswahrscheinlichkeiten in der Form von Bändern. Leitende Festkörper
+Aufenthaltswahrscheinlichkeiten in der Form von Bändern. Leitende Festkörper
 zeichnen sich durch Elektronen im ungebundenen Zustand aus. Isolatoren wiederum
-haben eine große Bandlücke zwischen den Gebundenen Elektronen und dem ersten
-freien Leitungsband. Diese Bandlücke ist bei Halbleitern in der Größenordnung
-von etwa $\qty{1}{\eV}$. Die Bandstruktur von Halbleitern ist auch eine Funktion
-des Impuls der Elektronen bzw. deren Wellenvektor $\vec{k}$.
-Die Energiefunktion die das Band beschreibt kann durch eine quadratische Funktion angenähert werden
-(siehe Abbildung \ref{fig:band}).
+haben eine große Bandlücke $E_g > 3 \unit{\eV}$ \cite{web:Bandlücke} zwischen
+den gebundenen Elektronen und dem ersten freien Leitungsband. Diese Bandlücke
+ist bei Halbleitern in der Größenordnung von etwa
+$\qty{1}{\eV}$\cite{web:Bandlücke}. Die Bandstruktur von Halbleitern ist auch
+eine Funktion des Impulses der Elektronen bzw. deren Wellenvektor $\vec{k}$.
+Die Energiefunktion, die das Band beschreibt, kann durch eine quadratische
+Funktion angenähert werden (siehe Abbildung \ref{fig:band}).
+
 \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]{./Bilder/bandstrukt.png}
-    \caption{Die Bandstruktur eines Halbleiters im $k$-Raum}\label{fig:band}
+	\centering
+	\includegraphics[width=0.8\textwidth]{./Bilder/bandstrukt.png}
+	\caption{Die Bandstruktur eines Halbleiters im $k$-Raum\cite{book:expi3}.}\label{fig:band}
 \end{figure}
 
-
 \subsection{Effektive Masse \cite[][Kap. 14]{book:expi3}}
-Die Effektive Masse ist relevant für die Bewegungsgleichungen der Elektronen im
-Leitungsband von Halbleitern sowie der Elektronen löcher im Valenzband. Sie
-kann anstelle der Masse eines freien Elektrons verwendet werden. Sie ist
+
+Die effektive Masse ist relevant für die Bewegungsgleichungen der Elektronen im
+Leitungsband von Halbleitern sowie der Elektronenlöcher im Valenzband. Sie
+kann anstelle der Masse eines freien Elektrons verwendet werden, so können die
+Bewegungsgleichungen für freie Elektronen auch in Materie angewendet werden. Sie ist
 definiert als
+
 \begin{align}
 	m^* & = \hbar^2 \cdot \frac{d²E}{d k_i d k_j}
 \end{align}
@@ -38,73 +43,79 @@ definiert als
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./Bilder/zirpol.png}
-	\caption{Zirkulare Polarisation \cite{man_a} }\label{fig:zirpol}
+	\caption{Rotation der Polarisationsebene bei zirkularer Doppelbrechung \cite{man_a} }\label{fig:zirpol}
 \end{figure}
 
-Bestimmte Kristalle können die Polarisationsebene eines Linear polarisierten
-Lichtstrahls drehen. dies kann dadurch erklärt werden, dass der Brechungsindex
-für links und für rechtszirkular Polarisiertes licht unterschiedlich sind. Es
-ist möglich das linear polarisierte Licht in eine rechts und eine linkszirkular
-polarisierte Welle zu zerlegen.
+Es ist möglich linear polarisiertes Licht in eine
+rechts und eine linkszirkular polarisierte Welle zu zerlegen.
+
 \begin{align}
 	E(z)    & = \frac{1}{2}(E_R(z) + E_L(z))                   \\
 	E_R (z) & = (E_0 \vec{x}_0  - i E_0 \vec{y}_0) e^{i k_R z} \\
 	E_L (z) & = (E_0 \vec{x}_0  + i E_0 \vec{y}_0) e^{i k_L z}
 \end{align}
 
-Mit den Abkürzungen $ \psi := \frac{L}{2} (k_R + k_L)$ und
+
+Bestimmte Kristalle können so die Polarisationsebene eines Linear polarisierten
+Lichtstrahls drehen, da die Brechungsindizes für links und für rechtszirkular 
+polarisiertes Licht unterschiedlich sind. 
+
+Mit den Abkürzungen $ \psi := \frac{L}{2} (k_R + k_L)$ und $\theta :=
+	\frac{L}{2} (k_R -k_L)$ ergibt sich für die Polarisationsebene am Ende des
+Kristalls mit der Länge $L$
 \begin{align}
-	\theta & := \frac{L}{2} (k_R -k_L)                                    \\
-	\intertext{ergibt sich für die Polatisationsebene am Ende des Kristalls mit der Länge $L$}
-	E(L)   & = E_0 e^{i\psi} (\cos\theta \vec{x}_0 + sin\theta \vec{y}_0)
+	E(L) & = E_0 e^{i\psi} (\cos\theta \vec{x}_0 + \sin\theta \vec{y}_0).
 \end{align}
-Die Phasengeschwindigkeit der Welle kann im allgemeinen durch die relation $V_{Ph}=\omega/k$
+Die Phasengeschwindigkeit der Welle kann im Allgemeinen durch die Relation $V_\t{Ph}=\omega/k$
 ausgedrückt werden. Es folgt
 \begin{align}
-	\theta & = \frac{L \omega}{2c} \left(\frac{1}{V_{Ph_R}} - \frac{1}{V_{Ph_L}}\right).
-	\intertext{Das lässt sich auch bezogen auf die Brechungsindizes mit
+	\theta & = \frac{L \omega}{2} \left(\frac{1}{V_{Ph_R}} - \frac{1}{V_{Ph_L}}\right).
+	\intertext{ Das lässt sich auch bezogen auf die Brechungsindizes mit
 	der Vakuumlichtgeschwindigkeit $c$ mit $n = c/v_{Ph}$ darstellen}
 	\theta & = \frac{L\omega}{2c}(n_R -n_L)
 	\label{eq:kodern}
 \end{align}
 
-\subsection{Berechnung der Doppelbrechung in einem anisotropen Medium \cite{man_a} }
+\subsection{Berechnung der Doppelbrechung in einem anisotropen Medium \cite{man_a}}
 \label{sec:anisotrop}
 Bei der Polarisation eines Kristalls $\vec{P} = \epsilon_0 \chi \vec{E}$ hat die dielektrische Suszeptibilität $\chi$
-im einfachsten anisotropen Fall die Form
+im anisotropen Fall die Form eines Tensors. Dieser ist häufig Symmetrisch und kann durch eine Hauptachsentransformation 
+in eine Diagonalform gebracht werden. Im Folgenden soll Materie betrachtet werden deren $\chi$-Tensor nicht symmetrisch ist.
+Dieser hat dann im einfachsten Fall die Form
+
 \begin{align}
 	\chi = %
 	\begin{pmatrix}
 		\chi_{xx}     & i \chi_{xy} & 0         \\
 		- i \chi_{xy} & \chi_{yy}   & 0         \\
 		0             & 0           & \chi_{zz}
-	\end{pmatrix}
+	\end{pmatrix}.
 	\label{eq:chi}
 \end{align}
 Verwenden der Wellengleichung $\nabla \times (\nabla \times \vec{E}) = \frac{1}{c²}(1 + \chi)\frac{d² \vec{E}}{d t²}$
 mit der dielektrischen Verschiebung $\vec{D} = \epsilon_0 \vec{E}+ \vec{P}$ und einer Ebenen welle
 $\vec{E}(\vec{r},t) = \vec{E}_0 e^{i(\vec{k}\vec{r} - \omega t)}$ ergibt sich eine Form
 \begin{align}
-	\vec{k} \times (\vec{k} \times \vec{E})= -\frac{\omega²}{c²} \vec{E}- \frac{\omega²}{c²}\chi \vec{E}
+	\vec{k} \times (\vec{k} \times \vec{E})= -\frac{\omega²}{c²} \vec{E}- \frac{\omega²}{c²}\chi \vec{E}.
 \end{align}
-Mit einem $\vec{k}$ in $z$ richtung ergeben sich für die Wellenzahl zwei Werte
+Mit einem $\vec{k}$ in $z$-Richtung ergeben sich für die Wellenzahl zwei Werte
 \begin{align}
-	k_{\pm} = \frac{\omega}{c}\sqrt{(1+\chi_{xx})\pm \chi_{xy}}
+	k_{\pm} = \frac{\omega}{c}\sqrt{(1+\chi_{xx})\pm \chi_{xy}}.
 \end{align}
 Es ergeben sich weiter zwei Phasengeschwindigkeiten mit $v = \omega/ k$
 \begin{align}
-	v_{Ph_R} = \frac{c}{\sqrt{1+\chi_{xx}+\chi{xy}}} \text{und} v_{Ph_L} = \frac{c}{\sqrt{1+\chi_{xx}-\chi{xy}}}
+	v_{\t{Ph}_\t{R}} = \frac{c}{\sqrt{1+\chi_{xx}+\chi{xy}}} \text{ und } v_{\t{Ph}_\t{L}} = \frac{c}{\sqrt{1+\chi_{xx}-\chi_{xy}}}
 \end{align}
-die entweder größer oder Kleiner als die Phasengeschwindigkeit $v_{Ph}= \frac{c}{\sqrt{1+\chi_{xx}}}$ bei $	$ sind.
+die entweder größer oder kleiner als die Phasengeschwindigkeit $v_{Ph}= \frac{c}{\sqrt{1+\chi_{xx}}}$ bei $\chi_{xy} = 0$ sind. %TODO
 
-Der Drehwinkel lässt sich gemäß \eqref{eq:kodern} berechnen
+Der Drehwinkel lässt sich gemäß Formel \eqref{eq:kodern} berechnen
 \begin{align}
 	\theta = \frac{L}{2}(k_+ -k_-) = \frac{L\omega}{2c}{ \sqrt{(1+ \chi_{xx} )+ \chi_{xy}} - \sqrt{(1+ \chi_{xx} )-\chi_{xy}} }
 \end{align}
 
 Da die Werte für $\chi_{xy}$ typischerweise deutlich kleiner sind als
-$\chi_{xx}$ kann dieser Ausdruck noch weiter genähert und mit der Phasengeschwindigkeit und dem
-Brechungsindex $n$ vereinfacht werden.
+$\chi_{xx}$, kann dieser Ausdruck noch weiter genähert und mit der
+Phasengeschwindigkeit und dem Brechungsindex $n$ vereinfacht werden.
 
 \begin{align}
 	\theta \simeq \frac{L \omega}{2c}\left\{ \sqrt{1+\chi_{xx}}\right\}^{-1} \chi_{xy} =\frac{L \omega}{2c²} v_{Ph} \chi_{xy} = \frac{L \omega}{2c n} \chi_{xy}
@@ -112,51 +123,55 @@ Brechungsindex $n$ vereinfacht werden.
 
 \subsection{Berechnung des Rotationswinkels der Polarisationsebene beim Faraday Effekt \cite{man_a} }
 Die Bewegungsgleichung für ein gebundenes Elektron in einem Festkörper lautet
+
 \begin{align}
-	m \frac{d² \vec{r}}{d t²} + K \vec{r} = -e_0 \vec{E}(\vec{r}) \frac{d \vec{r}}{dt} \times \vec{B}.
+	m \frac{d² \vec{r}}{d t²} + K \vec{r} = -e_0 \vec{E}(\vec{r})- e_0 \frac{d \vec{r}}{dt} \times \vec{B}.
 \end{align}
-$K$ ist hierbei eine Konstante, und $\vec{r}$ ist die auslenkung des Elektrons aus seiner Ruhelage.
+
+$K$ ist hierbei eine Konstante, und $\vec{r}$ ist die Auslenkung des Elektrons aus seiner Ruhelage.
 Aus der Beschreibung dieser Gleichung im Sinne des Verschiebungsstroms $\vec{P} = -N e_0 \vec{r}$
-mit N der Ladungsdichte
-und einem Elektrischen Feld der Form $\vec{E} = e^{- i \omega t}$ ergibt sich für große $\omega$
-\begin{align}
-	-m\omega² \vec{P} + K \vec{P} = e_0^2 E_y -i e_0 \omega \vec{P} \times \vec{B}
-\end{align}
-Der Magnetisierungstensor $\chi$ kann wie in \eqref{eq:chi} angenommen werden. 
-Analog zu Abschnitt \ref{sec:anisotrop} kann die Drehung des Polarisationswinkels festgestellt werden 
-\begin{align} 
-	\theta = \frac{e_0^3 \omega² NBL}{2 \epsilon_0 c(-m\omega²+ K)² -(e_0 \omega B)}
-\end{align}
-Die Frequenzabhängigkeit wird noch einmal separat diskutiert. 
+mit der Ladungsdichte $N$
+und einem elektrischen Feld der Form $\vec{E} = e^{- i \omega t}$ ergibt sich für große $\omega$
 
 \begin{align}
-	\theta = \frac{e_0^3 \omega² NBL}{2 \epsilon_0 c m²(-\omega²+ \frac{K}{m})² -(\frac{e_0}{m}\omega B)}
+	-m\omega² \vec{P} + K \vec{P} = e_0^2 E_y -i e_0 \omega \vec{P} \times \vec{B}.
 \end{align}
 
-In dieser Darstellung sind die Frequenzen $\omega_0  = \sqrt{K/m}$ und $\omega_C = Be_0/m$ von Bedeutung.
-$\omega_0$ ist eine Resonanzfrequenz. $\omega_C$ ist die Zyklotronfrequenz, bei der ein freies Elektron 
-im Magnetfeld einer Kreisbahn folgen würde.
-Mit $B \simeq \qty{1}{\tesla}$ ergeben sich Zyklotronfrequenzen von $\omega_C \simeq \qty{e11}{\hertz}$.
-die Resonanzfrequenzen liegen bei Halbleitern normalerweise im Infrarot ( $\omega_0 \simeq \qtyrange{e14}{e15}{\hertz}$).
-So ist zumeist $(\omega_0- \omega)>> \omega² \omega_C²$
-und folgende Näherungen werden für $\omega$ mit großen (und größerem) Abstand von $\omega_0$ möglich
+Der Magnetisierungstensor $\chi$ kann wie in \eqref{eq:chi} angenommen werden.
+Analog zu Abschnitt \ref{sec:anisotrop} kann die Drehung des Polarisationswinkels festgestellt werden
 \begin{align}
-	\theta \simeq \frac{e_0³}{2\epsilon_0 c}\frac{1}{m²}\frac{\omega²}{(\omega_0²- \omega²)²}\frac{NBL}{n}%
+	\theta = \frac{e_0^3 \omega² NBL}{[2 \epsilon_0 c(-m\omega²+ K)² -(e_0 \omega B)²]n}.
+\end{align}
+Die Frequenzabhängigkeit wird noch einmal separat diskutiert.
+
+\begin{align}
+	\theta = \frac{e_0^3 \omega² NBL}{[2 \epsilon_0 c m²(-\omega²+ \frac{K}{m})² -(\frac{e_0}{m}\omega B)²]n}
+\end{align}
+
+In dieser Darstellung sind die Frequenzen $\omega_0 = \sqrt{K/m}$ und $\omega_C
+	= Be_0/m$ von Bedeutung. $\omega_0$ ist eine Resonanzfrequenz. $\omega_C$ ist
+die Zyklotronfrequenz, bei der ein freies Elektron im Magnetfeld einer
+Kreisbahn folgen würde. Mit $B \simeq \qty{1}{\tesla}$ ergeben sich
+Zyklotronfrequenzen von $\omega_C \simeq \qty{e11}{\hertz}$. Die
+Resonanzfrequenzen liegen bei Halbleitern normalerweise im Infrarot ($\omega_0
+	\simeq \qtyrange{e14}{e15}{\hertz}$). So ist zumeist $(\omega_0- \omega)>>
+	\omega² \omega_C²$ und folgende Näherungen werden für $\omega$ mit großen (und
+größerem) Abstand von $\omega_0$ möglich
+\begin{align}
+	\theta \simeq \frac{e_0³}{2\epsilon_0 c}\frac{1}{m²}\frac{\omega²}{(\omega_0²- \omega²)²}\frac{NBL}{n}.%
 	% \simeq \frac{e_0³}{2\epsilon_0 c}\frac{1}{m²}\frac{\omega²}{\omega_0⁴}\frac{NBL}{n}.
 \end{align}
 Mit Wellenlänge anstelle der Kreisfrequenz wird der Fall quasifreier Ladungsträger betrachtet ($\omega \rightarrow 0$)
 \begin{align}
 	\theta \simeq  \frac{e_0³}{2\epsilon_0 c}\frac{1}{m²}\frac{1}{\omega²}\frac{NBL}{n}%
-	= \frac{e_0³}{8\pi²\epsilon_0 c³}\frac{1}{m²}\frac{NBL}{n}
+	= \frac{e_0³}{8\pi²\epsilon_0 c³}\frac{1}{m²}\lambda²\frac{NBL}{n}
 \end{align}
 Diese Gleichung bleibt auch für Kristallelektronen gültig, wenn man $m$ durch die effektive Masse $m^*$ ersetzt.
-Die Endgültige Gleichung für $\theta_{frei} = \theta / L$ ist also 
+Die Endgültige Gleichung für $\theta_\t{frei} = \theta / L$ ist also
 \begin{align}
-	\theta_{frei} = \frac{e_0³}{8\pi²\epsilon_0 c³}\frac{1}{(m^*)²}\frac{NB}{n}
+	\theta_\t{frei} = \frac{e_0³}{8\pi²\epsilon_0 c³}\frac{1}{(m^*)²}\lambda²\frac{NB}{n}
 	\label{eq:theta_final}
 \end{align}
-
-
 
 %% Hier kommt noch ein Teil hin um zu der verwendeten Formel zu kommen 
 
@@ -167,39 +182,39 @@ Die Endgültige Gleichung für $\theta_{frei} = \theta / L$ ist also
 % 	E_e(\vec{k})      & = \frac{\hbar²}{3m^*_e}
 % \end{align}
 
-\subsection{Fehlerrechnung}
-Für die Fehlerrechnung werden alle \textbf{Mittelwerte} von $N$ Messungen
-folgendermaßen berechnet:
+% \subsection{Fehlerrechnung}
+% Für die Fehlerrechnung werden alle \textbf{Mittelwerte} von $N$ Messungen
+% folgendermaßen berechnet:
 
-\begin{equation}
-	\overline{x} = \frac{1}{N} \cdot \sum_{i=1}^N x_i
-	\label{eqn:Mittelwert}
-\end{equation}
+% \begin{equation}
+% 	\overline{x} = \frac{1}{N} \cdot \sum_{i=1}^N x_i
+% 	\label{eqn:Mittelwert}
+% \end{equation}
 
-und alle \textbf{Standardabweichungen zum Mittelwert} mit:
+% und alle \textbf{Standardabweichungen zum Mittelwert} mit:
 
-\begin{equation}
-	\increment\overline{x} = \sqrt{\frac{1}{N\cdot(N-1)}\cdot\sum_{i=1}^N (x_i-\overline{x})^2}
-	\label{eqn:St_Mittelwert}
-\end{equation}
+% \begin{equation}
+% 	\increment\overline{x} = \sqrt{\frac{1}{N\cdot(N-1)}\cdot\sum_{i=1}^N (x_i-\overline{x})^2}
+% 	\label{eqn:St_Mittelwert}
+% \end{equation}
 
-Der Fehler für zusammenhängende Messwerte wird dann mit der \textbf{Gaußschen
-	Fehlerfortpflanzung} berechnet:
+% Der Fehler für zusammenhängende Messwerte wird dann mit der \textbf{Gaußschen
+% 	Fehlerfortpflanzung} berechnet:
 
-\begin{equation}
-	\increment{f} = \sqrt{ \sum_{i = 1}^{N}  \biggl(\frac{\partial{f}}{\partial{x_i}}\biggr)^2\cdot(\increment{x_i})^2}
-	\label{eqn:Gauss}
-\end{equation}
+% \begin{equation}
+% 	\increment{f} = \sqrt{ \sum_{i = 1}^{N}  \biggl(\frac{\partial{f}}{\partial{x_i}}\biggr)^2\cdot(\increment{x_i})^2}
+% 	\label{eqn:Gauss}
+% \end{equation}
 
-Die Fehlerfortpflanzung wird mit Uncertainties in Python \cite{uncertainties}
-ermittelt.
+% Die Fehlerfortpflanzung wird mit Uncertainties in Python \cite{uncertainties}
+% ermittelt.
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
-\section{Durchführung \cite{man}}% TODO Zahlen überprüfen
+\section{Durchführung \cite{man}} % TODO Zahlen überprüfen
 Zwei Spulen werden hintereinander mit einem konstanten Strom von
-$\qty{10}{\ampere}$ versorgt. Eine Hallsonde wird durch die Spule geschoben, um
-die Magnetfeldverteilung und das maximale Magnetfeld zu messen. Die Proben werden im Versuch in der
+$\qty{10}{\ampere}$ versorgt. Eine Hallsonde wird durch die Spule geschoben, um 
+das maximale Magnetfeld zu messen. Die Proben werden im Versuch in der
 Mitte der Spule eingespannt, wo das Magnetfeld am stärksten ist.
 
 Der Versuch wird wie in Abbildung \ref{fig:aufbau} aufgebaut. Weißes Licht wird
