@@ -30,10 +30,10 @@ Funktion angenähert werden (siehe Abbildung \ref{fig:band}).
 \subsection{Effektive Masse \cite[][Kap. 14]{book:expi3}}
 
 Die effektive Masse ist relevant für die Bewegungsgleichungen der Elektronen im
-Leitungsband von Halbleitern sowie der Elektronenlöcher im Valenzband. Sie
-kann anstelle der Masse eines freien Elektrons verwendet werden, so können die
-Bewegungsgleichungen für freie Elektronen auch in Materie angewendet werden. Sie ist
-definiert als
+Leitungsband von Halbleitern sowie der Elektronenlöcher im Valenzband. Sie kann
+anstelle der Masse eines freien Elektrons verwendet werden, so können die
+Bewegungsgleichungen für freie Elektronen auch in Materie angewendet werden.
+Sie ist definiert als
 
 \begin{align}
 	m^* & = \hbar^2 \cdot \frac{d²E}{d k_i d k_j}
@@ -46,8 +46,8 @@ definiert als
 	\caption{Rotation der Polarisationsebene bei zirkularer Doppelbrechung \cite{man_a} }\label{fig:zirpol}
 \end{figure}
 
-Es ist möglich linear polarisiertes Licht in eine
-rechts und eine linkszirkular polarisierte Welle zu zerlegen.
+Es ist möglich linear polarisiertes Licht in eine rechts und eine linkszirkular
+polarisierte Welle zu zerlegen.
 
 \begin{align}
 	E(z)    & = \frac{1}{2}(E_R(z) + E_L(z))                   \\
@@ -55,10 +55,9 @@ rechts und eine linkszirkular polarisierte Welle zu zerlegen.
 	E_L (z) & = (E_0 \vec{x}_0  + i E_0 \vec{y}_0) e^{i k_L z}
 \end{align}
 
-
 Bestimmte Kristalle können so die Polarisationsebene eines Linear polarisierten
-Lichtstrahls drehen, da die Brechungsindizes für links und für rechtszirkular 
-polarisiertes Licht unterschiedlich sind. 
+Lichtstrahls drehen, da die Brechungsindizes für links und für rechtszirkular
+polarisiertes Licht unterschiedlich sind.
 
 Mit den Abkürzungen $ \psi := \frac{L}{2} (k_R + k_L)$ und $\theta :=
 	\frac{L}{2} (k_R -k_L)$ ergibt sich für die Polarisationsebene am Ende des
@@ -79,7 +78,7 @@ ausgedrückt werden. Es folgt
 \subsection{Berechnung der Doppelbrechung in einem anisotropen Medium \cite{man_a}}
 \label{sec:anisotrop}
 Bei der Polarisation eines Kristalls $\vec{P} = \epsilon_0 \chi \vec{E}$ hat die dielektrische Suszeptibilität $\chi$
-im anisotropen Fall die Form eines Tensors. Dieser ist häufig Symmetrisch und kann durch eine Hauptachsentransformation 
+im anisotropen Fall die Form eines Tensors. Dieser ist häufig Symmetrisch und kann durch eine Hauptachsentransformation
 in eine Diagonalform gebracht werden. Im Folgenden soll Materie betrachtet werden deren $\chi$-Tensor nicht symmetrisch ist.
 Dieser hat dann im einfachsten Fall die Form
 
@@ -138,7 +137,8 @@ und einem elektrischen Feld der Form $\vec{E} = e^{- i \omega t}$ ergibt sich f�
 \end{align}
 
 Der Magnetisierungstensor $\chi$ kann wie in \eqref{eq:chi} angenommen werden.
-Analog zu Abschnitt \ref{sec:anisotrop} kann die Drehung des Polarisationswinkels festgestellt werden
+Analog zu Abschnitt \ref{sec:anisotrop} kann die Drehung des
+Polarisationswinkels festgestellt werden
 \begin{align}
 	\theta = \frac{e_0^3 \omega² NBL}{[2 \epsilon_0 c(-m\omega²+ K)² -(e_0 \omega B)²]n}.
 \end{align}
@@ -211,37 +211,46 @@ Die Endgültige Gleichung für $\theta_\t{frei} = \theta / L$ ist also
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
-\section{Durchführung \cite{man}} % TODO Zahlen überprüfen
-Zwei Spulen werden hintereinander mit einem konstanten Strom von
-$\qty{10}{\ampere}$ versorgt. Eine Hallsonde wird durch die Spule geschoben, um 
-das maximale Magnetfeld zu messen. Die Proben werden im Versuch in der
-Mitte der Spule eingespannt, wo das Magnetfeld am stärksten ist.
+\section{Durchführung \cite{man}}
+\subsection{Aufbau}
+Der Versuch wird wie in Abbildung \ref{fig:aufbau} aufgebaut. Eine Halogenlampe
+(\qty{12}{\V}; \qty{50}{\W}) dient als Lichtquelle. Ihr Emissionsspektrum liegt % Die Spulen und die Ausrichtung des Magnetfelds zu den Lichtwellen fehlt noch 
+überwiegend im nahen Infrarotbereich. Das Licht wird in einer Sammellinse
+fokussiert, mit einem einstellbaren Polarisator linear polarisiert und scheint
+durch zwei Spulen, die ein Magnetfeld parallel zur Ausbreitungsrichtung des 
+Lichts erzeugen. Vor den Spulen befindet sich auch ein Lichtzerhacker, dessen 
+Frequenz verwendet wird, um das Messsignal vom Untergrund zu unterscheiden. Im 
+Zentrum der Spulen wird an der Stelle des höchsten Magnetfelds eine Probe mit
+einer bekannten Elektronenlochdichte eingespannt. Nachdem die Wellenlänge durch
+einen Interferenzfilter auf eine Wellenlänge festgelegt wird (für Messungen in
+Abhängigkeit von der Wellenlänge), fällt das Licht auf ein Glan-Thomson Prisma,
+welches das Licht in s-polarisiertes und p-polarisiertes Licht spaltet. Die
+beiden Photowiderstände messen die zwei Lichtintensitäten und geben ihr Signal
+weiter an einen Differenzverstärker. Dessen Signalspannung ist proportional zu
+dem Intensitätsunterschied zwischen den beiden Polarisationsachsen. Wenn die
+Signalspannung des Differenzverstärkers null (bzw. minimal) wird, ist die
+Polarisation genau diagonal zu dem Prisma. Ein Selektivverstärker, der auf die
+Frequenz des Lichtzerhackers eingestellt ist filtert das gesuchte Signal vor dem
+Untergrund heraus. Das Signal kann auf einem Oszilloskop abgelesen werden.
 
-Der Versuch wird wie in Abbildung \ref{fig:aufbau} aufgebaut. Weißes Licht wird
-in einem einstellbaren Polarisator polarisiert und scheint durch die Spule. Im
-Zentrum der Spule wird bei dem höchsten Magnetfeld eine Probe mit einer
-bekannten Elektronenlochdichte eingespannt. Das Licht fällt danach auf ein
-Glen-Thomson Prisma, welches das Licht in s-polarisiertes und p-polarisiertes
-Licht spaltet. Die beiden Photowiderstände messen die zwei Lichtstrahlen und
-geben ihr Signal weiter an einen Differenzverstärker. Dessen Signalspannung ist
-proportional zu dem Intensitätsunterschied zwischen den beiden
-Polarisationsachsen. Wenn die Signalspannung des Differenzverstärkers null
-(bzw. minimal) wird, ist die Polarisation genau diagonal zu dem Prisma.
-Außerdem wird noch einen Wellenlängenfilter nach der Probe im Lichtstrahl
-eingebaut damit die Messung des Faraday Winkels in Abhängigkeit der Wellenlänge
-möglich ist.
-
-Der Faraday Effekt rotiert die Polarisationsebene des Lichtes in der Probe um
-den Winkel $\theta$. Um diesen Winkel zu messen wird, das mit einem Goniometer
-einstellbare, Glen-Thomson-Prisma gedreht bis die Differenzspannung minimal
-ist. Dannach wird das Magnetfeld umgepolt und das Signal erneut minimiert.
-Dieses wird dann für alle $3 \, GaAS$ - Proben und für jeweils $9$
-verschiedenen Wellenlängen durchgeführt.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{./Bilder/aufbau.png}
 	\caption{Der Versuchsaufbau \cite{man}}\label{fig:aufbau}
 \end{figure}
+
+\subsection{Durchführung}
+Die beiden Spulen werden hintereinander mit einem konstanten Strom von
+$\qty{10}{\ampere}$ versorgt. Eine Hallsonde wird durch die Spule geschoben, um
+das maximale Magnetfeld zu messen. Die Proben werden im Versuch in der Mitte
+der zwischen den beiden Spulen eingespannt, wo das Magnetfeld am stärksten ist.
+
+Der Faraday Effekt rotiert die Polarisationsebene des Lichtes in der Probe um
+den Winkel $\theta$. Um diesen Winkel zu messen wird, das mit einem Goniometer
+einstellbare, Glan-Thomson-Prisma gedreht bis die Differenzspannung minimal
+ist. Danach wird das Magnetfeld umgepolt und das Signal erneut minimiert.
+Dieses wird dann für alle $3$  Galliumarsenid - Proben und für jeweils $9$
+verschiedenen Wellenlängen durchgeführt.
 
 \newpage
