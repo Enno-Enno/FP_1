@@ -3,7 +3,7 @@ In diesem Versuch wird der Effekt der Faraday Rotation verwendet um die
 effektive Masse der Leitungselektronen in n-dotierten Galliumarsenid zu messen.
 
 \section{Theorie}
-In diesem Versuch scheint eine polarisierte elektromagnetische Welle durch
+In diesem Versuch scheint eine linear polarisierte elektromagnetische Welle durch
 einen Halbleiter. Dieser Halbleiter wird einem Magnetfeld parallel zur
 Lichtausbreitung ausgesetzt, was zu einer Drehung der Polarisationsachse führt.
 Die konkreten Prozesse werden im Folgenden beschrieben.
@@ -16,10 +16,13 @@ zeichnen sich durch Elektronen im ungebundenen Zustand aus. Isolatoren wiederum
 haben eine große Bandlücke $E_g > 3 \unit{\eV}$ \cite{web:Bandlücke} zwischen
 den gebundenen Elektronen und dem ersten freien Leitungsband. Diese Bandlücke
 ist bei Halbleitern in der Größenordnung von etwa
-$\qty{1}{\eV}$\cite{web:Bandlücke}. Die Bandstruktur von Halbleitern ist auch
+$\qtyrange{1}{3}{\eV}$\cite{web:Bandlücke}. Die Bandstruktur von Halbleitern ist auch
 eine Funktion des Impulses der Elektronen bzw. deren Wellenvektor $\vec{k}$.
 Die Energiefunktion, die das Band beschreibt, kann durch eine quadratische
-Funktion angenähert werden (siehe Abbildung \ref{fig:band}).
+Funktion angenähert werden (siehe Abbildung \ref{fig:band}). Elektronen können
+zum Beispiel thermisch oder optisch angeregt werden, um vom Valenzband ins
+Leitungsband zu wechseln. Dazu müssen sie sowohl die nötige Energie als auch je
+nach Bandstruktur einen gewissen Impuls aufnehmen.
 
 \begin{figure}
 	\centering
@@ -30,13 +33,40 @@ Funktion angenähert werden (siehe Abbildung \ref{fig:band}).
 \subsection{Effektive Masse \cite[][Kap. 14]{book:expi3}}
 
 Die effektive Masse ist relevant für die Bewegungsgleichungen der Elektronen im
-Leitungsband von Halbleitern sowie der Elektronenlöcher im Valenzband. Sie kann
-anstelle der Masse eines freien Elektrons verwendet werden, so können die
+Leitungsband von Halbleitern sowie der Elektronen Löcher im Valenzband. Sie
+kann anstelle der Masse eines freien Elektrons verwendet werden, so können die
 Bewegungsgleichungen für freie Elektronen auch in Materie angewendet werden.
-Sie ist definiert als
+Auf ein Elektron oder ein Loch wirkt eine Kraft $\vec{F} = e \vec{E}$ ausgelöst
+durch ein elektrisches Feld $\vec{E}$. Es erfährt eine Beschleunigung $\vec{a}
+	= \vec{F}/m_e$ und so eine kinetische Energie $E = 1/2 m v²$ mit $v= a\cdot t$.
+Zusätzlich erhält das Elektron auch ein ortsabhängiges Potential.
 
+Will man trotzdem die Elektronen im Kristall wie freie Elektronen behandeln,
+sodass alle Formeln wie z.B. das Newtonsche Kraftgesetz $\vec{F} = d\vec{p}/dt$
+verwendet werden können ist es sinnvoll eine effektive Masse einzuführen
+% In einem Minimum des Potenzials kann die Beschleunigung der Elektronen als
+Beschreibt man das Elektron durch ein WellenPaket und seine Geschwindigkeit $v$
+als Gruppengeschwindigkeit so erhält man
 \begin{align}
-	m^* & = \hbar^2 \cdot \frac{d²E}{d k_i d k_j}
+	\vec{v}_g             & = \frac{d\omega}{d\vec{k}} = \frac{1}{\hbar} \frac{dE}{d\vec{k}} \t{ mit } E = \hbar \omega                        \\
+	\intertext{und für die Beschleunigung}
+	\frac{d\vec{v}_g}{dt} & = \frac{1}{\hbar} \frac{d²E}{d\vec{k} dt} = \frac{1}{\hbar} \left(\frac{d²E}{d\vec{k}²}\right)\frac{d\vec{k}}{dt}.
+	% a = \frac{1}{\hbar²}\frac{d\epsilon}{dk²}q\vec{E}
+\end{align}
+Für die freie Newtongleichung gilt $\vec{F} = \frac{d\vec{p}}{dt} =\frac{1}{\hbar}\frac{d\vec{p}}{dt} $.
+Deshalb ergibt sich eine Gruppenbeschleunigung von
+\begin{align}
+	\frac{d\vec{v}_g}{dt} = \frac{1}{\hbar²} \left(\frac{d²E}{d\vec{k}²}\right) \vec{F}
+\end{align}
+
+So ergibt sich die effektive Masse als
+\begin{align}
+	m^* & = \hbar^2 \cdot \left(\frac{d²E}{d k_i d k_j}\right)^{-1} .
+\end{align}
+Im hinreichend symmetrischen Festkörper ist diese Darstellung auch
+ohne Tensor Schreibweise annähernd richtig:
+\begin{align}
+	m^* = \hbar² \frac{dk²}{d²E}
 \end{align}
 
 \subsection{Zirkulare Doppelbrechung \cite{man_a}}
@@ -46,8 +76,8 @@ Sie ist definiert als
 	\caption{Rotation der Polarisationsebene bei zirkularer Doppelbrechung \cite{man_a} }\label{fig:zirpol}
 \end{figure}
 
-Es ist möglich linear polarisiertes Licht in eine rechts und eine linkszirkular
-polarisierte Welle zu zerlegen.
+Es ist möglich linear polarisiertes Licht in eine rechts- und eine
+linkszirkular polarisierte Welle zu zerlegen.
 
 \begin{align}
 	E(z)    & = \frac{1}{2}(E_R(z) + E_L(z))                   \\
@@ -164,10 +194,10 @@ größerem) Abstand von $\omega_0$ möglich
 Mit Wellenlänge anstelle der Kreisfrequenz wird der Fall quasifreier Ladungsträger betrachtet ($\omega \rightarrow 0$)
 \begin{align}
 	\theta \simeq  \frac{e_0³}{2\epsilon_0 c}\frac{1}{m²}\frac{1}{\omega²}\frac{NBL}{n}%
-	= \frac{e_0³}{8\pi²\epsilon_0 c³}\frac{1}{m²}\lambda²\frac{NBL}{n}
+	= \frac{e_0³}{8\pi²\epsilon_0 c³}\frac{1}{m²}\lambda²\frac{NBL}{n}.
 \end{align}
 Diese Gleichung bleibt auch für Kristallelektronen gültig, wenn man $m$ durch die effektive Masse $m^*$ ersetzt.
-Die Endgültige Gleichung für $\theta_\t{frei} = \theta / L$ ist also
+Die endgültige Gleichung für $\theta_\t{frei} = \theta / L$ ist also
 \begin{align}
 	\theta_\t{frei} = \frac{e_0³}{8\pi²\epsilon_0 c³}\frac{1}{(m^*)²}\lambda²\frac{NB}{n}
 	\label{eq:theta_final}
@@ -214,15 +244,15 @@ Die Endgültige Gleichung für $\theta_\t{frei} = \theta / L$ ist also
 \section{Durchführung \cite{man}}
 \subsection{Aufbau}
 Der Versuch wird wie in Abbildung \ref{fig:aufbau} aufgebaut. Eine Halogenlampe
-(\qty{12}{\V}; \qty{50}{\W}) dient als Lichtquelle. Ihr Emissionsspektrum liegt % Die Spulen und die Ausrichtung des Magnetfelds zu den Lichtwellen fehlt noch 
+(\qty{12}{\V}; \qty{50}{\W}) dient als Lichtquelle. Ihr Emissionsspektrum liegt
 überwiegend im nahen Infrarotbereich. Das Licht wird in einer Sammellinse
 fokussiert, mit einem einstellbaren Polarisator linear polarisiert und scheint
-durch zwei Spulen, die ein Magnetfeld parallel zur Ausbreitungsrichtung des 
-Lichts erzeugen. Vor den Spulen befindet sich auch ein Lichtzerhacker, dessen 
-Frequenz verwendet wird, um das Messsignal vom Untergrund zu unterscheiden. Im 
+durch zwei Spulen, die ein Magnetfeld parallel zur Ausbreitungsrichtung des
+Lichts erzeugen. Vor den Spulen befindet sich auch ein Lichtzerhacker, dessen
+Frequenz verwendet wird, um das Messsignal vom Untergrund zu unterscheiden. Im
 Zentrum der Spulen wird an der Stelle des höchsten Magnetfelds eine Probe mit
-einer bekannten Elektronenlochdichte eingespannt. Nachdem die Wellenlänge durch
-einen Interferenzfilter auf eine Wellenlänge festgelegt wird (für Messungen in
+einer bekannten Lochdichte eingespannt. Nachdem die Wellenlänge durch einen
+Interferenzfilter auf eine Wellenlänge festgelegt wird (für Messungen in
 Abhängigkeit von der Wellenlänge), fällt das Licht auf ein Glan-Thomson Prisma,
 welches das Licht in s-polarisiertes und p-polarisiertes Licht spaltet. Die
 beiden Photowiderstände messen die zwei Lichtintensitäten und geben ihr Signal
@@ -230,9 +260,8 @@ weiter an einen Differenzverstärker. Dessen Signalspannung ist proportional zu
 dem Intensitätsunterschied zwischen den beiden Polarisationsachsen. Wenn die
 Signalspannung des Differenzverstärkers null (bzw. minimal) wird, ist die
 Polarisation genau diagonal zu dem Prisma. Ein Selektivverstärker, der auf die
-Frequenz des Lichtzerhackers eingestellt ist filtert das gesuchte Signal vor dem
-Untergrund heraus. Das Signal kann auf einem Oszilloskop abgelesen werden.
-
+Frequenz des Lichtzerhackers eingestellt ist filtert das gesuchte Signal vor
+dem Untergrund heraus. Das Signal kann auf einem Oszilloskop abgelesen werden.% Die Spulen und die Ausrichtung des Magnetfelds zu den Lichtwellen fehlt noch 
 
 \begin{figure}
 	\centering
@@ -250,7 +279,7 @@ Der Faraday Effekt rotiert die Polarisationsebene des Lichtes in der Probe um
 den Winkel $\theta$. Um diesen Winkel zu messen wird, das mit einem Goniometer
 einstellbare, Glan-Thomson-Prisma gedreht bis die Differenzspannung minimal
 ist. Danach wird das Magnetfeld umgepolt und das Signal erneut minimiert.
-Dieses wird dann für alle $3$  Galliumarsenid - Proben und für jeweils $9$
+Dieses wird dann für alle $3$ Galliumarsenid - Proben und für jeweils $9$
 verschiedenen Wellenlängen durchgeführt.
 
 \newpage
