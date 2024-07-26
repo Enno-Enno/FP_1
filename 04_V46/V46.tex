@@ -6,59 +6,60 @@
 \publishers{TU Dortmund – Fakultät Physik}
 
 \begin{document}
+%Shortcuts
+\let\t\text\
+
 \input{../Titelseite.tex}
 \tableofcontents
 \newpage
 
 \input{ZielTheorie.tex}
 
-
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
 % \section{Durchführung}
 
-
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
-\text{}
-\newpage
 \section{Auswertung}
 \subsection{Bestimmung des B-Feldes}
-Die Messung des B-Feldes mittels einer Hall-Sonde ergibt die in Tabelle \eqref{tab:B_Feld} folgenden Werte:
+Die Messung des B-Feldes mittels einer Hall-Sonde ergibt die in Tabelle
+\eqref{tab:B_Feld} folgenden Werte:
 
 \begin{table}[H]
 	\centering
-    \label{tab:B_Feld}
+	\label{tab:B_Feld}
 	\begin{tabular}{c c}
 		\toprule
-		$d \, [\unit{\milli\meter}]$ & $B \, [\unit{\milli\tesla}] $  \\
+		$d \, [\unit{\milli\meter}]$ & $B \, [\unit{\milli\tesla}] $ \\
 		\midrule
-        170 & 1 \\
-        160 & 0 \\
-        150 & 0 \\
-        140 & 0 \\
-        130 & 1 \\
-        120 & 6 \\
-        112 & 92 \\
-        110 & 176 \\
-        108 & 280 \\
-        105 & 382 \\
-        102 & 418 \\
-        100 & 426 \\
-        98  & 428 \\
-        95  & 420 \\
-        90  & 340 \\
-        87  & 236 \\
-        85  & 97 \\
-        80  & 17 \\
-        70  & 0  \\
+		170                          & 1                             \\
+		160                          & 0                             \\
+		150                          & 0                             \\
+		140                          & 0                             \\
+		130                          & 1                             \\
+		120                          & 6                             \\
+		112                          & 92                            \\
+		110                          & 176                           \\
+		108                          & 280                           \\
+		105                          & 382                           \\
+		102                          & 418                           \\
+		100                          & 426                           \\
+		98                           & 428                           \\
+		95                           & 420                           \\
+		90                           & 340                           \\
+		87                           & 236                           \\
+		85                           & 97                            \\
+		80                           & 17                            \\
+		70                           & 0                             \\
 		\bottomrule
 	\end{tabular}
-    \caption{Magnetfeld in der Spule}\label{tab:B_Feld}
+	\caption{Magnetfeld in der Spule}\label{tab:B_Feld}
 \end{table}
 
-Diese Werte werden in Abbildung \eqref{fig:B_Feld} geplottet. 
-Jedoch wurden die Werte von $\qty{140}{\milli\meter}$ bis $\qty{170}{\milli\meter}$ ausgelassen, da diese vernachlässigt werden können. 
-Das maximale B-Feld ergibt sich dabei mit $B=\qty{428}{\milli\tesla}$ bei $d=\qty{98}{\milli\meter}$. 
+Diese Werte werden in Abbildung \eqref{fig:B_Feld} geplottet. Jedoch wurden die
+Werte von $\qty{140}{\milli\meter}$ bis $\qty{170}{\milli\meter}$ ausgelassen,
+da diese vernachlässigt werden können. Das maximale B-Feld ergibt sich dabei
+mit $B=\qty{428}{\milli\tesla}$ bei $d=\qty{98}{\milli\meter}$.
 
 \begin{figure}[H]
 	\centering
@@ -67,45 +68,49 @@ Das maximale B-Feld ergibt sich dabei mit $B=\qty{428}{\milli\tesla}$ bei $d=\qt
 \end{figure}
 
 \subsection{Bestimmung der effektiven Masse}
-Die Differenz der einzelnen aufgenommen Winkel (in Tabelle \eqref{tab:data}) je nach B-Feld Ausrichtung werden zuerst mittels 
+Die Differenz der einzelnen aufgenommen Winkel (in Tabelle \eqref{tab:data}) je
+nach B-Feld Ausrichtung werden zuerst mittels
 
 \begin{equation}
-    \Theta =\frac{\theta_2 - \theta_1}{2L} 
+	\Theta =\frac{\theta_2 - \theta_1}{2L}
 \end{equation}
 
-auf die Länge $L$ normiert, welches Faraday-Rotation pro Einheitslänge genannt wird.  
-Der Faktor $2$ kommt daher, dass die Differenz des umgepolten B-Feldes doppelt so stark ist wie das vorher bestimmte maximale B-Feld ist. 
-Außerdem sind die Messwerte noch in Bogenmaß geben und werden für die folgenden Berechnungen in Radianten umgerechnet. 
-Die Proben $1$ und $3$ sind jeweils n-dotiert und die Probe 2 besteht aus reinem $GaAs$. 
+auf die Länge $L$ normiert, welches Faraday-Rotation pro Einheitslänge genannt
+wird. Der Faktor $2$ kommt daher, dass die Differenz des umgepolten B-Feldes
+doppelt so stark ist wie das vorher bestimmte maximale B-Feld ist. Außerdem
+sind die Messwerte noch in Bogenmaß geben und werden für die folgenden
+Berechnungen in Radianten umgerechnet. Die Proben $1$ und $3$ sind jeweils
+n-dotiert und die Probe 2 besteht aus reinem $GaAs$.
 
 \begin{table}[H]
 	\centering
 	\caption{Messergebnisse der 3 Proben \eqref{fig:Messwert1} \eqref{fig:Messwert2}}
 	\begin{tabular}{|c|c c c|c c c|c c c|}
 		\toprule
-		& \multicolumn{3}{|c|}{Probe 1:}  & \multicolumn{3}{|c|}{Probe 2:}  & \multicolumn{3}{|c|}{Probe 3:}   \\
-        & \multicolumn{3}{|c|}{$N=\qty[per-mode=fraction]{2.8e18}{\per\cubic\centi\meter} $}  
-        & \multicolumn{3}{|c|}{(rein)}  & \multicolumn{3}{|c|}{$N=\qty[per-mode=fraction]{1.28e18}{\per\cubic\centi\meter} $}   \\
-        \midrule
-        $\lambda \, [\unit{\micro\meter}] $ & $\theta_1$ & $\theta_2 $ &$\Theta_1 [\unit[per-mode=fraction]{\radian\per\meter}]$  
-        & $\theta_1 $ & $ \theta_2 $ &$\Theta_2 [\unit[per-mode=fraction]{\radian\per\meter}]$ 
-        & $\theta_1 $ & $ \theta_2 $ &$\Theta_3 [\unit[per-mode=fraction]{\radian\per\meter}]$\\
+		                                    & \multicolumn{3}{|c|}{Probe 1:}                                                     & \multicolumn{3}{|c|}{Probe 2:}                                                      & \multicolumn{3}{|c|}{Probe 3:}                                                                                                                   \\
+		                                    & \multicolumn{3}{|c|}{$N=\qty[per-mode=fraction]{2.8e18}{\per\cubic\centi\meter} $}
+		                                    & \multicolumn{3}{|c|}{(rein)}                                                       & \multicolumn{3}{|c|}{$N=\qty[per-mode=fraction]{1.28e18}{\per\cubic\centi\meter} $}                                                                                                                                                    \\
 		\midrule
-            \num{1.06} & \num{77.50}° & \num{88.60}° & \num{74.74} & \num{70.50}° & \num{93.50}° & \num{39.28} & \num{78.42}° & \num{87.05}° & \num{55.40} \\
-            \num{1.29} & \num{78.00}° & \num{86.12}° & \num{54.63} & \num{75.08}° & \num{90.42}° & \num{26.19} & \num{80.17}° & \num{86.93}° & \num{43.42} \\
-            \num{1.45} & \num{74.17}° & \num{87.63}° & \num{90.68} & \num{78.50}° & \num{90.50}° & \num{20.49} & \num{80.25}° & \num{88.08}° & \num{50.26} \\
-            \num{1.72} & \num{77.08}° & \num{86.48}° & \num{63.30} & \num{78.53}° & \num{87.00}° & \num{14.46} & \num{80.00}° & \num{86.75}° & \num{43.31} \\
-            \num{1.96} & \num{71.33}° & \num{87.27}° & \num{107.28}& \num{74.83}° & \num{82.50}° & \num{13.09} & \num{75.33}° & \num{81.08}° & \num{36.90} \\
-            \num{2.156}& \num{69.50}° & \num{82.32}° & \num{86.30} & \num{74.67}° & \num{79.17}° & \num{7.68}  & \num{72.78}° & \num{78.83}° & \num{38.82} \\
-            \num{2.34} & \num{44.08}° & \num{51.50}° & \num{49.94} & \num{48.50}° & \num{52.50}° & \num{6.83}  & \num{45.25}° & \num{50.25}° & \num{32.08} \\
-            \num{2.51} & \num{27.50}° & \num{40.41}° & \num{86.97} & \num{29.17}° & \num{32.33}° & \num{5.41}  & \num{28.25}° & \num{36.00}° & \num{49.73} \\
-            \num{2.65} & \num{63.75}° & \num{78.22}° & \num{97.41} & \num{67.83}° & \num{73.17}° & \num{9.11}  & \num{66.60}° & \num{73.08}° & \num{41.60} \\
+		$\lambda \, [\unit{\micro\meter}] $ & $\theta_1$                                                                         & $\theta_2 $                                                                         & $\Theta_1 [\unit[per-mode=fraction]{\radian\per\meter}]$
+		                                    & $\theta_1 $                                                                        & $ \theta_2 $                                                                        & $\Theta_2 [\unit[per-mode=fraction]{\radian\per\meter}]$
+		                                    & $\theta_1 $                                                                        & $ \theta_2 $                                                                        & $\Theta_3 [\unit[per-mode=fraction]{\radian\per\meter}]$                                                                                         \\
+		\midrule
+		\num{1.06}                          & \num{77.50}°                                                                       & \num{88.60}°                                                                        & \num{74.74}                                              & \num{70.50}° & \num{93.50}° & \num{39.28} & \num{78.42}° & \num{87.05}° & \num{55.40} \\
+		\num{1.29}                          & \num{78.00}°                                                                       & \num{86.12}°                                                                        & \num{54.63}                                              & \num{75.08}° & \num{90.42}° & \num{26.19} & \num{80.17}° & \num{86.93}° & \num{43.42} \\
+		\num{1.45}                          & \num{74.17}°                                                                       & \num{87.63}°                                                                        & \num{90.68}                                              & \num{78.50}° & \num{90.50}° & \num{20.49} & \num{80.25}° & \num{88.08}° & \num{50.26} \\
+		\num{1.72}                          & \num{77.08}°                                                                       & \num{86.48}°                                                                        & \num{63.30}                                              & \num{78.53}° & \num{87.00}° & \num{14.46} & \num{80.00}° & \num{86.75}° & \num{43.31} \\
+		\num{1.96}                          & \num{71.33}°                                                                       & \num{87.27}°                                                                        & \num{107.28}                                             & \num{74.83}° & \num{82.50}° & \num{13.09} & \num{75.33}° & \num{81.08}° & \num{36.90} \\
+		\num{2.156}                         & \num{69.50}°                                                                       & \num{82.32}°                                                                        & \num{86.30}                                              & \num{74.67}° & \num{79.17}° & \num{7.68}  & \num{72.78}° & \num{78.83}° & \num{38.82} \\
+		\num{2.34}                          & \num{44.08}°                                                                       & \num{51.50}°                                                                        & \num{49.94}                                              & \num{48.50}° & \num{52.50}° & \num{6.83}  & \num{45.25}° & \num{50.25}° & \num{32.08} \\
+		\num{2.51}                          & \num{27.50}°                                                                       & \num{40.41}°                                                                        & \num{86.97}                                              & \num{29.17}° & \num{32.33}° & \num{5.41}  & \num{28.25}° & \num{36.00}° & \num{49.73} \\
+		\num{2.65}                          & \num{63.75}°                                                                       & \num{78.22}°                                                                        & \num{97.41}                                              & \num{67.83}° & \num{73.17}° & \num{9.11}  & \num{66.60}° & \num{73.08}° & \num{41.60} \\
 		\bottomrule
 	\end{tabular}
 	\label{tab:data}
 \end{table}
 
-Diese Faraday Rotation wird im folgenden Plot gegen das Quadrat der Wellenlänge aufgetragen: 
+Diese Faraday Rotation wird im folgenden Plot gegen das Quadrat der Wellenlänge
+aufgetragen:
 
 \begin{figure}[H]
 	\centering
@@ -113,19 +118,20 @@ Diese Faraday Rotation wird im folgenden Plot gegen das Quadrat der Wellenlänge
 	\caption{Normierter Faradaywinkel der drei Galliumarsenidproben}\label{fig:Aufbau}
 \end{figure}
 
-Um schließlich die effektive Elektronenmasse zu bestimmen wird jeweils die Differenz zwischen der reinen Probe und den n-dotierten Proben
+Um schließlich die effektive Elektronenmasse zu bestimmen wird jeweils die
+Differenz zwischen der reinen Probe und den n-dotierten Proben
 
 \begin{align*}
-    \Theta_{2,1}&=\Theta_2-\Theta_1  & \Theta_{2,3}=\Theta_2-\Theta_3
+	\Theta_{2,1} & =\Theta_2-\Theta_1 & \Theta_{2,3}=\Theta_2-\Theta_3
 \end{align*}
 
-bestimmt.
-Schließlich wird diese gegen $\lambda^2$ aufgetragen und 
-mittels der Formel \eqref{eqn:theta} jeweils eine Ausgleichsgerade (Abbildung \eqref{fig:plt1} \eqref{fig:plt2}) der Form $f(x)=a\cdot x$
+bestimmt. Schließlich wird diese gegen $\lambda^2$ aufgetragen und mittels der
+Formel \eqref{eqn:theta} jeweils eine Ausgleichsgerade (Abbildung
+\eqref{fig:plt1} \eqref{fig:plt2}) der Form $f(x)=a\cdot x$
 
 \begin{equation}
-    \Theta=\underbrace{\frac{NBe_0^3}{8 \pi^2 n \varepsilon_0 c^3} \frac{1}{(m^{\ast})^2}}_{a} \cdot \underbrace{\lambda^2}_{x}
-    \label{eqn:theta}
+	\Theta=\underbrace{\frac{NBe_0^3}{8 \pi^2 n \varepsilon_0 c^3} \frac{1}{(m^{\ast})^2}}_{a} \cdot \underbrace{\lambda^2}_{x}
+	\label{eqn:theta}
 \end{equation}
 
 \begin{figure}[H]
@@ -140,44 +146,58 @@ mittels der Formel \eqref{eqn:theta} jeweils eine Ausgleichsgerade (Abbildung \e
 	\caption{Differenz der normierten Rotationswinkel zwischen reiner und n-dotiert Probe 3 in Abhängigkeit des Quadrats der Wellenlänge}\label{fig:plt2}
 \end{figure}
 
-Die Werte der Ausgleichsgerade 
+Die Werte der Ausgleichsgerade
 
 \begin{align}
-    a_{2,1}&=\qty{14.35(1.94)}{\per\cubic\meter} & N&=\qty{2.8e18}{\per\cubic\centi\meter}\\
-    a_{2,3}&=\qty{6.24(0.74)}{\per\cubic\meter}  & N&=\qty{1.28e18}{\per\cubic\centi\meter}
+	a_{2,1} & =\qty{14.35(1.94)}{\per\cubic\meter} & N & =\qty{2.8e18}{\per\cubic\centi\meter}  \\
+	a_{2,3} & =\qty{6.24(0.74)}{\per\cubic\meter}  & N & =\qty{1.28e18}{\per\cubic\centi\meter}
 \end{align}
 
-sind mittels $curvefit$ von $scipy$ \cite{scipy} bestimmt worden.
-Durch Umstellen der Formel \eqref{eqn:theta} nach der effektiven Masse
+sind mittels $curvefit$ von $scipy$ \cite{scipy} bestimmt worden. Durch
+Umstellen der Formel \eqref{eqn:theta} nach der effektiven Masse
 
 \begin{equation}
-    m^{\ast}=\sqrt{\frac{NBe_0^3}{8 \pi^2 n \varepsilon_0 c^3} \cdot \frac{1}{a}}
+	m^{\ast}=\sqrt{\frac{NBe_0^3}{8 \pi^2 n \varepsilon_0 c^3} \cdot \frac{1}{a}}
 \end{equation}
 
-kann diese schließlich mit dem Brechungsindex $n=3.81$ \cite{web:Brechungsindex} und aus den bestimmten Parameter ermittelt werden 
+kann diese schließlich mit dem Brechungsindex $n=3.81$
+\cite{web:Brechungsindex} und aus den bestimmten Parameter ermittelt werden.
 
 \begin{align}
-    \frac{m^{\ast}}{m_0}&=\qty{7.5(0.5)}{\%}\\
-    \frac{m^{\ast}}{m_0}&=\qty{7.7(0.5)}{\%}
-    \label{eqn:Werte}
+	\frac{m^{\ast}}{m_0} & =\qty{7.5(0.5)}{\%} \\
+	\frac{m^{\ast}}{m_0} & =\qty{7.7(0.5)}{\%}
+	\label{eqn:Werte}
 \end{align}
 
-welches im Mittel dann $\frac{m^{\ast}}{m_0}=\qty{7.64(0.34)}{\%}$ ergibt.
+Es ergibt sich im Mittel dann $\frac{m^{\ast}}{m_0}=\qty{7.64(0.34)}{\%}$.
+
+Der Fehler für diese zusammenhängenden Messwerte wird mit der \textbf{Gaußschen
+	Fehlerfortpflanzung} berechnet:
+\begin{equation}
+	\increment{f} = \sqrt{ \sum_{i = 1}^{N}  \biggl(\frac{\partial{f}}{\partial{x_i}}\biggr)^2\cdot(\increment{x_i})^2}
+	\label{eqn:Gauss}
+\end{equation}
+
+Die Fehlerfortpflanzung wird mit Uncertainties in Python \cite{uncertainties}
+ermittelt.
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 
 \section{Diskussion}
-Aus der Vermessung des B-Feldes lässt sich gut ein maximales B-Feld $B=\qty{428}{\milli\tesla}$ von ablesen. 
+Aus der Vermessung des B-Feldes lässt sich gut ein maximales B-Feld
+$B=\qty{428}{\milli\tesla}$ von ablesen.
 
-Die Messung des Faraday Winkel stellt sich als schwierig und ungenau heraus. 
-So ist die Minimierung des Signals durch Verstellen des Winkels ungenau und nicht exakt, 
-da durch das starke Schwanken des Signals auf dem Oszilloskop, ein genauer minimaler Winkel nicht auf eine Nachkommastelle einstellbar ist. 
-So mit weichen auch die ermittelten Werte \eqref{eqn:Werte}, für die effektive Elektronenmasse, 
-im Mittel um $\qty{12.3}{\%}$ von dem Literaturwert von $\frac{m^{\ast}}{m_0}=\qty{6.7}{\%}$ \cite{web:GaAs} ab.
-Neben den Ablesefehlern könnte noch ein weiterer Effekt ein Teil der hohen Abweichung erklären.
-Für das Magnetfeld werden hohe Ströme benötigt, welche wiederum den Magneten erhitzen.
-Dadurch wird wiederum die Probe im Inneren des Magneten erwärmt und somit den Brechungsindex der Galliumarsenidproben verändert. 
-
+Die Messung des Faraday Winkel stellt sich als schwierig und ungenau heraus. So
+ist die Minimierung des Signals durch Verstellen des Winkels ungenau und nicht
+exakt, da durch das starke Schwanken des Signals auf dem Oszilloskop, ein
+genauer minimaler Winkel nicht auf eine Nachkommastelle einstellbar ist. So mit
+weichen auch die ermittelten Werte \eqref{eqn:Werte}, für die effektive
+Elektronenmasse, im Mittel um $\qty{12.3}{\%}$ von dem Literaturwert von
+$\frac{m^{\ast}}{m_0}=\qty{6.7}{\%}$ \cite{web:GaAs} ab. Neben den
+Ablesefehlern könnte noch ein weiterer Effekt ein Teil der hohen Abweichung
+erklären. Für das Magnetfeld werden hohe Ströme benötigt, welche wiederum den
+Magneten erhitzen. Dadurch wird wiederum die Probe im Inneren des Magneten
+erwärmt und somit den Brechungsindex der Galliumarsenidproben verändert.
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 \newpage
@@ -186,15 +206,15 @@ Dadurch wird wiederum die Probe im Inneren des Magneten erwärmt und somit den B
 \section*{Anhang}
 \addcontentsline{toc}{section}{Anhang}
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Bilder/Daten_V46.pdf} 
-    \caption{Messwerte von B-Feld und Faraday Winkel}
-    \label{fig:Messwert1}
+	\centering
+	\includegraphics[width=0.8\textwidth]{Bilder/Daten_V46.pdf}
+	\caption{Messwerte von B-Feld und Faraday Winkel}
+	\label{fig:Messwert1}
 \end{figure}
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Bilder/Daten_V46.png} 
-    \caption{Messwerte von Faraday Winkel Proben 1 und 2}
-    \label{fig:Messwert2}
+	\centering
+	\includegraphics[width=0.8\textwidth]{Bilder/Daten_V46.png}
+	\caption{Messwerte von Faraday Winkel Proben 1 und 2}
+	\label{fig:Messwert2}
 \end{figure}
 \end{document}
