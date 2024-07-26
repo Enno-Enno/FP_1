@@ -101,7 +101,7 @@ plt.bar(t_myon[C:A],N_myon[C:A],color="b",width=m,label="Messwerte VOR der Kante
 plt.bar(t_myon[0:C],N_myon[0:C],color="r",width=m,label="ungenutzte Werte")
 plt.bar(t_myon[B:-1],N_myon[B:-1],color="r",width=m)
 plt.xlabel(r"$t \, [\mathrm{\mu s}]$")
-plt.ylabel(r"Anzahl $N$")
+plt.ylabel(r"$N$")
 plt.xlim(0,t_myon[-1])
 plt.yscale("log")
 plt.legend()

@@ -84,7 +84,7 @@ Dabei wird eine Ausgleichsgerade der Form $f(x)=m \cdot x+b$ durch die Messwerte
 Die Parameter der Ausgleichsgerade
 
 \begin{align*}
-	m&=\qty{21,67(0,01)e-3}{\us\per\channel}\\
+	m&=\qty{21,67(0,01)e-3}{\us\per\channel} & 
 	b&=\qty{0,1651(0,0026)}{\us}
 \end{align*}
 
@@ -104,14 +104,14 @@ Im Folgenden werden verschiedene Methoden aus probiert, um die Lebensdauer zu ex
 	\caption{Messdaten}\label{fig:plt4}
 \end{figure}
 
-Dazu ist das Spektrum in verschiedenen Bereiche unterteilt. 
+Dazu ist das \textbf{logarithmische} Spektrum in verschiedenen Bereiche unterteilt. 
 
 \begin{enumerate}
 	\item \textbf{Der rote Bereich} sind alle Daten die nicht benutzt werden, da sie entweder nach der Suchzeit $T_{such}=\qty{10}{\us}$ sind 
 	oder sie zu vor den exponentiell abfallenden Daten sich nicht exponentiell abfallend verhalten. 
 	\item \textbf{Der blaue Bereich} ist deutlich höher als alle anderen Messwerte und weist einen steilen Abfall auf ($\qty{0.533}{\us}<t_B<\qty{1.075}{\us}$).
-	\item \textbf{Der cyane Bereich} wird durch ein flachen, näherungsweise linearen Abfall gekennzeichnet, 
-	welcher am ehesten von der Messrate her auf Myonenzerfall hindeuten könnte. ($\qty{1.075}{\us}<t_B<\qty{10}{\us}$)
+	\item \textbf{Der cyane Bereich} wird durch ein Flachen, näherungsweise linearen Abfall durch die logarithmierten Daten gekennzeichnet, 
+	welcher am ehesten von der Messrate her auf einen exponentiellen Myonenzerfall hindeuten könnte. ($\qty{1.075}{\us}<t_B<\qty{10}{\us}$)
 \end{enumerate}
 
 \subsubsection{Der cyane Bereich}
@@ -119,7 +119,7 @@ Der Bereich mit der ungewöhnlichen Kante wird ignoriert, da dessen Zählraten d
 Die Zählraten haben dabei jeweils den Fehler $\sqrt(N) $, welcher in allen kommenden Fits berücksichtigt wird. 
 Der zu erwartenden Verlauf von dem Zerfall von Myonen ist ein exponentieller Abfall der Zahlrate oder in einem Logarithmischen Plot einen linearen Abfall. 
 Dazu kommt ein möglicher Untergrund $U$ in den Messwerten, der zu berücksichtigt werden sollte. 
-Deshalb wird eine exponentielle Ausgleichsrechnung der Funktion
+Deshalb wird eine exponentielle Ausgleichsrechnung der Funktion 
 
 \begin{equation}
 	f(t)=N \cdot \exp(-\lambda t) + U
@@ -133,7 +133,7 @@ und in den logarithmierten Werten eine lineare Ausgleichsgerade der Form
 	\label{eqn:lin}
 \end{equation}
 
-mittels $curfit$ von $scipy$ ermittelt. 
+mittels $curve fit$ von $scipy$ ermittelt. 
 Der exponentiell Fit berücksichtigt dabei einen nicht trivialen Untergrund die lineare Ausgleichsgerade geht von einem vernachlässigbaren aus. 
 
 \begin{figure}[H]
