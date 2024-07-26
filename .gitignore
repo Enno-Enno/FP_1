@@ -8,3 +8,4 @@ node_module*
 __pycache__
 *sync-conflict*
 *.bak*
+.vscode/*
