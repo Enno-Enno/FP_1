@@ -4,6 +4,7 @@
 \author{Benedikt Lütke Lanfer \and Enno Wellmann}
 \date{01. Juli 2024}
 \publishers{TU Dortmund – Fakultät Physik}
+\hyphenation{Aus-gleichs-gerade}
 
 \begin{document}
 \input{../Titelseite.tex}
@@ -72,22 +73,19 @@ Die Kalibrierung des Viel-Kanal-Analysators ergab das in die nebenstehende Abbil
 Der Doppelimpulsgenerator wurde immer um $\qty{0.5}{\us}$, beginnend bei $\qty{0.4}{\us}$ erhöht, daher hat jeder Peak im Spektrum diesen Abstand.
 Die Peaks werden mittels  $find-peaks$ von $scipy$ \cite{scipy} bestimmt und danach die Zeit $t$ gegen die Channels aufgetragen. 
 Dabei wird eine Ausgleichsgerade der Form $f(x)=m \cdot x+b$ durch die Messwerte gelegt und dessen Steigung bestimmt. 
-
-
+$$ $$ % Nicht zu sehr hinterfragen...
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{build/plot3.pdf}
 	\caption{Ausgleichsgerade Kalibrierung}\label{fig:plt3}
 \end{figure}
 
-
-Die Parameter der Ausgleichsgerade
-
+Die Parameter der Ausgleichsgerade (dieser Zeilenumbruch ist eher rätselhaft)
 \begin{align*}
 	m&=\qty{21,67(0,01)e-3}{\us\per\channel} & 
 	b&=\qty{0,1651(0,0026)}{\us}
-\end{align*}
-
+\end{align*}%
+%
 werden im Folgenden benutzt, um die Channels in Zerfallszeit umzurechnen. 
 
 \subsection{Lebensdauerbestimmung}
@@ -116,7 +114,7 @@ Dazu ist das \textbf{logarithmische} Spektrum in verschiedenen Bereiche untertei
 
 \subsubsection{Der cyane Bereich}
 Der Bereich mit der ungewöhnlichen Kante wird ignoriert, da dessen Zählraten deutlich über die zu erwartenden Zahlraten von Myonen sind. 
-Die Zählraten haben dabei jeweils den Fehler $\sqrt(N) $, welcher in allen kommenden Fits berücksichtigt wird. 
+Die Zählraten haben dabei jeweils den Fehler $\sqrt{N}$, welcher in allen kommenden Fits berücksichtigt wird. 
 Der zu erwartenden Verlauf von dem Zerfall von Myonen ist ein exponentieller Abfall der Zahlrate oder in einem Logarithmischen Plot einen linearen Abfall. 
 Dazu kommt ein möglicher Untergrund $U$ in den Messwerten, der zu berücksichtigt werden sollte. 
 Deshalb wird eine exponentielle Ausgleichsrechnung der Funktion 
@@ -194,12 +192,12 @@ sondern der Fit am Ende den, bis auf zwei Nachkommastellen genau, gleichen Wert 
 \section{Diskussion}
 Die Daten sind fehlerhaft, deshalb lässt sich aus diesem Experiment allein keine Aussage über die Zerfallskonstante des
 Myons herleiten. Trotzdem konnten in den Daten Hinweise auf die Lebenszeit von zerfallenden Myonen, 
-mit einer mittleren theoretischen Lebenszeit von $\tau_\text{lit} = \qty{2.197}{\micro\s}$\cite{Workman:2022ynf}, gefunden werden. 
+mit einer mittleren theoretischen Lebenszeit von $\tau_\text{lit} = (2.1969811 \pm0.0000022)\cdot 10^{-6}\unit{\s}$\cite{Workman:2022ynf}, gefunden werden. 
 Die durch die beiden Ausgleichsgeraden ermittelter Wert von $\tau_c= \qty{2.28(0.07)}{\us}$ sind in beiden Bereichen bis auf zwei Nachkommastellen gleich und weichen nur um 
 $\frac{|\tau_\text{lit} - \tau_c|}{\tau_\text{lit}} = \qty{3.7(3.1)}{\percent}$ von dem Literaturwert ab. 
 
 Alle anderen unternommenen Versuche ergeben Werte, die klar von dem Literaturwert abweichen.
-Gerade der Exponentialfit weist eine signifikante Abweichung von der Theorie auf. 
+Gerade der exponentielle Fit weist eine signifikante Abweichung von der Theorie auf. 
 Zwar ist diese im Cyan Bereich immer noch in derselben Größenordnung aber mit einer Abweichung von $\qty{24.4(2.3)}{\percent}$ kein gutes Ergebnis.
 Dieses könnte daran liegen, dass die Annahme eines großen Untergrundes von $U_C=\num{1.71(0.26)}$ in der Ausgleichsrechnungen weniger akkurat ist.
 Der Untergrund wird im linearen Fit durch die logarithmischen Werte nicht betrachtet, woraus sich schließen lässt, 
