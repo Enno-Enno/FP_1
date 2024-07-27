@@ -16,7 +16,7 @@
 
 \section{Auswertung}
 \subsection{Anmerkungen}
-Die aufgenommenen Daten zur Myonenlebenszeit geben nicht den erwarteten Verlauf wieder und besitzen eine viel zu hohe Zählrate, als von Myonen zu erwarten.
+Die aufgenommenen Daten zur Lebenszeit von Myonen geben nicht den erwarteten Verlauf wieder und besitzen eine viel zu hohe Zählrate, als von Myonen zu erwarten.
 Dieses liegt an einem Fehler beim Kalibrieren der Apparatur und dem Messen. 
 Einer der Diskriminatoren die benutzt wurden, ist defekt und konnte nicht eingestellt werden. 
 Dieses ist bei der Kalibrierung der Diskriminatoren uns nicht aufgefallen, sondern erst am Ende der Messzeit. 
@@ -92,7 +92,7 @@ werden im Folgenden benutzt, um die Channels in Zerfallszeit umzurechnen.
 Wie bereits erwähnt sind die in Abbildung \eqref{fig:plt3} zusehenden Daten fehlerhaft. 
 Neben einer viel zu hohen Zahlrate von Insgesamt $1.648.692$ innerhalb von einer Messzeit von $T_{mess}=\qty{157226}{\s}$,
 weist das Spektrum eine ungewöhnliche Kante bei $t_k=\qty{1.075}{\us}$ auf.
-Daher kann angenommen das die Myonensignale, gerade für kleine Zeiten $t<t_k$, von anderen unbekannten Signalen überlagert werden. 
+Daher kann angenommen das die Myonsignale, gerade für kleine Zeiten $t<t_k$, von anderen unbekannten Signalen überlagert werden. 
 Daher ist eine theoretische Berechnung des Hintergrundes unpraktisch, sondern dieser wird in den jeweiligen Ausgleichsrechnungen berücksichtigt. 
 Im Folgenden werden verschiedene Methoden aus probiert, um die Lebensdauer zu extrapolieren. 
  
@@ -109,12 +109,12 @@ Dazu ist das \textbf{logarithmische} Spektrum in verschiedenen Bereiche untertei
 	oder sie zu vor den exponentiell abfallenden Daten sich nicht exponentiell abfallend verhalten. 
 	\item \textbf{Der blaue Bereich} ist deutlich höher als alle anderen Messwerte und weist einen steilen Abfall auf ($\qty{0.533}{\us}<t_B<\qty{1.075}{\us}$).
 	\item \textbf{Der cyane Bereich} wird durch ein Flachen, näherungsweise linearen Abfall durch die logarithmierten Daten gekennzeichnet, 
-	welcher am ehesten von der Messrate her auf einen exponentiellen Myonenzerfall hindeuten könnte. ($\qty{1.075}{\us}<t_B<\qty{10}{\us}$)
+	welcher am ehesten von der Messrate her auf einen exponentiellen Myonzerfall hindeuten könnte. ($\qty{1.075}{\us}<t_B<\qty{10}{\us}$)
 \end{enumerate}
 
 \subsubsection{Der cyane Bereich}
 Der Bereich mit der ungewöhnlichen Kante wird ignoriert, da dessen Zählraten deutlich über die zu erwartenden Zahlraten von Myonen sind. 
-Die Zählraten haben dabei jeweils den Fehler $\sqrt{N}$, welcher in allen kommenden Fits berücksichtigt wird. 
+Die Zählraten haben dabei jeweils den Fehler $\sqrt{N\,}$, welcher in allen kommenden Fits berücksichtigt wird. 
 Der zu erwartenden Verlauf von dem Zerfall von Myonen ist ein exponentieller Abfall der Zahlrate oder in einem Logarithmischen Plot einen linearen Abfall. 
 Dazu kommt ein möglicher Untergrund $U$ in den Messwerten, der zu berücksichtigt werden sollte. 
 Deshalb wird eine exponentielle Ausgleichsrechnung der Funktion 
