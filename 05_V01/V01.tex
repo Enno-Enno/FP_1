@@ -106,8 +106,8 @@ Dazu ist das \textbf{logarithmische} Spektrum in verschiedenen Bereiche untertei
 
 \begin{enumerate}
 	\item \textbf{Der rote Bereich} sind alle Daten die nicht benutzt werden, da sie entweder nach der Suchzeit $T_{such}=\qty{10}{\us}$ sind 
-	oder sie zu vor den exponentiell abfallenden Daten sich nicht exponentiell abfallend verhalten. 
-	\item \textbf{Der blaue Bereich} ist deutlich höher als alle anderen Messwerte und weist einen steilen Abfall auf ($\qty{0.533}{\us}<t_B<\qty{1.075}{\us}$).
+	oder die Zählrate zu groß für Myonen sind. Dieses Betrifft vor allem die Daten am Anfang da diese hohe ungewöhliche Zählraten aufweisen.
+	%\item \textbf{Der blaue Bereich} ist deutlich höher als alle anderen Messwerte und weist einen steilen Abfall auf ($\qty{0.533}{\us}<t_B<\qty{1.075}{\us}$).
 	\item \textbf{Der cyane Bereich} wird durch ein Flachen, näherungsweise linearen Abfall durch die \textbf{logarithmierten} Daten gekennzeichnet, 
 	welcher am ehesten von der Messrate her auf einen exponentiellen Myonzerfall hindeuten könnte. ($\qty{1.075}{\us}<t_B<\qty{10}{\us}$)
 \end{enumerate}
@@ -138,13 +138,13 @@ Somit berücksichtigt der exponentiell Fit dabei einen nicht trivialen Untergrun
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{build/plot5a.pdf}
-	\caption{Myonenlebensdauer im cyan Bereich mit Ausgleichsgerade durch die \textbf{logarithmierten} Daten; ($y-Skale: log$)}\label{fig:plt5a}
+	\caption{Myonenlebensdauer im cyan Bereich mit Ausgleichsgerade durch die \textbf{logarithmierten} Daten}\label{fig:plt5a}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{build/plot5b.pdf}
-	\caption{Myonenlebensdauer im cyan Bereich mit Exponentialfit durch die \textbf{normalen} Daten; ($y-Skale: log$)}\label{fig:plt5b}
+	\caption{Myonenlebensdauer im cyan Bereich mit Exponentialfit durch die \textbf{normalen} Daten}\label{fig:plt5b}
 \end{figure}
 
 Die Parameter des exponentiellen Fit ergeben:
@@ -162,43 +162,43 @@ und die der Ausgleichsgerade:
 	b_C&=\num{4.60(0.11)} &\Rightarrow & & N&=\num{100(11)} \notag
 \end{align}
 
-\newpage
-\subsubsection{Verbindung vom Blauen und den Cyanen Bereich}
-Es soll nun versucht werden die ungewöhnliche Kante zu entfernen und danach eine weitere Ausgleichsrechnung durchzuführen. 
-Dazu werden alle Messwerte im blauen Bereich um die ungefähre Höhe der Kante reduziert. 
-Eine Betrachtung des blauen Bereichs allein ist nicht sinnvoll, da dieser definitiv keine Myonen widerspiegelt, sondern deren Signal nur überlagert. 
-Die Überlegung hinter der Reduzierung des Gebietes ist diese Überlagerung zu verkleinern, ohne den charakteristischen Verlauf des Bereichs zu verändern. 
-Es wird danach wieder die zwei Ausgleichsrechnungen \eqref{eqn:exp} und \eqref{eqn:lin} durchgeführt. 
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]{build/plot6a.pdf}
-	\caption{Myonenlebensdauer im blau und cyan Bereich mit Ausgleichsgerade durch die \textbf{logarithmierten} Daten; ($y-Skale: log$)}\label{fig:plt6a}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]{build/plot6b.pdf}
-	\caption{Myonenlebensdauer im blau und cyan Bereich mit Exponentialfit durch die \textbf{normalen} Daten; ($y-Skale: log$)}\label{fig:plt6b}
-\end{figure}
-
-Diesmal sind die Parameter des exponentiellen Fit:
-
-\begin{align}
-	\lambda_{CB}&=\qty{18.31(0.015)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{\lambda }=\qty{0.0546(0.0005)}{\us} \\ 
-	N_{CB}&=\num{1.13(0.1)e10} \notag \\
-	U_{CB}&=\num{5.8(1)} \notag
-\end{align}
-
-und die der Ausgleichsgerade:
-
-\begin{align}
-	m_{CB}&=\qty{-0.439(0.013)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{|m|}=\qty{2.28(0.07)}{\us} \\ \label{eq:good_tau}
-	b_{CB}&=\num{4.61(0.11)} &\Rightarrow & & N&=\num{101(11)} \notag
-\end{align}
-
-Dabei fällt auf das die Parameter der Ausgleichsgerade kaum durch die Messdaten des blauen Bereiches verändert wurden, 
-sondern der Fit am Ende den, bis auf zwei Nachkommastellen genau, gleichen Wert für $\tau $ liefert. 
+%\newpage
+%\subsubsection{Verbindung vom Blauen und den Cyanen Bereich}
+%Es soll nun versucht werden die ungewöhnliche Kante zu entfernen und danach eine weitere Ausgleichsrechnung durchzuführen. 
+%Dazu werden alle Messwerte im blauen Bereich um die ungefähre Höhe der Kante reduziert. 
+%Eine Betrachtung des blauen Bereichs allein ist nicht sinnvoll, da dieser definitiv keine Myonen widerspiegelt, sondern deren Signal nur überlagert. 
+%Die Überlegung hinter der Reduzierung des Gebietes ist diese Überlagerung zu verkleinern, ohne den charakteristischen Verlauf des Bereichs zu verändern. 
+%Es wird danach wieder die zwei Ausgleichsrechnungen \eqref{eqn:exp} und \eqref{eqn:lin} durchgeführt. 
+%
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=\textwidth]{build/plot6a.pdf}
+%	\caption{Myonenlebensdauer im blau und cyan Bereich mit Ausgleichsgerade durch die \textbf{logarithmierten} Daten; ($y-Skale: log$)}\label{fig:plt6a}
+%\end{figure}
+%
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=\textwidth]{build/plot6b.pdf}
+%	\caption{Myonenlebensdauer im blau und cyan Bereich mit Exponentialfit durch die \textbf{normalen} Daten; ($y-Skale: log$)}\label{fig:plt6b}
+%\end{figure}
+%
+%Diesmal sind die Parameter des exponentiellen Fit:
+%
+%\begin{align}
+%	\lambda_{CB}&=\qty{18.31(0.015)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{\lambda }=\qty{0.0546(0.0005)}{\us} \\ 
+%	N_{CB}&=\num{1.13(0.1)e10} \notag \\
+%	U_{CB}&=\num{5.8(1)} \notag
+%\end{align}
+%
+%und die der Ausgleichsgerade:
+%
+%\begin{align}
+%	m_{CB}&=\qty{-0.439(0.013)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{|m|}=\qty{2.28(0.07)}{\us} \\ \label{eq:good_tau}
+%	b_{CB}&=\num{4.61(0.11)} &\Rightarrow & & N&=\num{101(11)} \notag
+%\end{align}
+%
+%Dabei fällt auf das die Parameter der Ausgleichsgerade kaum durch die Messdaten des blauen Bereiches verändert wurden, 
+%sondern der Fit am Ende den, bis auf zwei Nachkommastellen genau, gleichen Wert für $\tau $ liefert. 
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 \newpage
