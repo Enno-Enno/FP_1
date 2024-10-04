@@ -106,9 +106,10 @@ Dazu ist das \textbf{logarithmische} Spektrum in verschiedenen Bereiche untertei
 
 \begin{enumerate}
 	\item \textbf{Der rote Bereich} sind alle Daten die nicht benutzt werden, da sie entweder nach der Suchzeit $T_{such}=\qty{10}{\us}$ sind 
-	oder die Zählrate zu groß für Myonen sind. Dieses Betrifft vor allem die Daten am Anfang da diese hohe ungewöhliche Zählraten aufweisen.
+	oder die Zählrate zu groß für Myonen sind. Dieses Betrifft vor allem die Daten am Anfang da diese hohe ungewöhnliche Zählraten aufweisen. 
+	So wurden nur die Zählraten die konstant unter $N=100$ sind berücksichtigt, welches den zweiten Bereich in der Abbildung entspricht. 
 	%\item \textbf{Der blaue Bereich} ist deutlich höher als alle anderen Messwerte und weist einen steilen Abfall auf ($\qty{0.533}{\us}<t_B<\qty{1.075}{\us}$).
-	\item \textbf{Der cyane Bereich} wird durch ein Flachen, näherungsweise linearen Abfall durch die \textbf{logarithmierten} Daten gekennzeichnet, 
+	\item \textbf{Der cyane Bereich} wird durch ein Flachen, näherungsweise linearen Abfall durch die logarithmischen Daten gekennzeichnet, 
 	welcher am ehesten von der Messrate her auf einen exponentiellen Myonzerfall hindeuten könnte. ($\qty{1.075}{\us}<t_B<\qty{10}{\us}$)
 \end{enumerate}
 
@@ -124,7 +125,7 @@ Deshalb wird eine exponentielle Ausgleichsrechnung der Funktion
 	\label{eqn:exp}
 \end{equation}
 
-und in den \textbf{logarithmierten} Werten eine lineare Ausgleichsgerade der Form
+und in den logarithmischen Werten eine lineare Ausgleichsgerade der Form
 
 \begin{equation}
 	g(t)=m \cdot t +b
@@ -138,28 +139,28 @@ Somit berücksichtigt der exponentiell Fit dabei einen nicht trivialen Untergrun
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{build/plot5a.pdf}
-	\caption{Myonenlebensdauer im cyan Bereich mit Ausgleichsgerade durch die \textbf{logarithmierten} Daten}\label{fig:plt5a}
+	\caption{Myonenlebensdauer Bestimmung im cyan Bereich mit Ausgleichsgerade durch die logarithmischen Daten}\label{fig:plt5a}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{build/plot5b.pdf}
-	\caption{Myonenlebensdauer im cyan Bereich mit Exponentialfit durch die \textbf{normalen} Daten}\label{fig:plt5b}
+	\caption{Myonenlebensdauer Bestimmung im cyan Bereich mit Exponentialfit durch den normalen Datensatz}\label{fig:plt5b}
 \end{figure}
 
 Die Parameter des exponentiellen Fit ergeben:
 
 \begin{align}
-	\lambda_C&=\qty{0.602(0.018)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{\lambda }=\qty{1.66(0.05)}{\us} \\
-	N_C&=\num{184(8)} \notag \\
-	U_C&=\num{1.71(0.26)} \notag
+	\lambda_C&=\qty{0.503(0.015)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{\lambda }=\qty{1.99(0.06)}{\us} \\
+	N_C&=\num{137(5)} \notag \\
+	U_C&=\num{0.79(0.25)} \notag
 \end{align}
 
 und die der Ausgleichsgerade: 
 
 \begin{align}
-	m_C&=\qty{-0.438(0.014)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{|m_C|}=\qty{2.28(0.07)}{\us} \\
-	b_C&=\num{4.60(0.11)} &\Rightarrow & & N&=\num{100(11)} \notag
+	m_C&=\qty{-0.436(0.014)}{\per\us} &\Rightarrow & & \tau&=\frac{1}{|m_C|}=\qty{2.29(0.07)}{\us} \\
+	b_C&=\num{4.59(0.11)} &\Rightarrow & & N&=\num{98(11)} \notag
 \end{align}
 
 %\newpage
@@ -173,7 +174,7 @@ und die der Ausgleichsgerade:
 %\begin{figure}[H]
 %	\centering
 %	\includegraphics[width=\textwidth]{build/plot6a.pdf}
-%	\caption{Myonenlebensdauer im blau und cyan Bereich mit Ausgleichsgerade durch die \textbf{logarithmierten} Daten; ($y-Skale: log$)}\label{fig:plt6a}
+%	\caption{Myonenlebensdauer im blau und cyan Bereich mit Ausgleichsgerade durch die logarithmischen Daten; ($y-Skale: log$)}\label{fig:plt6a}
 %\end{figure}
 %
 %\begin{figure}[H]
@@ -203,23 +204,25 @@ und die der Ausgleichsgerade:
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
 \newpage
 \section{Diskussion}
-Die Daten sind fehlerhaft, deshalb lässt sich aus diesem Experiment allein keine Aussage über die Zerfallskonstante des
-Myons herleiten. Trotzdem konnten in den Daten Hinweise auf die Lebenszeit von zerfallenden Myonen, 
+Die Daten sind für kleine Zeiten fehlerhaft und konnten daher nicht benutzt werden. 
+Trotzdem konnten in den übrigen Daten Hinweise auf die Lebenszeit von zerfallenden Myonen, 
 mit einer mittleren theoretischen Lebenszeit von $\tau_\text{lit} = (2.1969811 \pm0.0000022)\cdot 10^{-6}\unit{\s}$\cite{Workman:2022ynf}, gefunden werden. 
-Die durch die beiden Ausgleichsgeraden ermittelter Wert von $\tau_c= \qty{2.28(0.07)}{\us}$ sind in beiden Bereichen bis auf zwei Nachkommastellen gleich und weichen nur um 
-$\frac{|\tau_\text{lit} - \tau_c|}{\tau_\text{lit}} = \qty{3.7(3.1)}{\percent}$ von dem Literaturwert ab. 
+Der durch die Ausgleichsgerade ermittelte Wert von $\tau_c= \qty{2.29(0.07)}{\us}$ weicht nur um 
+$\frac{|\tau_\text{lit} - \tau_c|}{\tau_\text{lit}} = \qty{4.5(3.3)}{\percent}$ von dem Literaturwert ab. 
 
-Alle anderen unternommenen Versuche ergeben Werte, die klar von dem Literaturwert abweichen.
-Gerade der exponentielle Fit durch die normalen Daten weist eine signifikante Abweichung von der Theorie auf. 
-Zwar ist diese im Cyan Bereich immer noch in derselben Größenordnung, aber mit einer Abweichung von $\qty{24.4(2.3)}{\percent}$ kein gutes Ergebnis.
-Dieses könnte daran liegen, dass die Annahme eines großen Untergrundes von $U_C=\num{1.71(0.26)}$ in der Ausgleichsrechnungen weniger akkurat ist.
-Der Untergrund wird im linearen Fit durch die \textbf{logarithmischen} Werte nicht betrachtet, woraus sich schließen lässt, 
-dass dieser anscheinend keine dominante Rolle für Messwerte über $\qty{1}{\us} $ spielt. 
+%Alle anderen unternommenen Versuche ergeben Werte, die klar von dem Literaturwert abweichen.
+Jedoch weist der exponentielle Fit durch die normalen Daten eine größere Abweichung von der Theorie auf. 
+Zwar ist diese immer noch in der richtigen Größenordnung, aber mit einer Abweichung von $\qty{9.5(2.6)}{\percent}$ ein schlechteres Ergebnis als die Ausgleichsgerade.
+Dieses könnte daran liegen, dass die Annahme eines Untergrundes von $U_C=\num{0.79(0.25)}$ in der Ausgleichsrechnungen weniger akkurat ist.
+Der Untergrund wird im linearen Fit durch die logarithmische Werte nicht betrachtet, woraus sich schließen lässt, 
+dass dieser anscheinend keine so dominante Rolle für Messwerte über $\qty{1}{\us} $ spielt. 
 
-Wenn versucht wird die ungewöhnliche Kante an die anderen Messwerte anzupassen, werden die Ergebnisse gerade für den Exponentialfit noch ungenauer. 
-Da wir nicht wissen, woher dieser kommt und die Ergebnisse deutlich schlechter werden, 
-ist davon auszugehen das dieser Teil der Daten komplett unbrauchbar für die Bestimmung der Lebensdauer ist.
-Daher ist das Ergebnis der Ausgleichsgerade \eqref{fig:plt5a} im Intervall von $[\qty{1}{\us}-\qty{10}{\us}]$ die beste Annäherung an den Literaturwert, 
+Die ungewöhnliche Kante, sowie die zu hohen Zählraten können als Störung interpretiert werden, 
+welche eine Ausgleichsrechnung in dem Bereich nicht zulässt und daher ignoriert wurden. 
+%die Ergebnisse gerade für den Exponentialfit noch ungenauer. 
+%Da wir nicht wissen, woher dieser kommt und die Ergebnisse deutlich schlechter werden, 
+%ist davon auszugehen das dieser Teil der Daten komplett unbrauchbar für die Bestimmung der Lebensdauer ist.
+Insgesamt ist daher ist das Ergebnis der Ausgleichsgerade \eqref{fig:plt5a} im Intervall von $[\qty{1.4}{\us}-\qty{10}{\us}]$ die beste Annäherung an den Literaturwert, 
 der mit diesen Daten möglich ist. 
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
